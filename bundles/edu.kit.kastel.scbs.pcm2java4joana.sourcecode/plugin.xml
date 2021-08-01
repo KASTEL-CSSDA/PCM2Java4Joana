@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated sourcecode -->
+      <package
+            uri="http://www.example.org/sourcecode"
+            class="edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourcecodePackage"
+            genModel="model/sourcecode.genmodel"/>
+   </extension>
+
+</plugin>

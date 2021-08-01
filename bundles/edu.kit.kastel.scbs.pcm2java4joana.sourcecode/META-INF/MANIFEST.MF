@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: edu.kit.kastel.scbs.pcm2java4joana.sourcecode;singleton:=true
+Automatic-Module-Name: edu.kit.kastel.scbs.pcm2java4joana.sourcecode
+Bundle-Version: 0.1.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: edu.kit.kastel.scbs.pcm2java4joana.sourcecode,
+ edu.kit.kastel.scbs.pcm2java4joana.sourcecode.impl,
+ edu.kit.kastel.scbs.pcm2java4joana.sourcecode.util
+Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.core.runtime
+Bundle-ActivationPolicy: lazy

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="sourcecode" nsURI="http://www.example.org/sourcecode" nsPrefix="sourcecode">
+  <eClassifiers xsi:type="ecore:EClass" name="SourceCodeRoot">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="topleveltype" upperBound="-1"
+        eType="#//TopLevelType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TopLevelType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Interface" eSuperTypes="#//TopLevelType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="methods" upperBound="-1"
+        eType="#//Method"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Class" eSuperTypes="#//TopLevelType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="implements" upperBound="-1"
+        eType="#//Interface"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fields" upperBound="-1"
+        eType="#//Field"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Field"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Method" eSuperTypes="#//Field">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" upperBound="-1"
+        eType="#//Parameter" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Variable" eSuperTypes="#//Field">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//Type"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Type"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Parameter">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//Type"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BuiltInType" eSuperTypes="#//Type">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="builtInType" lowerBound="1"
+        eType="#//BuiltInTypes"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ReferenceType" eSuperTypes="#//Type">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="topleveltype" lowerBound="1"
+        eType="#//TopLevelType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CollectionType" eSuperTypes="#//Type">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="BuiltInTypes">
+    <eLiterals name="BOOLEAN"/>
+    <eLiterals name="BYTE" value="1"/>
+    <eLiterals name="CHAR" value="2"/>
+    <eLiterals name="SHORT" value="3"/>
+    <eLiterals name="INT" value="4"/>
+    <eLiterals name="FLOAT" value="5"/>
+    <eLiterals name="DOUBLE" value="6"/>
+    <eLiterals name="STRING" value="7"/>
+  </eClassifiers>
+</ecore:EPackage>
