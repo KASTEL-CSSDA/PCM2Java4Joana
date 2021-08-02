@@ -96,7 +96,16 @@ public enum BuiltInTypes implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	STRING(7, "STRING", "STRING");
+	STRING(7, "STRING", "STRING"),
+	/**
+	* The '<em><b>LONG</b></em>' literal object.
+	* <!-- begin-user-doc -->
+	* <!-- end-user-doc -->
+	* @see #LONG_VALUE
+	* @generated
+	* @ordered
+	*/
+	LONG(8, "LONG", "LONG");
 
 	/**
 	 * The '<em><b>BOOLEAN</b></em>' literal value.
@@ -187,13 +196,24 @@ public enum BuiltInTypes implements Enumerator {
 	public static final int STRING_VALUE = 7;
 
 	/**
+	 * The '<em><b>LONG</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #LONG
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int LONG_VALUE = 8;
+
+	/**
 	 * An array of all the '<em><b>Built In Types</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private static final BuiltInTypes[] VALUES_ARRAY = new BuiltInTypes[] { BOOLEAN, BYTE, CHAR, SHORT, INT, FLOAT,
-			DOUBLE, STRING, };
+			DOUBLE, STRING, LONG, };
 
 	/**
 	 * A public read-only list of all the '<em><b>Built In Types</b></em>' enumerators.
@@ -265,6 +285,8 @@ public enum BuiltInTypes implements Enumerator {
 			return DOUBLE;
 		case STRING_VALUE:
 			return STRING;
+		case LONG_VALUE:
+			return LONG;
 		}
 		return null;
 	}

@@ -6,9 +6,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.xmi.XMLResource;
 
 import com.google.gson.Gson;
 
@@ -29,8 +32,10 @@ public class SupplierAnalysisModel {
 	}
 
 	public void saveSourceCodeModel() {
+		Map<Object, Object> saveOptions = new HashMap<Object, Object>();
+		saveOptions.put(XMLResource.OPTION_PROCESS_DANGLING_HREF, XMLResource.OPTION_PROCESS_DANGLING_HREF_DISCARD);
 		try {
-			this.sourceCodeModel.save(null);
+			this.sourceCodeModel.save(saveOptions);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

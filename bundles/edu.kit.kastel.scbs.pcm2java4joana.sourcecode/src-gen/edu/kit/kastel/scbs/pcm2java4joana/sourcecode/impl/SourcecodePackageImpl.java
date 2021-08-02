@@ -585,6 +585,7 @@ public class SourcecodePackageImpl extends EPackageImpl implements SourcecodePac
 		addEEnumLiteral(builtInTypesEEnum, BuiltInTypes.FLOAT);
 		addEEnumLiteral(builtInTypesEEnum, BuiltInTypes.DOUBLE);
 		addEEnumLiteral(builtInTypesEEnum, BuiltInTypes.STRING);
+		addEEnumLiteral(builtInTypesEEnum, BuiltInTypes.LONG);
 
 		// Create resource
 		createResource(eNS_URI);
