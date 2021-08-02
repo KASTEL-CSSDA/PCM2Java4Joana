@@ -222,13 +222,31 @@ public interface JoanaPackage extends EPackage {
 	int ANNOTATION__ANNOTATED_METHOD = FLOW_SPECIFICATION_ELEMENT__ANNOTATED_METHOD;
 
 	/**
+	 * The feature id for the '<em><b>Securitylevel</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION__SECURITYLEVEL = FLOW_SPECIFICATION_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Annotated Parameter</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION__ANNOTATED_PARAMETER = FLOW_SPECIFICATION_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Annotation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_FEATURE_COUNT = FLOW_SPECIFICATION_ELEMENT_FEATURE_COUNT + 0;
+	int ANNOTATION_FEATURE_COUNT = FLOW_SPECIFICATION_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Annotation</em>' class.
@@ -275,6 +293,24 @@ public interface JoanaPackage extends EPackage {
 	 * @ordered
 	 */
 	int SINK__ANNOTATED_METHOD = ANNOTATION__ANNOTATED_METHOD;
+
+	/**
+	 * The feature id for the '<em><b>Securitylevel</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINK__SECURITYLEVEL = ANNOTATION__SECURITYLEVEL;
+
+	/**
+	 * The feature id for the '<em><b>Annotated Parameter</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINK__ANNOTATED_PARAMETER = ANNOTATION__ANNOTATED_PARAMETER;
 
 	/**
 	 * The number of structural features of the '<em>Sink</em>' class.
@@ -332,13 +368,22 @@ public interface JoanaPackage extends EPackage {
 	int SOURCE__ANNOTATED_METHOD = ANNOTATION__ANNOTATED_METHOD;
 
 	/**
+	 * The feature id for the '<em><b>Securitylevel</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE__SECURITYLEVEL = ANNOTATION__SECURITYLEVEL;
+
+	/**
 	 * The feature id for the '<em><b>Annotated Parameter</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE__ANNOTATED_PARAMETER = ANNOTATION_FEATURE_COUNT + 0;
+	int SOURCE__ANNOTATED_PARAMETER = ANNOTATION__ANNOTATED_PARAMETER;
 
 	/**
 	 * The number of structural features of the '<em>Source</em>' class.
@@ -347,7 +392,7 @@ public interface JoanaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE_FEATURE_COUNT = ANNOTATION_FEATURE_COUNT + 1;
+	int SOURCE_FEATURE_COUNT = ANNOTATION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Source</em>' class.
@@ -595,6 +640,28 @@ public interface JoanaPackage extends EPackage {
 	EClass getAnnotation();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.Annotation#getSecuritylevel <em>Securitylevel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Securitylevel</em>'.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.joana.Annotation#getSecuritylevel()
+	 * @see #getAnnotation()
+	 * @generated
+	 */
+	EReference getAnnotation_Securitylevel();
+
+	/**
+	 * Returns the meta object for the reference '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.Annotation#getAnnotatedParameter <em>Annotated Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Annotated Parameter</em>'.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.joana.Annotation#getAnnotatedParameter()
+	 * @see #getAnnotation()
+	 * @generated
+	 */
+	EReference getAnnotation_AnnotatedParameter();
+
+	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.FlowSpecificationElement <em>Flow Specification Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -656,17 +723,6 @@ public interface JoanaPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSource();
-
-	/**
-	 * Returns the meta object for the reference '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.Source#getAnnotatedParameter <em>Annotated Parameter</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Annotated Parameter</em>'.
-	 * @see edu.kit.kastel.scbs.pcm2java4joana.joana.Source#getAnnotatedParameter()
-	 * @see #getSource()
-	 * @generated
-	 */
-	EReference getSource_AnnotatedParameter();
 
 	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.SecurityLevel <em>Security Level</em>}'.
@@ -844,6 +900,22 @@ public interface JoanaPackage extends EPackage {
 		EClass ANNOTATION = eINSTANCE.getAnnotation();
 
 		/**
+		 * The meta object literal for the '<em><b>Securitylevel</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ANNOTATION__SECURITYLEVEL = eINSTANCE.getAnnotation_Securitylevel();
+
+		/**
+		 * The meta object literal for the '<em><b>Annotated Parameter</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ANNOTATION__ANNOTATED_PARAMETER = eINSTANCE.getAnnotation_AnnotatedParameter();
+
+		/**
 		 * The meta object literal for the '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.impl.FlowSpecificationElementImpl <em>Flow Specification Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -897,14 +969,6 @@ public interface JoanaPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SOURCE = eINSTANCE.getSource();
-
-		/**
-		 * The meta object literal for the '<em><b>Annotated Parameter</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SOURCE__ANNOTATED_PARAMETER = eINSTANCE.getSource_AnnotatedParameter();
 
 		/**
 		 * The meta object literal for the '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.impl.SecurityLevelImpl <em>Security Level</em>}' class.

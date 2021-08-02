@@ -7,7 +7,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="lattice" lowerBound="1"
         eType="#//Lattice" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Annotation" eSuperTypes="#//FlowSpecificationElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Annotation" eSuperTypes="#//FlowSpecificationElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="securitylevel" lowerBound="1"
+        upperBound="-1" eType="#//SecurityLevel" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="annotatedParameter" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//Parameter"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FlowSpecificationElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tag" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral=""/>
@@ -17,10 +22,7 @@
         eType="ecore:EClass ../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//Method"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Sink" eSuperTypes="#//Annotation"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Source" eSuperTypes="#//Annotation">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="annotatedParameter" lowerBound="1"
-        eType="ecore:EClass ../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//Parameter"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Source" eSuperTypes="#//Annotation"/>
   <eClassifiers xsi:type="ecore:EClass" name="SecurityLevel"/>
   <eClassifiers xsi:type="ecore:EClass" name="Lattice">
     <eStructuralFeatures xsi:type="ecore:EReference" name="flowrelation" upperBound="-1"

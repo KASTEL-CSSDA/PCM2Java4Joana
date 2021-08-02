@@ -20,4 +20,14 @@ public class SetOperations {
 			SetOperations.generatePowerSet(set, index + 1, copy, result);
 		}
 	}
+
+	public static <T> boolean isIn(List<T> set1, List<T> set2) {
+		for (T o : set1) {
+			if (!set2.contains(o)) {
+				return false;
+			}
+		}
+
+		return true;
+	}
 }

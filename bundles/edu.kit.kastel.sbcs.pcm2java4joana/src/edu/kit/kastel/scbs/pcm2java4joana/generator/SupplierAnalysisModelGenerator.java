@@ -28,7 +28,7 @@ public class SupplierAnalysisModelGenerator {
 
 		SourceCodeAnnotationsGenerator sourceCodeAnnotationsGenerator = new SourceCodeAnnotationsGenerator(this.models,
 				supplierAnalysisModel);
-		supplierAnalysisModel = sourceCodeAnnotationsGenerator.annotateSourceWithJoana();
+		supplierAnalysisModel = sourceCodeAnnotationsGenerator.generateJoanaModel();
 
 		return supplierAnalysisModel;
 	}

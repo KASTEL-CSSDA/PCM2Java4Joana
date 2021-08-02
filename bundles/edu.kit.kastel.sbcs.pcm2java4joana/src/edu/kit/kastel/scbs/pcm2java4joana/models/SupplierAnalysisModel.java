@@ -10,14 +10,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.core.runtime.IPath;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.XMLResource;
+import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 
 import com.google.gson.Gson;
+
+import edu.kit.kastel.scbs.pcm2java4joana.joana.JOANARoot;
 
 public class SupplierAnalysisModel {
 	private Resource sourceCodeModel;
 	private CorrespondenceModel correspondenceModel;
+	private Resource joanaModel;
 	private IPath destinationFolder;
 
 	public SupplierAnalysisModel(Resource sourceCodeModel, CorrespondenceModel correspondenceModel,
@@ -31,11 +36,30 @@ public class SupplierAnalysisModel {
 		return this.sourceCodeModel;
 	}
 
+	public Resource getJoanaModel() {
+		return this.joanaModel;
+	}
+
+	public void setJoanaModel(JOANARoot joanaModel) {
+		Resource joanaResource = new XMLResourceImpl(URI.createFileURI(
+				destinationFolder.toString() + IPath.SEPARATOR + "GeneratedModels" + IPath.SEPARATOR + "joana.ecore"));
+		joanaResource.getContents().add(joanaModel);
+		this.joanaModel = joanaResource;
+	}
+
 	public void saveSourceCodeModel() {
 		Map<Object, Object> saveOptions = new HashMap<Object, Object>();
 		saveOptions.put(XMLResource.OPTION_PROCESS_DANGLING_HREF, XMLResource.OPTION_PROCESS_DANGLING_HREF_DISCARD);
 		try {
 			this.sourceCodeModel.save(saveOptions);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void saveJoanaModel() {
+		try {
+			this.joanaModel.save(null);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

@@ -216,6 +216,24 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getAnnotation_Securitylevel() {
+		return (EReference) annotationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAnnotation_AnnotatedParameter() {
+		return (EReference) annotationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getFlowSpecificationElement() {
 		return flowSpecificationElementEClass;
 	}
@@ -263,15 +281,6 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 	 */
 	public EClass getSource() {
 		return sourceEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSource_AnnotatedParameter() {
-		return (EReference) sourceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -407,6 +416,8 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 		createEReference(entryPointEClass, ENTRY_POINT__LATTICE);
 
 		annotationEClass = createEClass(ANNOTATION);
+		createEReference(annotationEClass, ANNOTATION__SECURITYLEVEL);
+		createEReference(annotationEClass, ANNOTATION__ANNOTATED_PARAMETER);
 
 		flowSpecificationElementEClass = createEClass(FLOW_SPECIFICATION_ELEMENT);
 		createEAttribute(flowSpecificationElementEClass, FLOW_SPECIFICATION_ELEMENT__TAG);
@@ -416,7 +427,6 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 		sinkEClass = createEClass(SINK);
 
 		sourceEClass = createEClass(SOURCE);
-		createEReference(sourceEClass, SOURCE__ANNOTATED_PARAMETER);
 
 		securityLevelEClass = createEClass(SECURITY_LEVEL);
 
@@ -485,6 +495,12 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 
 		initEClass(annotationEClass, Annotation.class, "Annotation", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAnnotation_Securitylevel(), this.getSecurityLevel(), null, "securitylevel", null, 1, -1,
+				Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAnnotation_AnnotatedParameter(), theSourcecodePackage.getParameter(), null,
+				"annotatedParameter", null, 1, 1, Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(flowSpecificationElementEClass, FlowSpecificationElement.class, "FlowSpecificationElement",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -501,9 +517,6 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 		initEClass(sinkEClass, Sink.class, "Sink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(sourceEClass, Source.class, "Source", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSource_AnnotatedParameter(), theSourcecodePackage.getParameter(), null, "annotatedParameter",
-				null, 1, 1, Source.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(securityLevelEClass, SecurityLevel.class, "SecurityLevel", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

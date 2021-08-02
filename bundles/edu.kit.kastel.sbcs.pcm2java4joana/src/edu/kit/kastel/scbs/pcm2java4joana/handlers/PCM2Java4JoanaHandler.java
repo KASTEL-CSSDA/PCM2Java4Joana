@@ -40,6 +40,7 @@ public class PCM2Java4JoanaHandler extends AbstractHandler {
 		SupplierAnalysisModel supplierAnalysisModel = generator.generate();
 		supplierAnalysisModel.saveSourceCodeModel();
 		supplierAnalysisModel.saveCorrespondenceModel();
+		supplierAnalysisModel.saveJoanaModel();
 
 		MessageDialog.openInformation(window.getShell(), "Information", "All files provided");
 
