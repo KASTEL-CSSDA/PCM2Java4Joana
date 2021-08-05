@@ -33,6 +33,7 @@ import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Interface;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Method;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Parameter;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourceCodeRoot;
+import edu.kit.kastel.scbs.pcm2java4joana.utils.JoanaModelUtils;
 import edu.kit.kastel.scbs.pcm2java4joana.utils.SetOperations;
 import edu.kit.kastel.scbs.pcm2java4joana.utils.SourceCodeModelUtils;
 
@@ -57,7 +58,7 @@ public class AnnotationModelGenerator {
 				confidentiality.getParametersAndDataPairs(),
 				(SourceCodeRoot) this.supplierAnalysisModel.getSourceCodeModel().getContents().get(0),
 				this.clientAnalysisModel);
-		List<FlowSpecification> flowSpecifications = this.generateFlowSpecifications(annotations, lattice);
+		List<FlowSpecification> flowSpecifications = this.generateFlowSpecifications(annotations, lattice, levels);
 
 		JoanaFactory factory = JoanaFactory.eINSTANCE;
 		JOANARoot root = factory.createJOANARoot();
@@ -67,20 +68,22 @@ public class AnnotationModelGenerator {
 		return this.supplierAnalysisModel;
 	}
 
-	private List<FlowSpecification> generateFlowSpecifications(List<Annotation> annotations, Lattice lattice) {
+	private List<FlowSpecification> generateFlowSpecifications(List<Annotation> annotations, Lattice lattice,
+			List<SecurityLevel> levels) {
 		List<FlowSpecification> flowSpefications = new ArrayList<FlowSpecification>();
 
 		for (int i = 0; i < annotations.size(); i++) {
-			flowSpefications.add(this.generateFlowSpecification(i, annotations, lattice));
+			flowSpefications.add(this.generateFlowSpecification(i, annotations, lattice, levels));
 		}
 
 		return flowSpefications;
 	}
 
-	private FlowSpecification generateFlowSpecification(int tag, List<Annotation> annotations, Lattice lattice) {
+	private FlowSpecification generateFlowSpecification(int tag, List<Annotation> annotations, Lattice lattice,
+			List<SecurityLevel> levels) {
 		JoanaFactory factory = JoanaFactory.eINSTANCE;
 		FlowSpecification flow = factory.createFlowSpecification();
-		EntryPoint entryPoint = this.generateEntryPoint(Integer.toString(tag), annotations.get(tag), lattice);
+		EntryPoint entryPoint = this.generateEntryPoint(Integer.toString(tag), annotations.get(tag), lattice, levels);
 		List<Annotation> flowAnnotations = new ArrayList<Annotation>();
 		for (int i = 0; i < annotations.size(); i++) {
 			if (i != tag) {
@@ -101,16 +104,25 @@ public class AnnotationModelGenerator {
 		source.setAnnotatedClass(annotation.getAnnotatedClass());
 		source.setAnnotatedMethod(annotation.getAnnotatedMethod());
 		source.setAnnotatedParameter(annotation.getAnnotatedParameter());
+		source.setAnnotatedClassName(annotation.getAnnotatedClassName());
+		source.setAnnotatedMethodName(annotation.getAnnotatedMethodName());
+		source.setAnnotatedParameterName(annotation.getAnnotatedParameterName());
+		source.getSecuritylevel().addAll(JoanaModelUtils.copySecurityLevels(annotation.getSecuritylevel()));
 
 		return source;
 	}
 
-	private EntryPoint generateEntryPoint(String tag, Annotation annotation, Lattice lattice) {
+	private EntryPoint generateEntryPoint(String tag, Annotation annotation, Lattice lattice,
+			List<SecurityLevel> levels) {
 		JoanaFactory factory = JoanaFactory.eINSTANCE;
 		EntryPoint entryPoint = factory.createEntryPoint();
 		entryPoint.setTag(tag);
 		entryPoint.setAnnotatedClass(annotation.getAnnotatedClass());
 		entryPoint.setAnnotatedMethod(annotation.getAnnotatedMethod());
+		entryPoint.setAnnotatedClassName(annotation.getAnnotatedClassName());
+		entryPoint.setAnnotatedMethodName(annotation.getAnnotatedMethodName());
+		entryPoint.setLattice(JoanaModelUtils.copyLattice(lattice));
+		entryPoint.getSecuritylevels().addAll(JoanaModelUtils.copySecurityLevels(levels));
 
 		return entryPoint;
 	}
@@ -156,7 +168,8 @@ public class AnnotationModelGenerator {
 		}
 		List<Method> methods = SourceCodeModelUtils.getMethod(inter, pcmSignature.getEntityName());
 		List<Method> toRemove = new ArrayList<Method>();
-		if (appliedPair.getParameterSources().get(0) != "\return") {
+		// Nur die Methoden die auch wirklich den Parameter mit diesem Namen haben
+		if (!appliedPair.getParameterSources().get(0).equals("\\return")) {
 			for (Method method : methods) {
 				List<String> parameterNames = new ArrayList<String>();
 				for (Parameter parameter : method.getParameter()) {
@@ -168,40 +181,23 @@ public class AnnotationModelGenerator {
 			}
 			methods.removeAll(toRemove);
 		}
-		Map<Method, List<Parameter>> methodToParameterMap = new HashMap<Method, List<Parameter>>();
-		for (Method method : methods) {
-			List<Parameter> parameters = new ArrayList<Parameter>();
-			for (String parameterName : appliedPair.getParameterSources()) {
-				Parameter parameter = SourceCodeModelUtils.getParameter(method, parameterName);
-				parameters.add(parameter);
-			}
-			methodToParameterMap.put(method, parameters);
-		}
-
 		List<Class> components = SourceCodeModelUtils.getComponents(sourceCode, inter);
 
 		List<Annotation> annotations = new ArrayList<Annotation>();
 		for (Class component : components) {
 			for (Method method : methods) {
-				for (Parameter parameter : methodToParameterMap.get(method)) {
-					Annotation annotation = factory.createAnnotation();
-					annotation.getSecuritylevel().addAll(securityLevels);
-					// TODO: Diese Conversion geht nicht!
-					// annotation.setAnnotatedClass((sourcecode.Class) component);
-					// annotation.setAnnotatedMethod((sourcecode.Method) method);
-					// annotation.setAnnotatedParameter((sourcecode.Parameter) parameter);
-					annotation.setAnnotatedClassName(component.getName());
-					annotation.setAnnotatedMethodName(method.getName());
-					annotation.setAnnotatedParameterName(parameter.getName());
-					annotations.add(annotation);
-				}
 				Annotation annotation = factory.createAnnotation();
-				annotation.getSecuritylevel().addAll(securityLevels);
+				annotation.getSecuritylevel().addAll(JoanaModelUtils.copySecurityLevels(securityLevels));
 				// TODO: Diese Conversion geht nicht!
 				// annotation.setAnnotatedClass((sourcecode.Class) component);
 				// annotation.setAnnotatedMethod((sourcecode.Method) method);
 				annotation.setAnnotatedClassName(component.getName());
 				annotation.setAnnotatedMethodName(method.getName());
+				if (appliedPair.getParameterSources().get(0).equals("\\return")) {
+					annotation.setAnnotatedParameterName("");
+				} else {
+					annotation.setAnnotatedParameterName(appliedPair.getParameterSources().get(0));
+				}
 				annotations.add(annotation);
 			}
 		}
@@ -248,7 +244,8 @@ public class AnnotationModelGenerator {
 
 		for (Adversary adversary : adversaries.getAdversaries()) {
 			SecurityLevel level = factory.createSecurityLevel();
-			level.eClass().setName(adversary.getName());
+			level.setName(adversary.getName());
+			levels.add(level);
 		}
 
 		return levels;
@@ -262,10 +259,10 @@ public class AnnotationModelGenerator {
 
 		for (List<SecurityLevel> from : powerSetLevels) {
 			for (List<SecurityLevel> to : powerSetLevels) {
-				if (SetOperations.isIn(from, to)) {
+				if (SetOperations.isIn(from, to) && from.size() > 0) {
 					FlowRelation relation = factory.createFlowRelation();
-					relation.getFrom().addAll(from);
-					relation.getTo().addAll(to);
+					relation.getFrom().addAll(JoanaModelUtils.copySecurityLevels(from));
+					relation.getTo().addAll(JoanaModelUtils.copySecurityLevels(to));
 					lattice.getFlowrelation().add(relation);
 				}
 			}

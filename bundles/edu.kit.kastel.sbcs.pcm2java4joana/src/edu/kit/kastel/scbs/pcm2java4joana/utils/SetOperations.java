@@ -2,6 +2,7 @@ package edu.kit.kastel.scbs.pcm2java4joana.utils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class SetOperations {
 	public static <T> List<List<T>> generatePowerSet(List<T> set) {
@@ -29,5 +30,9 @@ public class SetOperations {
 		}
 
 		return true;
+	}
+
+	public static <T> List<T> removeDuplicates(List<T> set) {
+		return set.stream().distinct().collect(Collectors.toList());
 	}
 }

@@ -15,6 +15,17 @@ import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.ReferenceType
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.CollectionType
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Field
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Variable
+import edu.kit.kastel.scbs.pcm2java4joana.utils.JoanaModelUtils
+import edu.kit.kastel.scbs.pcm2java4joana.joana.FlowSpecificationElement
+import edu.kit.kastel.scbs.pcm2java4joana.joana.EntryPoint
+import edu.kit.kastel.scbs.pcm2java4joana.joana.Source
+import edu.kit.kastel.scbs.pcm2java4joana.joana.Sink
+import edu.kit.kastel.scbs.pcm2java4joana.joana.SecurityLevel
+import edu.kit.kastel.scbs.pcm2java4joana.joana.Lattice
+import edu.kit.kastel.scbs.pcm2java4joana.joana.FlowRelation
+
+import edu.kit.kastel.scbs.pcm2java4joana.utils.SetOperations
+import edu.kit.kastel.scbs.pcm2java4joana.joana.Annotation
 
 class Model2AnnotatedCodeGenerator {
 	
@@ -44,8 +55,8 @@ class Model2AnnotatedCodeGenerator {
 		«ENDFOR»
 		«generateImports(sourceCodeClass.fields)»
 		
-		public class «sourceCodeClass.name» implements «generateImplements(sourceCodeClass.implements)»{
-			«generateFields(sourceCodeClass.fields)»
+		public class «sourceCodeClass.name» «IF sourceCodeClass.implements.size > 0»implements «generateImplements(sourceCodeClass.implements)»«ENDIF»{
+			«generateFields(sourceCodeClass.fields, sourceCodeClass, joanaModel)»
 			
 			public «sourceCodeClass.name»() {
 				// TODO: Implement me!
@@ -70,31 +81,27 @@ class Model2AnnotatedCodeGenerator {
 	
 	def String generateInterfaceMethod(Method method) {
 		return '''
-		«generateDataType(method.type)» «method.name» («FOR parameter : method.parameter»
-			«generateParameter(parameter, null)» «IF method.parameter.indexOf(parameter) != method.parameter.length - 1»,«ENDIF»
-		«ENDFOR»);
+		«generateDataType(method.type)» «method.name» («FOR parameter : method.parameter»«generateParameter(parameter, null)» «IF method.parameter.indexOf(parameter) != method.parameter.length - 1»,«ENDIF»«ENDFOR»);
 		'''
 	}
 	
-	def String generateFields(List<Field> fields) {
+	def String generateFields(List<Field> fields, edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class sourceCodeClass, JOANARoot joanaModel) {
 		return '''
 			«FOR field : fields»
-				«generateField(field)»
+				«generateField(field, sourceCodeClass, joanaModel)»
 			«ENDFOR»
 		'''
 	}
 	
-	def String generateField(Field field) {
+	def String generateField(Field field, edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class sourceCodeClass, JOANARoot joanaModel) {
 		switch field {
 			Variable: generateVariable(field)
-			Method: generateMethod(field, null)
+			Method: generateMethod(sourceCodeClass, field, joanaModel)
 		}
 	}
 	
 	def String generateVariable(Variable variable) {
-		return '''
-			«generateDataType(variable.type)» «variable.name»;
-		'''
+		return '''«generateDataType(variable.type)» «variable.name»;'''
 	}
 	
 	def String generateDataType(Type type) {
@@ -131,21 +138,69 @@ class Model2AnnotatedCodeGenerator {
 		return '''void'''
 	}
 	
-	def String generateMethod(Method method, JOANARoot joanaModel) {
+	def String generateMethod(edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class scClass, Method method, JOANARoot joanaModel) {
 		return '''
+		«FOR element : JoanaModelUtils.getJoanaFlowSpecificationElementsFor(joanaModel, scClass.name, method.name)»
+		«generateJoanaAnnotation(element)»
+		«ENDFOR»
 		@Override
 		public «generateDataType(method.type)» «method.name» («FOR parameter : method.parameter»
-			«generateParameter(parameter, null)» «IF method.parameter.indexOf(parameter) != method.parameter.length - 1»,«ENDIF»
-		«ENDFOR») {
+		«FOR element : JoanaModelUtils.getJoanaFlowSpecificationElementsFor(joanaModel, scClass.name, method.name, parameter.name)»«generateJoanaAnnotation(element)»«ENDFOR»«generateParameter(parameter, null)» «IF method.parameter.indexOf(parameter) != method.parameter.length - 1»,«ENDIF»«ENDFOR») {
 			// TODO: Implement me!
 		}
 		'''	
 	}
 	
-	def String generateParameter(Parameter parameter, JOANARoot joanaModel) {
+	def String generateJoanaAnnotation(FlowSpecificationElement element) {
+		switch element {
+			EntryPoint: return generateEntryPointAnnotation(element)
+			Source: return generateSource(element)
+			Sink: return generateSink(element)
+		}
+		return ""
+	}
+	
+	def String generateEntryPointAnnotation(EntryPoint element) {
 		return '''
-		«generateDataType(parameter.type)» «parameter.name»
+		@EntryPoint(tag = "«element.tag»",
+			levels = «generateLevelsAnnotation(element.securitylevels)»,
+			lattice = «generateLattice(element.lattice)»
+		)
 		'''
+	}
+	
+	def String generateLattice(Lattice lattice) {		
+		return '''{«FOR relation : lattice.flowrelation»«generateMayFlowRelation(relation)»«IF lattice.flowrelation.indexOf(relation) != lattice.flowrelation.length - 1»,«ENDIF»«ENDFOR»}'''
+	}
+	
+	def String generateMayFlowRelation(FlowRelation relation) {
+		val to = JoanaModelUtils.combineIntoOneSecurityLevel(relation.to)
+		val from = JoanaModelUtils.combineIntoOneSecurityLevel(relation.from)
+		
+		return '''@MayFlow(from ="«from»", to = "«to»")'''
+	}
+	
+	def String generateLevelsAnnotation(List<SecurityLevel> levels) {
+		val powerSet = SetOperations.generatePowerSet(levels)
+		return '''{«FOR levelSet : powerSet»«IF levelSet.size > 0»"«JoanaModelUtils.combineIntoOneSecurityLevel(levelSet)»"«IF powerSet.indexOf(levelSet) != powerSet.length - 1»,«ENDIF»«ENDIF»«ENDFOR»}'''
+	}
+	
+	def String generateSource(Source element) {
+		return '''@Source«generateAnnotation(element)»'''
+	}
+	
+	def String generateSink(Sink element) {
+		return '''@Sink«generateAnnotation(element)»'''
+	}
+	
+	def String generateAnnotation(Annotation annotation) {
+		return '''
+		(tags = "«annotation.tag»", level = "«JoanaModelUtils.combineIntoOneSecurityLevel(annotation.securitylevel)»")
+		'''
+	} 
+	
+	def String generateParameter(Parameter parameter, JOANARoot joanaModel) {
+		return '''«generateDataType(parameter.type)» «parameter.name»'''
 	}
 	
 	def String generateImplements(List<Interface> interfaces) {
@@ -167,23 +222,24 @@ class Model2AnnotatedCodeGenerator {
 	def String generateImports(List<Field> fields) {
 		return '''
 		«FOR referenceType : getReferenceTypes(fields)»
-			import generated.code.«referenceType»
+			import generated.code.«referenceType»;
 		«ENDFOR»
 		«IF hasCollectionType(fields)»
-			import java.util.Collection
+			import java.util.Collection;
 		«ENDIF»
 		'''
 	}
 	
 	def boolean hasCollectionType(List<Field> fields) {
+		var returnValue = false
 		for(field : fields) {
 			switch field {
-				Variable: return hasVariableCollectionType(field)
-				Method: return hasMethodCollectionType(field)
+				Variable: returnValue = returnValue || hasVariableCollectionType(field)
+				Method: returnValue = returnValue || hasMethodCollectionType(field)
 			}
 		}	
 		
-		return false
+		return returnValue
 	}
 	
 	def boolean hasMethodCollectionType(Method method) {
@@ -201,27 +257,30 @@ class Model2AnnotatedCodeGenerator {
 	}
 	
 	def boolean hasVariableCollectionType(Variable variable) {
+		var returnValue = false
 		switch variable.type {
-			CollectionType: return true
-			BuiltInType, ReferenceType: return false
+			CollectionType: returnValue = true
+			BuiltInType, ReferenceType: returnValue = false
 		}
-		return false
+		return returnValue
 	}
 	
 	def List<String> getReferenceTypes(List<Field> fields) {
 		val referenceTypes = new ArrayList<String>();
 		for(field : fields) {
-			referenceTypes.addAll(getReferenceTypes(field))
+			val addTypes = getReferenceTypes(field)
+			referenceTypes.addAll(addTypes)
 		}
-		return referenceTypes
+		return SetOperations.removeDuplicates(referenceTypes)
 	}
 	
 	def List<String> getReferenceTypes(Field field) {
+		var returnValue = new ArrayList<String>() 
 		switch field {
-			Variable: return getReferenceTypeForVariable(field)
-			Method: return getReferenceTypeForMethod(field)
+			Variable: returnValue.addAll(getReferenceTypeForVariable(field))
+			Method: returnValue.addAll(getReferenceTypeForMethod(field))
 		}
-		return new ArrayList<String>()
+		return returnValue
 	}
 	
 	def List<String> getReferenceTypeForMethod(Method method) {
@@ -239,7 +298,7 @@ class Model2AnnotatedCodeGenerator {
 		for(parameter : method.parameter) {
 			val paramterType = getReferenceTypeForParameter(parameter)
 			if (!paramterType.equals("")) {
-				referenceTypes.add(methodType)
+				referenceTypes.add(paramterType)
 			}
 		}
 		
@@ -247,11 +306,12 @@ class Model2AnnotatedCodeGenerator {
 	}
 	
 	def String getReferenceTypeForParameter(Parameter parameter) {
+		var returnValue = ""
 		switch parameter.type {
-			ReferenceType: return getReferenceTypeName(parameter.type as ReferenceType)
-			CollectionType: return getReferenceTypeForCollectionType(parameter.type as CollectionType)
+			ReferenceType: returnValue = getReferenceTypeName(parameter.type as ReferenceType)
+			CollectionType: returnValue = getReferenceTypeForCollectionType(parameter.type as CollectionType)
 		}
-		return ""
+		return returnValue
 	}
 	
 	def List<String> getReferenceTypeForVariable(Variable variable) {		
@@ -273,12 +333,12 @@ class Model2AnnotatedCodeGenerator {
 	
 	def String getReferenceTypeForCollectionType(CollectionType type) {
 		val innerType = type.type
+		var returnValue = ""
 		switch innerType {
-			ReferenceType: return getReferenceTypeName(innerType)
-			CollectionType: return getReferenceTypeForCollectionType(innerType)
-			BuiltInType: return ""
+			ReferenceType: returnValue = getReferenceTypeName(innerType)
+			CollectionType: returnValue = getReferenceTypeForCollectionType(innerType)			
 		}
-		return "";
+		return returnValue;
 	}
 	
 	def String generateImport(TopLevelType toImport){

@@ -1,6 +1,14 @@
 package edu.kit.kastel.scbs.pcm2java4joana.sourcecodegenerator;
 
+import edu.kit.kastel.scbs.pcm2java4joana.joana.Annotation;
+import edu.kit.kastel.scbs.pcm2java4joana.joana.EntryPoint;
+import edu.kit.kastel.scbs.pcm2java4joana.joana.FlowRelation;
+import edu.kit.kastel.scbs.pcm2java4joana.joana.FlowSpecificationElement;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.JOANARoot;
+import edu.kit.kastel.scbs.pcm2java4joana.joana.Lattice;
+import edu.kit.kastel.scbs.pcm2java4joana.joana.SecurityLevel;
+import edu.kit.kastel.scbs.pcm2java4joana.joana.Sink;
+import edu.kit.kastel.scbs.pcm2java4joana.joana.Source;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.BuiltInType;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.BuiltInTypes;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.CollectionType;
@@ -13,6 +21,8 @@ import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourceCodeRoot;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.TopLevelType;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Type;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Variable;
+import edu.kit.kastel.scbs.pcm2java4joana.utils.JoanaModelUtils;
+import edu.kit.kastel.scbs.pcm2java4joana.utils.SetOperations;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
@@ -74,13 +84,20 @@ public class Model2AnnotatedCodeGenerator {
     _builder.append("public class ");
     String _name = sourceCodeClass.getName();
     _builder.append(_name);
-    _builder.append(" implements ");
-    String _generateImplements = this.generateImplements(sourceCodeClass.getImplements());
-    _builder.append(_generateImplements);
+    _builder.append(" ");
+    {
+      int _size = sourceCodeClass.getImplements().size();
+      boolean _greaterThan = (_size > 0);
+      if (_greaterThan) {
+        _builder.append("implements ");
+        String _generateImplements = this.generateImplements(sourceCodeClass.getImplements());
+        _builder.append(_generateImplements);
+      }
+    }
     _builder.append("{");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
-    String _generateFields = this.generateFields(sourceCodeClass.getFields());
+    String _generateFields = this.generateFields(sourceCodeClass.getFields(), sourceCodeClass, joanaModel);
     _builder.append(_generateFields, "\t");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
@@ -142,7 +159,6 @@ public class Model2AnnotatedCodeGenerator {
     {
       EList<Parameter> _parameter = method.getParameter();
       for(final Parameter parameter : _parameter) {
-        _builder.newLineIfNotEmpty();
         String _generateParameter = this.generateParameter(parameter, null);
         _builder.append(_generateParameter);
         _builder.append(" ");
@@ -155,8 +171,6 @@ public class Model2AnnotatedCodeGenerator {
             _builder.append(",");
           }
         }
-        _builder.newLineIfNotEmpty();
-        _builder.append("\t\t");
       }
     }
     _builder.append(");");
@@ -164,11 +178,11 @@ public class Model2AnnotatedCodeGenerator {
     return _builder.toString();
   }
   
-  public String generateFields(final List<Field> fields) {
+  public String generateFields(final List<Field> fields, final edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class sourceCodeClass, final JOANARoot joanaModel) {
     StringConcatenation _builder = new StringConcatenation();
     {
       for(final Field field : fields) {
-        String _generateField = this.generateField(field);
+        String _generateField = this.generateField(field, sourceCodeClass, joanaModel);
         _builder.append(_generateField);
         _builder.newLineIfNotEmpty();
       }
@@ -176,7 +190,7 @@ public class Model2AnnotatedCodeGenerator {
     return _builder.toString();
   }
   
-  public String generateField(final Field field) {
+  public String generateField(final Field field, final edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class sourceCodeClass, final JOANARoot joanaModel) {
     String _switchResult = null;
     boolean _matched = false;
     if (field instanceof Variable) {
@@ -186,7 +200,7 @@ public class Model2AnnotatedCodeGenerator {
     if (!_matched) {
       if (field instanceof Method) {
         _matched=true;
-        _switchResult = this.generateMethod(((Method)field), null);
+        _switchResult = this.generateMethod(sourceCodeClass, ((Method)field), joanaModel);
       }
     }
     return _switchResult;
@@ -200,7 +214,6 @@ public class Model2AnnotatedCodeGenerator {
     String _name = variable.getName();
     _builder.append(_name);
     _builder.append(";");
-    _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
   
@@ -295,8 +308,16 @@ public class Model2AnnotatedCodeGenerator {
     return _builder_9.toString();
   }
   
-  public String generateMethod(final Method method, final JOANARoot joanaModel) {
+  public String generateMethod(final edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class scClass, final Method method, final JOANARoot joanaModel) {
     StringConcatenation _builder = new StringConcatenation();
+    {
+      List<FlowSpecificationElement> _joanaFlowSpecificationElementsFor = JoanaModelUtils.getJoanaFlowSpecificationElementsFor(joanaModel, scClass.getName(), method.getName());
+      for(final FlowSpecificationElement element : _joanaFlowSpecificationElementsFor) {
+        String _generateJoanaAnnotation = this.generateJoanaAnnotation(element);
+        _builder.append(_generateJoanaAnnotation);
+        _builder.newLineIfNotEmpty();
+      }
+    }
     _builder.append("@Override");
     _builder.newLine();
     _builder.append("public ");
@@ -310,6 +331,13 @@ public class Model2AnnotatedCodeGenerator {
       EList<Parameter> _parameter = method.getParameter();
       for(final Parameter parameter : _parameter) {
         _builder.newLineIfNotEmpty();
+        {
+          List<FlowSpecificationElement> _joanaFlowSpecificationElementsFor_1 = JoanaModelUtils.getJoanaFlowSpecificationElementsFor(joanaModel, scClass.getName(), method.getName(), parameter.getName());
+          for(final FlowSpecificationElement element_1 : _joanaFlowSpecificationElementsFor_1) {
+            String _generateJoanaAnnotation_1 = this.generateJoanaAnnotation(element_1);
+            _builder.append(_generateJoanaAnnotation_1);
+          }
+        }
         String _generateParameter = this.generateParameter(parameter, null);
         _builder.append(_generateParameter);
         _builder.append(" ");
@@ -322,8 +350,6 @@ public class Model2AnnotatedCodeGenerator {
             _builder.append(",");
           }
         }
-        _builder.newLineIfNotEmpty();
-        _builder.append("\t\t");
       }
     }
     _builder.append(") {");
@@ -336,6 +362,145 @@ public class Model2AnnotatedCodeGenerator {
     return _builder.toString();
   }
   
+  public String generateJoanaAnnotation(final FlowSpecificationElement element) {
+    boolean _matched = false;
+    if (element instanceof EntryPoint) {
+      _matched=true;
+      return this.generateEntryPointAnnotation(((EntryPoint)element));
+    }
+    if (!_matched) {
+      if (element instanceof Source) {
+        _matched=true;
+        return this.generateSource(((Source)element));
+      }
+    }
+    if (!_matched) {
+      if (element instanceof Sink) {
+        _matched=true;
+        return this.generateSink(((Sink)element));
+      }
+    }
+    return "";
+  }
+  
+  public String generateEntryPointAnnotation(final EntryPoint element) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("@EntryPoint(tag = \"");
+    String _tag = element.getTag();
+    _builder.append(_tag);
+    _builder.append("\",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("levels = ");
+    String _generateLevelsAnnotation = this.generateLevelsAnnotation(element.getSecuritylevels());
+    _builder.append(_generateLevelsAnnotation, "\t");
+    _builder.append(",");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("lattice = ");
+    String _generateLattice = this.generateLattice(element.getLattice());
+    _builder.append(_generateLattice, "\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append(")");
+    _builder.newLine();
+    return _builder.toString();
+  }
+  
+  public String generateLattice(final Lattice lattice) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("{");
+    {
+      EList<FlowRelation> _flowrelation = lattice.getFlowrelation();
+      for(final FlowRelation relation : _flowrelation) {
+        String _generateMayFlowRelation = this.generateMayFlowRelation(relation);
+        _builder.append(_generateMayFlowRelation);
+        {
+          int _indexOf = lattice.getFlowrelation().indexOf(relation);
+          int _length = ((Object[])Conversions.unwrapArray(lattice.getFlowrelation(), Object.class)).length;
+          int _minus = (_length - 1);
+          boolean _notEquals = (_indexOf != _minus);
+          if (_notEquals) {
+            _builder.append(",");
+          }
+        }
+      }
+    }
+    _builder.append("}");
+    return _builder.toString();
+  }
+  
+  public String generateMayFlowRelation(final FlowRelation relation) {
+    final String to = JoanaModelUtils.combineIntoOneSecurityLevel(relation.getTo());
+    final String from = JoanaModelUtils.combineIntoOneSecurityLevel(relation.getFrom());
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("@MayFlow(from =\"");
+    _builder.append(from);
+    _builder.append("\", to = \"");
+    _builder.append(to);
+    _builder.append("\")");
+    return _builder.toString();
+  }
+  
+  public String generateLevelsAnnotation(final List<SecurityLevel> levels) {
+    final List<List<SecurityLevel>> powerSet = SetOperations.<SecurityLevel>generatePowerSet(levels);
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("{");
+    {
+      for(final List<SecurityLevel> levelSet : powerSet) {
+        {
+          int _size = levelSet.size();
+          boolean _greaterThan = (_size > 0);
+          if (_greaterThan) {
+            _builder.append("\"");
+            String _combineIntoOneSecurityLevel = JoanaModelUtils.combineIntoOneSecurityLevel(levelSet);
+            _builder.append(_combineIntoOneSecurityLevel);
+            _builder.append("\"");
+            {
+              int _indexOf = powerSet.indexOf(levelSet);
+              int _length = ((Object[])Conversions.unwrapArray(powerSet, Object.class)).length;
+              int _minus = (_length - 1);
+              boolean _notEquals = (_indexOf != _minus);
+              if (_notEquals) {
+                _builder.append(",");
+              }
+            }
+          }
+        }
+      }
+    }
+    _builder.append("}");
+    return _builder.toString();
+  }
+  
+  public String generateSource(final Source element) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("@Source");
+    String _generateAnnotation = this.generateAnnotation(element);
+    _builder.append(_generateAnnotation);
+    return _builder.toString();
+  }
+  
+  public String generateSink(final Sink element) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("@Sink");
+    String _generateAnnotation = this.generateAnnotation(element);
+    _builder.append(_generateAnnotation);
+    return _builder.toString();
+  }
+  
+  public String generateAnnotation(final Annotation annotation) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("(tags = \"");
+    String _tag = annotation.getTag();
+    _builder.append(_tag);
+    _builder.append("\", level = \"");
+    String _combineIntoOneSecurityLevel = JoanaModelUtils.combineIntoOneSecurityLevel(annotation.getSecuritylevel());
+    _builder.append(_combineIntoOneSecurityLevel);
+    _builder.append("\")");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
   public String generateParameter(final Parameter parameter, final JOANARoot joanaModel) {
     StringConcatenation _builder = new StringConcatenation();
     String _generateDataType = this.generateDataType(parameter.getType());
@@ -343,7 +508,6 @@ public class Model2AnnotatedCodeGenerator {
     _builder.append(" ");
     String _name = parameter.getName();
     _builder.append(_name);
-    _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
   
@@ -383,13 +547,14 @@ public class Model2AnnotatedCodeGenerator {
       for(final String referenceType : _referenceTypes) {
         _builder.append("import generated.code.");
         _builder.append(referenceType);
+        _builder.append(";");
         _builder.newLineIfNotEmpty();
       }
     }
     {
       boolean _hasCollectionType = this.hasCollectionType(fields);
       if (_hasCollectionType) {
-        _builder.append("import java.util.Collection");
+        _builder.append("import java.util.Collection;");
         _builder.newLine();
       }
     }
@@ -397,20 +562,21 @@ public class Model2AnnotatedCodeGenerator {
   }
   
   public boolean hasCollectionType(final List<Field> fields) {
+    boolean returnValue = false;
     for (final Field field : fields) {
       boolean _matched = false;
       if (field instanceof Variable) {
         _matched=true;
-        return this.hasVariableCollectionType(((Variable)field));
+        returnValue = (returnValue || this.hasVariableCollectionType(((Variable)field)));
       }
       if (!_matched) {
         if (field instanceof Method) {
           _matched=true;
-          return this.hasMethodCollectionType(((Method)field));
+          returnValue = (returnValue || this.hasMethodCollectionType(((Method)field)));
         }
       }
     }
-    return false;
+    return returnValue;
   }
   
   public boolean hasMethodCollectionType(final Method method) {
@@ -429,11 +595,12 @@ public class Model2AnnotatedCodeGenerator {
   }
   
   public boolean hasVariableCollectionType(final Variable variable) {
+    boolean returnValue = false;
     Type _type = variable.getType();
     boolean _matched = false;
     if (_type instanceof CollectionType) {
       _matched=true;
-      return true;
+      returnValue = true;
     }
     if (!_matched) {
       if (_type instanceof BuiltInType) {
@@ -445,33 +612,37 @@ public class Model2AnnotatedCodeGenerator {
         }
       }
       if (_matched) {
-        return false;
+        returnValue = false;
       }
     }
-    return false;
+    return returnValue;
   }
   
   public List<String> getReferenceTypes(final List<Field> fields) {
     final ArrayList<String> referenceTypes = new ArrayList<String>();
     for (final Field field : fields) {
-      referenceTypes.addAll(this.getReferenceTypes(field));
+      {
+        final List<String> addTypes = this.getReferenceTypes(field);
+        referenceTypes.addAll(addTypes);
+      }
     }
-    return referenceTypes;
+    return SetOperations.<String>removeDuplicates(referenceTypes);
   }
   
   public List<String> getReferenceTypes(final Field field) {
+    ArrayList<String> returnValue = new ArrayList<String>();
     boolean _matched = false;
     if (field instanceof Variable) {
       _matched=true;
-      return this.getReferenceTypeForVariable(((Variable)field));
+      returnValue.addAll(this.getReferenceTypeForVariable(((Variable)field)));
     }
     if (!_matched) {
       if (field instanceof Method) {
         _matched=true;
-        return this.getReferenceTypeForMethod(((Method)field));
+        returnValue.addAll(this.getReferenceTypeForMethod(((Method)field)));
       }
     }
-    return new ArrayList<String>();
+    return returnValue;
   }
   
   public List<String> getReferenceTypeForMethod(final Method method) {
@@ -503,7 +674,7 @@ public class Model2AnnotatedCodeGenerator {
         boolean _equals_1 = paramterType.equals("");
         boolean _not_1 = (!_equals_1);
         if (_not_1) {
-          referenceTypes.add(methodType);
+          referenceTypes.add(paramterType);
         }
       }
     }
@@ -511,21 +682,22 @@ public class Model2AnnotatedCodeGenerator {
   }
   
   public String getReferenceTypeForParameter(final Parameter parameter) {
+    String returnValue = "";
     Type _type = parameter.getType();
     boolean _matched = false;
     if (_type instanceof ReferenceType) {
       _matched=true;
       Type _type_1 = parameter.getType();
-      return this.getReferenceTypeName(((ReferenceType) _type_1));
+      returnValue = this.getReferenceTypeName(((ReferenceType) _type_1));
     }
     if (!_matched) {
       if (_type instanceof CollectionType) {
         _matched=true;
         Type _type_1 = parameter.getType();
-        return this.getReferenceTypeForCollectionType(((CollectionType) _type_1));
+        returnValue = this.getReferenceTypeForCollectionType(((CollectionType) _type_1));
       }
     }
-    return "";
+    return returnValue;
   }
   
   public List<String> getReferenceTypeForVariable(final Variable variable) {
@@ -559,24 +731,19 @@ public class Model2AnnotatedCodeGenerator {
   
   public String getReferenceTypeForCollectionType(final CollectionType type) {
     final Type innerType = type.getType();
+    String returnValue = "";
     boolean _matched = false;
     if (innerType instanceof ReferenceType) {
       _matched=true;
-      return this.getReferenceTypeName(((ReferenceType)innerType));
+      returnValue = this.getReferenceTypeName(((ReferenceType)innerType));
     }
     if (!_matched) {
       if (innerType instanceof CollectionType) {
         _matched=true;
-        return this.getReferenceTypeForCollectionType(((CollectionType)innerType));
+        returnValue = this.getReferenceTypeForCollectionType(((CollectionType)innerType));
       }
     }
-    if (!_matched) {
-      if (innerType instanceof BuiltInType) {
-        _matched=true;
-        return "";
-      }
-    }
-    return "";
+    return returnValue;
   }
   
   public String generateImport(final TopLevelType toImport) {
