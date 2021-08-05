@@ -18,16 +18,20 @@ import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 import com.google.gson.Gson;
 
 import edu.kit.kastel.scbs.pcm2java4joana.joana.JOANARoot;
+import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourceCodeRoot;
 
 public class SupplierAnalysisModel {
 	private Resource sourceCodeModel;
 	private CorrespondenceModel correspondenceModel;
 	private Resource joanaModel;
 	private IPath destinationFolder;
+	private SourceCodeRoot sourceCodeRoot;
+	private JOANARoot joanaRoot;
 
 	public SupplierAnalysisModel(Resource sourceCodeModel, CorrespondenceModel correspondenceModel,
 			IPath destinationFolder) {
 		this.sourceCodeModel = sourceCodeModel;
+		this.sourceCodeRoot = (SourceCodeRoot) sourceCodeModel.getContents().get(0);
 		this.correspondenceModel = correspondenceModel;
 		this.destinationFolder = destinationFolder;
 	}
@@ -40,10 +44,19 @@ public class SupplierAnalysisModel {
 		return this.joanaModel;
 	}
 
+	public SourceCodeRoot getSourceCodeRoot() {
+		return this.sourceCodeRoot;
+	}
+
+	public JOANARoot getJoanaRoot() {
+		return this.joanaRoot;
+	}
+
 	public void setJoanaModel(JOANARoot joanaModel) {
 		Resource joanaResource = new XMLResourceImpl(URI.createFileURI(
 				destinationFolder.toString() + IPath.SEPARATOR + "GeneratedModels" + IPath.SEPARATOR + "joana.ecore"));
 		joanaResource.getContents().add(joanaModel);
+		this.joanaRoot = joanaModel;
 		this.joanaModel = joanaResource;
 	}
 

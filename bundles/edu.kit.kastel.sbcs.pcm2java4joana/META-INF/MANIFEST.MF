@@ -18,6 +18,9 @@ Require-Bundle: org.eclipse.ui,
  edu.kit.kastel.scbs.pcm2java4joana.joana;bundle-version="0.1.0",
  org.modelversioning.emfprofile;bundle-version="5.0.0",
  edu.kit.ipd.sdq.commons.util.mdsdprofiles;bundle-version="1.1.0",
- edu.kit.ipd.sdq.commons.util.pcm;bundle-version="1.1.0"
+ edu.kit.ipd.sdq.commons.util.pcm;bundle-version="1.1.0",
+ org.eclipse.xtext;bundle-version="2.25.0",
+ org.eclipse.xtext.generator;bundle-version="2.25.0",
+ org.eclipse.xtext.builder;bundle-version="2.25.0"
 Automatic-Module-Name: edu.kit.kastel.scbs.pcm2java4joana
 Bundle-RequiredExecutionEnvironment: JavaSE-11
