@@ -26,9 +26,9 @@ public class SupplierAnalysisModelGenerator {
 		SupplierAnalysisModel supplierAnalysisModel = new SupplierAnalysisModel(sourceCodeModel.getSourceCodeElement(),
 				sourceCodeModel.getCorrespondenceModel(), this.destinationFolder);
 
-		SourceCodeAnnotationsGenerator sourceCodeAnnotationsGenerator = new SourceCodeAnnotationsGenerator(this.models,
+		AnnotationModelGenerator annotationsModelGenerator = new AnnotationModelGenerator(this.models,
 				supplierAnalysisModel);
-		supplierAnalysisModel = sourceCodeAnnotationsGenerator.generateJoanaModel();
+		supplierAnalysisModel = annotationsModelGenerator.generateJoanaModel();
 
 		return supplierAnalysisModel;
 	}

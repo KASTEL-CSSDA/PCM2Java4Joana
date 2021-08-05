@@ -16,8 +16,8 @@ public class SourceCodeModelUtils {
 	public static Interface getInterface(SourceCodeRoot sourceCodeModel, String entityName) {
 		for (TopLevelType topLevelType : sourceCodeModel.getTopleveltype()) {
 			if (topLevelType.getClass() == InterfaceImpl.class) {
-				String name = topLevelType.eClass().getName();
-				if (topLevelType.eClass().getName().equals(entityName)) {
+				String name = topLevelType.getName();
+				if (topLevelType.getName().equals(entityName)) {
 					return (Interface) topLevelType;
 				}
 			}
@@ -42,7 +42,7 @@ public class SourceCodeModelUtils {
 	public static List<Method> getMethod(Interface inter, String methodName) {
 		List<Method> methods = new ArrayList<Method>();
 		for (Method method : inter.getMethods()) {
-			if (method.eClass().getName().equals(methodName)) {
+			if (method.getName().equals(methodName)) {
 				methods.add(method);
 			}
 		}
@@ -51,7 +51,7 @@ public class SourceCodeModelUtils {
 
 	public static Parameter getParameter(Method method, String parameterName) {
 		for (Parameter parameter : method.getParameter()) {
-			if (parameter.eClass().getName().equals(parameterName)) {
+			if (parameter.getName().equals(parameterName)) {
 				return parameter;
 			}
 		}

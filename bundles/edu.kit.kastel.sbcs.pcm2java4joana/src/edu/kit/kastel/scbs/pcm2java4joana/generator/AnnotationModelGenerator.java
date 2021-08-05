@@ -36,11 +36,11 @@ import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourceCodeRoot;
 import edu.kit.kastel.scbs.pcm2java4joana.utils.SetOperations;
 import edu.kit.kastel.scbs.pcm2java4joana.utils.SourceCodeModelUtils;
 
-public class SourceCodeAnnotationsGenerator {
+public class AnnotationModelGenerator {
 	private SupplierAnalysisModel supplierAnalysisModel;
 	private ClientAnalysisModel clientAnalysisModel;
 
-	public SourceCodeAnnotationsGenerator(ClientAnalysisModel clientAnalysisModel,
+	public AnnotationModelGenerator(ClientAnalysisModel clientAnalysisModel,
 			SupplierAnalysisModel supplierAnalysisModel) {
 		this.supplierAnalysisModel = supplierAnalysisModel;
 		this.clientAnalysisModel = clientAnalysisModel;
@@ -160,7 +160,7 @@ public class SourceCodeAnnotationsGenerator {
 			for (Method method : methods) {
 				List<String> parameterNames = new ArrayList<String>();
 				for (Parameter parameter : method.getParameter()) {
-					parameterNames.add(parameter.eClass().getName());
+					parameterNames.add(parameter.getName());
 				}
 				if (!SetOperations.isIn(appliedPair.getParameterSources(), parameterNames)) {
 					toRemove.add(method);
@@ -186,11 +186,23 @@ public class SourceCodeAnnotationsGenerator {
 				for (Parameter parameter : methodToParameterMap.get(method)) {
 					Annotation annotation = factory.createAnnotation();
 					annotation.getSecuritylevel().addAll(securityLevels);
-					annotation.setAnnotatedClass((sourcecode.Class) component);
-					annotation.setAnnotatedMethod((sourcecode.Method) method);
-					annotation.setAnnotatedParameter((sourcecode.Parameter) parameter);
+					// TODO: Diese Conversion geht nicht!
+					// annotation.setAnnotatedClass((sourcecode.Class) component);
+					// annotation.setAnnotatedMethod((sourcecode.Method) method);
+					// annotation.setAnnotatedParameter((sourcecode.Parameter) parameter);
+					annotation.setAnnotatedClassName(component.getName());
+					annotation.setAnnotatedMethodName(method.getName());
+					annotation.setAnnotatedParameterName(parameter.getName());
 					annotations.add(annotation);
 				}
+				Annotation annotation = factory.createAnnotation();
+				annotation.getSecuritylevel().addAll(securityLevels);
+				// TODO: Diese Conversion geht nicht!
+				// annotation.setAnnotatedClass((sourcecode.Class) component);
+				// annotation.setAnnotatedMethod((sourcecode.Method) method);
+				annotation.setAnnotatedClassName(component.getName());
+				annotation.setAnnotatedMethodName(method.getName());
+				annotations.add(annotation);
 			}
 		}
 
@@ -219,7 +231,7 @@ public class SourceCodeAnnotationsGenerator {
 
 		for (Adversary adversary : adversaries.getAdversaries()) {
 			SecurityLevel level = factory.createSecurityLevel();
-			level.eClass().setName(adversary.getName());
+			level.setName(adversary.getName());
 			List<DataIdentifying> castedList = new ArrayList<DataIdentifying>();
 			for (DataIdentifying data : adversary.getMayKnowData()) {
 				castedList.add(data);
