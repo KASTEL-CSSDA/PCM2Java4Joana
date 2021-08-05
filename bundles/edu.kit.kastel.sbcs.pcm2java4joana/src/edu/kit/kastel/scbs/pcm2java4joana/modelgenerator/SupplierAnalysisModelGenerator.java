@@ -1,4 +1,4 @@
-package edu.kit.kastel.scbs.pcm2java4joana.generator;
+package edu.kit.kastel.scbs.pcm2java4joana.modelgenerator;
 
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.ecore.resource.Resource;

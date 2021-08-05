@@ -1,4 +1,4 @@
-package edu.kit.kastel.scbs.pcm2java4joana.generator;
+package edu.kit.kastel.scbs.pcm2java4joana.modelgenerator;
 
 import java.util.ArrayList;
 import java.util.HashMap;
