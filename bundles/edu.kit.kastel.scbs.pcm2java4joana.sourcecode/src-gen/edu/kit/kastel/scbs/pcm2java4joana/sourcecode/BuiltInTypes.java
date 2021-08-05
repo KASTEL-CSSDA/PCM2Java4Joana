@@ -98,13 +98,13 @@ public enum BuiltInTypes implements Enumerator {
 	 */
 	STRING(7, "STRING", "STRING"),
 	/**
-	* The '<em><b>LONG</b></em>' literal object.
-	* <!-- begin-user-doc -->
+	 * The '<em><b>LONG</b></em>' literal object.
+	 * <!-- begin-user-doc -->
 	* <!-- end-user-doc -->
-	* @see #LONG_VALUE
-	* @generated
-	* @ordered
-	*/
+	 * @see #LONG_VALUE
+	 * @generated
+	 * @ordered
+	 */
 	LONG(8, "LONG", "LONG");
 
 	/**

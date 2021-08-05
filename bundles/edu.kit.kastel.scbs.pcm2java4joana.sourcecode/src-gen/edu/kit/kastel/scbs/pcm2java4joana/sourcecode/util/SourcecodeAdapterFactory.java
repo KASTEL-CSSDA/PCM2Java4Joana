@@ -9,6 +9,7 @@ import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Interface;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Method;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Parameter;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.ReferenceType;
+import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourceCodeElement;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourceCodeRoot;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourcecodePackage;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.TopLevelType;
@@ -135,6 +136,11 @@ public class SourcecodeAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseCollectionType(CollectionType object) {
 			return createCollectionTypeAdapter();
+		}
+
+		@Override
+		public Adapter caseSourceCodeElement(SourceCodeElement object) {
+			return createSourceCodeElementAdapter();
 		}
 
 		@Override
@@ -321,6 +327,20 @@ public class SourcecodeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCollectionTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourceCodeElement <em>Source Code Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourceCodeElement
+	 * @generated
+	 */
+	public Adapter createSourceCodeElementAdapter() {
 		return null;
 	}
 

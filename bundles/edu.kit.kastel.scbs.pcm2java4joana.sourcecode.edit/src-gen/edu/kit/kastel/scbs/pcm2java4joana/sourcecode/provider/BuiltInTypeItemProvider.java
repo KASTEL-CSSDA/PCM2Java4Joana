@@ -3,7 +3,6 @@
 package edu.kit.kastel.scbs.pcm2java4joana.sourcecode.provider;
 
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.BuiltInType;
-import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.BuiltInTypes;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourcecodePackage;
 
 import java.util.Collection;
@@ -95,8 +94,7 @@ public class BuiltInTypeItemProvider extends TypeItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		BuiltInTypes labelValue = ((BuiltInType) object).getBuiltInType();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((BuiltInType) object).getName();
 		return label == null || label.length() == 0 ? getString("_UI_BuiltInType_type")
 				: getString("_UI_BuiltInType_type") + " " + label;
 	}

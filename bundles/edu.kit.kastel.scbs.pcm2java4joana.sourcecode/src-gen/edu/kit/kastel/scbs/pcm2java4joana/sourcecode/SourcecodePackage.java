@@ -68,13 +68,59 @@ public interface SourcecodePackage extends EPackage {
 	int SOURCE_CODE_ROOT = 0;
 
 	/**
+	 * The meta object id for the '{@link edu.kit.kastel.scbs.pcm2java4joana.sourcecode.impl.SourceCodeElementImpl <em>Source Code Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.sourcecode.impl.SourceCodeElementImpl
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.sourcecode.impl.SourcecodePackageImpl#getSourceCodeElement()
+	 * @generated
+	 */
+	int SOURCE_CODE_ELEMENT = 12;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_CODE_ELEMENT__NAME = 0;
+
+	/**
+	 * The number of structural features of the '<em>Source Code Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_CODE_ELEMENT_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Source Code Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_CODE_ELEMENT_OPERATION_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_CODE_ROOT__NAME = SOURCE_CODE_ELEMENT__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Topleveltype</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE_CODE_ROOT__TOPLEVELTYPE = 0;
+	int SOURCE_CODE_ROOT__TOPLEVELTYPE = SOURCE_CODE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Source Code Root</em>' class.
@@ -83,7 +129,7 @@ public interface SourcecodePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE_CODE_ROOT_FEATURE_COUNT = 1;
+	int SOURCE_CODE_ROOT_FEATURE_COUNT = SOURCE_CODE_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Source Code Root</em>' class.
@@ -92,7 +138,7 @@ public interface SourcecodePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE_CODE_ROOT_OPERATION_COUNT = 0;
+	int SOURCE_CODE_ROOT_OPERATION_COUNT = SOURCE_CODE_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.scbs.pcm2java4joana.sourcecode.impl.TopLevelTypeImpl <em>Top Level Type</em>}' class.
@@ -105,13 +151,22 @@ public interface SourcecodePackage extends EPackage {
 	int TOP_LEVEL_TYPE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOP_LEVEL_TYPE__NAME = SOURCE_CODE_ELEMENT__NAME;
+
+	/**
 	 * The number of structural features of the '<em>Top Level Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TOP_LEVEL_TYPE_FEATURE_COUNT = 0;
+	int TOP_LEVEL_TYPE_FEATURE_COUNT = SOURCE_CODE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Top Level Type</em>' class.
@@ -120,7 +175,7 @@ public interface SourcecodePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TOP_LEVEL_TYPE_OPERATION_COUNT = 0;
+	int TOP_LEVEL_TYPE_OPERATION_COUNT = SOURCE_CODE_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.scbs.pcm2java4joana.sourcecode.impl.InterfaceImpl <em>Interface</em>}' class.
@@ -131,6 +186,15 @@ public interface SourcecodePackage extends EPackage {
 	 * @generated
 	 */
 	int INTERFACE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE__NAME = TOP_LEVEL_TYPE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Methods</b></em>' reference list.
@@ -168,6 +232,15 @@ public interface SourcecodePackage extends EPackage {
 	 * @generated
 	 */
 	int CLASS = 3;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__NAME = TOP_LEVEL_TYPE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Implements</b></em>' reference list.
@@ -216,13 +289,22 @@ public interface SourcecodePackage extends EPackage {
 	int FIELD = 4;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FIELD__NAME = SOURCE_CODE_ELEMENT__NAME;
+
+	/**
 	 * The number of structural features of the '<em>Field</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD_FEATURE_COUNT = 0;
+	int FIELD_FEATURE_COUNT = SOURCE_CODE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Field</em>' class.
@@ -231,7 +313,7 @@ public interface SourcecodePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FIELD_OPERATION_COUNT = 0;
+	int FIELD_OPERATION_COUNT = SOURCE_CODE_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.scbs.pcm2java4joana.sourcecode.impl.MethodImpl <em>Method</em>}' class.
@@ -242,6 +324,15 @@ public interface SourcecodePackage extends EPackage {
 	 * @generated
 	 */
 	int METHOD = 5;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD__NAME = FIELD__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -290,6 +381,15 @@ public interface SourcecodePackage extends EPackage {
 	int VARIABLE = 6;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE__NAME = FIELD__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -327,13 +427,22 @@ public interface SourcecodePackage extends EPackage {
 	int TYPE = 7;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE__NAME = SOURCE_CODE_ELEMENT__NAME;
+
+	/**
 	 * The number of structural features of the '<em>Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_FEATURE_COUNT = 0;
+	int TYPE_FEATURE_COUNT = SOURCE_CODE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Type</em>' class.
@@ -342,7 +451,7 @@ public interface SourcecodePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_OPERATION_COUNT = 0;
+	int TYPE_OPERATION_COUNT = SOURCE_CODE_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.scbs.pcm2java4joana.sourcecode.impl.ParameterImpl <em>Parameter</em>}' class.
@@ -355,13 +464,22 @@ public interface SourcecodePackage extends EPackage {
 	int PARAMETER = 8;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__NAME = SOURCE_CODE_ELEMENT__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__TYPE = 0;
+	int PARAMETER__TYPE = SOURCE_CODE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Parameter</em>' class.
@@ -370,7 +488,7 @@ public interface SourcecodePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FEATURE_COUNT = 1;
+	int PARAMETER_FEATURE_COUNT = SOURCE_CODE_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Parameter</em>' class.
@@ -379,7 +497,7 @@ public interface SourcecodePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_OPERATION_COUNT = 0;
+	int PARAMETER_OPERATION_COUNT = SOURCE_CODE_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.scbs.pcm2java4joana.sourcecode.impl.BuiltInTypeImpl <em>Built In Type</em>}' class.
@@ -390,6 +508,15 @@ public interface SourcecodePackage extends EPackage {
 	 * @generated
 	 */
 	int BUILT_IN_TYPE = 9;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILT_IN_TYPE__NAME = TYPE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Built In Type</b></em>' attribute.
@@ -429,6 +556,15 @@ public interface SourcecodePackage extends EPackage {
 	int REFERENCE_TYPE = 10;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_TYPE__NAME = TYPE__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Topleveltype</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -466,6 +602,15 @@ public interface SourcecodePackage extends EPackage {
 	int COLLECTION_TYPE = 11;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLLECTION_TYPE__NAME = TYPE__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -500,7 +645,7 @@ public interface SourcecodePackage extends EPackage {
 	 * @see edu.kit.kastel.scbs.pcm2java4joana.sourcecode.impl.SourcecodePackageImpl#getBuiltInTypes()
 	 * @generated
 	 */
-	int BUILT_IN_TYPES = 12;
+	int BUILT_IN_TYPES = 13;
 
 	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourceCodeRoot <em>Source Code Root</em>}'.
@@ -744,6 +889,27 @@ public interface SourcecodePackage extends EPackage {
 	EReference getCollectionType_Type();
 
 	/**
+	 * Returns the meta object for class '{@link edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourceCodeElement <em>Source Code Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Source Code Element</em>'.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourceCodeElement
+	 * @generated
+	 */
+	EClass getSourceCodeElement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourceCodeElement#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourceCodeElement#getName()
+	 * @see #getSourceCodeElement()
+	 * @generated
+	 */
+	EAttribute getSourceCodeElement_Name();
+
+	/**
 	 * Returns the meta object for enum '{@link edu.kit.kastel.scbs.pcm2java4joana.sourcecode.BuiltInTypes <em>Built In Types</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -983,6 +1149,24 @@ public interface SourcecodePackage extends EPackage {
 		 * @generated
 		 */
 		EReference COLLECTION_TYPE__TYPE = eINSTANCE.getCollectionType_Type();
+
+		/**
+		 * The meta object literal for the '{@link edu.kit.kastel.scbs.pcm2java4joana.sourcecode.impl.SourceCodeElementImpl <em>Source Code Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.kit.kastel.scbs.pcm2java4joana.sourcecode.impl.SourceCodeElementImpl
+		 * @see edu.kit.kastel.scbs.pcm2java4joana.sourcecode.impl.SourcecodePackageImpl#getSourceCodeElement()
+		 * @generated
+		 */
+		EClass SOURCE_CODE_ELEMENT = eINSTANCE.getSourceCodeElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SOURCE_CODE_ELEMENT__NAME = eINSTANCE.getSourceCodeElement_Name();
 
 		/**
 		 * The meta object literal for the '{@link edu.kit.kastel.scbs.pcm2java4joana.sourcecode.BuiltInTypes <em>Built In Types</em>}' enum.

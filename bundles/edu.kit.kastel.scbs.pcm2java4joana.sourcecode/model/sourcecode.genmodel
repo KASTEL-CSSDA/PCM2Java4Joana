@@ -55,5 +55,8 @@
     <genClasses ecoreClass="sourcecode.ecore#//CollectionType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sourcecode.ecore#//CollectionType/type"/>
     </genClasses>
+    <genClasses ecoreClass="sourcecode.ecore#//SourceCodeElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sourcecode.ecore#//SourceCodeElement/name"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

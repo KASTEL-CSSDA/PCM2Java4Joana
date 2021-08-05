@@ -105,7 +105,9 @@ public class ClassItemProvider extends TopLevelTypeItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Class_type");
+		String label = ((edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_Class_type")
+				: getString("_UI_Class_type") + " " + label;
 	}
 
 	/**

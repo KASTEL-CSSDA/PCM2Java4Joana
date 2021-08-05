@@ -109,7 +109,9 @@ public class MethodItemProvider extends FieldItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Method_type");
+		String label = ((Method) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_Method_type")
+				: getString("_UI_Method_type") + " " + label;
 	}
 
 	/**

@@ -349,6 +349,29 @@ public class SourcecodeItemProviderAdapterFactory extends SourcecodeAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourceCodeElement} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SourceCodeElementItemProvider sourceCodeElementItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourceCodeElement}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSourceCodeElementAdapter() {
+		if (sourceCodeElementItemProvider == null) {
+			sourceCodeElementItemProvider = new SourceCodeElementItemProvider(this);
+		}
+
+		return sourceCodeElementItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -471,6 +494,8 @@ public class SourcecodeItemProviderAdapterFactory extends SourcecodeAdapterFacto
 			referenceTypeItemProvider.dispose();
 		if (collectionTypeItemProvider != null)
 			collectionTypeItemProvider.dispose();
+		if (sourceCodeElementItemProvider != null)
+			sourceCodeElementItemProvider.dispose();
 	}
 
 }

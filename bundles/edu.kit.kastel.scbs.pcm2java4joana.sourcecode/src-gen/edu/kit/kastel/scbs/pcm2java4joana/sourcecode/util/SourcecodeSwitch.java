@@ -9,6 +9,7 @@ import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Interface;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Method;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Parameter;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.ReferenceType;
+import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourceCodeElement;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourceCodeRoot;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourcecodePackage;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.TopLevelType;
@@ -81,12 +82,16 @@ public class SourcecodeSwitch<T> extends Switch<T> {
 			SourceCodeRoot sourceCodeRoot = (SourceCodeRoot) theEObject;
 			T result = caseSourceCodeRoot(sourceCodeRoot);
 			if (result == null)
+				result = caseSourceCodeElement(sourceCodeRoot);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
 		case SourcecodePackage.TOP_LEVEL_TYPE: {
 			TopLevelType topLevelType = (TopLevelType) theEObject;
 			T result = caseTopLevelType(topLevelType);
+			if (result == null)
+				result = caseSourceCodeElement(topLevelType);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -97,6 +102,8 @@ public class SourcecodeSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseTopLevelType(interface_);
 			if (result == null)
+				result = caseSourceCodeElement(interface_);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -106,12 +113,16 @@ public class SourcecodeSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseTopLevelType(class_);
 			if (result == null)
+				result = caseSourceCodeElement(class_);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
 		case SourcecodePackage.FIELD: {
 			Field field = (Field) theEObject;
 			T result = caseField(field);
+			if (result == null)
+				result = caseSourceCodeElement(field);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -122,6 +133,8 @@ public class SourcecodeSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseField(method);
 			if (result == null)
+				result = caseSourceCodeElement(method);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -131,6 +144,8 @@ public class SourcecodeSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseField(variable);
 			if (result == null)
+				result = caseSourceCodeElement(variable);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -138,12 +153,16 @@ public class SourcecodeSwitch<T> extends Switch<T> {
 			Type type = (Type) theEObject;
 			T result = caseType(type);
 			if (result == null)
+				result = caseSourceCodeElement(type);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
 		case SourcecodePackage.PARAMETER: {
 			Parameter parameter = (Parameter) theEObject;
 			T result = caseParameter(parameter);
+			if (result == null)
+				result = caseSourceCodeElement(parameter);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -154,6 +173,8 @@ public class SourcecodeSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseType(builtInType);
 			if (result == null)
+				result = caseSourceCodeElement(builtInType);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -163,6 +184,8 @@ public class SourcecodeSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseType(referenceType);
 			if (result == null)
+				result = caseSourceCodeElement(referenceType);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -171,6 +194,15 @@ public class SourcecodeSwitch<T> extends Switch<T> {
 			T result = caseCollectionType(collectionType);
 			if (result == null)
 				result = caseType(collectionType);
+			if (result == null)
+				result = caseSourceCodeElement(collectionType);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case SourcecodePackage.SOURCE_CODE_ELEMENT: {
+			SourceCodeElement sourceCodeElement = (SourceCodeElement) theEObject;
+			T result = caseSourceCodeElement(sourceCodeElement);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -357,6 +389,21 @@ public class SourcecodeSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCollectionType(CollectionType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Source Code Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Source Code Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSourceCodeElement(SourceCodeElement object) {
 		return null;
 	}
 

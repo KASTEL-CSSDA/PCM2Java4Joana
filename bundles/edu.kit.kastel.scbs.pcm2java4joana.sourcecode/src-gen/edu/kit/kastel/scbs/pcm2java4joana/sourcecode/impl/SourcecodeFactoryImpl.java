@@ -10,6 +10,7 @@ import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Interface;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Method;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Parameter;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.ReferenceType;
+import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourceCodeElement;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourceCodeRoot;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourcecodeFactory;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourcecodePackage;
@@ -94,6 +95,8 @@ public class SourcecodeFactoryImpl extends EFactoryImpl implements SourcecodeFac
 			return createReferenceType();
 		case SourcecodePackage.COLLECTION_TYPE:
 			return createCollectionType();
+		case SourcecodePackage.SOURCE_CODE_ELEMENT:
+			return createSourceCodeElement();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -247,6 +250,16 @@ public class SourcecodeFactoryImpl extends EFactoryImpl implements SourcecodeFac
 	public CollectionType createCollectionType() {
 		CollectionTypeImpl collectionType = new CollectionTypeImpl();
 		return collectionType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SourceCodeElement createSourceCodeElement() {
+		SourceCodeElementImpl sourceCodeElement = new SourceCodeElementImpl();
+		return sourceCodeElement;
 	}
 
 	/**

@@ -10,6 +10,7 @@ import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Interface;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Method;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Parameter;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.ReferenceType;
+import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourceCodeElement;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourceCodeRoot;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourcecodeFactory;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourcecodePackage;
@@ -115,6 +116,13 @@ public class SourcecodePackageImpl extends EPackageImpl implements SourcecodePac
 	 * @generated
 	 */
 	private EClass collectionTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sourceCodeElementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -399,6 +407,24 @@ public class SourcecodePackageImpl extends EPackageImpl implements SourcecodePac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getSourceCodeElement() {
+		return sourceCodeElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSourceCodeElement_Name() {
+		return (EAttribute) sourceCodeElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getBuiltInTypes() {
 		return builtInTypesEEnum;
 	}
@@ -467,6 +493,9 @@ public class SourcecodePackageImpl extends EPackageImpl implements SourcecodePac
 		collectionTypeEClass = createEClass(COLLECTION_TYPE);
 		createEReference(collectionTypeEClass, COLLECTION_TYPE__TYPE);
 
+		sourceCodeElementEClass = createEClass(SOURCE_CODE_ELEMENT);
+		createEAttribute(sourceCodeElementEClass, SOURCE_CODE_ELEMENT__NAME);
+
 		// Create enums
 		builtInTypesEEnum = createEEnum(BUILT_IN_TYPES);
 	}
@@ -500,10 +529,15 @@ public class SourcecodePackageImpl extends EPackageImpl implements SourcecodePac
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		sourceCodeRootEClass.getESuperTypes().add(this.getSourceCodeElement());
+		topLevelTypeEClass.getESuperTypes().add(this.getSourceCodeElement());
 		interfaceEClass.getESuperTypes().add(this.getTopLevelType());
 		classEClass.getESuperTypes().add(this.getTopLevelType());
+		fieldEClass.getESuperTypes().add(this.getSourceCodeElement());
 		methodEClass.getESuperTypes().add(this.getField());
 		variableEClass.getESuperTypes().add(this.getField());
+		typeEClass.getESuperTypes().add(this.getSourceCodeElement());
+		parameterEClass.getESuperTypes().add(this.getSourceCodeElement());
 		builtInTypeEClass.getESuperTypes().add(this.getType());
 		referenceTypeEClass.getESuperTypes().add(this.getType());
 		collectionTypeEClass.getESuperTypes().add(this.getType());
@@ -574,6 +608,12 @@ public class SourcecodePackageImpl extends EPackageImpl implements SourcecodePac
 		initEReference(getCollectionType_Type(), this.getType(), null, "type", null, 0, 1, CollectionType.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(sourceCodeElementEClass, SourceCodeElement.class, "SourceCodeElement", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSourceCodeElement_Name(), ecorePackage.getEString(), "name", null, 1, 1,
+				SourceCodeElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(builtInTypesEEnum, BuiltInTypes.class, "BuiltInTypes");

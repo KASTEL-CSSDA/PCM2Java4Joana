@@ -108,7 +108,9 @@ public class VariableItemProvider extends FieldItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Variable_type");
+		String label = ((Variable) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_Variable_type")
+				: getString("_UI_Variable_type") + " " + label;
 	}
 
 	/**

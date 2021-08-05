@@ -2,6 +2,7 @@
  */
 package edu.kit.kastel.scbs.pcm2java4joana.sourcecode.provider;
 
+import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.ReferenceType;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourcecodePackage;
 
 import java.util.Collection;
@@ -90,7 +91,9 @@ public class ReferenceTypeItemProvider extends TypeItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ReferenceType_type");
+		String label = ((ReferenceType) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_ReferenceType_type")
+				: getString("_UI_ReferenceType_type") + " " + label;
 	}
 
 	/**

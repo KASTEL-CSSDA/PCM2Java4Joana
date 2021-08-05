@@ -2,8 +2,6 @@
  */
 package edu.kit.kastel.scbs.pcm2java4joana.sourcecode;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Field</b></em>'.
@@ -14,5 +12,5 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Field extends EObject {
+public interface Field extends SourceCodeElement {
 } // Field

@@ -7,8 +7,6 @@ import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.TopLevelType;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Top Level Type</b></em>'.
@@ -16,7 +14,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class TopLevelTypeImpl extends MinimalEObjectImpl.Container implements TopLevelType {
+public class TopLevelTypeImpl extends SourceCodeElementImpl implements TopLevelType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
