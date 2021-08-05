@@ -4,8 +4,6 @@ package edu.kit.kastel.scbs.pcm2java4joana.joana;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Flow Specification</b></em>'.
@@ -23,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface FlowSpecification extends EObject {
+public interface FlowSpecification extends JoanaElement {
 	/**
 	 * Returns the value of the '<em><b>Entrypoint</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

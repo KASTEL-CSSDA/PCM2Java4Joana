@@ -27,6 +27,7 @@ import sourcecode.Parameter;
  * <ul>
  *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.joana.impl.AnnotationImpl#getSecuritylevel <em>Securitylevel</em>}</li>
  *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.joana.impl.AnnotationImpl#getAnnotatedParameter <em>Annotated Parameter</em>}</li>
+ *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.joana.impl.AnnotationImpl#getAnnotatedParameterName <em>Annotated Parameter Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -51,6 +52,26 @@ public class AnnotationImpl extends FlowSpecificationElementImpl implements Anno
 	 * @ordered
 	 */
 	protected Parameter annotatedParameter;
+
+	/**
+	 * The default value of the '{@link #getAnnotatedParameterName() <em>Annotated Parameter Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAnnotatedParameterName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ANNOTATED_PARAMETER_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getAnnotatedParameterName() <em>Annotated Parameter Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAnnotatedParameterName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String annotatedParameterName = ANNOTATED_PARAMETER_NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -129,6 +150,28 @@ public class AnnotationImpl extends FlowSpecificationElementImpl implements Anno
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getAnnotatedParameterName() {
+		return annotatedParameterName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAnnotatedParameterName(String newAnnotatedParameterName) {
+		String oldAnnotatedParameterName = annotatedParameterName;
+		annotatedParameterName = newAnnotatedParameterName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JoanaPackage.ANNOTATION__ANNOTATED_PARAMETER_NAME,
+					oldAnnotatedParameterName, annotatedParameterName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -152,6 +195,8 @@ public class AnnotationImpl extends FlowSpecificationElementImpl implements Anno
 			if (resolve)
 				return getAnnotatedParameter();
 			return basicGetAnnotatedParameter();
+		case JoanaPackage.ANNOTATION__ANNOTATED_PARAMETER_NAME:
+			return getAnnotatedParameterName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -172,6 +217,9 @@ public class AnnotationImpl extends FlowSpecificationElementImpl implements Anno
 		case JoanaPackage.ANNOTATION__ANNOTATED_PARAMETER:
 			setAnnotatedParameter((Parameter) newValue);
 			return;
+		case JoanaPackage.ANNOTATION__ANNOTATED_PARAMETER_NAME:
+			setAnnotatedParameterName((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -190,6 +238,9 @@ public class AnnotationImpl extends FlowSpecificationElementImpl implements Anno
 		case JoanaPackage.ANNOTATION__ANNOTATED_PARAMETER:
 			setAnnotatedParameter((Parameter) null);
 			return;
+		case JoanaPackage.ANNOTATION__ANNOTATED_PARAMETER_NAME:
+			setAnnotatedParameterName(ANNOTATED_PARAMETER_NAME_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -206,8 +257,28 @@ public class AnnotationImpl extends FlowSpecificationElementImpl implements Anno
 			return securitylevel != null && !securitylevel.isEmpty();
 		case JoanaPackage.ANNOTATION__ANNOTATED_PARAMETER:
 			return annotatedParameter != null;
+		case JoanaPackage.ANNOTATION__ANNOTATED_PARAMETER_NAME:
+			return ANNOTATED_PARAMETER_NAME_EDEFAULT == null ? annotatedParameterName != null
+					: !ANNOTATED_PARAMETER_NAME_EDEFAULT.equals(annotatedParameterName);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (annotatedParameterName: ");
+		result.append(annotatedParameterName);
+		result.append(')');
+		return result.toString();
 	}
 
 } //AnnotationImpl

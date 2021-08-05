@@ -19,6 +19,7 @@ import sourcecode.Interface;
 import sourcecode.Method;
 import sourcecode.Parameter;
 import sourcecode.ReferenceType;
+import sourcecode.SourceCodeElement;
 import sourcecode.SourceCodeRoot;
 import sourcecode.SourcecodeFactory;
 import sourcecode.SourcecodePackage;
@@ -94,6 +95,8 @@ public class SourcecodeFactoryImpl extends EFactoryImpl implements SourcecodeFac
 			return createReferenceType();
 		case SourcecodePackage.COLLECTION_TYPE:
 			return createCollectionType();
+		case SourcecodePackage.SOURCE_CODE_ELEMENT:
+			return createSourceCodeElement();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -247,6 +250,16 @@ public class SourcecodeFactoryImpl extends EFactoryImpl implements SourcecodeFac
 	public CollectionType createCollectionType() {
 		CollectionTypeImpl collectionType = new CollectionTypeImpl();
 		return collectionType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SourceCodeElement createSourceCodeElement() {
+		SourceCodeElementImpl sourceCodeElement = new SourceCodeElementImpl();
+		return sourceCodeElement;
 	}
 
 	/**

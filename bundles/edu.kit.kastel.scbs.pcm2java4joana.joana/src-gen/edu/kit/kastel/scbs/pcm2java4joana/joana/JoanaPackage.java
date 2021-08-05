@@ -57,6 +57,43 @@ public interface JoanaPackage extends EPackage {
 	JoanaPackage eINSTANCE = edu.kit.kastel.scbs.pcm2java4joana.joana.impl.JoanaPackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.impl.JoanaElementImpl <em>Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.joana.impl.JoanaElementImpl
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.joana.impl.JoanaPackageImpl#getJoanaElement()
+	 * @generated
+	 */
+	int JOANA_ELEMENT = 10;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOANA_ELEMENT__NAME = 0;
+
+	/**
+	 * The number of structural features of the '<em>Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOANA_ELEMENT_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOANA_ELEMENT_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.impl.FlowSpecificationElementImpl <em>Flow Specification Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -67,13 +104,22 @@ public interface JoanaPackage extends EPackage {
 	int FLOW_SPECIFICATION_ELEMENT = 2;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW_SPECIFICATION_ELEMENT__NAME = JOANA_ELEMENT__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Tag</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FLOW_SPECIFICATION_ELEMENT__TAG = 0;
+	int FLOW_SPECIFICATION_ELEMENT__TAG = JOANA_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Annotated Class</b></em>' reference.
@@ -82,7 +128,7 @@ public interface JoanaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FLOW_SPECIFICATION_ELEMENT__ANNOTATED_CLASS = 1;
+	int FLOW_SPECIFICATION_ELEMENT__ANNOTATED_CLASS = JOANA_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Annotated Method</b></em>' reference.
@@ -91,7 +137,25 @@ public interface JoanaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FLOW_SPECIFICATION_ELEMENT__ANNOTATED_METHOD = 2;
+	int FLOW_SPECIFICATION_ELEMENT__ANNOTATED_METHOD = JOANA_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Annotated Class Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW_SPECIFICATION_ELEMENT__ANNOTATED_CLASS_NAME = JOANA_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Annotated Method Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW_SPECIFICATION_ELEMENT__ANNOTATED_METHOD_NAME = JOANA_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Flow Specification Element</em>' class.
@@ -100,7 +164,7 @@ public interface JoanaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FLOW_SPECIFICATION_ELEMENT_FEATURE_COUNT = 3;
+	int FLOW_SPECIFICATION_ELEMENT_FEATURE_COUNT = JOANA_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Flow Specification Element</em>' class.
@@ -109,7 +173,7 @@ public interface JoanaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FLOW_SPECIFICATION_ELEMENT_OPERATION_COUNT = 0;
+	int FLOW_SPECIFICATION_ELEMENT_OPERATION_COUNT = JOANA_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.impl.EntryPointImpl <em>Entry Point</em>}' class.
@@ -120,6 +184,15 @@ public interface JoanaPackage extends EPackage {
 	 * @generated
 	 */
 	int ENTRY_POINT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTRY_POINT__NAME = FLOW_SPECIFICATION_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Tag</b></em>' attribute.
@@ -147,6 +220,24 @@ public interface JoanaPackage extends EPackage {
 	 * @ordered
 	 */
 	int ENTRY_POINT__ANNOTATED_METHOD = FLOW_SPECIFICATION_ELEMENT__ANNOTATED_METHOD;
+
+	/**
+	 * The feature id for the '<em><b>Annotated Class Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTRY_POINT__ANNOTATED_CLASS_NAME = FLOW_SPECIFICATION_ELEMENT__ANNOTATED_CLASS_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Annotated Method Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTRY_POINT__ANNOTATED_METHOD_NAME = FLOW_SPECIFICATION_ELEMENT__ANNOTATED_METHOD_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Securitylevels</b></em>' containment reference list.
@@ -195,6 +286,15 @@ public interface JoanaPackage extends EPackage {
 	int ANNOTATION = 1;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION__NAME = FLOW_SPECIFICATION_ELEMENT__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Tag</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -222,6 +322,24 @@ public interface JoanaPackage extends EPackage {
 	int ANNOTATION__ANNOTATED_METHOD = FLOW_SPECIFICATION_ELEMENT__ANNOTATED_METHOD;
 
 	/**
+	 * The feature id for the '<em><b>Annotated Class Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION__ANNOTATED_CLASS_NAME = FLOW_SPECIFICATION_ELEMENT__ANNOTATED_CLASS_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Annotated Method Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION__ANNOTATED_METHOD_NAME = FLOW_SPECIFICATION_ELEMENT__ANNOTATED_METHOD_NAME;
+
+	/**
 	 * The feature id for the '<em><b>Securitylevel</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -240,13 +358,22 @@ public interface JoanaPackage extends EPackage {
 	int ANNOTATION__ANNOTATED_PARAMETER = FLOW_SPECIFICATION_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Annotated Parameter Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION__ANNOTATED_PARAMETER_NAME = FLOW_SPECIFICATION_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Annotation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_FEATURE_COUNT = FLOW_SPECIFICATION_ELEMENT_FEATURE_COUNT + 2;
+	int ANNOTATION_FEATURE_COUNT = FLOW_SPECIFICATION_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Annotation</em>' class.
@@ -266,6 +393,15 @@ public interface JoanaPackage extends EPackage {
 	 * @generated
 	 */
 	int SINK = 3;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINK__NAME = ANNOTATION__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Tag</b></em>' attribute.
@@ -295,6 +431,24 @@ public interface JoanaPackage extends EPackage {
 	int SINK__ANNOTATED_METHOD = ANNOTATION__ANNOTATED_METHOD;
 
 	/**
+	 * The feature id for the '<em><b>Annotated Class Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINK__ANNOTATED_CLASS_NAME = ANNOTATION__ANNOTATED_CLASS_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Annotated Method Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINK__ANNOTATED_METHOD_NAME = ANNOTATION__ANNOTATED_METHOD_NAME;
+
+	/**
 	 * The feature id for the '<em><b>Securitylevel</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -311,6 +465,15 @@ public interface JoanaPackage extends EPackage {
 	 * @ordered
 	 */
 	int SINK__ANNOTATED_PARAMETER = ANNOTATION__ANNOTATED_PARAMETER;
+
+	/**
+	 * The feature id for the '<em><b>Annotated Parameter Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SINK__ANNOTATED_PARAMETER_NAME = ANNOTATION__ANNOTATED_PARAMETER_NAME;
 
 	/**
 	 * The number of structural features of the '<em>Sink</em>' class.
@@ -341,6 +504,15 @@ public interface JoanaPackage extends EPackage {
 	int SOURCE = 4;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE__NAME = ANNOTATION__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Tag</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -368,6 +540,24 @@ public interface JoanaPackage extends EPackage {
 	int SOURCE__ANNOTATED_METHOD = ANNOTATION__ANNOTATED_METHOD;
 
 	/**
+	 * The feature id for the '<em><b>Annotated Class Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE__ANNOTATED_CLASS_NAME = ANNOTATION__ANNOTATED_CLASS_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Annotated Method Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE__ANNOTATED_METHOD_NAME = ANNOTATION__ANNOTATED_METHOD_NAME;
+
+	/**
 	 * The feature id for the '<em><b>Securitylevel</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -384,6 +574,15 @@ public interface JoanaPackage extends EPackage {
 	 * @ordered
 	 */
 	int SOURCE__ANNOTATED_PARAMETER = ANNOTATION__ANNOTATED_PARAMETER;
+
+	/**
+	 * The feature id for the '<em><b>Annotated Parameter Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE__ANNOTATED_PARAMETER_NAME = ANNOTATION__ANNOTATED_PARAMETER_NAME;
 
 	/**
 	 * The number of structural features of the '<em>Source</em>' class.
@@ -414,13 +613,22 @@ public interface JoanaPackage extends EPackage {
 	int SECURITY_LEVEL = 5;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_LEVEL__NAME = JOANA_ELEMENT__NAME;
+
+	/**
 	 * The number of structural features of the '<em>Security Level</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_LEVEL_FEATURE_COUNT = 0;
+	int SECURITY_LEVEL_FEATURE_COUNT = JOANA_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Security Level</em>' class.
@@ -429,7 +637,7 @@ public interface JoanaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_LEVEL_OPERATION_COUNT = 0;
+	int SECURITY_LEVEL_OPERATION_COUNT = JOANA_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.impl.LatticeImpl <em>Lattice</em>}' class.
@@ -442,13 +650,22 @@ public interface JoanaPackage extends EPackage {
 	int LATTICE = 6;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LATTICE__NAME = JOANA_ELEMENT__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Flowrelation</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LATTICE__FLOWRELATION = 0;
+	int LATTICE__FLOWRELATION = JOANA_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Lattice</em>' class.
@@ -457,7 +674,7 @@ public interface JoanaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LATTICE_FEATURE_COUNT = 1;
+	int LATTICE_FEATURE_COUNT = JOANA_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Lattice</em>' class.
@@ -466,7 +683,7 @@ public interface JoanaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LATTICE_OPERATION_COUNT = 0;
+	int LATTICE_OPERATION_COUNT = JOANA_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.impl.FlowRelationImpl <em>Flow Relation</em>}' class.
@@ -479,13 +696,22 @@ public interface JoanaPackage extends EPackage {
 	int FLOW_RELATION = 7;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW_RELATION__NAME = JOANA_ELEMENT__NAME;
+
+	/**
 	 * The feature id for the '<em><b>From</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FLOW_RELATION__FROM = 0;
+	int FLOW_RELATION__FROM = JOANA_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>To</b></em>' containment reference list.
@@ -494,7 +720,7 @@ public interface JoanaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FLOW_RELATION__TO = 1;
+	int FLOW_RELATION__TO = JOANA_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Flow Relation</em>' class.
@@ -503,7 +729,7 @@ public interface JoanaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FLOW_RELATION_FEATURE_COUNT = 2;
+	int FLOW_RELATION_FEATURE_COUNT = JOANA_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Flow Relation</em>' class.
@@ -512,7 +738,7 @@ public interface JoanaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FLOW_RELATION_OPERATION_COUNT = 0;
+	int FLOW_RELATION_OPERATION_COUNT = JOANA_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.impl.JOANARootImpl <em>JOANA Root</em>}' class.
@@ -525,13 +751,22 @@ public interface JoanaPackage extends EPackage {
 	int JOANA_ROOT = 8;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOANA_ROOT__NAME = JOANA_ELEMENT__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Flowspecification</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOANA_ROOT__FLOWSPECIFICATION = 0;
+	int JOANA_ROOT__FLOWSPECIFICATION = JOANA_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>JOANA Root</em>' class.
@@ -540,7 +775,7 @@ public interface JoanaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOANA_ROOT_FEATURE_COUNT = 1;
+	int JOANA_ROOT_FEATURE_COUNT = JOANA_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>JOANA Root</em>' class.
@@ -549,7 +784,7 @@ public interface JoanaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int JOANA_ROOT_OPERATION_COUNT = 0;
+	int JOANA_ROOT_OPERATION_COUNT = JOANA_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.impl.FlowSpecificationImpl <em>Flow Specification</em>}' class.
@@ -562,13 +797,22 @@ public interface JoanaPackage extends EPackage {
 	int FLOW_SPECIFICATION = 9;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOW_SPECIFICATION__NAME = JOANA_ELEMENT__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Entrypoint</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FLOW_SPECIFICATION__ENTRYPOINT = 0;
+	int FLOW_SPECIFICATION__ENTRYPOINT = JOANA_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Annotation</b></em>' containment reference list.
@@ -577,7 +821,7 @@ public interface JoanaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FLOW_SPECIFICATION__ANNOTATION = 1;
+	int FLOW_SPECIFICATION__ANNOTATION = JOANA_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Flow Specification</em>' class.
@@ -586,7 +830,7 @@ public interface JoanaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FLOW_SPECIFICATION_FEATURE_COUNT = 2;
+	int FLOW_SPECIFICATION_FEATURE_COUNT = JOANA_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Flow Specification</em>' class.
@@ -595,7 +839,7 @@ public interface JoanaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FLOW_SPECIFICATION_OPERATION_COUNT = 0;
+	int FLOW_SPECIFICATION_OPERATION_COUNT = JOANA_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.EntryPoint <em>Entry Point</em>}'.
@@ -662,6 +906,17 @@ public interface JoanaPackage extends EPackage {
 	EReference getAnnotation_AnnotatedParameter();
 
 	/**
+	 * Returns the meta object for the attribute '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.Annotation#getAnnotatedParameterName <em>Annotated Parameter Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Annotated Parameter Name</em>'.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.joana.Annotation#getAnnotatedParameterName()
+	 * @see #getAnnotation()
+	 * @generated
+	 */
+	EAttribute getAnnotation_AnnotatedParameterName();
+
+	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.FlowSpecificationElement <em>Flow Specification Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -703,6 +958,28 @@ public interface JoanaPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getFlowSpecificationElement_AnnotatedMethod();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.FlowSpecificationElement#getAnnotatedClassName <em>Annotated Class Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Annotated Class Name</em>'.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.joana.FlowSpecificationElement#getAnnotatedClassName()
+	 * @see #getFlowSpecificationElement()
+	 * @generated
+	 */
+	EAttribute getFlowSpecificationElement_AnnotatedClassName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.FlowSpecificationElement#getAnnotatedMethodName <em>Annotated Method Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Annotated Method Name</em>'.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.joana.FlowSpecificationElement#getAnnotatedMethodName()
+	 * @see #getFlowSpecificationElement()
+	 * @generated
+	 */
+	EAttribute getFlowSpecificationElement_AnnotatedMethodName();
 
 	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.Sink <em>Sink</em>}'.
@@ -841,6 +1118,27 @@ public interface JoanaPackage extends EPackage {
 	EReference getFlowSpecification_Annotation();
 
 	/**
+	 * Returns the meta object for class '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.JoanaElement <em>Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Element</em>'.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.joana.JoanaElement
+	 * @generated
+	 */
+	EClass getJoanaElement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.JoanaElement#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.joana.JoanaElement#getName()
+	 * @see #getJoanaElement()
+	 * @generated
+	 */
+	EAttribute getJoanaElement_Name();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -916,6 +1214,14 @@ public interface JoanaPackage extends EPackage {
 		EReference ANNOTATION__ANNOTATED_PARAMETER = eINSTANCE.getAnnotation_AnnotatedParameter();
 
 		/**
+		 * The meta object literal for the '<em><b>Annotated Parameter Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANNOTATION__ANNOTATED_PARAMETER_NAME = eINSTANCE.getAnnotation_AnnotatedParameterName();
+
+		/**
 		 * The meta object literal for the '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.impl.FlowSpecificationElementImpl <em>Flow Specification Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -949,6 +1255,24 @@ public interface JoanaPackage extends EPackage {
 		 */
 		EReference FLOW_SPECIFICATION_ELEMENT__ANNOTATED_METHOD = eINSTANCE
 				.getFlowSpecificationElement_AnnotatedMethod();
+
+		/**
+		 * The meta object literal for the '<em><b>Annotated Class Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FLOW_SPECIFICATION_ELEMENT__ANNOTATED_CLASS_NAME = eINSTANCE
+				.getFlowSpecificationElement_AnnotatedClassName();
+
+		/**
+		 * The meta object literal for the '<em><b>Annotated Method Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FLOW_SPECIFICATION_ELEMENT__ANNOTATED_METHOD_NAME = eINSTANCE
+				.getFlowSpecificationElement_AnnotatedMethodName();
 
 		/**
 		 * The meta object literal for the '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.impl.SinkImpl <em>Sink</em>}' class.
@@ -1067,6 +1391,24 @@ public interface JoanaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference FLOW_SPECIFICATION__ANNOTATION = eINSTANCE.getFlowSpecification_Annotation();
+
+		/**
+		 * The meta object literal for the '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.impl.JoanaElementImpl <em>Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.kit.kastel.scbs.pcm2java4joana.joana.impl.JoanaElementImpl
+		 * @see edu.kit.kastel.scbs.pcm2java4joana.joana.impl.JoanaPackageImpl#getJoanaElement()
+		 * @generated
+		 */
+		EClass JOANA_ELEMENT = eINSTANCE.getJoanaElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOANA_ELEMENT__NAME = eINSTANCE.getJoanaElement_Name();
 
 	}
 

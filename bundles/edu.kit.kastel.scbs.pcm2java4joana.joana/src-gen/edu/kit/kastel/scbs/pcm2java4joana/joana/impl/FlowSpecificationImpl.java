@@ -18,8 +18,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -37,7 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class FlowSpecificationImpl extends MinimalEObjectImpl.Container implements FlowSpecification {
+public class FlowSpecificationImpl extends JoanaElementImpl implements FlowSpecification {
 	/**
 	 * The cached value of the '{@link #getEntrypoint() <em>Entrypoint</em>}' containment reference.
 	 * <!-- begin-user-doc -->

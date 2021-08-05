@@ -3,9 +3,6 @@
 package sourcecode.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import sourcecode.SourcecodePackage;
 import sourcecode.TopLevelType;
 
@@ -16,7 +13,7 @@ import sourcecode.TopLevelType;
  *
  * @generated
  */
-public class TopLevelTypeImpl extends MinimalEObjectImpl.Container implements TopLevelType {
+public class TopLevelTypeImpl extends SourceCodeElementImpl implements TopLevelType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

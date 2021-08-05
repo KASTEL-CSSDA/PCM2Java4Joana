@@ -7,9 +7,6 @@ import java.util.Collection;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import sourcecode.SourceCodeRoot;
@@ -29,7 +26,7 @@ import sourcecode.TopLevelType;
  *
  * @generated
  */
-public class SourceCodeRootImpl extends MinimalEObjectImpl.Container implements SourceCodeRoot {
+public class SourceCodeRootImpl extends SourceCodeElementImpl implements SourceCodeRoot {
 	/**
 	 * The cached value of the '{@link #getTopleveltype() <em>Topleveltype</em>}' reference list.
 	 * <!-- begin-user-doc -->

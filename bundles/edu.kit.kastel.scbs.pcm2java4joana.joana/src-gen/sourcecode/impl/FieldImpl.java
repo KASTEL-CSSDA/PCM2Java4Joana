@@ -3,9 +3,6 @@
 package sourcecode.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import sourcecode.Field;
 import sourcecode.SourcecodePackage;
 
@@ -16,7 +13,7 @@ import sourcecode.SourcecodePackage;
  *
  * @generated
  */
-public class FieldImpl extends MinimalEObjectImpl.Container implements Field {
+public class FieldImpl extends SourceCodeElementImpl implements Field {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

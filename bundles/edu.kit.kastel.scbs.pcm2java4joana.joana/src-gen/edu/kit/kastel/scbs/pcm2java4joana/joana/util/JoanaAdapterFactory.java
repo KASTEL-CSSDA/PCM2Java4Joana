@@ -117,6 +117,11 @@ public class JoanaAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseJoanaElement(JoanaElement object) {
+			return createJoanaElementAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -272,6 +277,20 @@ public class JoanaAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createFlowSpecificationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.JoanaElement <em>Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.joana.JoanaElement
+	 * @generated
+	 */
+	public Adapter createJoanaElementAdapter() {
 		return null;
 	}
 

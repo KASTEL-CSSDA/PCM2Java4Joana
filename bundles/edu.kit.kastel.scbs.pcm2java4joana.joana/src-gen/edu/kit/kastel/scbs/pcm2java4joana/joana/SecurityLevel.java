@@ -2,8 +2,6 @@
  */
 package edu.kit.kastel.scbs.pcm2java4joana.joana;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Security Level</b></em>'.
@@ -14,5 +12,5 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface SecurityLevel extends EObject {
+public interface SecurityLevel extends JoanaElement {
 } // SecurityLevel

@@ -16,6 +16,7 @@ import sourcecode.Interface;
 import sourcecode.Method;
 import sourcecode.Parameter;
 import sourcecode.ReferenceType;
+import sourcecode.SourceCodeElement;
 import sourcecode.SourceCodeRoot;
 import sourcecode.SourcecodePackage;
 import sourcecode.TopLevelType;
@@ -135,6 +136,11 @@ public class SourcecodeAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseCollectionType(CollectionType object) {
 			return createCollectionTypeAdapter();
+		}
+
+		@Override
+		public Adapter caseSourceCodeElement(SourceCodeElement object) {
+			return createSourceCodeElementAdapter();
 		}
 
 		@Override
@@ -321,6 +327,20 @@ public class SourcecodeAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCollectionTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link sourcecode.SourceCodeElement <em>Source Code Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see sourcecode.SourceCodeElement
+	 * @generated
+	 */
+	public Adapter createSourceCodeElementAdapter() {
 		return null;
 	}
 

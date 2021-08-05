@@ -16,6 +16,7 @@ import sourcecode.Parameter;
  * <ul>
  *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.joana.Annotation#getSecuritylevel <em>Securitylevel</em>}</li>
  *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.joana.Annotation#getAnnotatedParameter <em>Annotated Parameter</em>}</li>
+ *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.joana.Annotation#getAnnotatedParameterName <em>Annotated Parameter Name</em>}</li>
  * </ul>
  *
  * @see edu.kit.kastel.scbs.pcm2java4joana.joana.JoanaPackage#getAnnotation()
@@ -57,4 +58,26 @@ public interface Annotation extends FlowSpecificationElement {
 	 * @generated
 	 */
 	void setAnnotatedParameter(Parameter value);
+
+	/**
+	 * Returns the value of the '<em><b>Annotated Parameter Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Annotated Parameter Name</em>' attribute.
+	 * @see #setAnnotatedParameterName(String)
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.joana.JoanaPackage#getAnnotation_AnnotatedParameterName()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getAnnotatedParameterName();
+
+	/**
+	 * Sets the value of the '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.Annotation#getAnnotatedParameterName <em>Annotated Parameter Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Annotated Parameter Name</em>' attribute.
+	 * @see #getAnnotatedParameterName()
+	 * @generated
+	 */
+	void setAnnotatedParameterName(String value);
 } // Annotation

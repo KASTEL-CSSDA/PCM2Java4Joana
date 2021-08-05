@@ -4,8 +4,6 @@ package sourcecode;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Source Code Root</b></em>'.
@@ -22,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface SourceCodeRoot extends EObject {
+public interface SourceCodeRoot extends SourceCodeElement {
 	/**
 	 * Returns the value of the '<em><b>Topleveltype</b></em>' reference list.
 	 * The list contents are of type {@link sourcecode.TopLevelType}.

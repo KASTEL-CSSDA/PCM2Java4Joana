@@ -75,6 +75,8 @@ public class JoanaFactoryImpl extends EFactoryImpl implements JoanaFactory {
 			return createJOANARoot();
 		case JoanaPackage.FLOW_SPECIFICATION:
 			return createFlowSpecification();
+		case JoanaPackage.JOANA_ELEMENT:
+			return createJoanaElement();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -178,6 +180,16 @@ public class JoanaFactoryImpl extends EFactoryImpl implements JoanaFactory {
 	public FlowSpecification createFlowSpecification() {
 		FlowSpecificationImpl flowSpecification = new FlowSpecificationImpl();
 		return flowSpecification;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public JoanaElement createJoanaElement() {
+		JoanaElementImpl joanaElement = new JoanaElementImpl();
+		return joanaElement;
 	}
 
 	/**

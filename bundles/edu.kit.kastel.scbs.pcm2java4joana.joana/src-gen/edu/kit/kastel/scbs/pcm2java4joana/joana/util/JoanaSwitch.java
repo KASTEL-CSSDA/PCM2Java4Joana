@@ -72,6 +72,8 @@ public class JoanaSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseFlowSpecificationElement(entryPoint);
 			if (result == null)
+				result = caseJoanaElement(entryPoint);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -81,12 +83,16 @@ public class JoanaSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseFlowSpecificationElement(annotation);
 			if (result == null)
+				result = caseJoanaElement(annotation);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
 		case JoanaPackage.FLOW_SPECIFICATION_ELEMENT: {
 			FlowSpecificationElement flowSpecificationElement = (FlowSpecificationElement) theEObject;
 			T result = caseFlowSpecificationElement(flowSpecificationElement);
+			if (result == null)
+				result = caseJoanaElement(flowSpecificationElement);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -99,6 +105,8 @@ public class JoanaSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseFlowSpecificationElement(sink);
 			if (result == null)
+				result = caseJoanaElement(sink);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -110,12 +118,16 @@ public class JoanaSwitch<T> extends Switch<T> {
 			if (result == null)
 				result = caseFlowSpecificationElement(source);
 			if (result == null)
+				result = caseJoanaElement(source);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
 		case JoanaPackage.SECURITY_LEVEL: {
 			SecurityLevel securityLevel = (SecurityLevel) theEObject;
 			T result = caseSecurityLevel(securityLevel);
+			if (result == null)
+				result = caseJoanaElement(securityLevel);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -124,12 +136,16 @@ public class JoanaSwitch<T> extends Switch<T> {
 			Lattice lattice = (Lattice) theEObject;
 			T result = caseLattice(lattice);
 			if (result == null)
+				result = caseJoanaElement(lattice);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
 		case JoanaPackage.FLOW_RELATION: {
 			FlowRelation flowRelation = (FlowRelation) theEObject;
 			T result = caseFlowRelation(flowRelation);
+			if (result == null)
+				result = caseJoanaElement(flowRelation);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -138,12 +154,23 @@ public class JoanaSwitch<T> extends Switch<T> {
 			JOANARoot joanaRoot = (JOANARoot) theEObject;
 			T result = caseJOANARoot(joanaRoot);
 			if (result == null)
+				result = caseJoanaElement(joanaRoot);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
 		case JoanaPackage.FLOW_SPECIFICATION: {
 			FlowSpecification flowSpecification = (FlowSpecification) theEObject;
 			T result = caseFlowSpecification(flowSpecification);
+			if (result == null)
+				result = caseJoanaElement(flowSpecification);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case JoanaPackage.JOANA_ELEMENT: {
+			JoanaElement joanaElement = (JoanaElement) theEObject;
+			T result = caseJoanaElement(joanaElement);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -300,6 +327,21 @@ public class JoanaSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseFlowSpecification(FlowSpecification object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseJoanaElement(JoanaElement object) {
 		return null;
 	}
 

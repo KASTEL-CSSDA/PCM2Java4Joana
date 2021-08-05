@@ -11,8 +11,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import sourcecode.Method;
 
 /**
@@ -26,11 +24,13 @@ import sourcecode.Method;
  *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.joana.impl.FlowSpecificationElementImpl#getTag <em>Tag</em>}</li>
  *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.joana.impl.FlowSpecificationElementImpl#getAnnotatedClass <em>Annotated Class</em>}</li>
  *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.joana.impl.FlowSpecificationElementImpl#getAnnotatedMethod <em>Annotated Method</em>}</li>
+ *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.joana.impl.FlowSpecificationElementImpl#getAnnotatedClassName <em>Annotated Class Name</em>}</li>
+ *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.joana.impl.FlowSpecificationElementImpl#getAnnotatedMethodName <em>Annotated Method Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class FlowSpecificationElementImpl extends MinimalEObjectImpl.Container implements FlowSpecificationElement {
+public class FlowSpecificationElementImpl extends JoanaElementImpl implements FlowSpecificationElement {
 	/**
 	 * The default value of the '{@link #getTag() <em>Tag</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -70,6 +70,46 @@ public class FlowSpecificationElementImpl extends MinimalEObjectImpl.Container i
 	 * @ordered
 	 */
 	protected Method annotatedMethod;
+
+	/**
+	 * The default value of the '{@link #getAnnotatedClassName() <em>Annotated Class Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAnnotatedClassName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ANNOTATED_CLASS_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getAnnotatedClassName() <em>Annotated Class Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAnnotatedClassName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String annotatedClassName = ANNOTATED_CLASS_NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getAnnotatedMethodName() <em>Annotated Method Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAnnotatedMethodName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ANNOTATED_METHOD_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getAnnotatedMethodName() <em>Annotated Method Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAnnotatedMethodName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String annotatedMethodName = ANNOTATED_METHOD_NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -199,6 +239,52 @@ public class FlowSpecificationElementImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getAnnotatedClassName() {
+		return annotatedClassName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAnnotatedClassName(String newAnnotatedClassName) {
+		String oldAnnotatedClassName = annotatedClassName;
+		annotatedClassName = newAnnotatedClassName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					JoanaPackage.FLOW_SPECIFICATION_ELEMENT__ANNOTATED_CLASS_NAME, oldAnnotatedClassName,
+					annotatedClassName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getAnnotatedMethodName() {
+		return annotatedMethodName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAnnotatedMethodName(String newAnnotatedMethodName) {
+		String oldAnnotatedMethodName = annotatedMethodName;
+		annotatedMethodName = newAnnotatedMethodName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					JoanaPackage.FLOW_SPECIFICATION_ELEMENT__ANNOTATED_METHOD_NAME, oldAnnotatedMethodName,
+					annotatedMethodName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -212,6 +298,10 @@ public class FlowSpecificationElementImpl extends MinimalEObjectImpl.Container i
 			if (resolve)
 				return getAnnotatedMethod();
 			return basicGetAnnotatedMethod();
+		case JoanaPackage.FLOW_SPECIFICATION_ELEMENT__ANNOTATED_CLASS_NAME:
+			return getAnnotatedClassName();
+		case JoanaPackage.FLOW_SPECIFICATION_ELEMENT__ANNOTATED_METHOD_NAME:
+			return getAnnotatedMethodName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -232,6 +322,12 @@ public class FlowSpecificationElementImpl extends MinimalEObjectImpl.Container i
 			return;
 		case JoanaPackage.FLOW_SPECIFICATION_ELEMENT__ANNOTATED_METHOD:
 			setAnnotatedMethod((Method) newValue);
+			return;
+		case JoanaPackage.FLOW_SPECIFICATION_ELEMENT__ANNOTATED_CLASS_NAME:
+			setAnnotatedClassName((String) newValue);
+			return;
+		case JoanaPackage.FLOW_SPECIFICATION_ELEMENT__ANNOTATED_METHOD_NAME:
+			setAnnotatedMethodName((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -254,6 +350,12 @@ public class FlowSpecificationElementImpl extends MinimalEObjectImpl.Container i
 		case JoanaPackage.FLOW_SPECIFICATION_ELEMENT__ANNOTATED_METHOD:
 			setAnnotatedMethod((Method) null);
 			return;
+		case JoanaPackage.FLOW_SPECIFICATION_ELEMENT__ANNOTATED_CLASS_NAME:
+			setAnnotatedClassName(ANNOTATED_CLASS_NAME_EDEFAULT);
+			return;
+		case JoanaPackage.FLOW_SPECIFICATION_ELEMENT__ANNOTATED_METHOD_NAME:
+			setAnnotatedMethodName(ANNOTATED_METHOD_NAME_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -272,6 +374,12 @@ public class FlowSpecificationElementImpl extends MinimalEObjectImpl.Container i
 			return annotatedClass != null;
 		case JoanaPackage.FLOW_SPECIFICATION_ELEMENT__ANNOTATED_METHOD:
 			return annotatedMethod != null;
+		case JoanaPackage.FLOW_SPECIFICATION_ELEMENT__ANNOTATED_CLASS_NAME:
+			return ANNOTATED_CLASS_NAME_EDEFAULT == null ? annotatedClassName != null
+					: !ANNOTATED_CLASS_NAME_EDEFAULT.equals(annotatedClassName);
+		case JoanaPackage.FLOW_SPECIFICATION_ELEMENT__ANNOTATED_METHOD_NAME:
+			return ANNOTATED_METHOD_NAME_EDEFAULT == null ? annotatedMethodName != null
+					: !ANNOTATED_METHOD_NAME_EDEFAULT.equals(annotatedMethodName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -289,6 +397,10 @@ public class FlowSpecificationElementImpl extends MinimalEObjectImpl.Container i
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (tag: ");
 		result.append(tag);
+		result.append(", annotatedClassName: ");
+		result.append(annotatedClassName);
+		result.append(", annotatedMethodName: ");
+		result.append(annotatedMethodName);
 		result.append(')');
 		return result.toString();
 	}

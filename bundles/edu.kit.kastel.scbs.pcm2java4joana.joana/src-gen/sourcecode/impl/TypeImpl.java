@@ -3,9 +3,6 @@
 package sourcecode.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import sourcecode.SourcecodePackage;
 import sourcecode.Type;
 
@@ -16,7 +13,7 @@ import sourcecode.Type;
  *
  * @generated
  */
-public class TypeImpl extends MinimalEObjectImpl.Container implements Type {
+public class TypeImpl extends SourceCodeElementImpl implements Type {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

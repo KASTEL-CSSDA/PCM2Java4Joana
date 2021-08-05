@@ -7,8 +7,6 @@ import edu.kit.kastel.scbs.pcm2java4joana.joana.SecurityLevel;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Security Level</b></em>'.
@@ -16,7 +14,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class SecurityLevelImpl extends MinimalEObjectImpl.Container implements SecurityLevel {
+public class SecurityLevelImpl extends JoanaElementImpl implements SecurityLevel {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

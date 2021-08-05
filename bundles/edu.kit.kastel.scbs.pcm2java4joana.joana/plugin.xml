@@ -10,14 +10,16 @@
       <!-- @generated joana -->
       <package
             uri="http://www.example.org/joana"
-            class="edu.kit.kastel.scbs.pcm2java4joana.joana.JoanaPackage"/>
+            class="edu.kit.kastel.scbs.pcm2java4joana.joana.JoanaPackage"
+            genModel="model/joana.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated joana -->
       <package
             uri="http://www.example.org/sourcecode"
-            class="sourcecode.SourcecodePackage"/>
+            class="sourcecode.SourcecodePackage"
+            genModel="model/joana.genmodel"/>
    </extension>
 
 </plugin>
