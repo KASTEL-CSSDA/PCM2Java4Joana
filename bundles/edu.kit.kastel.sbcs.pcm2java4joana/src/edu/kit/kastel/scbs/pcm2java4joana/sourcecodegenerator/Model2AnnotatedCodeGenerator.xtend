@@ -16,7 +16,6 @@ import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.CollectionType
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Field
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Variable
 import edu.kit.kastel.scbs.pcm2java4joana.utils.JoanaModelUtils
-import edu.kit.kastel.scbs.pcm2java4joana.joana.FlowSpecificationElement
 import edu.kit.kastel.scbs.pcm2java4joana.joana.EntryPoint
 import edu.kit.kastel.scbs.pcm2java4joana.joana.Source
 import edu.kit.kastel.scbs.pcm2java4joana.joana.Sink
@@ -164,7 +163,7 @@ class Model2AnnotatedCodeGenerator {
 		return '''
 		«generateJoanaAnnotation(scClass, method, joanaModel)»
 		@Override
-		public «generateDataType(method.type)» «method.name»(«FOR parameter : method.parameter»«generateJoanaAnnotation(scClass, method, parameter, joanaModel)» «generateParameter(parameter, null)»«IF method.parameter.indexOf(parameter) != method.parameter.length - 1», «ENDIF»«ENDFOR») {
+		public «generateDataType(method.type)» «method.name»(«FOR parameter : method.parameter»«IF JoanaModelUtils.getJoanaFlowSpecificationElementsFor(joanaModel, scClass.name, method.name, parameter.name).size != 0»«generateJoanaAnnotation(scClass, method, parameter, joanaModel)» «generateParameter(parameter, null)»«IF method.parameter.indexOf(parameter) != method.parameter.length - 1», «ENDIF»«ENDIF»«ENDFOR») {
 			// TODO: Implement me!
 			«IF method.type !== null»return null;«ENDIF»
 		}

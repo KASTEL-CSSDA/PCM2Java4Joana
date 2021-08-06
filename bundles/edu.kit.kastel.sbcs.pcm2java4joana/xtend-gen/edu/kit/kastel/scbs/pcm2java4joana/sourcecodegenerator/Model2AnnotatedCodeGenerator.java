@@ -382,18 +382,24 @@ public class Model2AnnotatedCodeGenerator {
     {
       EList<Parameter> _parameter = method.getParameter();
       for(final Parameter parameter : _parameter) {
-        String _generateJoanaAnnotation_1 = this.generateJoanaAnnotation(scClass, method, parameter, joanaModel);
-        _builder.append(_generateJoanaAnnotation_1);
-        _builder.append(" ");
-        String _generateParameter = this.generateParameter(parameter, null);
-        _builder.append(_generateParameter);
         {
-          int _indexOf = method.getParameter().indexOf(parameter);
-          int _length = ((Object[])Conversions.unwrapArray(method.getParameter(), Object.class)).length;
-          int _minus = (_length - 1);
-          boolean _notEquals = (_indexOf != _minus);
+          int _size = JoanaModelUtils.getJoanaFlowSpecificationElementsFor(joanaModel, scClass.getName(), method.getName(), parameter.getName()).size();
+          boolean _notEquals = (_size != 0);
           if (_notEquals) {
-            _builder.append(", ");
+            String _generateJoanaAnnotation_1 = this.generateJoanaAnnotation(scClass, method, parameter, joanaModel);
+            _builder.append(_generateJoanaAnnotation_1);
+            _builder.append(" ");
+            String _generateParameter = this.generateParameter(parameter, null);
+            _builder.append(_generateParameter);
+            {
+              int _indexOf = method.getParameter().indexOf(parameter);
+              int _length = ((Object[])Conversions.unwrapArray(method.getParameter(), Object.class)).length;
+              int _minus = (_length - 1);
+              boolean _notEquals_1 = (_indexOf != _minus);
+              if (_notEquals_1) {
+                _builder.append(", ");
+              }
+            }
           }
         }
       }
