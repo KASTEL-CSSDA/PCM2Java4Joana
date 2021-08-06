@@ -101,8 +101,6 @@ public class ClientAnalysisModel {
 			}
 		}
 
-		IPath basePath = repositoryPath.removeLastSegments(2);
-
 		Registry registry = Resource.Factory.Registry.INSTANCE;
 		Map<String, Object> map = registry.getExtensionToFactoryMap();
 
@@ -141,6 +139,7 @@ public class ClientAnalysisModel {
 				.getContents().get(0);
 		Adversaries adversary = (Adversaries) resourceAdversary.getContents().get(0);
 
+		IPath basePath = repositoryPath.removeLastSegments(2).append(IPath.SEPARATOR + repository.getEntityName());
 		return new ClientAnalysisModel(repository, profile, confidentiality, adversary, basePath);
 	}
 

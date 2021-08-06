@@ -33,7 +33,6 @@ public class PCM2Java4JoanaHandler extends AbstractHandler {
 			return null;
 		}
 		if (!ClientAnalysisModel.containsNecessaryFiles(list.get())) {
-
 			MessageDialog.openInformation(window.getShell(), "Information", "Not the necessary files");
 			return null;
 		}
