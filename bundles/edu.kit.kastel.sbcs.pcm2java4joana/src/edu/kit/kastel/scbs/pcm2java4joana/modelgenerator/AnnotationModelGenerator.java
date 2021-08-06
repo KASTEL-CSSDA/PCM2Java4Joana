@@ -259,7 +259,8 @@ public class AnnotationModelGenerator {
 
 		for (List<SecurityLevel> from : powerSetLevels) {
 			for (List<SecurityLevel> to : powerSetLevels) {
-				if (SetOperations.isIn(from, to) && from.size() > 0) {
+				if (SetOperations.isIn(from, to) && !SetOperations.sameElements(from, to) && from.size() > 0
+						&& to.size() > 0) {
 					FlowRelation relation = factory.createFlowRelation();
 					relation.getFrom().addAll(JoanaModelUtils.copySecurityLevels(from));
 					relation.getTo().addAll(JoanaModelUtils.copySecurityLevels(to));

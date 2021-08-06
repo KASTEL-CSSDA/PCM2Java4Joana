@@ -50,6 +50,7 @@ class Model2AnnotatedCodeGenerator {
 		return '''
 		«generatePackage()»
 		
+		import edu.kit.joana.ui.annotations.*;
 		«FOR toImport : sourceCodeClass.implements»
 			«generateImport(toImport)»
 		«ENDFOR»
@@ -125,15 +126,15 @@ class Model2AnnotatedCodeGenerator {
 	
 	def String generateBuiltInType(BuiltInType type) {
 		switch type.builtInType {
-			case BOOLEAN: return '''boolean'''
-			case BYTE: return '''byte'''
-			case CHAR: return '''char'''
-			case SHORT: return '''short'''
-			case INT: return '''int'''
-			case FLOAT: return '''float'''
-			case DOUBLE: return '''double'''
+			case BOOLEAN: return '''Boolean'''
+			case BYTE: return '''Byte'''
+			case CHAR: return '''Char'''
+			case SHORT: return '''Short'''
+			case INT: return '''Integer'''
+			case FLOAT: return '''Float'''
+			case DOUBLE: return '''Double'''
 			case STRING: return '''String'''
-			case LONG: return '''long'''
+			case LONG: return '''Long'''
 		}
 		return '''void'''
 	}
@@ -147,6 +148,7 @@ class Model2AnnotatedCodeGenerator {
 		public «generateDataType(method.type)» «method.name» («FOR parameter : method.parameter»
 		«FOR element : JoanaModelUtils.getJoanaFlowSpecificationElementsFor(joanaModel, scClass.name, method.name, parameter.name)»«generateJoanaAnnotation(element)»«ENDFOR»«generateParameter(parameter, null)» «IF method.parameter.indexOf(parameter) != method.parameter.length - 1»,«ENDIF»«ENDFOR») {
 			// TODO: Implement me!
+			«IF method.type !== null»return null;«ENDIF»
 		}
 		'''	
 	}

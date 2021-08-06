@@ -32,6 +32,18 @@ public class SetOperations {
 		return true;
 	}
 
+	public static <T> boolean sameElements(List<T> set1, List<T> set2) {
+		if ((set1.size() != set2.size())) {
+			return false;
+		}
+		for (T o : set1) {
+			if (!set2.contains(o)) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 	public static <T> List<T> removeDuplicates(List<T> set) {
 		return set.stream().distinct().collect(Collectors.toList());
 	}

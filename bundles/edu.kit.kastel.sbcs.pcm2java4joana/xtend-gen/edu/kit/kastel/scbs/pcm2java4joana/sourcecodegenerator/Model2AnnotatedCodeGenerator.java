@@ -69,6 +69,8 @@ public class Model2AnnotatedCodeGenerator {
     _builder.append(_generatePackage);
     _builder.newLineIfNotEmpty();
     _builder.newLine();
+    _builder.append("import edu.kit.joana.ui.annotations.*;");
+    _builder.newLine();
     {
       EList<Interface> _implements = sourceCodeClass.getImplements();
       for(final Interface toImport : _implements) {
@@ -265,31 +267,31 @@ public class Model2AnnotatedCodeGenerator {
       switch (_builtInType) {
         case BOOLEAN:
           StringConcatenation _builder = new StringConcatenation();
-          _builder.append("boolean");
+          _builder.append("Boolean");
           return _builder.toString();
         case BYTE:
           StringConcatenation _builder_1 = new StringConcatenation();
-          _builder_1.append("byte");
+          _builder_1.append("Byte");
           return _builder_1.toString();
         case CHAR:
           StringConcatenation _builder_2 = new StringConcatenation();
-          _builder_2.append("char");
+          _builder_2.append("Char");
           return _builder_2.toString();
         case SHORT:
           StringConcatenation _builder_3 = new StringConcatenation();
-          _builder_3.append("short");
+          _builder_3.append("Short");
           return _builder_3.toString();
         case INT:
           StringConcatenation _builder_4 = new StringConcatenation();
-          _builder_4.append("int");
+          _builder_4.append("Integer");
           return _builder_4.toString();
         case FLOAT:
           StringConcatenation _builder_5 = new StringConcatenation();
-          _builder_5.append("float");
+          _builder_5.append("Float");
           return _builder_5.toString();
         case DOUBLE:
           StringConcatenation _builder_6 = new StringConcatenation();
-          _builder_6.append("double");
+          _builder_6.append("Double");
           return _builder_6.toString();
         case STRING:
           StringConcatenation _builder_7 = new StringConcatenation();
@@ -297,7 +299,7 @@ public class Model2AnnotatedCodeGenerator {
           return _builder_7.toString();
         case LONG:
           StringConcatenation _builder_8 = new StringConcatenation();
-          _builder_8.append("long");
+          _builder_8.append("Long");
           return _builder_8.toString();
         default:
           break;
@@ -357,6 +359,15 @@ public class Model2AnnotatedCodeGenerator {
     _builder.append("\t");
     _builder.append("// TODO: Implement me!");
     _builder.newLine();
+    _builder.append("\t");
+    {
+      Type _type = method.getType();
+      boolean _tripleNotEquals = (_type != null);
+      if (_tripleNotEquals) {
+        _builder.append("return null;");
+      }
+    }
+    _builder.newLineIfNotEmpty();
     _builder.append("}");
     _builder.newLine();
     return _builder.toString();

@@ -5,5 +5,5 @@ import java.util.Collection;
 public interface tst {
 	void test(int i);
 
-	Collection<String> test2(int i);
+	Collection<Integer> test2(int i);
 }
