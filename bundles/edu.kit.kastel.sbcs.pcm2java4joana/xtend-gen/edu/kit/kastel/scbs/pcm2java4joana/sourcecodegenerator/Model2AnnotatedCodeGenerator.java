@@ -210,12 +210,68 @@ public class Model2AnnotatedCodeGenerator {
   
   public String generateVariable(final Variable variable) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("private ");
     String _generateDataType = this.generateDataType(variable.getType());
     _builder.append(_generateDataType);
     _builder.append(" ");
     String _name = variable.getName();
     _builder.append(_name);
     _builder.append(";");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    String _generateGetter = this.generateGetter(variable);
+    _builder.append(_generateGetter);
+    _builder.newLineIfNotEmpty();
+    String _generateSetter = this.generateSetter(variable);
+    _builder.append(_generateSetter);
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  public String generateGetter(final Variable variable) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("public ");
+    String _generateDataType = this.generateDataType(variable.getType());
+    _builder.append(_generateDataType);
+    _builder.append(" get");
+    String _name = variable.getName();
+    _builder.append(_name);
+    _builder.append("() {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("return this.");
+    String _name_1 = variable.getName();
+    _builder.append(_name_1, "\t");
+    _builder.append(";");
+    _builder.newLineIfNotEmpty();
+    _builder.append("}");
+    return _builder.toString();
+  }
+  
+  public String generateSetter(final Variable variable) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("public void set");
+    String _name = variable.getName();
+    _builder.append(_name);
+    _builder.append("(");
+    String _generateDataType = this.generateDataType(variable.getType());
+    _builder.append(_generateDataType);
+    _builder.append(" ");
+    String _name_1 = variable.getName();
+    _builder.append(_name_1);
+    _builder.append(") {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("this.");
+    String _name_2 = variable.getName();
+    _builder.append(_name_2, "\t");
+    _builder.append(" = ");
+    String _name_3 = variable.getName();
+    _builder.append(_name_3, "\t");
+    _builder.append(";");
+    _builder.newLineIfNotEmpty();
+    _builder.append("}");
+    _builder.newLine();
     return _builder.toString();
   }
   
@@ -332,7 +388,6 @@ public class Model2AnnotatedCodeGenerator {
     {
       EList<Parameter> _parameter = method.getParameter();
       for(final Parameter parameter : _parameter) {
-        _builder.newLineIfNotEmpty();
         {
           List<FlowSpecificationElement> _joanaFlowSpecificationElementsFor_1 = JoanaModelUtils.getJoanaFlowSpecificationElementsFor(joanaModel, scClass.getName(), method.getName(), parameter.getName());
           for(final FlowSpecificationElement element_1 : _joanaFlowSpecificationElementsFor_1) {
@@ -508,7 +563,6 @@ public class Model2AnnotatedCodeGenerator {
     String _combineIntoOneSecurityLevel = JoanaModelUtils.combineIntoOneSecurityLevel(annotation.getSecuritylevel());
     _builder.append(_combineIntoOneSecurityLevel);
     _builder.append("\")");
-    _builder.newLineIfNotEmpty();
     return _builder.toString();
   }
   

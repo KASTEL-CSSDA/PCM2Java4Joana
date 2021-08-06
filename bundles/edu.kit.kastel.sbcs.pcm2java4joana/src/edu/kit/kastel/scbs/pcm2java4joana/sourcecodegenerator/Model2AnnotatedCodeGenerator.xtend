@@ -102,7 +102,27 @@ class Model2AnnotatedCodeGenerator {
 	}
 	
 	def String generateVariable(Variable variable) {
-		return '''«generateDataType(variable.type)» «variable.name»;'''
+		return '''
+		private «generateDataType(variable.type)» «variable.name»;
+		
+		«generateGetter(variable)»
+		«generateSetter(variable)»
+		'''
+	}
+	
+	def String generateGetter(Variable variable) {
+		return '''
+		public «generateDataType(variable.type)» get«variable.name»() {
+			return this.«variable.name»;
+		}'''
+	}
+	
+	def String generateSetter(Variable variable) {
+		return '''
+		public void set«variable.name»(«generateDataType(variable.type)» «variable.name») {
+			this.«variable.name» = «variable.name»;
+		}
+		'''
 	}
 	
 	def String generateDataType(Type type) {
@@ -145,8 +165,7 @@ class Model2AnnotatedCodeGenerator {
 		«generateJoanaAnnotation(element)»
 		«ENDFOR»
 		@Override
-		public «generateDataType(method.type)» «method.name» («FOR parameter : method.parameter»
-		«FOR element : JoanaModelUtils.getJoanaFlowSpecificationElementsFor(joanaModel, scClass.name, method.name, parameter.name)»«generateJoanaAnnotation(element)»«ENDFOR»«generateParameter(parameter, null)» «IF method.parameter.indexOf(parameter) != method.parameter.length - 1»,«ENDIF»«ENDFOR») {
+		public «generateDataType(method.type)» «method.name» («FOR parameter : method.parameter»«FOR element : JoanaModelUtils.getJoanaFlowSpecificationElementsFor(joanaModel, scClass.name, method.name, parameter.name)»«generateJoanaAnnotation(element)»«ENDFOR»«generateParameter(parameter, null)» «IF method.parameter.indexOf(parameter) != method.parameter.length - 1»,«ENDIF»«ENDFOR») {
 			// TODO: Implement me!
 			«IF method.type !== null»return null;«ENDIF»
 		}
@@ -196,9 +215,7 @@ class Model2AnnotatedCodeGenerator {
 	}
 	
 	def String generateAnnotation(Annotation annotation) {
-		return '''
-		(tags = "«annotation.tag»", level = "«JoanaModelUtils.combineIntoOneSecurityLevel(annotation.securitylevel)»")
-		'''
+		return '''(tags = "«annotation.tag»", level = "«JoanaModelUtils.combineIntoOneSecurityLevel(annotation.securitylevel)»")'''
 	} 
 	
 	def String generateParameter(Parameter parameter, JOANARoot joanaModel) {
