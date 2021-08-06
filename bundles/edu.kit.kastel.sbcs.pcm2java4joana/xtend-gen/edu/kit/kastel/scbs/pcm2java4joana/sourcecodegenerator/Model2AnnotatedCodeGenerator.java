@@ -3,7 +3,6 @@ package edu.kit.kastel.scbs.pcm2java4joana.sourcecodegenerator;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.Annotation;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.EntryPoint;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.FlowRelation;
-import edu.kit.kastel.scbs.pcm2java4joana.joana.FlowSpecificationElement;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.JOANARoot;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.Lattice;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.SecurityLevel;
@@ -367,14 +366,9 @@ public class Model2AnnotatedCodeGenerator {
   
   public String generateMethod(final edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class scClass, final Method method, final JOANARoot joanaModel) {
     StringConcatenation _builder = new StringConcatenation();
-    {
-      List<FlowSpecificationElement> _joanaFlowSpecificationElementsFor = JoanaModelUtils.getJoanaFlowSpecificationElementsFor(joanaModel, scClass.getName(), method.getName());
-      for(final FlowSpecificationElement element : _joanaFlowSpecificationElementsFor) {
-        String _generateJoanaAnnotation = this.generateJoanaAnnotation(element);
-        _builder.append(_generateJoanaAnnotation);
-        _builder.newLineIfNotEmpty();
-      }
-    }
+    String _generateJoanaAnnotation = this.generateJoanaAnnotation(scClass, method, joanaModel);
+    _builder.append(_generateJoanaAnnotation);
+    _builder.newLineIfNotEmpty();
     _builder.append("@Override");
     _builder.newLine();
     _builder.append("public ");
@@ -387,13 +381,9 @@ public class Model2AnnotatedCodeGenerator {
     {
       EList<Parameter> _parameter = method.getParameter();
       for(final Parameter parameter : _parameter) {
-        {
-          List<FlowSpecificationElement> _joanaFlowSpecificationElementsFor_1 = JoanaModelUtils.getJoanaFlowSpecificationElementsFor(joanaModel, scClass.getName(), method.getName(), parameter.getName());
-          for(final FlowSpecificationElement element_1 : _joanaFlowSpecificationElementsFor_1) {
-            String _generateJoanaAnnotation_1 = this.generateJoanaAnnotation(element_1);
-            _builder.append(_generateJoanaAnnotation_1);
-          }
-        }
+        String _generateJoanaAnnotation_1 = this.generateJoanaAnnotation(scClass, method, parameter, joanaModel);
+        _builder.append(_generateJoanaAnnotation_1);
+        _builder.append(" ");
         String _generateParameter = this.generateParameter(parameter, null);
         _builder.append(_generateParameter);
         {
@@ -426,25 +416,120 @@ public class Model2AnnotatedCodeGenerator {
     return _builder.toString();
   }
   
-  public String generateJoanaAnnotation(final FlowSpecificationElement element) {
-    boolean _matched = false;
-    if (element instanceof EntryPoint) {
-      _matched=true;
-      return this.generateEntryPointAnnotation(((EntryPoint)element));
-    }
-    if (!_matched) {
-      if (element instanceof Source) {
-        _matched=true;
-        return this.generateSource(((Source)element));
+  public String generateJoanaAnnotation(final edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class scClass, final Method method, final JOANARoot joanaModel) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _generateEntryPoints = this.generateEntryPoints(scClass, method, joanaModel);
+    _builder.append(_generateEntryPoints);
+    _builder.newLineIfNotEmpty();
+    String _generateSources = this.generateSources(scClass, method, joanaModel);
+    _builder.append(_generateSources);
+    _builder.newLineIfNotEmpty();
+    String _generateSinks = this.generateSinks(scClass, method, joanaModel);
+    _builder.append(_generateSinks);
+    return _builder.toString();
+  }
+  
+  public String generateJoanaAnnotation(final edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class scClass, final Method method, final Parameter parameter, final JOANARoot joanaModel) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _generateSources = this.generateSources(scClass, method, parameter, joanaModel);
+    _builder.append(_generateSources);
+    _builder.append(" ");
+    String _generateSinks = this.generateSinks(scClass, method, parameter, joanaModel);
+    _builder.append(_generateSinks);
+    return _builder.toString();
+  }
+  
+  public String generateEntryPoints(final edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class scClass, final Method method, final JOANARoot joanaModel) {
+    final List<EntryPoint> entryPoints = JoanaModelUtils.getEntryPoints(joanaModel, scClass.getName(), method.getName());
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      for(final EntryPoint entryPoint : entryPoints) {
+        String _generateEntryPointAnnotation = this.generateEntryPointAnnotation(entryPoint);
+        _builder.append(_generateEntryPointAnnotation);
       }
     }
-    if (!_matched) {
-      if (element instanceof Sink) {
-        _matched=true;
-        return this.generateSink(((Sink)element));
-      }
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+  
+  public String generateSources(final edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class scClass, final Method method, final JOANARoot joanaModel) {
+    final List<Source> sources = JoanaModelUtils.getSourcesFor(joanaModel, scClass.getName(), method.getName());
+    final ArrayList<String> tags = new ArrayList<String>();
+    for (final Source source : sources) {
+      tags.add(source.getTag());
     }
-    return "";
+    int _size = sources.size();
+    boolean _equals = (_size == 0);
+    if (_equals) {
+      StringConcatenation _builder = new StringConcatenation();
+      return _builder.toString();
+    } else {
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("@Source");
+      String _generateAnnotation = this.generateAnnotation(sources.get(0), tags);
+      _builder_1.append(_generateAnnotation);
+      return _builder_1.toString();
+    }
+  }
+  
+  public String generateSinks(final edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class scClass, final Method method, final Parameter parameter, final JOANARoot joanaModel) {
+    final List<Sink> sinks = JoanaModelUtils.getSinksFor(joanaModel, scClass.getName(), method.getName(), parameter.getName());
+    final ArrayList<String> tags = new ArrayList<String>();
+    for (final Sink sink : sinks) {
+      tags.add(sink.getTag());
+    }
+    int _size = sinks.size();
+    boolean _equals = (_size == 0);
+    if (_equals) {
+      StringConcatenation _builder = new StringConcatenation();
+      return _builder.toString();
+    } else {
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("@Sink");
+      String _generateAnnotation = this.generateAnnotation(sinks.get(0), tags);
+      _builder_1.append(_generateAnnotation);
+      return _builder_1.toString();
+    }
+  }
+  
+  public String generateSources(final edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class scClass, final Method method, final Parameter parameter, final JOANARoot joanaModel) {
+    final List<Source> sources = JoanaModelUtils.getSourcesFor(joanaModel, scClass.getName(), method.getName(), parameter.getName());
+    final ArrayList<String> tags = new ArrayList<String>();
+    for (final Source source : sources) {
+      tags.add(source.getTag());
+    }
+    int _size = sources.size();
+    boolean _equals = (_size == 0);
+    if (_equals) {
+      StringConcatenation _builder = new StringConcatenation();
+      return _builder.toString();
+    } else {
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("@Source");
+      String _generateAnnotation = this.generateAnnotation(sources.get(0), tags);
+      _builder_1.append(_generateAnnotation);
+      return _builder_1.toString();
+    }
+  }
+  
+  public String generateSinks(final edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class scClass, final Method method, final JOANARoot joanaModel) {
+    final List<Sink> sinks = JoanaModelUtils.getSinksFor(joanaModel, scClass.getName(), method.getName());
+    final ArrayList<String> tags = new ArrayList<String>();
+    for (final Sink sink : sinks) {
+      tags.add(sink.getTag());
+    }
+    int _size = sinks.size();
+    boolean _equals = (_size == 0);
+    if (_equals) {
+      StringConcatenation _builder = new StringConcatenation();
+      return _builder.toString();
+    } else {
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("@Sink");
+      String _generateAnnotation = this.generateAnnotation(sinks.get(0), tags);
+      _builder_1.append(_generateAnnotation);
+      return _builder_1.toString();
+    }
   }
   
   public String generateEntryPointAnnotation(final EntryPoint element) {
@@ -560,6 +645,32 @@ public class Model2AnnotatedCodeGenerator {
     String _tag = annotation.getTag();
     _builder.append(_tag);
     _builder.append("\", level = \"");
+    String _combineIntoOneSecurityLevel = JoanaModelUtils.combineIntoOneSecurityLevel(annotation.getSecuritylevel());
+    _builder.append(_combineIntoOneSecurityLevel);
+    _builder.append("\")");
+    return _builder.toString();
+  }
+  
+  public String generateAnnotation(final Annotation annotation, final List<String> tags) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("(tags = {");
+    {
+      for(final String tag : tags) {
+        _builder.append("\"");
+        _builder.append(tag);
+        _builder.append("\"");
+        {
+          int _indexOf = tags.indexOf(tag);
+          int _length = ((Object[])Conversions.unwrapArray(tags, Object.class)).length;
+          int _minus = (_length - 1);
+          boolean _notEquals = (_indexOf != _minus);
+          if (_notEquals) {
+            _builder.append(", ");
+          }
+        }
+      }
+    }
+    _builder.append("}, level = \"");
     String _combineIntoOneSecurityLevel = JoanaModelUtils.combineIntoOneSecurityLevel(annotation.getSecuritylevel());
     _builder.append(_combineIntoOneSecurityLevel);
     _builder.append("\")");

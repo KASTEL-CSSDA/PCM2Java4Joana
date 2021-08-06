@@ -161,24 +161,83 @@ class Model2AnnotatedCodeGenerator {
 	
 	def String generateMethod(edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class scClass, Method method, JOANARoot joanaModel) {
 		return '''
-		«FOR element : JoanaModelUtils.getJoanaFlowSpecificationElementsFor(joanaModel, scClass.name, method.name)»
-		«generateJoanaAnnotation(element)»
-		«ENDFOR»
+		«generateJoanaAnnotation(scClass, method, joanaModel)»
 		@Override
-		public «generateDataType(method.type)» «method.name»(«FOR parameter : method.parameter»«FOR element : JoanaModelUtils.getJoanaFlowSpecificationElementsFor(joanaModel, scClass.name, method.name, parameter.name)»«generateJoanaAnnotation(element)»«ENDFOR»«generateParameter(parameter, null)»«IF method.parameter.indexOf(parameter) != method.parameter.length - 1», «ENDIF»«ENDFOR») {
+		public «generateDataType(method.type)» «method.name»(«FOR parameter : method.parameter»«generateJoanaAnnotation(scClass, method, parameter, joanaModel)» «generateParameter(parameter, null)»«IF method.parameter.indexOf(parameter) != method.parameter.length - 1», «ENDIF»«ENDFOR») {
 			// TODO: Implement me!
 			«IF method.type !== null»return null;«ENDIF»
 		}
 		'''	
 	}
 	
-	def String generateJoanaAnnotation(FlowSpecificationElement element) {
-		switch element {
-			EntryPoint: return generateEntryPointAnnotation(element)
-			Source: return generateSource(element)
-			Sink: return generateSink(element)
+	def String generateJoanaAnnotation(edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class scClass, Method method, JOANARoot joanaModel) {
+		return '''
+		«generateEntryPoints(scClass, method, joanaModel)»
+		«generateSources(scClass, method, joanaModel)»
+		«generateSinks(scClass, method, joanaModel)»'''
+	}
+	
+	def String generateJoanaAnnotation(edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class scClass, Method method, Parameter parameter, JOANARoot joanaModel) {
+		return '''«generateSources(scClass, method, parameter, joanaModel)» «generateSinks(scClass, method, parameter, joanaModel)»'''
+	}
+	
+	def String generateEntryPoints(edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class scClass, Method method, JOANARoot joanaModel) {
+		val entryPoints = JoanaModelUtils.getEntryPoints(joanaModel, scClass.name, method.name)
+		return '''
+		«FOR entryPoint : entryPoints»«generateEntryPointAnnotation(entryPoint)»«ENDFOR»
+		'''
+	}
+	
+	def String generateSources(edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class scClass, Method method, JOANARoot joanaModel) {
+		val sources = JoanaModelUtils.getSourcesFor(joanaModel, scClass.name, method.name)
+		val tags = new ArrayList<String>()
+		for(source : sources) {
+			tags.add(source.tag)
 		}
-		return ""
+		if (sources.size == 0) {
+			return ''''''
+		} else {
+			return '''@Source«generateAnnotation(sources.get(0), tags)»'''
+		}
+	}
+	
+	def String generateSinks(edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class scClass, Method method, Parameter parameter, JOANARoot joanaModel) {
+		val sinks = JoanaModelUtils.getSinksFor(joanaModel, scClass.name, method.name, parameter.name)
+		val tags = new ArrayList<String>()
+		for(sink : sinks) {
+			tags.add(sink.tag)
+		}
+		if (sinks.size == 0) {
+			return ''''''
+		} else {
+			return '''@Sink«generateAnnotation(sinks.get(0), tags)»'''
+		}
+	}
+	
+	def String generateSources(edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class scClass, Method method, Parameter parameter, JOANARoot joanaModel) {
+		val sources = JoanaModelUtils.getSourcesFor(joanaModel, scClass.name, method.name, parameter.name)
+		val tags = new ArrayList<String>()
+		for(source : sources) {
+			tags.add(source.tag)
+		}
+		if (sources.size == 0) {
+			return ''''''
+		} else {
+			return '''@Source«generateAnnotation(sources.get(0), tags)»'''
+		}
+	}
+	
+	def String generateSinks(edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class scClass, Method method, JOANARoot joanaModel) {
+		val sinks = JoanaModelUtils.getSinksFor(joanaModel, scClass.name, method.name)
+		val tags = new ArrayList<String>()
+		for(sink : sinks) {
+			tags.add(sink.tag)
+		}
+		if (sinks.size == 0) {
+			return ''''''
+		} else {
+			return '''@Sink«generateAnnotation(sinks.get(0), tags)»'''
+		}
 	}
 	
 	def String generateEntryPointAnnotation(EntryPoint element) {
@@ -216,7 +275,11 @@ class Model2AnnotatedCodeGenerator {
 	
 	def String generateAnnotation(Annotation annotation) {
 		return '''(tags = "«annotation.tag»", level = "«JoanaModelUtils.combineIntoOneSecurityLevel(annotation.securitylevel)»")'''
-	} 
+	}
+	
+	def String generateAnnotation(Annotation annotation, List<String> tags) {
+		return '''(tags = {«FOR tag : tags»"«tag»"«IF tags.indexOf(tag) != tags.length - 1», «ENDIF»«ENDFOR»}, level = "«JoanaModelUtils.combineIntoOneSecurityLevel(annotation.securitylevel)»")'''
+	}
 	
 	def String generateParameter(Parameter parameter, JOANARoot joanaModel) {
 		return '''«generateDataType(parameter.type)» «parameter.name»'''

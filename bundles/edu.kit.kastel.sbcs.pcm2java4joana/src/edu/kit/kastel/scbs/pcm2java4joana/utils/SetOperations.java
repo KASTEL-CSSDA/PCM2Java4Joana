@@ -47,4 +47,14 @@ public class SetOperations {
 	public static <T> List<T> removeDuplicates(List<T> set) {
 		return set.stream().distinct().collect(Collectors.toList());
 	}
+
+	public static <T> List<T> without(List<T> set1, List<T> set2) {
+		List<T> without = new ArrayList<T>();
+		for (T o : set1) {
+			if (!set2.contains(o)) {
+				without.add(o);
+			}
+		}
+		return without;
+	}
 }

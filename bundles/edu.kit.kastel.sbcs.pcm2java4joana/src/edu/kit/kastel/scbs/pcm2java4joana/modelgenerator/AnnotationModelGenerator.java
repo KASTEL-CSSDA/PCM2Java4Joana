@@ -25,6 +25,7 @@ import edu.kit.kastel.scbs.pcm2java4joana.joana.JOANARoot;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.JoanaFactory;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.Lattice;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.SecurityLevel;
+import edu.kit.kastel.scbs.pcm2java4joana.joana.Sink;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.Source;
 import edu.kit.kastel.scbs.pcm2java4joana.models.ClientAnalysisModel;
 import edu.kit.kastel.scbs.pcm2java4joana.models.SupplierAnalysisModel;
@@ -72,29 +73,52 @@ public class AnnotationModelGenerator {
 			List<SecurityLevel> levels) {
 		List<FlowSpecification> flowSpefications = new ArrayList<FlowSpecification>();
 
+		int startIndex = 0;
 		for (int i = 0; i < annotations.size(); i++) {
-			flowSpefications.add(this.generateFlowSpecification(i, annotations, lattice, levels));
+			flowSpefications.addAll(this.generateFlowSpecification(i, startIndex, annotations, lattice, levels));
+			startIndex = flowSpefications.size();
 		}
 
 		return flowSpefications;
 	}
 
-	private FlowSpecification generateFlowSpecification(int tag, List<Annotation> annotations, Lattice lattice,
-			List<SecurityLevel> levels) {
+	private List<FlowSpecification> generateFlowSpecification(int entryPointIndex, int startTag,
+			List<Annotation> annotations, Lattice lattice, List<SecurityLevel> levels) {
 		JoanaFactory factory = JoanaFactory.eINSTANCE;
-		FlowSpecification flow = factory.createFlowSpecification();
-		EntryPoint entryPoint = this.generateEntryPoint(Integer.toString(tag), annotations.get(tag), lattice, levels);
-		List<Annotation> flowAnnotations = new ArrayList<Annotation>();
+		List<FlowSpecification> flows = new ArrayList<FlowSpecification>();
+
+		List<Integer> possibleTags = new ArrayList<Integer>();
 		for (int i = 0; i < annotations.size(); i++) {
-			if (i != tag) {
-				flowAnnotations.add(this.generateSource(Integer.toString(tag), annotations.get(i)));
+			if (i != entryPointIndex) {
+				possibleTags.add(i);
 			}
 		}
+		List<List<Integer>> sourceDistributions = SetOperations.generatePowerSet(possibleTags);
 
-		flow.setEntrypoint(entryPoint);
-		flow.getAnnotation().addAll(flowAnnotations);
+		for (int i = 0; i < sourceDistributions.size(); i++) {
+			List<Integer> sourceDistribution = sourceDistributions.get(i);
 
-		return flow;
+			FlowSpecification flow = factory.createFlowSpecification();
+			EntryPoint entryPoint = this.generateEntryPoint(Integer.toString(startTag + i),
+					annotations.get(entryPointIndex), lattice, levels);
+			List<Annotation> flowAnnotations = new ArrayList<Annotation>();
+			for (int j = 0; j < possibleTags.size(); j++) {
+				int possibleTag = possibleTags.get(j);
+				if (sourceDistribution.contains(possibleTag)) {
+					flowAnnotations
+							.add(this.generateSource(Integer.toString(startTag + i), annotations.get(possibleTag)));
+				} else {
+					flowAnnotations
+							.add(this.generateSink(Integer.toString(startTag + i), annotations.get(possibleTag)));
+				}
+			}
+
+			flow.setEntrypoint(entryPoint);
+			flow.getAnnotation().addAll(flowAnnotations);
+			flows.add(flow);
+		}
+
+		return flows;
 	}
 
 	private Source generateSource(String tag, Annotation annotation) {
@@ -110,6 +134,21 @@ public class AnnotationModelGenerator {
 		source.getSecuritylevel().addAll(JoanaModelUtils.copySecurityLevels(annotation.getSecuritylevel()));
 
 		return source;
+	}
+
+	private Sink generateSink(String tag, Annotation annotation) {
+		JoanaFactory factory = JoanaFactory.eINSTANCE;
+		Sink sink = factory.createSink();
+		sink.setTag(tag);
+		sink.setAnnotatedClass(annotation.getAnnotatedClass());
+		sink.setAnnotatedMethod(annotation.getAnnotatedMethod());
+		sink.setAnnotatedParameter(annotation.getAnnotatedParameter());
+		sink.setAnnotatedClassName(annotation.getAnnotatedClassName());
+		sink.setAnnotatedMethodName(annotation.getAnnotatedMethodName());
+		sink.setAnnotatedParameterName(annotation.getAnnotatedParameterName());
+		sink.getSecuritylevel().addAll(JoanaModelUtils.copySecurityLevels(annotation.getSecuritylevel()));
+
+		return sink;
 	}
 
 	private EntryPoint generateEntryPoint(String tag, Annotation annotation, Lattice lattice,
