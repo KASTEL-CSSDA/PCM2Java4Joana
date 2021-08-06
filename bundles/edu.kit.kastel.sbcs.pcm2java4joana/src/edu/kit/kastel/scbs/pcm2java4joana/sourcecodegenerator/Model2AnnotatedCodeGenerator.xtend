@@ -26,6 +26,7 @@ import edu.kit.kastel.scbs.pcm2java4joana.joana.FlowRelation
 
 import edu.kit.kastel.scbs.pcm2java4joana.utils.SetOperations
 import edu.kit.kastel.scbs.pcm2java4joana.joana.Annotation
+import edu.kit.kastel.scbs.pcm2java4joana.utils.SourceCodeModelUtils
 
 class Model2AnnotatedCodeGenerator {
 	
@@ -299,124 +300,13 @@ class Model2AnnotatedCodeGenerator {
 	
 	def String generateImports(List<Field> fields) {
 		return '''
-		«FOR referenceType : getReferenceTypes(fields)»
+		«FOR referenceType : SourceCodeModelUtils.getReferenceTypes(fields)»
 			import generated.code.«referenceType»;
 		«ENDFOR»
-		«IF hasCollectionType(fields)»
+		«IF SourceCodeModelUtils.hasCollectionType(fields)»
 			import java.util.Collection;
 		«ENDIF»
 		'''
-	}
-	
-	def boolean hasCollectionType(List<Field> fields) {
-		var returnValue = false
-		for(field : fields) {
-			switch field {
-				Variable: returnValue = returnValue || hasVariableCollectionType(field)
-				Method: returnValue = returnValue || hasMethodCollectionType(field)
-			}
-		}	
-		
-		return returnValue
-	}
-	
-	def boolean hasMethodCollectionType(Method method) {
-		if (method.type instanceof CollectionType) {
-			return true
-		}
-		
-		for(parameter : method.parameter) {
-			if (parameter.type instanceof CollectionType) {
-				return true
-			}
-		}
-		
-		return false
-	}
-	
-	def boolean hasVariableCollectionType(Variable variable) {
-		var returnValue = false
-		switch variable.type {
-			CollectionType: returnValue = true
-			BuiltInType, ReferenceType: returnValue = false
-		}
-		return returnValue
-	}
-	
-	def List<String> getReferenceTypes(List<Field> fields) {
-		val referenceTypes = new ArrayList<String>();
-		for(field : fields) {
-			val addTypes = getReferenceTypes(field)
-			referenceTypes.addAll(addTypes)
-		}
-		return SetOperations.removeDuplicates(referenceTypes)
-	}
-	
-	def List<String> getReferenceTypes(Field field) {
-		var returnValue = new ArrayList<String>() 
-		switch field {
-			Variable: returnValue.addAll(getReferenceTypeForVariable(field))
-			Method: returnValue.addAll(getReferenceTypeForMethod(field))
-		}
-		return returnValue
-	}
-	
-	def List<String> getReferenceTypeForMethod(Method method) {
-		var methodType = ""
-		val referenceTypes = new ArrayList<String>();
-		
-		switch method.type {
-			ReferenceType: methodType = getReferenceTypeName(method.type as ReferenceType)
-			CollectionType: methodType = getReferenceTypeForCollectionType(method.type as CollectionType)
-		}
-		if (!methodType.equals("")) {
-			referenceTypes.add(methodType)
-		}
-		
-		for(parameter : method.parameter) {
-			val paramterType = getReferenceTypeForParameter(parameter)
-			if (!paramterType.equals("")) {
-				referenceTypes.add(paramterType)
-			}
-		}
-		
-		return referenceTypes
-	}
-	
-	def String getReferenceTypeForParameter(Parameter parameter) {
-		var returnValue = ""
-		switch parameter.type {
-			ReferenceType: returnValue = getReferenceTypeName(parameter.type as ReferenceType)
-			CollectionType: returnValue = getReferenceTypeForCollectionType(parameter.type as CollectionType)
-		}
-		return returnValue
-	}
-	
-	def List<String> getReferenceTypeForVariable(Variable variable) {		
-		val referenceTypes = new ArrayList<String>();
-		var referenceType = ""
-		switch variable.type {
-			ReferenceType: referenceType = getReferenceTypeName(variable.type as ReferenceType)
-			CollectionType: referenceType = getReferenceTypeForCollectionType(variable.type as CollectionType)
-		}
-		if (!referenceType.equals("")) {
-			referenceTypes.add(referenceType);
-		} 
-		return referenceTypes
-	}
-	
-	def String getReferenceTypeName(ReferenceType type) {
-		return type.topleveltype.name
-	} 
-	
-	def String getReferenceTypeForCollectionType(CollectionType type) {
-		val innerType = type.type
-		var returnValue = ""
-		switch innerType {
-			ReferenceType: returnValue = getReferenceTypeName(innerType)
-			CollectionType: returnValue = getReferenceTypeForCollectionType(innerType)			
-		}
-		return returnValue;
 	}
 	
 	def String generateImport(TopLevelType toImport){

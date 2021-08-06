@@ -22,6 +22,7 @@ import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Type;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Variable;
 import edu.kit.kastel.scbs.pcm2java4joana.utils.JoanaModelUtils;
 import edu.kit.kastel.scbs.pcm2java4joana.utils.SetOperations;
+import edu.kit.kastel.scbs.pcm2java4joana.utils.SourceCodeModelUtils;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
@@ -718,7 +719,7 @@ public class Model2AnnotatedCodeGenerator {
   public String generateImports(final List<Field> fields) {
     StringConcatenation _builder = new StringConcatenation();
     {
-      List<String> _referenceTypes = this.getReferenceTypes(fields);
+      List<String> _referenceTypes = SourceCodeModelUtils.getReferenceTypes(fields);
       for(final String referenceType : _referenceTypes) {
         _builder.append("import generated.code.");
         _builder.append(referenceType);
@@ -727,198 +728,13 @@ public class Model2AnnotatedCodeGenerator {
       }
     }
     {
-      boolean _hasCollectionType = this.hasCollectionType(fields);
+      boolean _hasCollectionType = SourceCodeModelUtils.hasCollectionType(fields);
       if (_hasCollectionType) {
         _builder.append("import java.util.Collection;");
         _builder.newLine();
       }
     }
     return _builder.toString();
-  }
-  
-  public boolean hasCollectionType(final List<Field> fields) {
-    boolean returnValue = false;
-    for (final Field field : fields) {
-      boolean _matched = false;
-      if (field instanceof Variable) {
-        _matched=true;
-        returnValue = (returnValue || this.hasVariableCollectionType(((Variable)field)));
-      }
-      if (!_matched) {
-        if (field instanceof Method) {
-          _matched=true;
-          returnValue = (returnValue || this.hasMethodCollectionType(((Method)field)));
-        }
-      }
-    }
-    return returnValue;
-  }
-  
-  public boolean hasMethodCollectionType(final Method method) {
-    Type _type = method.getType();
-    if ((_type instanceof CollectionType)) {
-      return true;
-    }
-    EList<Parameter> _parameter = method.getParameter();
-    for (final Parameter parameter : _parameter) {
-      Type _type_1 = parameter.getType();
-      if ((_type_1 instanceof CollectionType)) {
-        return true;
-      }
-    }
-    return false;
-  }
-  
-  public boolean hasVariableCollectionType(final Variable variable) {
-    boolean returnValue = false;
-    Type _type = variable.getType();
-    boolean _matched = false;
-    if (_type instanceof CollectionType) {
-      _matched=true;
-      returnValue = true;
-    }
-    if (!_matched) {
-      if (_type instanceof BuiltInType) {
-        _matched=true;
-      }
-      if (!_matched) {
-        if (_type instanceof ReferenceType) {
-          _matched=true;
-        }
-      }
-      if (_matched) {
-        returnValue = false;
-      }
-    }
-    return returnValue;
-  }
-  
-  public List<String> getReferenceTypes(final List<Field> fields) {
-    final ArrayList<String> referenceTypes = new ArrayList<String>();
-    for (final Field field : fields) {
-      {
-        final List<String> addTypes = this.getReferenceTypes(field);
-        referenceTypes.addAll(addTypes);
-      }
-    }
-    return SetOperations.<String>removeDuplicates(referenceTypes);
-  }
-  
-  public List<String> getReferenceTypes(final Field field) {
-    ArrayList<String> returnValue = new ArrayList<String>();
-    boolean _matched = false;
-    if (field instanceof Variable) {
-      _matched=true;
-      returnValue.addAll(this.getReferenceTypeForVariable(((Variable)field)));
-    }
-    if (!_matched) {
-      if (field instanceof Method) {
-        _matched=true;
-        returnValue.addAll(this.getReferenceTypeForMethod(((Method)field)));
-      }
-    }
-    return returnValue;
-  }
-  
-  public List<String> getReferenceTypeForMethod(final Method method) {
-    String methodType = "";
-    final ArrayList<String> referenceTypes = new ArrayList<String>();
-    Type _type = method.getType();
-    boolean _matched = false;
-    if (_type instanceof ReferenceType) {
-      _matched=true;
-      Type _type_1 = method.getType();
-      methodType = this.getReferenceTypeName(((ReferenceType) _type_1));
-    }
-    if (!_matched) {
-      if (_type instanceof CollectionType) {
-        _matched=true;
-        Type _type_1 = method.getType();
-        methodType = this.getReferenceTypeForCollectionType(((CollectionType) _type_1));
-      }
-    }
-    boolean _equals = methodType.equals("");
-    boolean _not = (!_equals);
-    if (_not) {
-      referenceTypes.add(methodType);
-    }
-    EList<Parameter> _parameter = method.getParameter();
-    for (final Parameter parameter : _parameter) {
-      {
-        final String paramterType = this.getReferenceTypeForParameter(parameter);
-        boolean _equals_1 = paramterType.equals("");
-        boolean _not_1 = (!_equals_1);
-        if (_not_1) {
-          referenceTypes.add(paramterType);
-        }
-      }
-    }
-    return referenceTypes;
-  }
-  
-  public String getReferenceTypeForParameter(final Parameter parameter) {
-    String returnValue = "";
-    Type _type = parameter.getType();
-    boolean _matched = false;
-    if (_type instanceof ReferenceType) {
-      _matched=true;
-      Type _type_1 = parameter.getType();
-      returnValue = this.getReferenceTypeName(((ReferenceType) _type_1));
-    }
-    if (!_matched) {
-      if (_type instanceof CollectionType) {
-        _matched=true;
-        Type _type_1 = parameter.getType();
-        returnValue = this.getReferenceTypeForCollectionType(((CollectionType) _type_1));
-      }
-    }
-    return returnValue;
-  }
-  
-  public List<String> getReferenceTypeForVariable(final Variable variable) {
-    final ArrayList<String> referenceTypes = new ArrayList<String>();
-    String referenceType = "";
-    Type _type = variable.getType();
-    boolean _matched = false;
-    if (_type instanceof ReferenceType) {
-      _matched=true;
-      Type _type_1 = variable.getType();
-      referenceType = this.getReferenceTypeName(((ReferenceType) _type_1));
-    }
-    if (!_matched) {
-      if (_type instanceof CollectionType) {
-        _matched=true;
-        Type _type_1 = variable.getType();
-        referenceType = this.getReferenceTypeForCollectionType(((CollectionType) _type_1));
-      }
-    }
-    boolean _equals = referenceType.equals("");
-    boolean _not = (!_equals);
-    if (_not) {
-      referenceTypes.add(referenceType);
-    }
-    return referenceTypes;
-  }
-  
-  public String getReferenceTypeName(final ReferenceType type) {
-    return type.getTopleveltype().getName();
-  }
-  
-  public String getReferenceTypeForCollectionType(final CollectionType type) {
-    final Type innerType = type.getType();
-    String returnValue = "";
-    boolean _matched = false;
-    if (innerType instanceof ReferenceType) {
-      _matched=true;
-      returnValue = this.getReferenceTypeName(((ReferenceType)innerType));
-    }
-    if (!_matched) {
-      if (innerType instanceof CollectionType) {
-        _matched=true;
-        returnValue = this.getReferenceTypeForCollectionType(((CollectionType)innerType));
-      }
-    }
-    return returnValue;
   }
   
   public String generateImport(final TopLevelType toImport) {
