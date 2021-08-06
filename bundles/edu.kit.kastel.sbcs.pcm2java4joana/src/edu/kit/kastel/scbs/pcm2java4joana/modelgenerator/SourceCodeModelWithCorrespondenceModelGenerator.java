@@ -273,7 +273,7 @@ public class SourceCodeModelWithCorrespondenceModelGenerator {
 	private SourceCodeElementWithCorrespondenceModel<Class> generateBasicComponent(BasicComponentImpl component) {
 		SourcecodeFactory factory = SourcecodeFactory.eINSTANCE;
 		Class newClass = factory.createClass();
-		newClass.setName(component.getEntityName());
+		newClass.setName(component.getEntityName() + "Component");
 		CorrespondenceModel entry = new CorrespondenceModel(newClass.getName());
 		entry.addCorrespondingSet(new String[] { component.getEntityName() });
 
