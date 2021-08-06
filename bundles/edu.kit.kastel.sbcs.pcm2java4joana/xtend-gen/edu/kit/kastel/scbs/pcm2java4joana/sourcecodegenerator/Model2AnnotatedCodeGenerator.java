@@ -157,20 +157,19 @@ public class Model2AnnotatedCodeGenerator {
     _builder.append(" ");
     String _name = method.getName();
     _builder.append(_name);
-    _builder.append(" (");
+    _builder.append("(");
     {
       EList<Parameter> _parameter = method.getParameter();
       for(final Parameter parameter : _parameter) {
         String _generateParameter = this.generateParameter(parameter, null);
         _builder.append(_generateParameter);
-        _builder.append(" ");
         {
           int _indexOf = method.getParameter().indexOf(parameter);
           int _length = ((Object[])Conversions.unwrapArray(method.getParameter(), Object.class)).length;
           int _minus = (_length - 1);
           boolean _notEquals = (_indexOf != _minus);
           if (_notEquals) {
-            _builder.append(",");
+            _builder.append(", ");
           }
         }
       }
@@ -384,7 +383,7 @@ public class Model2AnnotatedCodeGenerator {
     _builder.append(" ");
     String _name = method.getName();
     _builder.append(_name);
-    _builder.append(" (");
+    _builder.append("(");
     {
       EList<Parameter> _parameter = method.getParameter();
       for(final Parameter parameter : _parameter) {
@@ -397,14 +396,13 @@ public class Model2AnnotatedCodeGenerator {
         }
         String _generateParameter = this.generateParameter(parameter, null);
         _builder.append(_generateParameter);
-        _builder.append(" ");
         {
           int _indexOf = method.getParameter().indexOf(parameter);
           int _length = ((Object[])Conversions.unwrapArray(method.getParameter(), Object.class)).length;
           int _minus = (_length - 1);
           boolean _notEquals = (_indexOf != _minus);
           if (_notEquals) {
-            _builder.append(",");
+            _builder.append(", ");
           }
         }
       }
@@ -543,6 +541,7 @@ public class Model2AnnotatedCodeGenerator {
     _builder.append("@Source");
     String _generateAnnotation = this.generateAnnotation(element);
     _builder.append(_generateAnnotation);
+    _builder.append(" ");
     return _builder.toString();
   }
   
@@ -551,6 +550,7 @@ public class Model2AnnotatedCodeGenerator {
     _builder.append("@Sink");
     String _generateAnnotation = this.generateAnnotation(element);
     _builder.append(_generateAnnotation);
+    _builder.append(" ");
     return _builder.toString();
   }
   
@@ -588,10 +588,9 @@ public class Model2AnnotatedCodeGenerator {
           int _minus = (_length - 1);
           boolean _notEquals = (_indexOf != _minus);
           if (_notEquals) {
-            _builder.append(",");
+            _builder.append(", ");
           }
         }
-        _builder.newLineIfNotEmpty();
       }
     }
     return _builder.toString();

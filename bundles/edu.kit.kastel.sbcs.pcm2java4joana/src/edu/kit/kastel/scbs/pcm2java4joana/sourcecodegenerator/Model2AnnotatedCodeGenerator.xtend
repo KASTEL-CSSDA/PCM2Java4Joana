@@ -82,7 +82,7 @@ class Model2AnnotatedCodeGenerator {
 	
 	def String generateInterfaceMethod(Method method) {
 		return '''
-		«generateDataType(method.type)» «method.name» («FOR parameter : method.parameter»«generateParameter(parameter, null)» «IF method.parameter.indexOf(parameter) != method.parameter.length - 1»,«ENDIF»«ENDFOR»);
+		«generateDataType(method.type)» «method.name»(«FOR parameter : method.parameter»«generateParameter(parameter, null)»«IF method.parameter.indexOf(parameter) != method.parameter.length - 1», «ENDIF»«ENDFOR»);
 		'''
 	}
 	
@@ -165,7 +165,7 @@ class Model2AnnotatedCodeGenerator {
 		«generateJoanaAnnotation(element)»
 		«ENDFOR»
 		@Override
-		public «generateDataType(method.type)» «method.name» («FOR parameter : method.parameter»«FOR element : JoanaModelUtils.getJoanaFlowSpecificationElementsFor(joanaModel, scClass.name, method.name, parameter.name)»«generateJoanaAnnotation(element)»«ENDFOR»«generateParameter(parameter, null)» «IF method.parameter.indexOf(parameter) != method.parameter.length - 1»,«ENDIF»«ENDFOR») {
+		public «generateDataType(method.type)» «method.name»(«FOR parameter : method.parameter»«FOR element : JoanaModelUtils.getJoanaFlowSpecificationElementsFor(joanaModel, scClass.name, method.name, parameter.name)»«generateJoanaAnnotation(element)»«ENDFOR»«generateParameter(parameter, null)»«IF method.parameter.indexOf(parameter) != method.parameter.length - 1», «ENDIF»«ENDFOR») {
 			// TODO: Implement me!
 			«IF method.type !== null»return null;«ENDIF»
 		}
@@ -207,11 +207,11 @@ class Model2AnnotatedCodeGenerator {
 	}
 	
 	def String generateSource(Source element) {
-		return '''@Source«generateAnnotation(element)»'''
+		return '''@Source«generateAnnotation(element)» '''
 	}
 	
 	def String generateSink(Sink element) {
-		return '''@Sink«generateAnnotation(element)»'''
+		return '''@Sink«generateAnnotation(element)» '''
 	}
 	
 	def String generateAnnotation(Annotation annotation) {
@@ -223,11 +223,7 @@ class Model2AnnotatedCodeGenerator {
 	}
 	
 	def String generateImplements(List<Interface> interfaces) {
-		return '''
-		«FOR inter : interfaces»
-			«inter.name»«IF interfaces.indexOf(inter) != interfaces.length - 1»,«ENDIF»
-		«ENDFOR»
-		'''
+		return '''«FOR inter : interfaces»«inter.name»«IF interfaces.indexOf(inter) != interfaces.length - 1», «ENDIF»«ENDFOR»'''
 	}
 	
 	def String generateImportsInterface(List<Method> methods)  {
