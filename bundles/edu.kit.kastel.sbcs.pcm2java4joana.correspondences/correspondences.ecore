@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="correspondences">
+  <eClassifiers xsi:type="ecore:EClass" name="CorrespondenceElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PCMComponent" eSuperTypes="#//CorrespondenceElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pcmprovidedinterfaces"
+        upperBound="-1" eType="#//PCMProvidedInterface" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SourceCodeClass" eSuperTypes="#//CorrespondenceElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourcecodemethod" upperBound="-1"
+        eType="#//SourceCodeMethod" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SourceCodeMethod" eSuperTypes="#//CorrespondenceElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourcecodeparamter" upperBound="-1"
+        eType="#//SourceCodeParamter" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PCMProvidedInterface" eSuperTypes="#//CorrespondenceElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pcmmethod" upperBound="-1"
+        eType="#//PCMMethod" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PCMMethod" eSuperTypes="#//CorrespondenceElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pcmparameter" upperBound="-1"
+        eType="#//PCMParameter" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SourceCodeParamter" eSuperTypes="#//CorrespondenceElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PCMParameter" eSuperTypes="#//CorrespondenceElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ComponentCorrespondence" eSuperTypes="#//CorrespondenceElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pcmcomponent" lowerBound="1"
+        eType="#//PCMComponent" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourcecodeclass" lowerBound="1"
+        eType="#//SourceCodeClass" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="methodcorrespondence" upperBound="-1"
+        eType="#//MethodCorrespondence" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MethodCorrespondence" eSuperTypes="#//CorrespondenceElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pcmmethod" upperBound="-1"
+        eType="#//PCMMethod" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourcecodemethod" upperBound="-1"
+        eType="#//SourceCodeMethod" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parametercorrespondence"
+        upperBound="-1" eType="#//ParameterCorrespondence" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterCorrespondence" eSuperTypes="#//CorrespondenceElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourcecodeparamter" upperBound="-1"
+        eType="#//SourceCodeParamter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pcmparameter" upperBound="-1"
+        eType="#//PCMParameter" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>
