@@ -105,17 +105,57 @@ public class Model2AnnotatedCodeGenerator {
     _builder.append("\t");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("public ");
-    String _name_1 = sourceCodeClass.getName();
-    _builder.append(_name_1, "\t");
-    _builder.append("() {");
+    String _generateConstructor = this.generateConstructor(sourceCodeClass);
+    _builder.append(_generateConstructor, "\t");
     _builder.newLineIfNotEmpty();
-    _builder.append("\t\t");
-    _builder.append("// TODO: Implement me!");
-    _builder.newLine();
-    _builder.append("\t");
     _builder.append("}");
     _builder.newLine();
+    return _builder.toString();
+  }
+  
+  public String generateConstructor(final edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class scClass) {
+    final List<Variable> variables = SourceCodeModelUtils.getVariables(scClass);
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("public ");
+    String _name = scClass.getName();
+    _builder.append(_name);
+    _builder.append("(");
+    {
+      for(final Variable variable : variables) {
+        String _generateDataType = this.generateDataType(variable.getType());
+        _builder.append(_generateDataType);
+        _builder.append(" ");
+        String _name_1 = variable.getName();
+        _builder.append(_name_1);
+        {
+          int _indexOf = variables.indexOf(variable);
+          int _size = variables.size();
+          int _minus = (_size - 1);
+          boolean _notEquals = (_indexOf != _minus);
+          if (_notEquals) {
+            _builder.append(", ");
+          }
+        }
+      }
+    }
+    _builder.append(") {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("// TODO: Implement me!");
+    _builder.newLine();
+    {
+      for(final Variable variable_1 : variables) {
+        _builder.append("\t");
+        _builder.append("this.");
+        String _name_2 = variable_1.getName();
+        _builder.append(_name_2, "\t");
+        _builder.append(" = ");
+        String _name_3 = variable_1.getName();
+        _builder.append(_name_3, "\t");
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     _builder.append("}");
     _builder.newLine();
     return _builder.toString();

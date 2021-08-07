@@ -1,12 +1,12 @@
 package edu.kit.kastel.scbs.pcm2java4joana.sourcecodegenerator
 
-import edu.kit.kastel.scbs.pcm2java4joana.joana.JOANARoot
-import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourceCodeRoot
-import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Interface
-import java.util.ArrayList
-import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.TopLevelType
 import org.eclipse.internal.xtend.util.Triplet
 import java.util.List
+import java.util.ArrayList
+
+import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourceCodeRoot
+import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Interface
+import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.TopLevelType
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Method
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Parameter
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Type
@@ -15,16 +15,18 @@ import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.ReferenceType
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.CollectionType
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Field
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Variable
-import edu.kit.kastel.scbs.pcm2java4joana.utils.JoanaModelUtils
+
+import edu.kit.kastel.scbs.pcm2java4joana.joana.JOANARoot
 import edu.kit.kastel.scbs.pcm2java4joana.joana.EntryPoint
 import edu.kit.kastel.scbs.pcm2java4joana.joana.Source
 import edu.kit.kastel.scbs.pcm2java4joana.joana.Sink
 import edu.kit.kastel.scbs.pcm2java4joana.joana.SecurityLevel
 import edu.kit.kastel.scbs.pcm2java4joana.joana.Lattice
 import edu.kit.kastel.scbs.pcm2java4joana.joana.FlowRelation
+import edu.kit.kastel.scbs.pcm2java4joana.joana.Annotation
 
 import edu.kit.kastel.scbs.pcm2java4joana.utils.SetOperations
-import edu.kit.kastel.scbs.pcm2java4joana.joana.Annotation
+import edu.kit.kastel.scbs.pcm2java4joana.utils.JoanaModelUtils
 import edu.kit.kastel.scbs.pcm2java4joana.utils.SourceCodeModelUtils
 
 class Model2AnnotatedCodeGenerator {
@@ -59,9 +61,19 @@ class Model2AnnotatedCodeGenerator {
 		public class «sourceCodeClass.name» «IF sourceCodeClass.implements.size > 0»implements «generateImplements(sourceCodeClass.implements)»«ENDIF»{
 			«generateFields(sourceCodeClass.fields, sourceCodeClass, joanaModel)»
 			
-			public «sourceCodeClass.name»() {
-				// TODO: Implement me!
-			}
+			«generateConstructor(sourceCodeClass)»
+		}
+		'''
+	}
+	
+	def String generateConstructor(edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class scClass) {
+		val variables = SourceCodeModelUtils.getVariables(scClass)
+		return '''
+		public «scClass.name»(«FOR variable : variables»«generateDataType(variable.type)» «variable.name»«IF variables.indexOf(variable) != variables.size - 1», «ENDIF»«ENDFOR») {
+			// TODO: Implement me!
+			«FOR variable : variables»
+			this.«variable.name» = «variable.name»;
+			«ENDFOR»
 		}
 		'''
 	}
