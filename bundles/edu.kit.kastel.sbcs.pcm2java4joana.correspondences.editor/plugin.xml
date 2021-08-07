@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated correspondences -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="correspondences.presentation.CorrespondencesModelWizardID"
+            name="%_UI_CorrespondencesModelWizard_label"
+            class="correspondences.presentation.CorrespondencesModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/CorrespondencesModelFile.gif">
+         <description>%_UI_CorrespondencesModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated correspondences -->
+      <editor
+            id="correspondences.presentation.CorrespondencesEditorID"
+            name="%_UI_CorrespondencesEditor_label"
+            icon="icons/full/obj16/CorrespondencesModelFile.gif"
+            extensions="correspondences"
+            class="correspondences.presentation.CorrespondencesEditor"
+            contributorClass="correspondences.presentation.CorrespondencesActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

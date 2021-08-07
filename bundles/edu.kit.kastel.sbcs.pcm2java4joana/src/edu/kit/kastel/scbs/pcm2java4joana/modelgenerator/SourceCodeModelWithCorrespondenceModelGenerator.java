@@ -61,8 +61,8 @@ public class SourceCodeModelWithCorrespondenceModelGenerator {
 
 	private SourceCodeElementWithCorrespondenceModel<Resource> generateSourceCodeModel(Repository rep,
 			Resource sourceCodeModel) {
-		SourcecodeFactory factory = SourcecodeFactory.eINSTANCE;
-		SourceCodeRoot root = factory.createSourceCodeRoot();
+		SourcecodeFactory sourceCodeFactory = SourcecodeFactory.eINSTANCE;
+		SourceCodeRoot root = sourceCodeFactory.createSourceCodeRoot();
 		root.setName(rep.getEntityName());
 		CorrespondenceModel correspondenceModel = new CorrespondenceModel(root.getName());
 		correspondenceModel.addCorrespondingSet(new String[] { rep.getEntityName() });
@@ -123,8 +123,8 @@ public class SourceCodeModelWithCorrespondenceModelGenerator {
 	}
 
 	private Variable generateInnerDeclaration(InnerDeclarationImpl innerDeclaration) {
-		SourcecodeFactory factory = SourcecodeFactory.eINSTANCE;
-		Variable variable = factory.createVariable();
+		SourcecodeFactory sourceCodeFactory = SourcecodeFactory.eINSTANCE;
+		Variable variable = sourceCodeFactory.createVariable();
 		variable.setName(innerDeclaration.getEntityName());
 		variable.setType(this.generateType(innerDeclaration.getDatatype_InnerDeclaration()));
 		return variable;
@@ -132,8 +132,8 @@ public class SourceCodeModelWithCorrespondenceModelGenerator {
 
 	private SourceCodeElementWithCorrespondenceModel<TopLevelType> generateClassContainer(
 			CompositeDataTypeImpl pcmClass) {
-		SourcecodeFactory factory = SourcecodeFactory.eINSTANCE;
-		edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class newClass = factory.createClass();
+		SourcecodeFactory sourceCodeFactory = SourcecodeFactory.eINSTANCE;
+		edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class newClass = sourceCodeFactory.createClass();
 		newClass.setName(pcmClass.getEntityName());
 		CorrespondenceModel entry = new CorrespondenceModel(newClass.getName());
 		entry.addCorrespondingSet(new String[] { pcmClass.getEntityName() });
@@ -143,8 +143,8 @@ public class SourceCodeModelWithCorrespondenceModelGenerator {
 
 	private SourceCodeElementWithCorrespondenceModel<TopLevelType> generateInterfaceContainer(
 			OperationInterfaceImpl pcmInterface) {
-		SourcecodeFactory factory = SourcecodeFactory.eINSTANCE;
-		Interface inter = factory.createInterface();
+		SourcecodeFactory sourceCodeFactory = SourcecodeFactory.eINSTANCE;
+		Interface inter = sourceCodeFactory.createInterface();
 		var n1 = inter.getName();
 
 		inter.setName(pcmInterface.getEntityName());
@@ -159,7 +159,7 @@ public class SourceCodeModelWithCorrespondenceModelGenerator {
 	}
 
 	private void fillInterfaceContainer(OperationInterfaceImpl pcmInterface) {
-		SourcecodeFactory factory = SourcecodeFactory.eINSTANCE;
+		SourcecodeFactory sourceCodeFactory = SourcecodeFactory.eINSTANCE;
 		Interface inter = (Interface) this.compositeClasses.get(pcmInterface.getEntityName()).getSourceCodeElement();
 		CorrespondenceModel entry = this.compositeClasses.get(pcmInterface.getEntityName()).getCorrespondenceModel();
 
@@ -176,8 +176,8 @@ public class SourceCodeModelWithCorrespondenceModelGenerator {
 	}
 
 	private SourceCodeElementWithCorrespondenceModel<Method> generateOperation(OperationSignatureImpl pcmOperation) {
-		SourcecodeFactory factory = SourcecodeFactory.eINSTANCE;
-		Method method = factory.createMethod();
+		SourcecodeFactory sourceCodeFactory = SourcecodeFactory.eINSTANCE;
+		Method method = sourceCodeFactory.createMethod();
 		method.setName(pcmOperation.getEntityName());
 		if (pcmOperation.getReturnType__OperationSignature() != null) {
 			method.setType(this.generateType(pcmOperation.getReturnType__OperationSignature()));
@@ -196,8 +196,8 @@ public class SourceCodeModelWithCorrespondenceModelGenerator {
 	}
 
 	private Parameter generateParameter(ParameterImpl pcmParameter) {
-		SourcecodeFactory factory = SourcecodeFactory.eINSTANCE;
-		Parameter parameter = factory.createParameter();
+		SourcecodeFactory sourceCodeFactory = SourcecodeFactory.eINSTANCE;
+		Parameter parameter = sourceCodeFactory.createParameter();
 		parameter.setName(pcmParameter.getParameterName());
 		parameter.setType(this.generateType(pcmParameter.getDataType__Parameter()));
 		return parameter;
@@ -218,15 +218,15 @@ public class SourceCodeModelWithCorrespondenceModelGenerator {
 	}
 
 	private Type generateReferenceType(CompositeDataTypeImpl pcmType) {
-		SourcecodeFactory factory = SourcecodeFactory.eINSTANCE;
-		ReferenceType type = factory.createReferenceType();
+		SourcecodeFactory sourceCodeFactory = SourcecodeFactory.eINSTANCE;
+		ReferenceType type = sourceCodeFactory.createReferenceType();
 		type.setTopleveltype(this.compositeClasses.get(pcmType.getEntityName()).getSourceCodeElement());
 		return type;
 	}
 
 	private Type generateCollectionType(CollectionDataTypeImpl pcmType) {
-		SourcecodeFactory factory = SourcecodeFactory.eINSTANCE;
-		CollectionType type = factory.createCollectionType();
+		SourcecodeFactory sourceCodeFactory = SourcecodeFactory.eINSTANCE;
+		CollectionType type = sourceCodeFactory.createCollectionType();
 
 		DataType pcmInnerType = pcmType.getInnerType_CollectionDataType();
 		if (pcmInnerType != null) {
@@ -238,8 +238,8 @@ public class SourceCodeModelWithCorrespondenceModelGenerator {
 	}
 
 	private Type generateBuiltInType(PrimitiveDataTypeImpl pcmType) {
-		SourcecodeFactory factory = SourcecodeFactory.eINSTANCE;
-		BuiltInType type = factory.createBuiltInType();
+		SourcecodeFactory sourceCodeFactory = SourcecodeFactory.eINSTANCE;
+		BuiltInType type = sourceCodeFactory.createBuiltInType();
 		pcmType.getType();
 		switch (pcmType.getType().getValue()) {
 		case PrimitiveTypeEnum.BOOL_VALUE:
@@ -271,8 +271,8 @@ public class SourceCodeModelWithCorrespondenceModelGenerator {
 	}
 
 	private SourceCodeElementWithCorrespondenceModel<Class> generateBasicComponent(BasicComponentImpl component) {
-		SourcecodeFactory factory = SourcecodeFactory.eINSTANCE;
-		Class newClass = factory.createClass();
+		SourcecodeFactory sourceCodeFactory = SourcecodeFactory.eINSTANCE;
+		Class newClass = sourceCodeFactory.createClass();
 		newClass.setName(component.getEntityName() + "Component");
 		CorrespondenceModel entry = new CorrespondenceModel(newClass.getName());
 		entry.addCorrespondingSet(new String[] { component.getEntityName() });
@@ -292,9 +292,9 @@ public class SourceCodeModelWithCorrespondenceModelGenerator {
 				interfaceName = ((OperationRequiredRoleImpl) object).basicGetRequiredInterface__OperationRequiredRole()
 						.getEntityName();
 				Interface requires = (Interface) this.compositeClasses.get(interfaceName).getSourceCodeElement();
-				ReferenceType referenceType = factory.createReferenceType();
+				ReferenceType referenceType = sourceCodeFactory.createReferenceType();
 				referenceType.setTopleveltype(requires);
-				Variable variable = factory.createVariable();
+				Variable variable = sourceCodeFactory.createVariable();
 				variable.setType(referenceType);
 				variable.setName(((OperationRequiredRoleImpl) object).getEntityName());
 				newClass.getFields().add(variable);
