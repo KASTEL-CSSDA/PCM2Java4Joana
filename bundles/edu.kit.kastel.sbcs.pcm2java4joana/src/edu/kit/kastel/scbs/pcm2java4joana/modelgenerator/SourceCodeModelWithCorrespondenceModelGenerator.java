@@ -30,15 +30,7 @@ import correspondences.CorrespondenceModel;
 import correspondences.CorrespondencesFactory;
 import correspondences.InterfaceCorrespondence;
 import correspondences.MethodCorrespondence;
-import correspondences.PCMComponent;
-import correspondences.PCMMethod;
-import correspondences.PCMParameter;
-import correspondences.PCMProvidedInterface;
 import correspondences.ParameterCorrespondence;
-import correspondences.SourceCodeClass;
-import correspondences.SourceCodeInterface;
-import correspondences.SourceCodeMethod;
-import correspondences.SourceCodeParameter;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.BuiltInType;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.BuiltInTypes;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class;
@@ -166,7 +158,8 @@ public class SourceCodeModelWithCorrespondenceModelGenerator {
 		SourcecodeFactory sourceCodeFactory = SourcecodeFactory.eINSTANCE;
 		Interface inter = sourceCodeFactory.createInterface();
 		inter.setName(pcmInterface.getEntityName());
-		InterfaceCorrespondence interfaceCorrespondence = this.generateInterfaceCorrespondence(pcmInterface, inter);
+		InterfaceCorrespondence interfaceCorrespondence = CorrespondenceModelElementsGenerator
+				.generateInterfaceCorrespondence(pcmInterface, inter);
 
 		return new Tuple<Interface, InterfaceCorrespondence>(inter, interfaceCorrespondence);
 	}
@@ -189,7 +182,8 @@ public class SourceCodeModelWithCorrespondenceModelGenerator {
 		SourcecodeFactory sourceCodeFactory = SourcecodeFactory.eINSTANCE;
 		Method method = sourceCodeFactory.createMethod();
 		method.setName(pcmOperation.getEntityName());
-		MethodCorrespondence methodCorrespondence = this.generateMethodCorrespondence(pcmOperation, method);
+		MethodCorrespondence methodCorrespondence = CorrespondenceModelElementsGenerator
+				.generateMethodCorrespondence(pcmOperation, method);
 
 		if (pcmOperation.getReturnType__OperationSignature() != null) {
 			method.setType(this.generateType(pcmOperation.getReturnType__OperationSignature()));
@@ -212,7 +206,8 @@ public class SourceCodeModelWithCorrespondenceModelGenerator {
 		Parameter parameter = sourceCodeFactory.createParameter();
 		parameter.setName(pcmParameter.getParameterName());
 		parameter.setType(this.generateType(pcmParameter.getDataType__Parameter()));
-		ParameterCorrespondence parameterCorrespondence = this.generateParameterCorrespondence(pcmParameter, parameter);
+		ParameterCorrespondence parameterCorrespondence = CorrespondenceModelElementsGenerator
+				.generateParameterCorrespondence(pcmParameter, parameter);
 
 		return new Tuple<Parameter, ParameterCorrespondence>(parameter, parameterCorrespondence);
 	}
@@ -288,7 +283,8 @@ public class SourceCodeModelWithCorrespondenceModelGenerator {
 		SourcecodeFactory sourceCodeFactory = SourcecodeFactory.eINSTANCE;
 		Class newClass = sourceCodeFactory.createClass();
 		newClass.setName(component.getEntityName() + "Component"); // TODO: Remove
-		ComponentCorrespondence componentCorrespondence = this.generateComponentCorrespondence(component, newClass);
+		ComponentCorrespondence componentCorrespondence = CorrespondenceModelElementsGenerator
+				.generateComponentCorrespondence(component, newClass);
 
 		for (EObject object : component.eContents()) {
 			String interfaceName = "";
@@ -316,55 +312,5 @@ public class SourceCodeModelWithCorrespondenceModelGenerator {
 		}
 
 		return new Tuple<Class, ComponentCorrespondence>(newClass, componentCorrespondence);
-	}
-
-	private ComponentCorrespondence generateComponentCorrespondence(BasicComponentImpl component, Class newClass) {
-		CorrespondencesFactory correspondenceFactory = CorrespondencesFactory.eINSTANCE;
-		ComponentCorrespondence componentCorrespondence = correspondenceFactory.createComponentCorrespondence();
-		PCMComponent pcmComponent = correspondenceFactory.createPCMComponent();
-		SourceCodeClass sourceCodeClass = correspondenceFactory.createSourceCodeClass();
-		componentCorrespondence.setPcmcomponent(pcmComponent);
-		componentCorrespondence.setSourcecodeclass(sourceCodeClass);
-		pcmComponent.setName(component.getEntityName());
-		sourceCodeClass.setName(newClass.getName());
-		return componentCorrespondence;
-	}
-
-	private InterfaceCorrespondence generateInterfaceCorrespondence(OperationInterfaceImpl pcmInterface,
-			Interface inter) {
-		CorrespondencesFactory correspondenceFactory = CorrespondencesFactory.eINSTANCE;
-		InterfaceCorrespondence interfaceCorrespondence = correspondenceFactory.createInterfaceCorrespondence();
-		PCMProvidedInterface pcmProvidedInterface = correspondenceFactory.createPCMProvidedInterface();
-		SourceCodeInterface sourceCodeInterface = correspondenceFactory.createSourceCodeInterface();
-		pcmProvidedInterface.setName(pcmInterface.getEntityName());
-		sourceCodeInterface.setName(inter.getName());
-
-		return interfaceCorrespondence;
-	}
-
-	private MethodCorrespondence generateMethodCorrespondence(OperationSignatureImpl pcmOperation, Method method) {
-		CorrespondencesFactory correspondencesFactory = CorrespondencesFactory.eINSTANCE;
-		MethodCorrespondence methodCorrespondence = correspondencesFactory.createMethodCorrespondence();
-		PCMMethod pcmMethod = correspondencesFactory.createPCMMethod();
-		SourceCodeMethod sourceCodeMethod = correspondencesFactory.createSourceCodeMethod();
-		methodCorrespondence.getPcmmethod().add(pcmMethod);
-		methodCorrespondence.getSourcecodemethod().add(sourceCodeMethod);
-		pcmMethod.setName(pcmOperation.getEntityName());
-		sourceCodeMethod.setName(method.getName());
-
-		return methodCorrespondence;
-	}
-
-	private ParameterCorrespondence generateParameterCorrespondence(ParameterImpl pcmParameter, Parameter parameter) {
-		CorrespondencesFactory correspondencesFactory = CorrespondencesFactory.eINSTANCE;
-		ParameterCorrespondence parameterCorrespondence = correspondencesFactory.createParameterCorrespondence();
-		PCMParameter pcmParameter2 = correspondencesFactory.createPCMParameter();
-		SourceCodeParameter sourceCodeParameter = correspondencesFactory.createSourceCodeParameter();
-		parameterCorrespondence.getPcmparameter().add(pcmParameter2);
-		parameterCorrespondence.getSourcecodeparamter().add(sourceCodeParameter);
-		pcmParameter2.setName(pcmParameter.getParameterName());
-		sourceCodeParameter.setName(parameter.getName());
-
-		return parameterCorrespondence;
 	}
 }
