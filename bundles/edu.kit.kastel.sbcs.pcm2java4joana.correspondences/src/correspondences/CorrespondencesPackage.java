@@ -2,6 +2,7 @@
  */
 package correspondences;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -66,13 +67,22 @@ public interface CorrespondencesPackage extends EPackage {
 	int CORRESPONDENCE_ELEMENT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CORRESPONDENCE_ELEMENT__NAME = 0;
+
+	/**
 	 * The number of structural features of the '<em>Correspondence Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CORRESPONDENCE_ELEMENT_FEATURE_COUNT = 0;
+	int CORRESPONDENCE_ELEMENT_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Correspondence Element</em>' class.
@@ -92,6 +102,15 @@ public interface CorrespondencesPackage extends EPackage {
 	 * @generated
 	 */
 	int PCM_COMPONENT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_COMPONENT__NAME = CORRESPONDENCE_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Pcmprovidedinterfaces</b></em>' containment reference list.
@@ -131,6 +150,15 @@ public interface CorrespondencesPackage extends EPackage {
 	int SOURCE_CODE_CLASS = 2;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_CODE_CLASS__NAME = CORRESPONDENCE_ELEMENT__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Sourcecodemethod</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -166,6 +194,15 @@ public interface CorrespondencesPackage extends EPackage {
 	 * @generated
 	 */
 	int SOURCE_CODE_METHOD = 3;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_CODE_METHOD__NAME = CORRESPONDENCE_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Sourcecodeparamter</b></em>' containment reference list.
@@ -205,6 +242,15 @@ public interface CorrespondencesPackage extends EPackage {
 	int PCM_PROVIDED_INTERFACE = 4;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_PROVIDED_INTERFACE__NAME = CORRESPONDENCE_ELEMENT__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Pcmmethod</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -242,6 +288,15 @@ public interface CorrespondencesPackage extends EPackage {
 	int PCM_METHOD = 5;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_METHOD__NAME = CORRESPONDENCE_ELEMENT__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Pcmparameter</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -269,32 +324,41 @@ public interface CorrespondencesPackage extends EPackage {
 	int PCM_METHOD_OPERATION_COUNT = CORRESPONDENCE_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link correspondences.impl.SourceCodeParamterImpl <em>Source Code Paramter</em>}' class.
+	 * The meta object id for the '{@link correspondences.impl.SourceCodeParameterImpl <em>Source Code Parameter</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see correspondences.impl.SourceCodeParamterImpl
-	 * @see correspondences.impl.CorrespondencesPackageImpl#getSourceCodeParamter()
+	 * @see correspondences.impl.SourceCodeParameterImpl
+	 * @see correspondences.impl.CorrespondencesPackageImpl#getSourceCodeParameter()
 	 * @generated
 	 */
-	int SOURCE_CODE_PARAMTER = 6;
+	int SOURCE_CODE_PARAMETER = 6;
 
 	/**
-	 * The number of structural features of the '<em>Source Code Paramter</em>' class.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE_CODE_PARAMTER_FEATURE_COUNT = CORRESPONDENCE_ELEMENT_FEATURE_COUNT + 0;
+	int SOURCE_CODE_PARAMETER__NAME = CORRESPONDENCE_ELEMENT__NAME;
 
 	/**
-	 * The number of operations of the '<em>Source Code Paramter</em>' class.
+	 * The number of structural features of the '<em>Source Code Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SOURCE_CODE_PARAMTER_OPERATION_COUNT = CORRESPONDENCE_ELEMENT_OPERATION_COUNT + 0;
+	int SOURCE_CODE_PARAMETER_FEATURE_COUNT = CORRESPONDENCE_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Source Code Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_CODE_PARAMETER_OPERATION_COUNT = CORRESPONDENCE_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link correspondences.impl.PCMParameterImpl <em>PCM Parameter</em>}' class.
@@ -305,6 +369,15 @@ public interface CorrespondencesPackage extends EPackage {
 	 * @generated
 	 */
 	int PCM_PARAMETER = 7;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_PARAMETER__NAME = CORRESPONDENCE_ELEMENT__NAME;
 
 	/**
 	 * The number of structural features of the '<em>PCM Parameter</em>' class.
@@ -333,6 +406,15 @@ public interface CorrespondencesPackage extends EPackage {
 	 * @generated
 	 */
 	int COMPONENT_CORRESPONDENCE = 8;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT_CORRESPONDENCE__NAME = CORRESPONDENCE_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Pcmcomponent</b></em>' containment reference.
@@ -390,6 +472,15 @@ public interface CorrespondencesPackage extends EPackage {
 	int METHOD_CORRESPONDENCE = 9;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_CORRESPONDENCE__NAME = CORRESPONDENCE_ELEMENT__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Pcmmethod</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -445,6 +536,15 @@ public interface CorrespondencesPackage extends EPackage {
 	int PARAMETER_CORRESPONDENCE = 10;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_CORRESPONDENCE__NAME = CORRESPONDENCE_ELEMENT__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Sourcecodeparamter</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -480,6 +580,162 @@ public interface CorrespondencesPackage extends EPackage {
 	 */
 	int PARAMETER_CORRESPONDENCE_OPERATION_COUNT = CORRESPONDENCE_ELEMENT_OPERATION_COUNT + 0;
 
+	/**
+	 * The meta object id for the '{@link correspondences.impl.CorrespondenceModelImpl <em>Correspondence Model</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see correspondences.impl.CorrespondenceModelImpl
+	 * @see correspondences.impl.CorrespondencesPackageImpl#getCorrespondenceModel()
+	 * @generated
+	 */
+	int CORRESPONDENCE_MODEL = 11;
+
+	/**
+	 * The feature id for the '<em><b>Componentcorrespondence</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CORRESPONDENCE_MODEL__COMPONENTCORRESPONDENCE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Interfacecorrespondence</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CORRESPONDENCE_MODEL__INTERFACECORRESPONDENCE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Correspondence Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CORRESPONDENCE_MODEL_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Correspondence Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CORRESPONDENCE_MODEL_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link correspondences.impl.InterfaceCorrespondenceImpl <em>Interface Correspondence</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see correspondences.impl.InterfaceCorrespondenceImpl
+	 * @see correspondences.impl.CorrespondencesPackageImpl#getInterfaceCorrespondence()
+	 * @generated
+	 */
+	int INTERFACE_CORRESPONDENCE = 12;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE_CORRESPONDENCE__NAME = CORRESPONDENCE_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Sourcecodeinterface</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE_CORRESPONDENCE__SOURCECODEINTERFACE = CORRESPONDENCE_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Pcmprovidedinterface</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE_CORRESPONDENCE__PCMPROVIDEDINTERFACE = CORRESPONDENCE_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Methodcorrespondence</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE_CORRESPONDENCE__METHODCORRESPONDENCE = CORRESPONDENCE_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Interface Correspondence</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE_CORRESPONDENCE_FEATURE_COUNT = CORRESPONDENCE_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Interface Correspondence</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE_CORRESPONDENCE_OPERATION_COUNT = CORRESPONDENCE_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link correspondences.impl.SourceCodeInterfaceImpl <em>Source Code Interface</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see correspondences.impl.SourceCodeInterfaceImpl
+	 * @see correspondences.impl.CorrespondencesPackageImpl#getSourceCodeInterface()
+	 * @generated
+	 */
+	int SOURCE_CODE_INTERFACE = 13;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_CODE_INTERFACE__NAME = CORRESPONDENCE_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Sourcecodemethod</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_CODE_INTERFACE__SOURCECODEMETHOD = CORRESPONDENCE_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Source Code Interface</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_CODE_INTERFACE_FEATURE_COUNT = CORRESPONDENCE_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Source Code Interface</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SOURCE_CODE_INTERFACE_OPERATION_COUNT = CORRESPONDENCE_ELEMENT_OPERATION_COUNT + 0;
+
 
 	/**
 	 * Returns the meta object for class '{@link correspondences.CorrespondenceElement <em>Correspondence Element</em>}'.
@@ -490,6 +746,17 @@ public interface CorrespondencesPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getCorrespondenceElement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link correspondences.CorrespondenceElement#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see correspondences.CorrespondenceElement#getName()
+	 * @see #getCorrespondenceElement()
+	 * @generated
+	 */
+	EAttribute getCorrespondenceElement_Name();
 
 	/**
 	 * Returns the meta object for class '{@link correspondences.PCMComponent <em>PCM Component</em>}'.
@@ -597,14 +864,14 @@ public interface CorrespondencesPackage extends EPackage {
 	EReference getPCMMethod_Pcmparameter();
 
 	/**
-	 * Returns the meta object for class '{@link correspondences.SourceCodeParamter <em>Source Code Paramter</em>}'.
+	 * Returns the meta object for class '{@link correspondences.SourceCodeParameter <em>Source Code Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Source Code Paramter</em>'.
-	 * @see correspondences.SourceCodeParamter
+	 * @return the meta object for class '<em>Source Code Parameter</em>'.
+	 * @see correspondences.SourceCodeParameter
 	 * @generated
 	 */
-	EClass getSourceCodeParamter();
+	EClass getSourceCodeParameter();
 
 	/**
 	 * Returns the meta object for class '{@link correspondences.PCMParameter <em>PCM Parameter</em>}'.
@@ -735,6 +1002,102 @@ public interface CorrespondencesPackage extends EPackage {
 	EReference getParameterCorrespondence_Pcmparameter();
 
 	/**
+	 * Returns the meta object for class '{@link correspondences.CorrespondenceModel <em>Correspondence Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Correspondence Model</em>'.
+	 * @see correspondences.CorrespondenceModel
+	 * @generated
+	 */
+	EClass getCorrespondenceModel();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link correspondences.CorrespondenceModel#getComponentcorrespondence <em>Componentcorrespondence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Componentcorrespondence</em>'.
+	 * @see correspondences.CorrespondenceModel#getComponentcorrespondence()
+	 * @see #getCorrespondenceModel()
+	 * @generated
+	 */
+	EReference getCorrespondenceModel_Componentcorrespondence();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link correspondences.CorrespondenceModel#getInterfacecorrespondence <em>Interfacecorrespondence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Interfacecorrespondence</em>'.
+	 * @see correspondences.CorrespondenceModel#getInterfacecorrespondence()
+	 * @see #getCorrespondenceModel()
+	 * @generated
+	 */
+	EReference getCorrespondenceModel_Interfacecorrespondence();
+
+	/**
+	 * Returns the meta object for class '{@link correspondences.InterfaceCorrespondence <em>Interface Correspondence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Interface Correspondence</em>'.
+	 * @see correspondences.InterfaceCorrespondence
+	 * @generated
+	 */
+	EClass getInterfaceCorrespondence();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link correspondences.InterfaceCorrespondence#getSourcecodeinterface <em>Sourcecodeinterface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Sourcecodeinterface</em>'.
+	 * @see correspondences.InterfaceCorrespondence#getSourcecodeinterface()
+	 * @see #getInterfaceCorrespondence()
+	 * @generated
+	 */
+	EReference getInterfaceCorrespondence_Sourcecodeinterface();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link correspondences.InterfaceCorrespondence#getPcmprovidedinterface <em>Pcmprovidedinterface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Pcmprovidedinterface</em>'.
+	 * @see correspondences.InterfaceCorrespondence#getPcmprovidedinterface()
+	 * @see #getInterfaceCorrespondence()
+	 * @generated
+	 */
+	EReference getInterfaceCorrespondence_Pcmprovidedinterface();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link correspondences.InterfaceCorrespondence#getMethodcorrespondence <em>Methodcorrespondence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Methodcorrespondence</em>'.
+	 * @see correspondences.InterfaceCorrespondence#getMethodcorrespondence()
+	 * @see #getInterfaceCorrespondence()
+	 * @generated
+	 */
+	EReference getInterfaceCorrespondence_Methodcorrespondence();
+
+	/**
+	 * Returns the meta object for class '{@link correspondences.SourceCodeInterface <em>Source Code Interface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Source Code Interface</em>'.
+	 * @see correspondences.SourceCodeInterface
+	 * @generated
+	 */
+	EClass getSourceCodeInterface();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link correspondences.SourceCodeInterface#getSourcecodemethod <em>Sourcecodemethod</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Sourcecodemethod</em>'.
+	 * @see correspondences.SourceCodeInterface#getSourcecodemethod()
+	 * @see #getSourceCodeInterface()
+	 * @generated
+	 */
+	EReference getSourceCodeInterface_Sourcecodemethod();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -766,6 +1129,14 @@ public interface CorrespondencesPackage extends EPackage {
 		 * @generated
 		 */
 		EClass CORRESPONDENCE_ELEMENT = eINSTANCE.getCorrespondenceElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CORRESPONDENCE_ELEMENT__NAME = eINSTANCE.getCorrespondenceElement_Name();
 
 		/**
 		 * The meta object literal for the '{@link correspondences.impl.PCMComponentImpl <em>PCM Component</em>}' class.
@@ -858,14 +1229,14 @@ public interface CorrespondencesPackage extends EPackage {
 		EReference PCM_METHOD__PCMPARAMETER = eINSTANCE.getPCMMethod_Pcmparameter();
 
 		/**
-		 * The meta object literal for the '{@link correspondences.impl.SourceCodeParamterImpl <em>Source Code Paramter</em>}' class.
+		 * The meta object literal for the '{@link correspondences.impl.SourceCodeParameterImpl <em>Source Code Parameter</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see correspondences.impl.SourceCodeParamterImpl
-		 * @see correspondences.impl.CorrespondencesPackageImpl#getSourceCodeParamter()
+		 * @see correspondences.impl.SourceCodeParameterImpl
+		 * @see correspondences.impl.CorrespondencesPackageImpl#getSourceCodeParameter()
 		 * @generated
 		 */
-		EClass SOURCE_CODE_PARAMTER = eINSTANCE.getSourceCodeParamter();
+		EClass SOURCE_CODE_PARAMETER = eINSTANCE.getSourceCodeParameter();
 
 		/**
 		 * The meta object literal for the '{@link correspondences.impl.PCMParameterImpl <em>PCM Parameter</em>}' class.
@@ -970,6 +1341,84 @@ public interface CorrespondencesPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PARAMETER_CORRESPONDENCE__PCMPARAMETER = eINSTANCE.getParameterCorrespondence_Pcmparameter();
+
+		/**
+		 * The meta object literal for the '{@link correspondences.impl.CorrespondenceModelImpl <em>Correspondence Model</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see correspondences.impl.CorrespondenceModelImpl
+		 * @see correspondences.impl.CorrespondencesPackageImpl#getCorrespondenceModel()
+		 * @generated
+		 */
+		EClass CORRESPONDENCE_MODEL = eINSTANCE.getCorrespondenceModel();
+
+		/**
+		 * The meta object literal for the '<em><b>Componentcorrespondence</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CORRESPONDENCE_MODEL__COMPONENTCORRESPONDENCE = eINSTANCE.getCorrespondenceModel_Componentcorrespondence();
+
+		/**
+		 * The meta object literal for the '<em><b>Interfacecorrespondence</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CORRESPONDENCE_MODEL__INTERFACECORRESPONDENCE = eINSTANCE.getCorrespondenceModel_Interfacecorrespondence();
+
+		/**
+		 * The meta object literal for the '{@link correspondences.impl.InterfaceCorrespondenceImpl <em>Interface Correspondence</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see correspondences.impl.InterfaceCorrespondenceImpl
+		 * @see correspondences.impl.CorrespondencesPackageImpl#getInterfaceCorrespondence()
+		 * @generated
+		 */
+		EClass INTERFACE_CORRESPONDENCE = eINSTANCE.getInterfaceCorrespondence();
+
+		/**
+		 * The meta object literal for the '<em><b>Sourcecodeinterface</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERFACE_CORRESPONDENCE__SOURCECODEINTERFACE = eINSTANCE.getInterfaceCorrespondence_Sourcecodeinterface();
+
+		/**
+		 * The meta object literal for the '<em><b>Pcmprovidedinterface</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERFACE_CORRESPONDENCE__PCMPROVIDEDINTERFACE = eINSTANCE.getInterfaceCorrespondence_Pcmprovidedinterface();
+
+		/**
+		 * The meta object literal for the '<em><b>Methodcorrespondence</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERFACE_CORRESPONDENCE__METHODCORRESPONDENCE = eINSTANCE.getInterfaceCorrespondence_Methodcorrespondence();
+
+		/**
+		 * The meta object literal for the '{@link correspondences.impl.SourceCodeInterfaceImpl <em>Source Code Interface</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see correspondences.impl.SourceCodeInterfaceImpl
+		 * @see correspondences.impl.CorrespondencesPackageImpl#getSourceCodeInterface()
+		 * @generated
+		 */
+		EClass SOURCE_CODE_INTERFACE = eINSTANCE.getSourceCodeInterface();
+
+		/**
+		 * The meta object literal for the '<em><b>Sourcecodemethod</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SOURCE_CODE_INTERFACE__SOURCECODEMETHOD = eINSTANCE.getSourceCodeInterface_Sourcecodemethod();
 
 	}
 

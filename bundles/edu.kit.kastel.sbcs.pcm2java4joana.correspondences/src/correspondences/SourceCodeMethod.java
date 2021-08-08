@@ -23,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
 public interface SourceCodeMethod extends CorrespondenceElement {
 	/**
 	 * Returns the value of the '<em><b>Sourcecodeparamter</b></em>' containment reference list.
-	 * The list contents are of type {@link correspondences.SourceCodeParamter}.
+	 * The list contents are of type {@link correspondences.SourceCodeParameter}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sourcecodeparamter</em>' containment reference list.
@@ -31,6 +31,6 @@ public interface SourceCodeMethod extends CorrespondenceElement {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<SourceCodeParamter> getSourcecodeparamter();
+	EList<SourceCodeParameter> getSourcecodeparamter();
 
 } // SourceCodeMethod

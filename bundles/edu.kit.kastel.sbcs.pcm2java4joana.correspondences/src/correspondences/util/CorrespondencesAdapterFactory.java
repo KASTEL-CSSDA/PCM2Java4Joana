@@ -92,8 +92,8 @@ public class CorrespondencesAdapterFactory extends AdapterFactoryImpl {
 				return createPCMMethodAdapter();
 			}
 			@Override
-			public Adapter caseSourceCodeParamter(SourceCodeParamter object) {
-				return createSourceCodeParamterAdapter();
+			public Adapter caseSourceCodeParameter(SourceCodeParameter object) {
+				return createSourceCodeParameterAdapter();
 			}
 			@Override
 			public Adapter casePCMParameter(PCMParameter object) {
@@ -110,6 +110,18 @@ public class CorrespondencesAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseParameterCorrespondence(ParameterCorrespondence object) {
 				return createParameterCorrespondenceAdapter();
+			}
+			@Override
+			public Adapter caseCorrespondenceModel(CorrespondenceModel object) {
+				return createCorrespondenceModelAdapter();
+			}
+			@Override
+			public Adapter caseInterfaceCorrespondence(InterfaceCorrespondence object) {
+				return createInterfaceCorrespondenceAdapter();
+			}
+			@Override
+			public Adapter caseSourceCodeInterface(SourceCodeInterface object) {
+				return createSourceCodeInterfaceAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -216,16 +228,16 @@ public class CorrespondencesAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link correspondences.SourceCodeParamter <em>Source Code Paramter</em>}'.
+	 * Creates a new adapter for an object of class '{@link correspondences.SourceCodeParameter <em>Source Code Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see correspondences.SourceCodeParamter
+	 * @see correspondences.SourceCodeParameter
 	 * @generated
 	 */
-	public Adapter createSourceCodeParamterAdapter() {
+	public Adapter createSourceCodeParameterAdapter() {
 		return null;
 	}
 
@@ -282,6 +294,48 @@ public class CorrespondencesAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createParameterCorrespondenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link correspondences.CorrespondenceModel <em>Correspondence Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see correspondences.CorrespondenceModel
+	 * @generated
+	 */
+	public Adapter createCorrespondenceModelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link correspondences.InterfaceCorrespondence <em>Interface Correspondence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see correspondences.InterfaceCorrespondence
+	 * @generated
+	 */
+	public Adapter createInterfaceCorrespondenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link correspondences.SourceCodeInterface <em>Source Code Interface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see correspondences.SourceCodeInterface
+	 * @generated
+	 */
+	public Adapter createSourceCodeInterfaceAdapter() {
 		return null;
 	}
 

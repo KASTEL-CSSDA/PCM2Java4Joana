@@ -62,11 +62,14 @@ public class CorrespondencesFactoryImpl extends EFactoryImpl implements Correspo
 			case CorrespondencesPackage.SOURCE_CODE_METHOD: return createSourceCodeMethod();
 			case CorrespondencesPackage.PCM_PROVIDED_INTERFACE: return createPCMProvidedInterface();
 			case CorrespondencesPackage.PCM_METHOD: return createPCMMethod();
-			case CorrespondencesPackage.SOURCE_CODE_PARAMTER: return createSourceCodeParamter();
+			case CorrespondencesPackage.SOURCE_CODE_PARAMETER: return createSourceCodeParameter();
 			case CorrespondencesPackage.PCM_PARAMETER: return createPCMParameter();
 			case CorrespondencesPackage.COMPONENT_CORRESPONDENCE: return createComponentCorrespondence();
 			case CorrespondencesPackage.METHOD_CORRESPONDENCE: return createMethodCorrespondence();
 			case CorrespondencesPackage.PARAMETER_CORRESPONDENCE: return createParameterCorrespondence();
+			case CorrespondencesPackage.CORRESPONDENCE_MODEL: return createCorrespondenceModel();
+			case CorrespondencesPackage.INTERFACE_CORRESPONDENCE: return createInterfaceCorrespondence();
+			case CorrespondencesPackage.SOURCE_CODE_INTERFACE: return createSourceCodeInterface();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -137,9 +140,9 @@ public class CorrespondencesFactoryImpl extends EFactoryImpl implements Correspo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SourceCodeParamter createSourceCodeParamter() {
-		SourceCodeParamterImpl sourceCodeParamter = new SourceCodeParamterImpl();
-		return sourceCodeParamter;
+	public SourceCodeParameter createSourceCodeParameter() {
+		SourceCodeParameterImpl sourceCodeParameter = new SourceCodeParameterImpl();
+		return sourceCodeParameter;
 	}
 
 	/**
@@ -180,6 +183,36 @@ public class CorrespondencesFactoryImpl extends EFactoryImpl implements Correspo
 	public ParameterCorrespondence createParameterCorrespondence() {
 		ParameterCorrespondenceImpl parameterCorrespondence = new ParameterCorrespondenceImpl();
 		return parameterCorrespondence;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CorrespondenceModel createCorrespondenceModel() {
+		CorrespondenceModelImpl correspondenceModel = new CorrespondenceModelImpl();
+		return correspondenceModel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public InterfaceCorrespondence createInterfaceCorrespondence() {
+		InterfaceCorrespondenceImpl interfaceCorrespondence = new InterfaceCorrespondenceImpl();
+		return interfaceCorrespondence;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SourceCodeInterface createSourceCodeInterface() {
+		SourceCodeInterfaceImpl sourceCodeInterface = new SourceCodeInterfaceImpl();
+		return sourceCodeInterface;
 	}
 
 	/**

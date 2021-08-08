@@ -76,13 +76,13 @@ public interface CorrespondencesFactory extends EFactory {
 	PCMMethod createPCMMethod();
 
 	/**
-	 * Returns a new object of class '<em>Source Code Paramter</em>'.
+	 * Returns a new object of class '<em>Source Code Parameter</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Source Code Paramter</em>'.
+	 * @return a new object of class '<em>Source Code Parameter</em>'.
 	 * @generated
 	 */
-	SourceCodeParamter createSourceCodeParamter();
+	SourceCodeParameter createSourceCodeParameter();
 
 	/**
 	 * Returns a new object of class '<em>PCM Parameter</em>'.
@@ -119,6 +119,33 @@ public interface CorrespondencesFactory extends EFactory {
 	 * @generated
 	 */
 	ParameterCorrespondence createParameterCorrespondence();
+
+	/**
+	 * Returns a new object of class '<em>Correspondence Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Correspondence Model</em>'.
+	 * @generated
+	 */
+	CorrespondenceModel createCorrespondenceModel();
+
+	/**
+	 * Returns a new object of class '<em>Interface Correspondence</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Interface Correspondence</em>'.
+	 * @generated
+	 */
+	InterfaceCorrespondence createInterfaceCorrespondence();
+
+	/**
+	 * Returns a new object of class '<em>Source Code Interface</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Source Code Interface</em>'.
+	 * @generated
+	 */
+	SourceCodeInterface createSourceCodeInterface();
 
 	/**
 	 * Returns the package supported by this factory.

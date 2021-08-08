@@ -21,6 +21,7 @@ Require-Bundle: org.eclipse.ui,
  edu.kit.ipd.sdq.commons.util.pcm;bundle-version="1.1.0",
  org.eclipse.xtext;bundle-version="2.25.0",
  org.eclipse.xtext.generator;bundle-version="2.25.0",
- org.eclipse.xtext.builder;bundle-version="2.25.0"
+ org.eclipse.xtext.builder;bundle-version="2.25.0",
+ edu.kit.kastel.sbcs.pcm2java4joana.correspondences;bundle-version="1.0.0"
 Automatic-Module-Name: edu.kit.kastel.scbs.pcm2java4joana
 Bundle-RequiredExecutionEnvironment: JavaSE-11

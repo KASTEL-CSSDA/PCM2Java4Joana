@@ -107,10 +107,10 @@ public class CorrespondencesSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CorrespondencesPackage.SOURCE_CODE_PARAMTER: {
-				SourceCodeParamter sourceCodeParamter = (SourceCodeParamter)theEObject;
-				T result = caseSourceCodeParamter(sourceCodeParamter);
-				if (result == null) result = caseCorrespondenceElement(sourceCodeParamter);
+			case CorrespondencesPackage.SOURCE_CODE_PARAMETER: {
+				SourceCodeParameter sourceCodeParameter = (SourceCodeParameter)theEObject;
+				T result = caseSourceCodeParameter(sourceCodeParameter);
+				if (result == null) result = caseCorrespondenceElement(sourceCodeParameter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -139,6 +139,26 @@ public class CorrespondencesSwitch<T> extends Switch<T> {
 				ParameterCorrespondence parameterCorrespondence = (ParameterCorrespondence)theEObject;
 				T result = caseParameterCorrespondence(parameterCorrespondence);
 				if (result == null) result = caseCorrespondenceElement(parameterCorrespondence);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorrespondencesPackage.CORRESPONDENCE_MODEL: {
+				CorrespondenceModel correspondenceModel = (CorrespondenceModel)theEObject;
+				T result = caseCorrespondenceModel(correspondenceModel);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorrespondencesPackage.INTERFACE_CORRESPONDENCE: {
+				InterfaceCorrespondence interfaceCorrespondence = (InterfaceCorrespondence)theEObject;
+				T result = caseInterfaceCorrespondence(interfaceCorrespondence);
+				if (result == null) result = caseCorrespondenceElement(interfaceCorrespondence);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorrespondencesPackage.SOURCE_CODE_INTERFACE: {
+				SourceCodeInterface sourceCodeInterface = (SourceCodeInterface)theEObject;
+				T result = caseSourceCodeInterface(sourceCodeInterface);
+				if (result == null) result = caseCorrespondenceElement(sourceCodeInterface);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -237,17 +257,17 @@ public class CorrespondencesSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Source Code Paramter</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Source Code Parameter</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Source Code Paramter</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Source Code Parameter</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSourceCodeParamter(SourceCodeParamter object) {
+	public T caseSourceCodeParameter(SourceCodeParameter object) {
 		return null;
 	}
 
@@ -308,6 +328,51 @@ public class CorrespondencesSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseParameterCorrespondence(ParameterCorrespondence object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Correspondence Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Correspondence Model</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCorrespondenceModel(CorrespondenceModel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Interface Correspondence</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Interface Correspondence</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInterfaceCorrespondence(InterfaceCorrespondence object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Source Code Interface</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Source Code Interface</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSourceCodeInterface(SourceCodeInterface object) {
 		return null;
 	}
 

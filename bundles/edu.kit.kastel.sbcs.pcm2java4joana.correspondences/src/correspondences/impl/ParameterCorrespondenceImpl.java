@@ -5,7 +5,7 @@ package correspondences.impl;
 import correspondences.CorrespondencesPackage;
 import correspondences.PCMParameter;
 import correspondences.ParameterCorrespondence;
-import correspondences.SourceCodeParamter;
+import correspondences.SourceCodeParameter;
 
 import java.util.Collection;
 
@@ -42,7 +42,7 @@ public class ParameterCorrespondenceImpl extends CorrespondenceElementImpl imple
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SourceCodeParamter> sourcecodeparamter;
+	protected EList<SourceCodeParameter> sourcecodeparamter;
 
 	/**
 	 * The cached value of the '{@link #getPcmparameter() <em>Pcmparameter</em>}' containment reference list.
@@ -78,9 +78,9 @@ public class ParameterCorrespondenceImpl extends CorrespondenceElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SourceCodeParamter> getSourcecodeparamter() {
+	public EList<SourceCodeParameter> getSourcecodeparamter() {
 		if (sourcecodeparamter == null) {
-			sourcecodeparamter = new EObjectContainmentEList<SourceCodeParamter>(SourceCodeParamter.class, this, CorrespondencesPackage.PARAMETER_CORRESPONDENCE__SOURCECODEPARAMTER);
+			sourcecodeparamter = new EObjectContainmentEList<SourceCodeParameter>(SourceCodeParameter.class, this, CorrespondencesPackage.PARAMETER_CORRESPONDENCE__SOURCECODEPARAMTER);
 		}
 		return sourcecodeparamter;
 	}
@@ -140,7 +140,7 @@ public class ParameterCorrespondenceImpl extends CorrespondenceElementImpl imple
 		switch (featureID) {
 			case CorrespondencesPackage.PARAMETER_CORRESPONDENCE__SOURCECODEPARAMTER:
 				getSourcecodeparamter().clear();
-				getSourcecodeparamter().addAll((Collection<? extends SourceCodeParamter>)newValue);
+				getSourcecodeparamter().addAll((Collection<? extends SourceCodeParameter>)newValue);
 				return;
 			case CorrespondencesPackage.PARAMETER_CORRESPONDENCE__PCMPARAMETER:
 				getPcmparameter().clear();

@@ -4,8 +4,10 @@ package correspondences.impl;
 
 import correspondences.ComponentCorrespondence;
 import correspondences.CorrespondenceElement;
+import correspondences.CorrespondenceModel;
 import correspondences.CorrespondencesFactory;
 import correspondences.CorrespondencesPackage;
+import correspondences.InterfaceCorrespondence;
 import correspondences.MethodCorrespondence;
 import correspondences.PCMComponent;
 import correspondences.PCMMethod;
@@ -13,9 +15,11 @@ import correspondences.PCMParameter;
 import correspondences.PCMProvidedInterface;
 import correspondences.ParameterCorrespondence;
 import correspondences.SourceCodeClass;
+import correspondences.SourceCodeInterface;
 import correspondences.SourceCodeMethod;
-import correspondences.SourceCodeParamter;
+import correspondences.SourceCodeParameter;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -76,7 +80,7 @@ public class CorrespondencesPackageImpl extends EPackageImpl implements Correspo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass sourceCodeParamterEClass = null;
+	private EClass sourceCodeParameterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -105,6 +109,27 @@ public class CorrespondencesPackageImpl extends EPackageImpl implements Correspo
 	 * @generated
 	 */
 	private EClass parameterCorrespondenceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass correspondenceModelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass interfaceCorrespondenceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sourceCodeInterfaceEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -174,6 +199,15 @@ public class CorrespondencesPackageImpl extends EPackageImpl implements Correspo
 	 */
 	public EClass getCorrespondenceElement() {
 		return correspondenceElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCorrespondenceElement_Name() {
+		return (EAttribute)correspondenceElementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -271,8 +305,8 @@ public class CorrespondencesPackageImpl extends EPackageImpl implements Correspo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSourceCodeParamter() {
-		return sourceCodeParamterEClass;
+	public EClass getSourceCodeParameter() {
+		return sourceCodeParameterEClass;
 	}
 
 	/**
@@ -388,6 +422,87 @@ public class CorrespondencesPackageImpl extends EPackageImpl implements Correspo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getCorrespondenceModel() {
+		return correspondenceModelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCorrespondenceModel_Componentcorrespondence() {
+		return (EReference)correspondenceModelEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCorrespondenceModel_Interfacecorrespondence() {
+		return (EReference)correspondenceModelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getInterfaceCorrespondence() {
+		return interfaceCorrespondenceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInterfaceCorrespondence_Sourcecodeinterface() {
+		return (EReference)interfaceCorrespondenceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInterfaceCorrespondence_Pcmprovidedinterface() {
+		return (EReference)interfaceCorrespondenceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInterfaceCorrespondence_Methodcorrespondence() {
+		return (EReference)interfaceCorrespondenceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSourceCodeInterface() {
+		return sourceCodeInterfaceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSourceCodeInterface_Sourcecodemethod() {
+		return (EReference)sourceCodeInterfaceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public CorrespondencesFactory getCorrespondencesFactory() {
 		return (CorrespondencesFactory)getEFactoryInstance();
 	}
@@ -412,6 +527,7 @@ public class CorrespondencesPackageImpl extends EPackageImpl implements Correspo
 
 		// Create classes and their features
 		correspondenceElementEClass = createEClass(CORRESPONDENCE_ELEMENT);
+		createEAttribute(correspondenceElementEClass, CORRESPONDENCE_ELEMENT__NAME);
 
 		pcmComponentEClass = createEClass(PCM_COMPONENT);
 		createEReference(pcmComponentEClass, PCM_COMPONENT__PCMPROVIDEDINTERFACES);
@@ -428,7 +544,7 @@ public class CorrespondencesPackageImpl extends EPackageImpl implements Correspo
 		pcmMethodEClass = createEClass(PCM_METHOD);
 		createEReference(pcmMethodEClass, PCM_METHOD__PCMPARAMETER);
 
-		sourceCodeParamterEClass = createEClass(SOURCE_CODE_PARAMTER);
+		sourceCodeParameterEClass = createEClass(SOURCE_CODE_PARAMETER);
 
 		pcmParameterEClass = createEClass(PCM_PARAMETER);
 
@@ -445,6 +561,18 @@ public class CorrespondencesPackageImpl extends EPackageImpl implements Correspo
 		parameterCorrespondenceEClass = createEClass(PARAMETER_CORRESPONDENCE);
 		createEReference(parameterCorrespondenceEClass, PARAMETER_CORRESPONDENCE__SOURCECODEPARAMTER);
 		createEReference(parameterCorrespondenceEClass, PARAMETER_CORRESPONDENCE__PCMPARAMETER);
+
+		correspondenceModelEClass = createEClass(CORRESPONDENCE_MODEL);
+		createEReference(correspondenceModelEClass, CORRESPONDENCE_MODEL__COMPONENTCORRESPONDENCE);
+		createEReference(correspondenceModelEClass, CORRESPONDENCE_MODEL__INTERFACECORRESPONDENCE);
+
+		interfaceCorrespondenceEClass = createEClass(INTERFACE_CORRESPONDENCE);
+		createEReference(interfaceCorrespondenceEClass, INTERFACE_CORRESPONDENCE__SOURCECODEINTERFACE);
+		createEReference(interfaceCorrespondenceEClass, INTERFACE_CORRESPONDENCE__PCMPROVIDEDINTERFACE);
+		createEReference(interfaceCorrespondenceEClass, INTERFACE_CORRESPONDENCE__METHODCORRESPONDENCE);
+
+		sourceCodeInterfaceEClass = createEClass(SOURCE_CODE_INTERFACE);
+		createEReference(sourceCodeInterfaceEClass, SOURCE_CODE_INTERFACE__SOURCECODEMETHOD);
 	}
 
 	/**
@@ -480,14 +608,17 @@ public class CorrespondencesPackageImpl extends EPackageImpl implements Correspo
 		sourceCodeMethodEClass.getESuperTypes().add(this.getCorrespondenceElement());
 		pcmProvidedInterfaceEClass.getESuperTypes().add(this.getCorrespondenceElement());
 		pcmMethodEClass.getESuperTypes().add(this.getCorrespondenceElement());
-		sourceCodeParamterEClass.getESuperTypes().add(this.getCorrespondenceElement());
+		sourceCodeParameterEClass.getESuperTypes().add(this.getCorrespondenceElement());
 		pcmParameterEClass.getESuperTypes().add(this.getCorrespondenceElement());
 		componentCorrespondenceEClass.getESuperTypes().add(this.getCorrespondenceElement());
 		methodCorrespondenceEClass.getESuperTypes().add(this.getCorrespondenceElement());
 		parameterCorrespondenceEClass.getESuperTypes().add(this.getCorrespondenceElement());
+		interfaceCorrespondenceEClass.getESuperTypes().add(this.getCorrespondenceElement());
+		sourceCodeInterfaceEClass.getESuperTypes().add(this.getCorrespondenceElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(correspondenceElementEClass, CorrespondenceElement.class, "CorrespondenceElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCorrespondenceElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, CorrespondenceElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(pcmComponentEClass, PCMComponent.class, "PCMComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPCMComponent_Pcmprovidedinterfaces(), this.getPCMProvidedInterface(), null, "pcmprovidedinterfaces", null, 0, -1, PCMComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -496,7 +627,7 @@ public class CorrespondencesPackageImpl extends EPackageImpl implements Correspo
 		initEReference(getSourceCodeClass_Sourcecodemethod(), this.getSourceCodeMethod(), null, "sourcecodemethod", null, 0, -1, SourceCodeClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sourceCodeMethodEClass, SourceCodeMethod.class, "SourceCodeMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSourceCodeMethod_Sourcecodeparamter(), this.getSourceCodeParamter(), null, "sourcecodeparamter", null, 0, -1, SourceCodeMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSourceCodeMethod_Sourcecodeparamter(), this.getSourceCodeParameter(), null, "sourcecodeparamter", null, 0, -1, SourceCodeMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(pcmProvidedInterfaceEClass, PCMProvidedInterface.class, "PCMProvidedInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPCMProvidedInterface_Pcmmethod(), this.getPCMMethod(), null, "pcmmethod", null, 0, -1, PCMProvidedInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -504,7 +635,7 @@ public class CorrespondencesPackageImpl extends EPackageImpl implements Correspo
 		initEClass(pcmMethodEClass, PCMMethod.class, "PCMMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPCMMethod_Pcmparameter(), this.getPCMParameter(), null, "pcmparameter", null, 0, -1, PCMMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(sourceCodeParamterEClass, SourceCodeParamter.class, "SourceCodeParamter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(sourceCodeParameterEClass, SourceCodeParameter.class, "SourceCodeParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(pcmParameterEClass, PCMParameter.class, "PCMParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -519,8 +650,20 @@ public class CorrespondencesPackageImpl extends EPackageImpl implements Correspo
 		initEReference(getMethodCorrespondence_Parametercorrespondence(), this.getParameterCorrespondence(), null, "parametercorrespondence", null, 0, -1, MethodCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parameterCorrespondenceEClass, ParameterCorrespondence.class, "ParameterCorrespondence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getParameterCorrespondence_Sourcecodeparamter(), this.getSourceCodeParamter(), null, "sourcecodeparamter", null, 0, -1, ParameterCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getParameterCorrespondence_Sourcecodeparamter(), this.getSourceCodeParameter(), null, "sourcecodeparamter", null, 0, -1, ParameterCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getParameterCorrespondence_Pcmparameter(), this.getPCMParameter(), null, "pcmparameter", null, 0, -1, ParameterCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(correspondenceModelEClass, CorrespondenceModel.class, "CorrespondenceModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCorrespondenceModel_Componentcorrespondence(), this.getComponentCorrespondence(), null, "componentcorrespondence", null, 0, -1, CorrespondenceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCorrespondenceModel_Interfacecorrespondence(), this.getInterfaceCorrespondence(), null, "interfacecorrespondence", null, 0, -1, CorrespondenceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(interfaceCorrespondenceEClass, InterfaceCorrespondence.class, "InterfaceCorrespondence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getInterfaceCorrespondence_Sourcecodeinterface(), this.getSourceCodeInterface(), null, "sourcecodeinterface", null, 1, -1, InterfaceCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInterfaceCorrespondence_Pcmprovidedinterface(), this.getPCMProvidedInterface(), null, "pcmprovidedinterface", null, 0, 1, InterfaceCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInterfaceCorrespondence_Methodcorrespondence(), this.getMethodCorrespondence(), null, "methodcorrespondence", null, 0, -1, InterfaceCorrespondence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(sourceCodeInterfaceEClass, SourceCodeInterface.class, "SourceCodeInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSourceCodeInterface_Sourcecodemethod(), this.getSourceCodeMethod(), null, "sourcecodemethod", null, 0, -1, SourceCodeInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

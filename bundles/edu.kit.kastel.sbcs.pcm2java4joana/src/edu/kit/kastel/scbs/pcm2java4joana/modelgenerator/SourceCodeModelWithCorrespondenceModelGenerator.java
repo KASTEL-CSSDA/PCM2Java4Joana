@@ -25,8 +25,20 @@ import org.palladiosimulator.pcm.repository.impl.OperationSignatureImpl;
 import org.palladiosimulator.pcm.repository.impl.ParameterImpl;
 import org.palladiosimulator.pcm.repository.impl.PrimitiveDataTypeImpl;
 
-import edu.kit.kastel.scbs.pcm2java4joana.models.CorrespondenceModel;
-import edu.kit.kastel.scbs.pcm2java4joana.models.SourceCodeElementWithCorrespondenceModel;
+import correspondences.ComponentCorrespondence;
+import correspondences.CorrespondenceModel;
+import correspondences.CorrespondencesFactory;
+import correspondences.InterfaceCorrespondence;
+import correspondences.MethodCorrespondence;
+import correspondences.PCMComponent;
+import correspondences.PCMMethod;
+import correspondences.PCMParameter;
+import correspondences.PCMProvidedInterface;
+import correspondences.ParameterCorrespondence;
+import correspondences.SourceCodeClass;
+import correspondences.SourceCodeInterface;
+import correspondences.SourceCodeMethod;
+import correspondences.SourceCodeParameter;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.BuiltInType;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.BuiltInTypes;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class;
@@ -37,69 +49,81 @@ import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Parameter;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.ReferenceType;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourceCodeRoot;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourcecodeFactory;
-import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.TopLevelType;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Type;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Variable;
+import edu.kit.kastel.scbs.pcm2java4joana.utils.Tuple;
 
 public class SourceCodeModelWithCorrespondenceModelGenerator {
 	private Repository sourceRepository;
-	private List<String> unusedCompositeClasses;
+	private List<String> compositeClassNames;
+	private List<String> providedInterfaceNames;
 	private Resource sourceCodeModel;
-	private Map<String, SourceCodeElementWithCorrespondenceModel<TopLevelType>> compositeClasses;
+	private Resource correspondenceModel;
+	private Map<String, Tuple<Interface, InterfaceCorrespondence>> providedInterfaces;
+	private Map<String, Class> compositeClasses;
 
 	public SourceCodeModelWithCorrespondenceModelGenerator(Repository repository, IPath destinationFolder) {
 		this.sourceRepository = repository;
-		this.unusedCompositeClasses = new ArrayList<String>();
-		this.compositeClasses = new HashMap<String, SourceCodeElementWithCorrespondenceModel<TopLevelType>>();
+		this.compositeClassNames = new ArrayList<String>();
+		this.providedInterfaceNames = new ArrayList<String>();
+		this.providedInterfaces = new HashMap<String, Tuple<Interface, InterfaceCorrespondence>>();
+		this.compositeClasses = new HashMap<String, Class>();
 		this.sourceCodeModel = new XMLResourceImpl(URI.createFileURI(destinationFolder.toString() + IPath.SEPARATOR
 				+ "GeneratedModels" + IPath.SEPARATOR + repository.getEntityName() + ".ecore"));
+		this.correspondenceModel = new XMLResourceImpl(URI.createFileURI(destinationFolder.toString() + IPath.SEPARATOR
+				+ "GeneratedModels" + IPath.SEPARATOR + "correspondenceModel" + repository.getEntityName() + ".ecore"));
 	}
 
-	public SourceCodeElementWithCorrespondenceModel<Resource> generateSourceCodeModelWithCorrespondenceModel() {
-		return this.generateSourceCodeModel(this.sourceRepository, sourceCodeModel);
+	public Tuple<Resource, Resource> generateSourceCodeModelWithCorrespondenceModel() {
+		return this.generateSourceCodeModel(this.sourceRepository, this.sourceCodeModel, this.correspondenceModel);
 	}
 
-	private SourceCodeElementWithCorrespondenceModel<Resource> generateSourceCodeModel(Repository rep,
-			Resource sourceCodeModel) {
+	private Tuple<Resource, Resource> generateSourceCodeModel(Repository rep, Resource sourceCodeModel,
+			Resource correspondenceModel) {
 		SourcecodeFactory sourceCodeFactory = SourcecodeFactory.eINSTANCE;
 		SourceCodeRoot root = sourceCodeFactory.createSourceCodeRoot();
 		root.setName(rep.getEntityName());
-		CorrespondenceModel correspondenceModel = new CorrespondenceModel(root.getName());
-		correspondenceModel.addCorrespondingSet(new String[] { rep.getEntityName() });
+		CorrespondenceModel correspondenceModelRoot = CorrespondencesFactory.eINSTANCE.createCorrespondenceModel();
 
 		this.generateBasicElements(rep);
 
 		for (EObject object : rep.eContents()) {
 			if (object.getClass() == BasicComponentImpl.class) {
-				SourceCodeElementWithCorrespondenceModel<edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class> newClass = this
+				Tuple<Class, ComponentCorrespondence> newClass = this
 						.generateBasicComponent((BasicComponentImpl) object);
-				root.getTopleveltype().add(newClass.getSourceCodeElement());
+				root.getTopleveltype().add(newClass.getFirst());
+				correspondenceModelRoot.getComponentcorrespondence().add(newClass.getSecond());
 			}
 		}
 
-		for (String unusedInterfaceName : this.unusedCompositeClasses) {
-			SourceCodeElementWithCorrespondenceModel<TopLevelType> unusedInterface = this.compositeClasses
-					.get(unusedInterfaceName);
-			root.getTopleveltype().add(unusedInterface.getSourceCodeElement());
-			correspondenceModel.addChild(unusedInterface.getCorrespondenceModel());
+		for (String interName : this.providedInterfaceNames) {
+			Tuple<Interface, InterfaceCorrespondence> inter = this.providedInterfaces.get(interName);
+			root.getTopleveltype().add(inter.getFirst());
+			correspondenceModelRoot.getInterfacecorrespondence().add(inter.getSecond());
+		}
+		for (String compositeClassName : this.compositeClassNames) {
+			Class compositeClass = this.compositeClasses.get(compositeClassName);
+			root.getTopleveltype().add(compositeClass);
 		}
 		sourceCodeModel.getContents().add(root);
+		correspondenceModel.getContents().add(correspondenceModelRoot);
 
-		return new SourceCodeElementWithCorrespondenceModel<Resource>(sourceCodeModel, correspondenceModel);
+		return new Tuple<Resource, Resource>(sourceCodeModel, correspondenceModel);
 	}
 
 	private void generateBasicElements(Repository rep) {
 		for (EObject object : rep.eContents()) {
 			if (object.getClass() == OperationInterfaceImpl.class) {
-				var inter = this.generateInterfaceContainer((OperationInterfaceImpl) object);
-				this.compositeClasses.put(inter.getSourceCodeElement().getName(), inter);
-				this.unusedCompositeClasses.add(inter.getSourceCodeElement().getName());
+				Tuple<Interface, InterfaceCorrespondence> interfaceWithCorrespondence = this
+						.generateInterfaceContainer((OperationInterfaceImpl) object);
+				this.providedInterfaces.put(interfaceWithCorrespondence.getFirst().getName(),
+						interfaceWithCorrespondence);
+				this.providedInterfaceNames.add(interfaceWithCorrespondence.getFirst().getName());
 			}
 			if (object.getClass() == CompositeDataTypeImpl.class) {
-				SourceCodeElementWithCorrespondenceModel<TopLevelType> newClass = this
-						.generateClassContainer((CompositeDataTypeImpl) object);
-				this.compositeClasses.put(newClass.getSourceCodeElement().getName(), newClass);
-				this.unusedCompositeClasses.add(newClass.getSourceCodeElement().getName());
+				Class newClass = this.generateClassContainer((CompositeDataTypeImpl) object);
+				this.compositeClasses.put(newClass.getName(), newClass);
+				this.compositeClassNames.add(newClass.getName());
 			}
 		}
 
@@ -114,7 +138,7 @@ public class SourceCodeModelWithCorrespondenceModelGenerator {
 	}
 
 	private void fillClassContainer(CompositeDataTypeImpl pcmClass) {
-		Class newClass = (Class) this.compositeClasses.get(pcmClass.getEntityName()).getSourceCodeElement();
+		Class newClass = (Class) this.compositeClasses.get(pcmClass.getEntityName());
 		for (EObject object : pcmClass.getInnerDeclaration_CompositeDataType()) {
 			if (object.getClass() == InnerDeclarationImpl.class) {
 				newClass.getFields().add(this.generateInnerDeclaration((InnerDeclarationImpl) object));
@@ -130,55 +154,43 @@ public class SourceCodeModelWithCorrespondenceModelGenerator {
 		return variable;
 	}
 
-	private SourceCodeElementWithCorrespondenceModel<TopLevelType> generateClassContainer(
-			CompositeDataTypeImpl pcmClass) {
+	private Class generateClassContainer(CompositeDataTypeImpl pcmClass) {
 		SourcecodeFactory sourceCodeFactory = SourcecodeFactory.eINSTANCE;
-		edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class newClass = sourceCodeFactory.createClass();
+		Class newClass = sourceCodeFactory.createClass();
 		newClass.setName(pcmClass.getEntityName());
-		CorrespondenceModel entry = new CorrespondenceModel(newClass.getName());
-		entry.addCorrespondingSet(new String[] { pcmClass.getEntityName() });
 
-		return new SourceCodeElementWithCorrespondenceModel<TopLevelType>(newClass, entry);
+		return newClass;
 	}
 
-	private SourceCodeElementWithCorrespondenceModel<TopLevelType> generateInterfaceContainer(
-			OperationInterfaceImpl pcmInterface) {
+	private Tuple<Interface, InterfaceCorrespondence> generateInterfaceContainer(OperationInterfaceImpl pcmInterface) {
 		SourcecodeFactory sourceCodeFactory = SourcecodeFactory.eINSTANCE;
 		Interface inter = sourceCodeFactory.createInterface();
-		var n1 = inter.getName();
-
 		inter.setName(pcmInterface.getEntityName());
+		InterfaceCorrespondence interfaceCorrespondence = this.generateInterfaceCorrespondence(pcmInterface, inter);
 
-		CorrespondenceModel entry = new CorrespondenceModel(inter.getName());
-		entry.addCorrespondingSet(new String[] { pcmInterface.getEntityName() });
-
-		var newElement = new SourceCodeElementWithCorrespondenceModel<TopLevelType>(inter, entry);
-		var n = inter.getName();
-
-		return newElement;
+		return new Tuple<Interface, InterfaceCorrespondence>(inter, interfaceCorrespondence);
 	}
 
 	private void fillInterfaceContainer(OperationInterfaceImpl pcmInterface) {
-		SourcecodeFactory sourceCodeFactory = SourcecodeFactory.eINSTANCE;
-		Interface inter = (Interface) this.compositeClasses.get(pcmInterface.getEntityName()).getSourceCodeElement();
-		CorrespondenceModel entry = this.compositeClasses.get(pcmInterface.getEntityName()).getCorrespondenceModel();
+		Interface inter = this.providedInterfaces.get(pcmInterface.getEntityName()).getFirst();
+		InterfaceCorrespondence entry = this.providedInterfaces.get(pcmInterface.getEntityName()).getSecond();
 
 		EList<EObject> contents = pcmInterface.eContents();
 		for (EObject object : contents) {
 			if (object.getClass() == OperationSignatureImpl.class) {
-				SourceCodeElementWithCorrespondenceModel<Method> operation = this
-						.generateOperation((OperationSignatureImpl) object);
-				EList<Method> operations = inter.getMethods();
-				operations.add(operation.getSourceCodeElement());
-				entry.addChild(operation.getCorrespondenceModel());
+				Tuple<Method, MethodCorrespondence> operation = this.generateOperation((OperationSignatureImpl) object);
+				inter.getMethods().add(operation.getFirst());
+				entry.getMethodcorrespondence().add(operation.getSecond());
 			}
 		}
 	}
 
-	private SourceCodeElementWithCorrespondenceModel<Method> generateOperation(OperationSignatureImpl pcmOperation) {
+	private Tuple<Method, MethodCorrespondence> generateOperation(OperationSignatureImpl pcmOperation) {
 		SourcecodeFactory sourceCodeFactory = SourcecodeFactory.eINSTANCE;
 		Method method = sourceCodeFactory.createMethod();
 		method.setName(pcmOperation.getEntityName());
+		MethodCorrespondence methodCorrespondence = this.generateMethodCorrespondence(pcmOperation, method);
+
 		if (pcmOperation.getReturnType__OperationSignature() != null) {
 			method.setType(this.generateType(pcmOperation.getReturnType__OperationSignature()));
 		}
@@ -186,21 +198,23 @@ public class SourceCodeModelWithCorrespondenceModelGenerator {
 		for (EObject object : contents) {
 			if (object.getClass() == ParameterImpl.class) {
 				ParameterImpl pcmParameter = (ParameterImpl) object;
-				Parameter parameter = this.generateParameter(pcmParameter);
-				method.getParameter().add(parameter);
+				Tuple<Parameter, ParameterCorrespondence> parameter = this.generateParameter(pcmParameter);
+				method.getParameter().add(parameter.getFirst());
+				methodCorrespondence.getParametercorrespondence().add(parameter.getSecond());
 			}
 		}
-		CorrespondenceModel entry = new CorrespondenceModel(method.getName());
-		entry.addCorrespondingSet(new String[] { pcmOperation.getEntityName() });
-		return new SourceCodeElementWithCorrespondenceModel<Method>(method, entry);
+
+		return new Tuple<Method, MethodCorrespondence>(method, methodCorrespondence);
 	}
 
-	private Parameter generateParameter(ParameterImpl pcmParameter) {
+	private Tuple<Parameter, ParameterCorrespondence> generateParameter(ParameterImpl pcmParameter) {
 		SourcecodeFactory sourceCodeFactory = SourcecodeFactory.eINSTANCE;
 		Parameter parameter = sourceCodeFactory.createParameter();
 		parameter.setName(pcmParameter.getParameterName());
 		parameter.setType(this.generateType(pcmParameter.getDataType__Parameter()));
-		return parameter;
+		ParameterCorrespondence parameterCorrespondence = this.generateParameterCorrespondence(pcmParameter, parameter);
+
+		return new Tuple<Parameter, ParameterCorrespondence>(parameter, parameterCorrespondence);
 	}
 
 	private Type generateType(DataType pcmType) {
@@ -220,7 +234,7 @@ public class SourceCodeModelWithCorrespondenceModelGenerator {
 	private Type generateReferenceType(CompositeDataTypeImpl pcmType) {
 		SourcecodeFactory sourceCodeFactory = SourcecodeFactory.eINSTANCE;
 		ReferenceType type = sourceCodeFactory.createReferenceType();
-		type.setTopleveltype(this.compositeClasses.get(pcmType.getEntityName()).getSourceCodeElement());
+		type.setTopleveltype(this.compositeClasses.get(pcmType.getEntityName()));
 		return type;
 	}
 
@@ -270,28 +284,28 @@ public class SourceCodeModelWithCorrespondenceModelGenerator {
 		return type;
 	}
 
-	private SourceCodeElementWithCorrespondenceModel<Class> generateBasicComponent(BasicComponentImpl component) {
+	private Tuple<Class, ComponentCorrespondence> generateBasicComponent(BasicComponentImpl component) {
 		SourcecodeFactory sourceCodeFactory = SourcecodeFactory.eINSTANCE;
 		Class newClass = sourceCodeFactory.createClass();
-		newClass.setName(component.getEntityName() + "Component");
-		CorrespondenceModel entry = new CorrespondenceModel(newClass.getName());
-		entry.addCorrespondingSet(new String[] { component.getEntityName() });
+		newClass.setName(component.getEntityName() + "Component"); // TODO: Remove
+		ComponentCorrespondence componentCorrespondence = this.generateComponentCorrespondence(component, newClass);
 
 		for (EObject object : component.eContents()) {
 			String interfaceName = "";
 			if (object.getClass() == OperationProvidedRoleImpl.class) {
 				interfaceName = ((OperationProvidedRoleImpl) object).basicGetProvidedInterface__OperationProvidedRole()
 						.getEntityName();
-				SourceCodeElementWithCorrespondenceModel<TopLevelType> child = this.compositeClasses.get(interfaceName);
-				Interface inter = (Interface) child.getSourceCodeElement();
+				Tuple<Interface, InterfaceCorrespondence> child = this.providedInterfaces.get(interfaceName);
+				Interface inter = (Interface) child.getFirst();
 				newClass.getImplements().add(inter);
-				entry.addChild(child.getCorrespondenceModel());
+				componentCorrespondence.getMethodcorrespondence().addAll(child.getSecond().getMethodcorrespondence());
 				newClass.getFields().addAll(inter.getMethods());
+
 			}
 			if (object.getClass() == OperationRequiredRoleImpl.class) {
 				interfaceName = ((OperationRequiredRoleImpl) object).basicGetRequiredInterface__OperationRequiredRole()
 						.getEntityName();
-				Interface requires = (Interface) this.compositeClasses.get(interfaceName).getSourceCodeElement();
+				Interface requires = this.providedInterfaces.get(interfaceName).getFirst();
 				ReferenceType referenceType = sourceCodeFactory.createReferenceType();
 				referenceType.setTopleveltype(requires);
 				Variable variable = sourceCodeFactory.createVariable();
@@ -301,6 +315,56 @@ public class SourceCodeModelWithCorrespondenceModelGenerator {
 			}
 		}
 
-		return new SourceCodeElementWithCorrespondenceModel<Class>(newClass, entry);
+		return new Tuple<Class, ComponentCorrespondence>(newClass, componentCorrespondence);
+	}
+
+	private ComponentCorrespondence generateComponentCorrespondence(BasicComponentImpl component, Class newClass) {
+		CorrespondencesFactory correspondenceFactory = CorrespondencesFactory.eINSTANCE;
+		ComponentCorrespondence componentCorrespondence = correspondenceFactory.createComponentCorrespondence();
+		PCMComponent pcmComponent = correspondenceFactory.createPCMComponent();
+		SourceCodeClass sourceCodeClass = correspondenceFactory.createSourceCodeClass();
+		componentCorrespondence.setPcmcomponent(pcmComponent);
+		componentCorrespondence.setSourcecodeclass(sourceCodeClass);
+		pcmComponent.setName(component.getEntityName());
+		sourceCodeClass.setName(newClass.getName());
+		return componentCorrespondence;
+	}
+
+	private InterfaceCorrespondence generateInterfaceCorrespondence(OperationInterfaceImpl pcmInterface,
+			Interface inter) {
+		CorrespondencesFactory correspondenceFactory = CorrespondencesFactory.eINSTANCE;
+		InterfaceCorrespondence interfaceCorrespondence = correspondenceFactory.createInterfaceCorrespondence();
+		PCMProvidedInterface pcmProvidedInterface = correspondenceFactory.createPCMProvidedInterface();
+		SourceCodeInterface sourceCodeInterface = correspondenceFactory.createSourceCodeInterface();
+		pcmProvidedInterface.setName(pcmInterface.getEntityName());
+		sourceCodeInterface.setName(inter.getName());
+
+		return interfaceCorrespondence;
+	}
+
+	private MethodCorrespondence generateMethodCorrespondence(OperationSignatureImpl pcmOperation, Method method) {
+		CorrespondencesFactory correspondencesFactory = CorrespondencesFactory.eINSTANCE;
+		MethodCorrespondence methodCorrespondence = correspondencesFactory.createMethodCorrespondence();
+		PCMMethod pcmMethod = correspondencesFactory.createPCMMethod();
+		SourceCodeMethod sourceCodeMethod = correspondencesFactory.createSourceCodeMethod();
+		methodCorrespondence.getPcmmethod().add(pcmMethod);
+		methodCorrespondence.getSourcecodemethod().add(sourceCodeMethod);
+		pcmMethod.setName(pcmOperation.getEntityName());
+		sourceCodeMethod.setName(method.getName());
+
+		return methodCorrespondence;
+	}
+
+	private ParameterCorrespondence generateParameterCorrespondence(ParameterImpl pcmParameter, Parameter parameter) {
+		CorrespondencesFactory correspondencesFactory = CorrespondencesFactory.eINSTANCE;
+		ParameterCorrespondence parameterCorrespondence = correspondencesFactory.createParameterCorrespondence();
+		PCMParameter pcmParameter2 = correspondencesFactory.createPCMParameter();
+		SourceCodeParameter sourceCodeParameter = correspondencesFactory.createSourceCodeParameter();
+		parameterCorrespondence.getPcmparameter().add(pcmParameter2);
+		parameterCorrespondence.getSourcecodeparamter().add(sourceCodeParameter);
+		pcmParameter2.setName(pcmParameter.getParameterName());
+		sourceCodeParameter.setName(parameter.getName());
+
+		return parameterCorrespondence;
 	}
 }

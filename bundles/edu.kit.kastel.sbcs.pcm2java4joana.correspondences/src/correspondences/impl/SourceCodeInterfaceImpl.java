@@ -3,8 +3,8 @@
 package correspondences.impl;
 
 import correspondences.CorrespondencesPackage;
+import correspondences.SourceCodeInterface;
 import correspondences.SourceCodeMethod;
-import correspondences.SourceCodeParameter;
 
 import java.util.Collection;
 
@@ -20,34 +20,34 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Source Code Method</b></em>'.
+ * An implementation of the model object '<em><b>Source Code Interface</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link correspondences.impl.SourceCodeMethodImpl#getSourcecodeparamter <em>Sourcecodeparamter</em>}</li>
+ *   <li>{@link correspondences.impl.SourceCodeInterfaceImpl#getSourcecodemethod <em>Sourcecodemethod</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SourceCodeMethodImpl extends CorrespondenceElementImpl implements SourceCodeMethod {
+public class SourceCodeInterfaceImpl extends CorrespondenceElementImpl implements SourceCodeInterface {
 	/**
-	 * The cached value of the '{@link #getSourcecodeparamter() <em>Sourcecodeparamter</em>}' containment reference list.
+	 * The cached value of the '{@link #getSourcecodemethod() <em>Sourcecodemethod</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSourcecodeparamter()
+	 * @see #getSourcecodemethod()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SourceCodeParameter> sourcecodeparamter;
+	protected EList<SourceCodeMethod> sourcecodemethod;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SourceCodeMethodImpl() {
+	protected SourceCodeInterfaceImpl() {
 		super();
 	}
 
@@ -58,7 +58,7 @@ public class SourceCodeMethodImpl extends CorrespondenceElementImpl implements S
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return CorrespondencesPackage.Literals.SOURCE_CODE_METHOD;
+		return CorrespondencesPackage.Literals.SOURCE_CODE_INTERFACE;
 	}
 
 	/**
@@ -66,11 +66,11 @@ public class SourceCodeMethodImpl extends CorrespondenceElementImpl implements S
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SourceCodeParameter> getSourcecodeparamter() {
-		if (sourcecodeparamter == null) {
-			sourcecodeparamter = new EObjectContainmentEList<SourceCodeParameter>(SourceCodeParameter.class, this, CorrespondencesPackage.SOURCE_CODE_METHOD__SOURCECODEPARAMTER);
+	public EList<SourceCodeMethod> getSourcecodemethod() {
+		if (sourcecodemethod == null) {
+			sourcecodemethod = new EObjectContainmentEList<SourceCodeMethod>(SourceCodeMethod.class, this, CorrespondencesPackage.SOURCE_CODE_INTERFACE__SOURCECODEMETHOD);
 		}
-		return sourcecodeparamter;
+		return sourcecodemethod;
 	}
 
 	/**
@@ -81,8 +81,8 @@ public class SourceCodeMethodImpl extends CorrespondenceElementImpl implements S
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case CorrespondencesPackage.SOURCE_CODE_METHOD__SOURCECODEPARAMTER:
-				return ((InternalEList<?>)getSourcecodeparamter()).basicRemove(otherEnd, msgs);
+			case CorrespondencesPackage.SOURCE_CODE_INTERFACE__SOURCECODEMETHOD:
+				return ((InternalEList<?>)getSourcecodemethod()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -95,8 +95,8 @@ public class SourceCodeMethodImpl extends CorrespondenceElementImpl implements S
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorrespondencesPackage.SOURCE_CODE_METHOD__SOURCECODEPARAMTER:
-				return getSourcecodeparamter();
+			case CorrespondencesPackage.SOURCE_CODE_INTERFACE__SOURCECODEMETHOD:
+				return getSourcecodemethod();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -110,9 +110,9 @@ public class SourceCodeMethodImpl extends CorrespondenceElementImpl implements S
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorrespondencesPackage.SOURCE_CODE_METHOD__SOURCECODEPARAMTER:
-				getSourcecodeparamter().clear();
-				getSourcecodeparamter().addAll((Collection<? extends SourceCodeParameter>)newValue);
+			case CorrespondencesPackage.SOURCE_CODE_INTERFACE__SOURCECODEMETHOD:
+				getSourcecodemethod().clear();
+				getSourcecodemethod().addAll((Collection<? extends SourceCodeMethod>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -126,8 +126,8 @@ public class SourceCodeMethodImpl extends CorrespondenceElementImpl implements S
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorrespondencesPackage.SOURCE_CODE_METHOD__SOURCECODEPARAMTER:
-				getSourcecodeparamter().clear();
+			case CorrespondencesPackage.SOURCE_CODE_INTERFACE__SOURCECODEMETHOD:
+				getSourcecodemethod().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -141,10 +141,10 @@ public class SourceCodeMethodImpl extends CorrespondenceElementImpl implements S
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorrespondencesPackage.SOURCE_CODE_METHOD__SOURCECODEPARAMTER:
-				return sourcecodeparamter != null && !sourcecodeparamter.isEmpty();
+			case CorrespondencesPackage.SOURCE_CODE_INTERFACE__SOURCECODEMETHOD:
+				return sourcecodemethod != null && !sourcecodemethod.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //SourceCodeMethodImpl
+} //SourceCodeInterfaceImpl
