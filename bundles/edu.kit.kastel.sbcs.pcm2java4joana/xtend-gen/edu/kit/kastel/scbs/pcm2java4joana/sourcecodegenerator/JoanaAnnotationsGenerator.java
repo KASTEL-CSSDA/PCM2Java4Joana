@@ -19,26 +19,26 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.Conversions;
 
 @SuppressWarnings("all")
-public class GenerateJoanaAnnotations {
+public class JoanaAnnotationsGenerator {
   public static String generateJoanaAnnotation(final edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class scClass, final Method method, final JOANARoot joanaModel) {
     StringConcatenation _builder = new StringConcatenation();
-    String _generateEntryPoints = GenerateJoanaAnnotations.generateEntryPoints(scClass, method, joanaModel);
+    String _generateEntryPoints = JoanaAnnotationsGenerator.generateEntryPoints(scClass, method, joanaModel);
     _builder.append(_generateEntryPoints);
     _builder.newLineIfNotEmpty();
-    String _generateSources = GenerateJoanaAnnotations.generateSources(scClass, method, joanaModel);
+    String _generateSources = JoanaAnnotationsGenerator.generateSources(scClass, method, joanaModel);
     _builder.append(_generateSources);
     _builder.newLineIfNotEmpty();
-    String _generateSinks = GenerateJoanaAnnotations.generateSinks(scClass, method, joanaModel);
+    String _generateSinks = JoanaAnnotationsGenerator.generateSinks(scClass, method, joanaModel);
     _builder.append(_generateSinks);
     return _builder.toString();
   }
   
   public static String generateJoanaAnnotation(final edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class scClass, final Method method, final Parameter parameter, final JOANARoot joanaModel) {
     StringConcatenation _builder = new StringConcatenation();
-    String _generateSources = GenerateJoanaAnnotations.generateSources(scClass, method, parameter, joanaModel);
+    String _generateSources = JoanaAnnotationsGenerator.generateSources(scClass, method, parameter, joanaModel);
     _builder.append(_generateSources);
     _builder.append(" ");
-    String _generateSinks = GenerateJoanaAnnotations.generateSinks(scClass, method, parameter, joanaModel);
+    String _generateSinks = JoanaAnnotationsGenerator.generateSinks(scClass, method, parameter, joanaModel);
     _builder.append(_generateSinks);
     return _builder.toString();
   }
@@ -48,7 +48,7 @@ public class GenerateJoanaAnnotations {
     StringConcatenation _builder = new StringConcatenation();
     {
       for(final EntryPoint entryPoint : entryPoints) {
-        String _generateEntryPointAnnotation = GenerateJoanaAnnotations.generateEntryPointAnnotation(entryPoint);
+        String _generateEntryPointAnnotation = JoanaAnnotationsGenerator.generateEntryPointAnnotation(entryPoint);
         _builder.append(_generateEntryPointAnnotation);
       }
     }
@@ -70,7 +70,7 @@ public class GenerateJoanaAnnotations {
     } else {
       StringConcatenation _builder_1 = new StringConcatenation();
       _builder_1.append("@Source");
-      String _generateAnnotation = GenerateJoanaAnnotations.generateAnnotation(sources.get(0), tags);
+      String _generateAnnotation = JoanaAnnotationsGenerator.generateAnnotation(sources.get(0), tags);
       _builder_1.append(_generateAnnotation);
       return _builder_1.toString();
     }
@@ -90,7 +90,7 @@ public class GenerateJoanaAnnotations {
     } else {
       StringConcatenation _builder_1 = new StringConcatenation();
       _builder_1.append("@Sink");
-      String _generateAnnotation = GenerateJoanaAnnotations.generateAnnotation(sinks.get(0), tags);
+      String _generateAnnotation = JoanaAnnotationsGenerator.generateAnnotation(sinks.get(0), tags);
       _builder_1.append(_generateAnnotation);
       return _builder_1.toString();
     }
@@ -110,7 +110,7 @@ public class GenerateJoanaAnnotations {
     } else {
       StringConcatenation _builder_1 = new StringConcatenation();
       _builder_1.append("@Source");
-      String _generateAnnotation = GenerateJoanaAnnotations.generateAnnotation(sources.get(0), tags);
+      String _generateAnnotation = JoanaAnnotationsGenerator.generateAnnotation(sources.get(0), tags);
       _builder_1.append(_generateAnnotation);
       return _builder_1.toString();
     }
@@ -130,7 +130,7 @@ public class GenerateJoanaAnnotations {
     } else {
       StringConcatenation _builder_1 = new StringConcatenation();
       _builder_1.append("@Sink");
-      String _generateAnnotation = GenerateJoanaAnnotations.generateAnnotation(sinks.get(0), tags);
+      String _generateAnnotation = JoanaAnnotationsGenerator.generateAnnotation(sinks.get(0), tags);
       _builder_1.append(_generateAnnotation);
       return _builder_1.toString();
     }
@@ -145,13 +145,13 @@ public class GenerateJoanaAnnotations {
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("levels = ");
-    String _generateLevelsAnnotation = GenerateJoanaAnnotations.generateLevelsAnnotation(element.getSecuritylevels());
+    String _generateLevelsAnnotation = JoanaAnnotationsGenerator.generateLevelsAnnotation(element.getSecuritylevels());
     _builder.append(_generateLevelsAnnotation, "\t");
     _builder.append(",");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("lattice = ");
-    String _generateLattice = GenerateJoanaAnnotations.generateLattice(element.getLattice());
+    String _generateLattice = JoanaAnnotationsGenerator.generateLattice(element.getLattice());
     _builder.append(_generateLattice, "\t");
     _builder.newLineIfNotEmpty();
     _builder.append(")");
@@ -165,7 +165,7 @@ public class GenerateJoanaAnnotations {
     {
       EList<FlowRelation> _flowrelation = lattice.getFlowrelation();
       for(final FlowRelation relation : _flowrelation) {
-        String _generateMayFlowRelation = GenerateJoanaAnnotations.generateMayFlowRelation(relation);
+        String _generateMayFlowRelation = JoanaAnnotationsGenerator.generateMayFlowRelation(relation);
         _builder.append(_generateMayFlowRelation);
         {
           int _indexOf = lattice.getFlowrelation().indexOf(relation);
@@ -228,7 +228,7 @@ public class GenerateJoanaAnnotations {
   public static String generateSource(final Source element) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("@Source");
-    String _generateAnnotation = GenerateJoanaAnnotations.generateAnnotation(element);
+    String _generateAnnotation = JoanaAnnotationsGenerator.generateAnnotation(element);
     _builder.append(_generateAnnotation);
     _builder.append(" ");
     return _builder.toString();
@@ -237,7 +237,7 @@ public class GenerateJoanaAnnotations {
   public static String generateSink(final Sink element) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("@Sink");
-    String _generateAnnotation = GenerateJoanaAnnotations.generateAnnotation(element);
+    String _generateAnnotation = JoanaAnnotationsGenerator.generateAnnotation(element);
     _builder.append(_generateAnnotation);
     _builder.append(" ");
     return _builder.toString();

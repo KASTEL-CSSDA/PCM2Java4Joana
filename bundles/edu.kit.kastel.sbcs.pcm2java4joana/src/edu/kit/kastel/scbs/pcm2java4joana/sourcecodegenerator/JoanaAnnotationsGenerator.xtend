@@ -15,7 +15,7 @@ import edu.kit.kastel.scbs.pcm2java4joana.joana.Annotation
 import edu.kit.kastel.scbs.pcm2java4joana.joana.Sink
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Parameter
 
-class GenerateJoanaAnnotations {
+class JoanaAnnotationsGenerator {
 	static def String generateJoanaAnnotation(edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class scClass, Method method, JOANARoot joanaModel) {
 		return '''
 		«generateEntryPoints(scClass, method, joanaModel)»
