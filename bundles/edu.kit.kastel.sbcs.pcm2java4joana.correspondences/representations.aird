@@ -5,7 +5,7 @@
     <semanticResources>correspondences.genmodel</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_RWtUoPdIEeu0m5dnw2TosA">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_SH6IEPdIEeu0m5dnw2TosA" name=" class diagram" repPath="#_SH1PkPdIEeu0m5dnw2TosA" changeId="5ba30490-d8dd-4bbf-99a2-aee04be28513">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_SH6IEPdIEeu0m5dnw2TosA" name=" class diagram" repPath="#_SH1PkPdIEeu0m5dnw2TosA" changeId="60e65f56-a28c-4ef4-8a27-c94276483143">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="correspondences.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -812,7 +812,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_mFe0VvdJEeu0m5dnw2TosA" name="[0..*] pcmmethod" sourceNode="_h0DbYPdJEeu0m5dnw2TosA" targetNode="_93V8cPdIEeu0m5dnw2TosA">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_mFe0VvdJEeu0m5dnw2TosA" name="[0..1] pcmmethod" sourceNode="_h0DbYPdJEeu0m5dnw2TosA" targetNode="_93V8cPdIEeu0m5dnw2TosA">
       <target xmi:type="ecore:EReference" href="correspondences.ecore#//MethodCorrespondence/pcmmethod"/>
       <semanticElements xmi:type="ecore:EReference" href="correspondences.ecore#//MethodCorrespondence/pcmmethod"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_oyTm8vdJEeu0m5dnw2TosA" description="_oyS_5vdJEeu0m5dnw2TosA" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
@@ -821,7 +821,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_p-j-tvdJEeu0m5dnw2TosA" name="[0..*] sourcecodemethod" sourceNode="_h0DbYPdJEeu0m5dnw2TosA" targetNode="_0dTq8PdIEeu0m5dnw2TosA">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_p-j-tvdJEeu0m5dnw2TosA" name="[0..1] sourcecodemethod" sourceNode="_h0DbYPdJEeu0m5dnw2TosA" targetNode="_0dTq8PdIEeu0m5dnw2TosA">
       <target xmi:type="ecore:EReference" href="correspondences.ecore#//MethodCorrespondence/sourcecodemethod"/>
       <semanticElements xmi:type="ecore:EReference" href="correspondences.ecore#//MethodCorrespondence/sourcecodemethod"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_p-klwPdJEeu0m5dnw2TosA" description="_oyS_5vdJEeu0m5dnw2TosA" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
@@ -845,7 +845,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_w_jVQvdJEeu0m5dnw2TosA" name="[0..*] sourcecodeparamter" sourceNode="_ugsGEPdJEeu0m5dnw2TosA" targetNode="_B6EyEPdJEeu0m5dnw2TosA">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_w_jVQvdJEeu0m5dnw2TosA" name="[0..1] sourcecodeparamter" sourceNode="_ugsGEPdJEeu0m5dnw2TosA" targetNode="_B6EyEPdJEeu0m5dnw2TosA">
       <target xmi:type="ecore:EReference" href="correspondences.ecore#//ParameterCorrespondence/sourcecodeparamter"/>
       <semanticElements xmi:type="ecore:EReference" href="correspondences.ecore#//ParameterCorrespondence/sourcecodeparamter"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_w_j8QPdJEeu0m5dnw2TosA" description="_oyS_5vdJEeu0m5dnw2TosA" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
@@ -858,7 +858,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_xffZgPdJEeu0m5dnw2TosA" name="[0..*] pcmparameter" sourceNode="_ugsGEPdJEeu0m5dnw2TosA" targetNode="_E9pQwPdJEeu0m5dnw2TosA">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_xffZgPdJEeu0m5dnw2TosA" name="[0..1] pcmparameter" sourceNode="_ugsGEPdJEeu0m5dnw2TosA" targetNode="_E9pQwPdJEeu0m5dnw2TosA">
       <target xmi:type="ecore:EReference" href="correspondences.ecore#//ParameterCorrespondence/pcmparameter"/>
       <semanticElements xmi:type="ecore:EReference" href="correspondences.ecore#//ParameterCorrespondence/pcmparameter"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_xffZgfdJEeu0m5dnw2TosA" description="_oyS_5vdJEeu0m5dnw2TosA" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
@@ -1138,7 +1138,7 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_PtCqfPhAEeuq1tFXgsxcBA" name="[1..*] sourcecodeinterface" sourceNode="_Kw6usPhAEeuq1tFXgsxcBA" targetNode="_M_02QPhAEeuq1tFXgsxcBA">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_PtCqfPhAEeuq1tFXgsxcBA" name="[1..1] sourcecodeinterface" sourceNode="_Kw6usPhAEeuq1tFXgsxcBA" targetNode="_M_02QPhAEeuq1tFXgsxcBA">
       <target xmi:type="ecore:EReference" href="correspondences.ecore#//InterfaceCorrespondence/sourcecodeinterface"/>
       <semanticElements xmi:type="ecore:EReference" href="correspondences.ecore#//InterfaceCorrespondence/sourcecodeinterface"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_ZNRDgPhAEeuq1tFXgsxcBA" description="_dPHQkPdJEeu0m5dnw2TosA" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">

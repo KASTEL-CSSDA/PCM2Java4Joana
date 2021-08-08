@@ -161,6 +161,8 @@ public class SourceCodeModelUtils {
 		String returnValue = "";
 		if (parameter.getType() != null && parameter.getType().getClass() == ReferenceTypeImpl.class) {
 			returnValue = SourceCodeModelUtils.getReferenceTypeName((ReferenceType) parameter.getType());
+		}
+		if (parameter.getType() != null && parameter.getType().getClass() == CollectionTypeImpl.class) {
 			returnValue = SourceCodeModelUtils.getReferenceTypeForCollectionType((CollectionType) parameter.getType());
 		}
 		return returnValue;

@@ -24,28 +24,48 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface MethodCorrespondence extends CorrespondenceElement {
 	/**
-	 * Returns the value of the '<em><b>Pcmmethod</b></em>' containment reference list.
-	 * The list contents are of type {@link correspondences.PCMMethod}.
+	 * Returns the value of the '<em><b>Pcmmethod</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Pcmmethod</em>' containment reference list.
+	 * @return the value of the '<em>Pcmmethod</em>' containment reference.
+	 * @see #setPcmmethod(PCMMethod)
 	 * @see correspondences.CorrespondencesPackage#getMethodCorrespondence_Pcmmethod()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<PCMMethod> getPcmmethod();
+	PCMMethod getPcmmethod();
 
 	/**
-	 * Returns the value of the '<em><b>Sourcecodemethod</b></em>' containment reference list.
-	 * The list contents are of type {@link correspondences.SourceCodeMethod}.
+	 * Sets the value of the '{@link correspondences.MethodCorrespondence#getPcmmethod <em>Pcmmethod</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Sourcecodemethod</em>' containment reference list.
+	 * @param value the new value of the '<em>Pcmmethod</em>' containment reference.
+	 * @see #getPcmmethod()
+	 * @generated
+	 */
+	void setPcmmethod(PCMMethod value);
+
+	/**
+	 * Returns the value of the '<em><b>Sourcecodemethod</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sourcecodemethod</em>' containment reference.
+	 * @see #setSourcecodemethod(SourceCodeMethod)
 	 * @see correspondences.CorrespondencesPackage#getMethodCorrespondence_Sourcecodemethod()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<SourceCodeMethod> getSourcecodemethod();
+	SourceCodeMethod getSourcecodemethod();
+
+	/**
+	 * Sets the value of the '{@link correspondences.MethodCorrespondence#getSourcecodemethod <em>Sourcecodemethod</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Sourcecodemethod</em>' containment reference.
+	 * @see #getSourcecodemethod()
+	 * @generated
+	 */
+	void setSourcecodemethod(SourceCodeMethod value);
 
 	/**
 	 * Returns the value of the '<em><b>Parametercorrespondence</b></em>' containment reference list.

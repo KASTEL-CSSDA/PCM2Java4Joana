@@ -6,18 +6,12 @@ import correspondences.CorrespondencesPackage;
 import correspondences.PCMParameter;
 import correspondences.ParameterCorrespondence;
 import correspondences.SourceCodeParameter;
-
-import java.util.Collection;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,24 +29,24 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class ParameterCorrespondenceImpl extends CorrespondenceElementImpl implements ParameterCorrespondence {
 	/**
-	 * The cached value of the '{@link #getSourcecodeparamter() <em>Sourcecodeparamter</em>}' containment reference list.
+	 * The cached value of the '{@link #getSourcecodeparamter() <em>Sourcecodeparamter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getSourcecodeparamter()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SourceCodeParameter> sourcecodeparamter;
+	protected SourceCodeParameter sourcecodeparamter;
 
 	/**
-	 * The cached value of the '{@link #getPcmparameter() <em>Pcmparameter</em>}' containment reference list.
+	 * The cached value of the '{@link #getPcmparameter() <em>Pcmparameter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getPcmparameter()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<PCMParameter> pcmparameter;
+	protected PCMParameter pcmparameter;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -78,10 +72,7 @@ public class ParameterCorrespondenceImpl extends CorrespondenceElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SourceCodeParameter> getSourcecodeparamter() {
-		if (sourcecodeparamter == null) {
-			sourcecodeparamter = new EObjectContainmentEList<SourceCodeParameter>(SourceCodeParameter.class, this, CorrespondencesPackage.PARAMETER_CORRESPONDENCE__SOURCECODEPARAMTER);
-		}
+	public SourceCodeParameter getSourcecodeparamter() {
 		return sourcecodeparamter;
 	}
 
@@ -90,11 +81,76 @@ public class ParameterCorrespondenceImpl extends CorrespondenceElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<PCMParameter> getPcmparameter() {
-		if (pcmparameter == null) {
-			pcmparameter = new EObjectContainmentEList<PCMParameter>(PCMParameter.class, this, CorrespondencesPackage.PARAMETER_CORRESPONDENCE__PCMPARAMETER);
+	public NotificationChain basicSetSourcecodeparamter(SourceCodeParameter newSourcecodeparamter, NotificationChain msgs) {
+		SourceCodeParameter oldSourcecodeparamter = sourcecodeparamter;
+		sourcecodeparamter = newSourcecodeparamter;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorrespondencesPackage.PARAMETER_CORRESPONDENCE__SOURCECODEPARAMTER, oldSourcecodeparamter, newSourcecodeparamter);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSourcecodeparamter(SourceCodeParameter newSourcecodeparamter) {
+		if (newSourcecodeparamter != sourcecodeparamter) {
+			NotificationChain msgs = null;
+			if (sourcecodeparamter != null)
+				msgs = ((InternalEObject)sourcecodeparamter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorrespondencesPackage.PARAMETER_CORRESPONDENCE__SOURCECODEPARAMTER, null, msgs);
+			if (newSourcecodeparamter != null)
+				msgs = ((InternalEObject)newSourcecodeparamter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorrespondencesPackage.PARAMETER_CORRESPONDENCE__SOURCECODEPARAMTER, null, msgs);
+			msgs = basicSetSourcecodeparamter(newSourcecodeparamter, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorrespondencesPackage.PARAMETER_CORRESPONDENCE__SOURCECODEPARAMTER, newSourcecodeparamter, newSourcecodeparamter));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PCMParameter getPcmparameter() {
 		return pcmparameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPcmparameter(PCMParameter newPcmparameter, NotificationChain msgs) {
+		PCMParameter oldPcmparameter = pcmparameter;
+		pcmparameter = newPcmparameter;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorrespondencesPackage.PARAMETER_CORRESPONDENCE__PCMPARAMETER, oldPcmparameter, newPcmparameter);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPcmparameter(PCMParameter newPcmparameter) {
+		if (newPcmparameter != pcmparameter) {
+			NotificationChain msgs = null;
+			if (pcmparameter != null)
+				msgs = ((InternalEObject)pcmparameter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorrespondencesPackage.PARAMETER_CORRESPONDENCE__PCMPARAMETER, null, msgs);
+			if (newPcmparameter != null)
+				msgs = ((InternalEObject)newPcmparameter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorrespondencesPackage.PARAMETER_CORRESPONDENCE__PCMPARAMETER, null, msgs);
+			msgs = basicSetPcmparameter(newPcmparameter, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorrespondencesPackage.PARAMETER_CORRESPONDENCE__PCMPARAMETER, newPcmparameter, newPcmparameter));
 	}
 
 	/**
@@ -106,9 +162,9 @@ public class ParameterCorrespondenceImpl extends CorrespondenceElementImpl imple
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case CorrespondencesPackage.PARAMETER_CORRESPONDENCE__SOURCECODEPARAMTER:
-				return ((InternalEList<?>)getSourcecodeparamter()).basicRemove(otherEnd, msgs);
+				return basicSetSourcecodeparamter(null, msgs);
 			case CorrespondencesPackage.PARAMETER_CORRESPONDENCE__PCMPARAMETER:
-				return ((InternalEList<?>)getPcmparameter()).basicRemove(otherEnd, msgs);
+				return basicSetPcmparameter(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -139,12 +195,10 @@ public class ParameterCorrespondenceImpl extends CorrespondenceElementImpl imple
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CorrespondencesPackage.PARAMETER_CORRESPONDENCE__SOURCECODEPARAMTER:
-				getSourcecodeparamter().clear();
-				getSourcecodeparamter().addAll((Collection<? extends SourceCodeParameter>)newValue);
+				setSourcecodeparamter((SourceCodeParameter)newValue);
 				return;
 			case CorrespondencesPackage.PARAMETER_CORRESPONDENCE__PCMPARAMETER:
-				getPcmparameter().clear();
-				getPcmparameter().addAll((Collection<? extends PCMParameter>)newValue);
+				setPcmparameter((PCMParameter)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -159,10 +213,10 @@ public class ParameterCorrespondenceImpl extends CorrespondenceElementImpl imple
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case CorrespondencesPackage.PARAMETER_CORRESPONDENCE__SOURCECODEPARAMTER:
-				getSourcecodeparamter().clear();
+				setSourcecodeparamter((SourceCodeParameter)null);
 				return;
 			case CorrespondencesPackage.PARAMETER_CORRESPONDENCE__PCMPARAMETER:
-				getPcmparameter().clear();
+				setPcmparameter((PCMParameter)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -177,9 +231,9 @@ public class ParameterCorrespondenceImpl extends CorrespondenceElementImpl imple
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case CorrespondencesPackage.PARAMETER_CORRESPONDENCE__SOURCECODEPARAMTER:
-				return sourcecodeparamter != null && !sourcecodeparamter.isEmpty();
+				return sourcecodeparamter != null;
 			case CorrespondencesPackage.PARAMETER_CORRESPONDENCE__PCMPARAMETER:
-				return pcmparameter != null && !pcmparameter.isEmpty();
+				return pcmparameter != null;
 		}
 		return super.eIsSet(featureID);
 	}

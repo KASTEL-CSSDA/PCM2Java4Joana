@@ -481,7 +481,7 @@ public interface CorrespondencesPackage extends EPackage {
 	int METHOD_CORRESPONDENCE__NAME = CORRESPONDENCE_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Pcmmethod</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Pcmmethod</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -490,7 +490,7 @@ public interface CorrespondencesPackage extends EPackage {
 	int METHOD_CORRESPONDENCE__PCMMETHOD = CORRESPONDENCE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Sourcecodemethod</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Sourcecodemethod</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -545,7 +545,7 @@ public interface CorrespondencesPackage extends EPackage {
 	int PARAMETER_CORRESPONDENCE__NAME = CORRESPONDENCE_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Sourcecodeparamter</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Sourcecodeparamter</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -554,7 +554,7 @@ public interface CorrespondencesPackage extends EPackage {
 	int PARAMETER_CORRESPONDENCE__SOURCECODEPARAMTER = CORRESPONDENCE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Pcmparameter</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Pcmparameter</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -646,7 +646,7 @@ public interface CorrespondencesPackage extends EPackage {
 	int INTERFACE_CORRESPONDENCE__NAME = CORRESPONDENCE_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Sourcecodeinterface</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Sourcecodeinterface</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -937,10 +937,10 @@ public interface CorrespondencesPackage extends EPackage {
 	EClass getMethodCorrespondence();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link correspondences.MethodCorrespondence#getPcmmethod <em>Pcmmethod</em>}'.
+	 * Returns the meta object for the containment reference '{@link correspondences.MethodCorrespondence#getPcmmethod <em>Pcmmethod</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Pcmmethod</em>'.
+	 * @return the meta object for the containment reference '<em>Pcmmethod</em>'.
 	 * @see correspondences.MethodCorrespondence#getPcmmethod()
 	 * @see #getMethodCorrespondence()
 	 * @generated
@@ -948,10 +948,10 @@ public interface CorrespondencesPackage extends EPackage {
 	EReference getMethodCorrespondence_Pcmmethod();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link correspondences.MethodCorrespondence#getSourcecodemethod <em>Sourcecodemethod</em>}'.
+	 * Returns the meta object for the containment reference '{@link correspondences.MethodCorrespondence#getSourcecodemethod <em>Sourcecodemethod</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Sourcecodemethod</em>'.
+	 * @return the meta object for the containment reference '<em>Sourcecodemethod</em>'.
 	 * @see correspondences.MethodCorrespondence#getSourcecodemethod()
 	 * @see #getMethodCorrespondence()
 	 * @generated
@@ -980,10 +980,10 @@ public interface CorrespondencesPackage extends EPackage {
 	EClass getParameterCorrespondence();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link correspondences.ParameterCorrespondence#getSourcecodeparamter <em>Sourcecodeparamter</em>}'.
+	 * Returns the meta object for the containment reference '{@link correspondences.ParameterCorrespondence#getSourcecodeparamter <em>Sourcecodeparamter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Sourcecodeparamter</em>'.
+	 * @return the meta object for the containment reference '<em>Sourcecodeparamter</em>'.
 	 * @see correspondences.ParameterCorrespondence#getSourcecodeparamter()
 	 * @see #getParameterCorrespondence()
 	 * @generated
@@ -991,10 +991,10 @@ public interface CorrespondencesPackage extends EPackage {
 	EReference getParameterCorrespondence_Sourcecodeparamter();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link correspondences.ParameterCorrespondence#getPcmparameter <em>Pcmparameter</em>}'.
+	 * Returns the meta object for the containment reference '{@link correspondences.ParameterCorrespondence#getPcmparameter <em>Pcmparameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Pcmparameter</em>'.
+	 * @return the meta object for the containment reference '<em>Pcmparameter</em>'.
 	 * @see correspondences.ParameterCorrespondence#getPcmparameter()
 	 * @see #getParameterCorrespondence()
 	 * @generated
@@ -1044,10 +1044,10 @@ public interface CorrespondencesPackage extends EPackage {
 	EClass getInterfaceCorrespondence();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link correspondences.InterfaceCorrespondence#getSourcecodeinterface <em>Sourcecodeinterface</em>}'.
+	 * Returns the meta object for the containment reference '{@link correspondences.InterfaceCorrespondence#getSourcecodeinterface <em>Sourcecodeinterface</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Sourcecodeinterface</em>'.
+	 * @return the meta object for the containment reference '<em>Sourcecodeinterface</em>'.
 	 * @see correspondences.InterfaceCorrespondence#getSourcecodeinterface()
 	 * @see #getInterfaceCorrespondence()
 	 * @generated
@@ -1293,7 +1293,7 @@ public interface CorrespondencesPackage extends EPackage {
 		EClass METHOD_CORRESPONDENCE = eINSTANCE.getMethodCorrespondence();
 
 		/**
-		 * The meta object literal for the '<em><b>Pcmmethod</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Pcmmethod</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1301,7 +1301,7 @@ public interface CorrespondencesPackage extends EPackage {
 		EReference METHOD_CORRESPONDENCE__PCMMETHOD = eINSTANCE.getMethodCorrespondence_Pcmmethod();
 
 		/**
-		 * The meta object literal for the '<em><b>Sourcecodemethod</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Sourcecodemethod</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1327,7 +1327,7 @@ public interface CorrespondencesPackage extends EPackage {
 		EClass PARAMETER_CORRESPONDENCE = eINSTANCE.getParameterCorrespondence();
 
 		/**
-		 * The meta object literal for the '<em><b>Sourcecodeparamter</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Sourcecodeparamter</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1335,7 +1335,7 @@ public interface CorrespondencesPackage extends EPackage {
 		EReference PARAMETER_CORRESPONDENCE__SOURCECODEPARAMTER = eINSTANCE.getParameterCorrespondence_Sourcecodeparamter();
 
 		/**
-		 * The meta object literal for the '<em><b>Pcmparameter</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Pcmparameter</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1379,7 +1379,7 @@ public interface CorrespondencesPackage extends EPackage {
 		EClass INTERFACE_CORRESPONDENCE = eINSTANCE.getInterfaceCorrespondence();
 
 		/**
-		 * The meta object literal for the '<em><b>Sourcecodeinterface</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Sourcecodeinterface</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

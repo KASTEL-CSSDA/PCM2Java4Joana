@@ -40,14 +40,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class InterfaceCorrespondenceImpl extends CorrespondenceElementImpl implements InterfaceCorrespondence {
 	/**
-	 * The cached value of the '{@link #getSourcecodeinterface() <em>Sourcecodeinterface</em>}' containment reference list.
+	 * The cached value of the '{@link #getSourcecodeinterface() <em>Sourcecodeinterface</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getSourcecodeinterface()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SourceCodeInterface> sourcecodeinterface;
+	protected SourceCodeInterface sourcecodeinterface;
 
 	/**
 	 * The cached value of the '{@link #getPcmprovidedinterface() <em>Pcmprovidedinterface</em>}' containment reference.
@@ -93,11 +93,42 @@ public class InterfaceCorrespondenceImpl extends CorrespondenceElementImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SourceCodeInterface> getSourcecodeinterface() {
-		if (sourcecodeinterface == null) {
-			sourcecodeinterface = new EObjectContainmentEList<SourceCodeInterface>(SourceCodeInterface.class, this, CorrespondencesPackage.INTERFACE_CORRESPONDENCE__SOURCECODEINTERFACE);
-		}
+	public SourceCodeInterface getSourcecodeinterface() {
 		return sourcecodeinterface;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSourcecodeinterface(SourceCodeInterface newSourcecodeinterface, NotificationChain msgs) {
+		SourceCodeInterface oldSourcecodeinterface = sourcecodeinterface;
+		sourcecodeinterface = newSourcecodeinterface;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorrespondencesPackage.INTERFACE_CORRESPONDENCE__SOURCECODEINTERFACE, oldSourcecodeinterface, newSourcecodeinterface);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSourcecodeinterface(SourceCodeInterface newSourcecodeinterface) {
+		if (newSourcecodeinterface != sourcecodeinterface) {
+			NotificationChain msgs = null;
+			if (sourcecodeinterface != null)
+				msgs = ((InternalEObject)sourcecodeinterface).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorrespondencesPackage.INTERFACE_CORRESPONDENCE__SOURCECODEINTERFACE, null, msgs);
+			if (newSourcecodeinterface != null)
+				msgs = ((InternalEObject)newSourcecodeinterface).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorrespondencesPackage.INTERFACE_CORRESPONDENCE__SOURCECODEINTERFACE, null, msgs);
+			msgs = basicSetSourcecodeinterface(newSourcecodeinterface, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorrespondencesPackage.INTERFACE_CORRESPONDENCE__SOURCECODEINTERFACE, newSourcecodeinterface, newSourcecodeinterface));
 	}
 
 	/**
@@ -164,7 +195,7 @@ public class InterfaceCorrespondenceImpl extends CorrespondenceElementImpl imple
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case CorrespondencesPackage.INTERFACE_CORRESPONDENCE__SOURCECODEINTERFACE:
-				return ((InternalEList<?>)getSourcecodeinterface()).basicRemove(otherEnd, msgs);
+				return basicSetSourcecodeinterface(null, msgs);
 			case CorrespondencesPackage.INTERFACE_CORRESPONDENCE__PCMPROVIDEDINTERFACE:
 				return basicSetPcmprovidedinterface(null, msgs);
 			case CorrespondencesPackage.INTERFACE_CORRESPONDENCE__METHODCORRESPONDENCE:
@@ -201,8 +232,7 @@ public class InterfaceCorrespondenceImpl extends CorrespondenceElementImpl imple
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CorrespondencesPackage.INTERFACE_CORRESPONDENCE__SOURCECODEINTERFACE:
-				getSourcecodeinterface().clear();
-				getSourcecodeinterface().addAll((Collection<? extends SourceCodeInterface>)newValue);
+				setSourcecodeinterface((SourceCodeInterface)newValue);
 				return;
 			case CorrespondencesPackage.INTERFACE_CORRESPONDENCE__PCMPROVIDEDINTERFACE:
 				setPcmprovidedinterface((PCMProvidedInterface)newValue);
@@ -224,7 +254,7 @@ public class InterfaceCorrespondenceImpl extends CorrespondenceElementImpl imple
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case CorrespondencesPackage.INTERFACE_CORRESPONDENCE__SOURCECODEINTERFACE:
-				getSourcecodeinterface().clear();
+				setSourcecodeinterface((SourceCodeInterface)null);
 				return;
 			case CorrespondencesPackage.INTERFACE_CORRESPONDENCE__PCMPROVIDEDINTERFACE:
 				setPcmprovidedinterface((PCMProvidedInterface)null);
@@ -245,7 +275,7 @@ public class InterfaceCorrespondenceImpl extends CorrespondenceElementImpl imple
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case CorrespondencesPackage.INTERFACE_CORRESPONDENCE__SOURCECODEINTERFACE:
-				return sourcecodeinterface != null && !sourcecodeinterface.isEmpty();
+				return sourcecodeinterface != null;
 			case CorrespondencesPackage.INTERFACE_CORRESPONDENCE__PCMPROVIDEDINTERFACE:
 				return pcmprovidedinterface != null;
 			case CorrespondencesPackage.INTERFACE_CORRESPONDENCE__METHODCORRESPONDENCE:

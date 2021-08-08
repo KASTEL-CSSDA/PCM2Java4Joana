@@ -294,8 +294,9 @@ public class SourceCodeModelWithCorrespondenceModelGenerator {
 				Tuple<Interface, InterfaceCorrespondence> child = this.providedInterfaces.get(interfaceName);
 				Interface inter = (Interface) child.getFirst();
 				newClass.getImplements().add(inter);
-				componentCorrespondence.getMethodcorrespondence().addAll(child.getSecond().getMethodcorrespondence());
 				newClass.getFields().addAll(inter.getMethods());
+				CorrespondenceModelElementsGenerator.addMethodCorrespondences(componentCorrespondence,
+						child.getSecond().getMethodcorrespondence());
 
 			}
 			if (object.getClass() == OperationRequiredRoleImpl.class) {

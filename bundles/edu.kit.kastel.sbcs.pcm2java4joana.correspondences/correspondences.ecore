@@ -36,18 +36,18 @@
         eType="#//MethodCorrespondence" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MethodCorrespondence" eSuperTypes="#//CorrespondenceElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="pcmmethod" upperBound="-1"
-        eType="#//PCMMethod" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sourcecodemethod" upperBound="-1"
-        eType="#//SourceCodeMethod" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pcmmethod" eType="#//PCMMethod"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourcecodemethod" eType="#//SourceCodeMethod"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parametercorrespondence"
         upperBound="-1" eType="#//ParameterCorrespondence" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ParameterCorrespondence" eSuperTypes="#//CorrespondenceElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sourcecodeparamter" upperBound="-1"
-        eType="#//SourceCodeParameter" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="pcmparameter" upperBound="-1"
-        eType="#//PCMParameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourcecodeparamter" eType="#//SourceCodeParameter"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pcmparameter" eType="#//PCMParameter"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CorrespondenceModel">
     <eStructuralFeatures xsi:type="ecore:EReference" name="componentcorrespondence"
@@ -57,7 +57,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InterfaceCorrespondence" eSuperTypes="#//CorrespondenceElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sourcecodeinterface" lowerBound="1"
-        upperBound="-1" eType="#//SourceCodeInterface" containment="true"/>
+        eType="#//SourceCodeInterface" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="pcmprovidedinterface" eType="#//PCMProvidedInterface"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="methodcorrespondence" upperBound="-1"

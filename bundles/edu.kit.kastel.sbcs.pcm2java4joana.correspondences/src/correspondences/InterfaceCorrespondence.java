@@ -24,16 +24,26 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface InterfaceCorrespondence extends CorrespondenceElement {
 	/**
-	 * Returns the value of the '<em><b>Sourcecodeinterface</b></em>' containment reference list.
-	 * The list contents are of type {@link correspondences.SourceCodeInterface}.
+	 * Returns the value of the '<em><b>Sourcecodeinterface</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Sourcecodeinterface</em>' containment reference list.
+	 * @return the value of the '<em>Sourcecodeinterface</em>' containment reference.
+	 * @see #setSourcecodeinterface(SourceCodeInterface)
 	 * @see correspondences.CorrespondencesPackage#getInterfaceCorrespondence_Sourcecodeinterface()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<SourceCodeInterface> getSourcecodeinterface();
+	SourceCodeInterface getSourcecodeinterface();
+
+	/**
+	 * Sets the value of the '{@link correspondences.InterfaceCorrespondence#getSourcecodeinterface <em>Sourcecodeinterface</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Sourcecodeinterface</em>' containment reference.
+	 * @see #getSourcecodeinterface()
+	 * @generated
+	 */
+	void setSourcecodeinterface(SourceCodeInterface value);
 
 	/**
 	 * Returns the value of the '<em><b>Pcmprovidedinterface</b></em>' containment reference.

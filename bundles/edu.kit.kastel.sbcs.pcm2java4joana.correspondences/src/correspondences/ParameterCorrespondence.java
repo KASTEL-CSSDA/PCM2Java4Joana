@@ -2,8 +2,6 @@
  */
 package correspondences;
 
-import org.eclipse.emf.common.util.EList;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Parameter Correspondence</b></em>'.
@@ -23,27 +21,47 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface ParameterCorrespondence extends CorrespondenceElement {
 	/**
-	 * Returns the value of the '<em><b>Sourcecodeparamter</b></em>' containment reference list.
-	 * The list contents are of type {@link correspondences.SourceCodeParameter}.
+	 * Returns the value of the '<em><b>Sourcecodeparamter</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Sourcecodeparamter</em>' containment reference list.
+	 * @return the value of the '<em>Sourcecodeparamter</em>' containment reference.
+	 * @see #setSourcecodeparamter(SourceCodeParameter)
 	 * @see correspondences.CorrespondencesPackage#getParameterCorrespondence_Sourcecodeparamter()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<SourceCodeParameter> getSourcecodeparamter();
+	SourceCodeParameter getSourcecodeparamter();
 
 	/**
-	 * Returns the value of the '<em><b>Pcmparameter</b></em>' containment reference list.
-	 * The list contents are of type {@link correspondences.PCMParameter}.
+	 * Sets the value of the '{@link correspondences.ParameterCorrespondence#getSourcecodeparamter <em>Sourcecodeparamter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Pcmparameter</em>' containment reference list.
+	 * @param value the new value of the '<em>Sourcecodeparamter</em>' containment reference.
+	 * @see #getSourcecodeparamter()
+	 * @generated
+	 */
+	void setSourcecodeparamter(SourceCodeParameter value);
+
+	/**
+	 * Returns the value of the '<em><b>Pcmparameter</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Pcmparameter</em>' containment reference.
+	 * @see #setPcmparameter(PCMParameter)
 	 * @see correspondences.CorrespondencesPackage#getParameterCorrespondence_Pcmparameter()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<PCMParameter> getPcmparameter();
+	PCMParameter getPcmparameter();
+
+	/**
+	 * Sets the value of the '{@link correspondences.ParameterCorrespondence#getPcmparameter <em>Pcmparameter</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Pcmparameter</em>' containment reference.
+	 * @see #getPcmparameter()
+	 * @generated
+	 */
+	void setPcmparameter(PCMParameter value);
 
 } // ParameterCorrespondence

@@ -1,5 +1,7 @@
 package edu.kit.kastel.scbs.pcm2java4joana.modelgenerator;
 
+import java.util.List;
+
 import org.palladiosimulator.pcm.repository.impl.BasicComponentImpl;
 import org.palladiosimulator.pcm.repository.impl.OperationInterfaceImpl;
 import org.palladiosimulator.pcm.repository.impl.OperationSignatureImpl;
@@ -55,8 +57,8 @@ public class CorrespondenceModelElementsGenerator {
 		MethodCorrespondence methodCorrespondence = correspondencesFactory.createMethodCorrespondence();
 		PCMMethod pcmMethod = correspondencesFactory.createPCMMethod();
 		SourceCodeMethod sourceCodeMethod = correspondencesFactory.createSourceCodeMethod();
-		methodCorrespondence.getPcmmethod().add(pcmMethod);
-		methodCorrespondence.getSourcecodemethod().add(sourceCodeMethod);
+		methodCorrespondence.setPcmmethod(pcmMethod);
+		methodCorrespondence.setSourcecodemethod(sourceCodeMethod);
 		pcmMethod.setName(pcmOperation.getEntityName());
 		sourceCodeMethod.setName(method.getName());
 
@@ -69,11 +71,57 @@ public class CorrespondenceModelElementsGenerator {
 		ParameterCorrespondence parameterCorrespondence = correspondencesFactory.createParameterCorrespondence();
 		PCMParameter pcmParameter2 = correspondencesFactory.createPCMParameter();
 		SourceCodeParameter sourceCodeParameter = correspondencesFactory.createSourceCodeParameter();
-		parameterCorrespondence.getPcmparameter().add(pcmParameter2);
-		parameterCorrespondence.getSourcecodeparamter().add(sourceCodeParameter);
+		parameterCorrespondence.setPcmparameter(pcmParameter2);
+		parameterCorrespondence.setSourcecodeparamter(sourceCodeParameter);
 		pcmParameter2.setName(pcmParameter.getParameterName());
 		sourceCodeParameter.setName(parameter.getName());
 
 		return parameterCorrespondence;
+	}
+
+	public static void addMethodCorrespondences(ComponentCorrespondence componentCorrespondences,
+			List<MethodCorrespondence> methodCorrespondences) {
+		for (MethodCorrespondence correspondence : methodCorrespondences) {
+			componentCorrespondences.getMethodcorrespondence()
+					.add(CorrespondenceModelElementsGenerator.copyMethodCorrespondence(correspondence));
+		}
+	}
+
+	public static void addParameterCorrespondences(MethodCorrespondence correspondence,
+			List<ParameterCorrespondence> parameterCorrespondences) {
+		for (ParameterCorrespondence parameterCorrespondence : parameterCorrespondences) {
+			correspondence.getParametercorrespondence()
+					.add(CorrespondenceModelElementsGenerator.copyParameterCorrespondence(parameterCorrespondence));
+		}
+	}
+
+	private static MethodCorrespondence copyMethodCorrespondence(MethodCorrespondence correspondence) {
+		CorrespondencesFactory correspondencesFactory = CorrespondencesFactory.eINSTANCE;
+		MethodCorrespondence copied = CorrespondencesFactory.eINSTANCE.createMethodCorrespondence();
+		PCMMethod pcmMethod = correspondencesFactory.createPCMMethod();
+		SourceCodeMethod sourceCodeMethod = correspondencesFactory.createSourceCodeMethod();
+		copied.setName(correspondence.getName());
+		copied.setPcmmethod(pcmMethod);
+		copied.setSourcecodemethod(sourceCodeMethod);
+		pcmMethod.setName(correspondence.getPcmmethod().getName());
+		sourceCodeMethod.setName(correspondence.getSourcecodemethod().getName());
+
+		CorrespondenceModelElementsGenerator.addParameterCorrespondences(copied,
+				correspondence.getParametercorrespondence());
+		return copied;
+	}
+
+	private static ParameterCorrespondence copyParameterCorrespondence(ParameterCorrespondence correspondence) {
+		CorrespondencesFactory correspondencesFactory = CorrespondencesFactory.eINSTANCE;
+		ParameterCorrespondence copied = correspondencesFactory.createParameterCorrespondence();
+		PCMParameter pcmParameter = correspondencesFactory.createPCMParameter();
+		SourceCodeParameter sourceCodeParameter = correspondencesFactory.createSourceCodeParameter();
+		copied.setPcmparameter(pcmParameter);
+		copied.setSourcecodeparamter(sourceCodeParameter);
+		copied.setName(correspondence.getName());
+		pcmParameter.setName(correspondence.getPcmparameter().getName());
+		sourceCodeParameter.setName(correspondence.getSourcecodeparamter().getName());
+
+		return copied;
 	}
 }
