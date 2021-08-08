@@ -19,7 +19,7 @@ import edu.kit.kastel.scbs.pcm2java4joana.modelgenerator.SupplierAnalysisModelGe
 import edu.kit.kastel.scbs.pcm2java4joana.models.AnnotatedSourceCode;
 import edu.kit.kastel.scbs.pcm2java4joana.models.ClientAnalysisModel;
 import edu.kit.kastel.scbs.pcm2java4joana.models.SupplierAnalysisModel;
-import edu.kit.kastel.scbs.pcm2java4joana.sourcecodegenerator.Model2AnnotatedCodeGenerator;
+import edu.kit.kastel.scbs.pcm2java4joana.sourcecodegenerator.SupplierAnalysisModel2AnnotatedCodeGenerator;
 
 public class PCM2Java4JoanaHandler extends AbstractHandler {
 
@@ -41,7 +41,7 @@ public class PCM2Java4JoanaHandler extends AbstractHandler {
 		SupplierAnalysisModelGenerator generator = new SupplierAnalysisModelGenerator(models, models.getBaseFolder());
 		SupplierAnalysisModel supplierAnalysisModel = generator.generate();
 
-		Model2AnnotatedCodeGenerator annotatedCodeGenerator = new Model2AnnotatedCodeGenerator();
+		SupplierAnalysisModel2AnnotatedCodeGenerator annotatedCodeGenerator = new SupplierAnalysisModel2AnnotatedCodeGenerator();
 		List<Triplet<String, String, String>> generatedAnnotatedSourceCode = annotatedCodeGenerator
 				.generateAnnotatedCode(supplierAnalysisModel.getSourceCodeRoot(), supplierAnalysisModel.getJoanaRoot());
 		AnnotatedSourceCode annotatedSourceCode = new AnnotatedSourceCode(models.getBaseFolder(),
