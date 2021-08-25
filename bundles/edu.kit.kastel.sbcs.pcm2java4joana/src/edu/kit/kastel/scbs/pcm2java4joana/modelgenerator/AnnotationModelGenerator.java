@@ -207,7 +207,6 @@ public class AnnotationModelGenerator {
 		}
 		List<Method> methods = SourceCodeModelUtils.getMethod(inter, pcmSignature.getEntityName());
 		List<Method> toRemove = new ArrayList<Method>();
-		// Nur die Methoden die auch wirklich den Parameter mit diesem Namen haben
 		if (!appliedPair.getParameterSources().get(0).equals("\\return")) {
 			for (Method method : methods) {
 				List<String> parameterNames = new ArrayList<String>();
@@ -227,9 +226,6 @@ public class AnnotationModelGenerator {
 			for (Method method : methods) {
 				Annotation annotation = factory.createAnnotation();
 				annotation.getSecuritylevel().addAll(JoanaModelUtils.copySecurityLevels(securityLevels));
-				// TODO: Diese Conversion geht nicht!
-				// annotation.setAnnotatedClass((sourcecode.Class) component);
-				// annotation.setAnnotatedMethod((sourcecode.Method) method);
 				annotation.setAnnotatedClassName(component.getName());
 				annotation.setAnnotatedMethodName(method.getName());
 				if (appliedPair.getParameterSources().get(0).equals("\\return")) {

@@ -52,7 +52,8 @@ public class PCM2Java4JoanaHandler extends AbstractHandler {
 		supplierAnalysisModel.saveJoanaModel();
 		annotatedSourceCode.save();
 
-		MessageDialog.openInformation(window.getShell(), "Information", "All files provided");
+		MessageDialog.openInformation(window.getShell(), "Information",
+				"Generation of annotated Source Code was successful!");
 
 		return list;
 	}
