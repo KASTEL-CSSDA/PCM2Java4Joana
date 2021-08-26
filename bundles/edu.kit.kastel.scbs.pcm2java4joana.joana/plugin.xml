@@ -15,11 +15,11 @@
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated joana -->
+      <!-- @generated joanasimplifiedresult -->
       <package
-            uri="http://www.example.org/sourcecode"
-            class="sourcecode.SourcecodePackage"
-            genModel="model/joana.genmodel"/>
+            uri="www.example.org/joanasimplifiedresult"
+            class="edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.JoanasimplifiedresultPackage"
+            genModel="model/joanasimplifiedresult.genmodel"/>
    </extension>
 
 </plugin>

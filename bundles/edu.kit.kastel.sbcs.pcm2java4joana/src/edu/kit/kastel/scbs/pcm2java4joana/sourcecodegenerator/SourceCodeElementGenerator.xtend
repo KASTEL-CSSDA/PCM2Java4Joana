@@ -12,8 +12,12 @@ import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Type
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.BuiltInType
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.ReferenceType
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.CollectionType
+import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class
+import edu.kit.ipd.sdq.activextendannotations.Utility
 
+@Utility
 class SourceCodeElementGenerator {
+
 	static def String generateVariable(Variable variable) {
 		return '''
 		private «generateDataType(variable.type)» «variable.name»;
@@ -23,7 +27,7 @@ class SourceCodeElementGenerator {
 		'''
 	}
 	
-	static def String generateConstructor(edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class scClass) {
+	static def String generateConstructor(Class scClass) {
 		val variables = SourceCodeModelUtils.getVariables(scClass)
 		return '''
 		public «scClass.name»(«FOR variable : variables»«generateDataType(variable.type)» «variable.name»«IF variables.indexOf(variable) != variables.size - 1», «ENDIF»«ENDFOR») {

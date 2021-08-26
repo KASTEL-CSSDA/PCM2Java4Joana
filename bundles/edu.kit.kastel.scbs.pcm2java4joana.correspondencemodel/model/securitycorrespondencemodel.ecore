@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="securitycorrespondencemodel" nsURI="www.example.org/securitycorrespondencemodel"
+    nsPrefix="securitycorrespondencemodel">
+  <eClassifiers xsi:type="ecore:EClass" name="Adversary2SecurityLevel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="securityLevels" lowerBound="1"
+        upperBound="-1" eType="ecore:EClass ../../edu.kit.kastel.scbs.pcm2java4joana.joana/model/joana.ecore#//SecurityLevel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="adversaries" lowerBound="1"
+        upperBound="-1" eType="ecore:EClass ../../edu.kit.kastel.scbs.confidentialitymm/model/confidentiality.ecore#//adversary/Adversary"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParametersAndDataPair2Annotation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="joanaAnnotation" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.scbs.pcm2java4joana.joana/model/joana.ecore#//Annotation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parametersAndDataPair"
+        lowerBound="1" eType="ecore:EClass ../../edu.kit.kastel.scbs.confidentialitymm/model/confidentiality.ecore#//repository/ParametersAndDataPair"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="adversaries" upperBound="-1"
+        eType="ecore:EClass ../../edu.kit.kastel.scbs.confidentialitymm/model/confidentiality.ecore#//adversary/Adversary"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SecurityCorrespondenceModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="adversary2securitylevel"
+        upperBound="-1" eType="#//Adversary2SecurityLevel" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parametersanddatapair2annotation"
+        upperBound="-1" eType="#//ParametersAndDataPair2Annotation" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

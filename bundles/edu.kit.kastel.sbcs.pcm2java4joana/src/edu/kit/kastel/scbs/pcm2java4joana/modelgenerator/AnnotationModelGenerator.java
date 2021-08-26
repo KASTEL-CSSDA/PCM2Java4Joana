@@ -29,6 +29,8 @@ import edu.kit.kastel.scbs.pcm2java4joana.joana.Sink;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.Source;
 import edu.kit.kastel.scbs.pcm2java4joana.models.ClientAnalysisModel;
 import edu.kit.kastel.scbs.pcm2java4joana.models.SupplierAnalysisModel;
+import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecurityCorrespondenceModel;
+import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecuritycorrespondencemodelFactory;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Interface;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Method;
@@ -41,11 +43,14 @@ import edu.kit.kastel.scbs.pcm2java4joana.utils.SourceCodeModelUtils;
 public class AnnotationModelGenerator {
 	private SupplierAnalysisModel supplierAnalysisModel;
 	private ClientAnalysisModel clientAnalysisModel;
+	private SecurityCorrespondenceModel securityCorrespondenceModel;
 
 	public AnnotationModelGenerator(ClientAnalysisModel clientAnalysisModel,
 			SupplierAnalysisModel supplierAnalysisModel) {
 		this.supplierAnalysisModel = supplierAnalysisModel;
 		this.clientAnalysisModel = clientAnalysisModel;
+		this.securityCorrespondenceModel = SecuritycorrespondencemodelFactory.eINSTANCE
+				.createSecurityCorrespondenceModel();
 	}
 
 	public SupplierAnalysisModel generateJoanaModel() {
@@ -55,7 +60,7 @@ public class AnnotationModelGenerator {
 		Map<SecurityLevel, List<DataIdentifying>> levelToDatasetsMapping = this
 				.generateSecurityLevelToDatasetMapping(adversaries);
 		Lattice lattice = this.generateLattice(levels);
-		List<Annotation> annotations = this.generateAnnotations(confidentiality, levelToDatasetsMapping,
+		List<Annotation> annotations = this.generateAnnotations(levelToDatasetsMapping,
 				confidentiality.getParametersAndDataPairs(),
 				(SourceCodeRoot) this.supplierAnalysisModel.getSourceCodeModel().getContents().get(0),
 				this.clientAnalysisModel);
@@ -65,6 +70,7 @@ public class AnnotationModelGenerator {
 		JOANARoot root = factory.createJOANARoot();
 		root.getFlowspecification().addAll(flowSpecifications);
 		this.supplierAnalysisModel.setJoanaModel(root);
+		this.supplierAnalysisModel.setSecurityCorrespondendenceModel(this.securityCorrespondenceModel);
 
 		return this.supplierAnalysisModel;
 	}
@@ -89,9 +95,7 @@ public class AnnotationModelGenerator {
 
 		List<Integer> possibleTags = new ArrayList<Integer>();
 		for (int i = 0; i < annotations.size(); i++) {
-			if (i != entryPointIndex) {
-				possibleTags.add(i);
-			}
+			possibleTags.add(i);
 		}
 		List<List<Integer>> sourceDistributions = SetOperations.generatePowerSet(possibleTags);
 
@@ -128,9 +132,6 @@ public class AnnotationModelGenerator {
 		source.setAnnotatedClass(annotation.getAnnotatedClass());
 		source.setAnnotatedMethod(annotation.getAnnotatedMethod());
 		source.setAnnotatedParameter(annotation.getAnnotatedParameter());
-		source.setAnnotatedClassName(annotation.getAnnotatedClassName());
-		source.setAnnotatedMethodName(annotation.getAnnotatedMethodName());
-		source.setAnnotatedParameterName(annotation.getAnnotatedParameterName());
 		source.getSecuritylevel().addAll(JoanaModelUtils.copySecurityLevels(annotation.getSecuritylevel()));
 
 		return source;
@@ -143,9 +144,6 @@ public class AnnotationModelGenerator {
 		sink.setAnnotatedClass(annotation.getAnnotatedClass());
 		sink.setAnnotatedMethod(annotation.getAnnotatedMethod());
 		sink.setAnnotatedParameter(annotation.getAnnotatedParameter());
-		sink.setAnnotatedClassName(annotation.getAnnotatedClassName());
-		sink.setAnnotatedMethodName(annotation.getAnnotatedMethodName());
-		sink.setAnnotatedParameterName(annotation.getAnnotatedParameterName());
 		sink.getSecuritylevel().addAll(JoanaModelUtils.copySecurityLevels(annotation.getSecuritylevel()));
 
 		return sink;
@@ -158,16 +156,13 @@ public class AnnotationModelGenerator {
 		entryPoint.setTag(tag);
 		entryPoint.setAnnotatedClass(annotation.getAnnotatedClass());
 		entryPoint.setAnnotatedMethod(annotation.getAnnotatedMethod());
-		entryPoint.setAnnotatedClassName(annotation.getAnnotatedClassName());
-		entryPoint.setAnnotatedMethodName(annotation.getAnnotatedMethodName());
 		entryPoint.setLattice(JoanaModelUtils.copyLattice(lattice));
 		entryPoint.getSecuritylevels().addAll(JoanaModelUtils.copySecurityLevels(levels));
 
 		return entryPoint;
 	}
 
-	private List<Annotation> generateAnnotations(ConfidentialitySpecification confidentiality,
-			Map<SecurityLevel, List<DataIdentifying>> levelToDatasetsMapping,
+	private List<Annotation> generateAnnotations(Map<SecurityLevel, List<DataIdentifying>> levelToDatasetsMapping,
 			List<ParametersAndDataPair> parametersAndDataPair, SourceCodeRoot sourceCode,
 			ClientAnalysisModel clientAnalysisModel) {
 		List<Annotation> annotations = new ArrayList<Annotation>();
@@ -176,8 +171,7 @@ public class AnnotationModelGenerator {
 		for (StereotypeApplication application : profile.getStereotypeApplications()) {
 			var stereotype = application.getStereotype();
 			if (stereotype.getName().equals("InformationFlow")) {
-				List<Annotation> annotation = this.generateAnnotation(confidentiality, levelToDatasetsMapping,
-						application, sourceCode);
+				List<Annotation> annotation = this.generateAnnotation(levelToDatasetsMapping, application, sourceCode);
 				if (annotation != null) {
 					annotations.addAll(annotation);
 				}
@@ -187,8 +181,7 @@ public class AnnotationModelGenerator {
 		return annotations;
 	}
 
-	private List<Annotation> generateAnnotation(ConfidentialitySpecification confidentiality,
-			Map<SecurityLevel, List<DataIdentifying>> levelToDatasetsMapping,
+	private List<Annotation> generateAnnotation(Map<SecurityLevel, List<DataIdentifying>> levelToDatasetsMapping,
 			StereotypeApplication stereotypeApplication, SourceCodeRoot sourceCode) {
 		JoanaFactory factory = JoanaFactory.eINSTANCE;
 
@@ -226,14 +219,16 @@ public class AnnotationModelGenerator {
 			for (Method method : methods) {
 				Annotation annotation = factory.createAnnotation();
 				annotation.getSecuritylevel().addAll(JoanaModelUtils.copySecurityLevels(securityLevels));
-				annotation.setAnnotatedClassName(component.getName());
-				annotation.setAnnotatedMethodName(method.getName());
-				if (appliedPair.getParameterSources().get(0).equals("\\return")) {
-					annotation.setAnnotatedParameterName("");
-				} else {
-					annotation.setAnnotatedParameterName(appliedPair.getParameterSources().get(0));
+				annotation.setAnnotatedClass(component);
+				annotation.setAnnotatedMethod(method);
+				if (!appliedPair.getParameterSources().get(0).equals("\\return")) {
+					annotation.setAnnotatedParameter(
+							SourceCodeModelUtils.getParameter(method, appliedPair.getParameterSources().get(0)));
 				}
 				annotations.add(annotation);
+				this.securityCorrespondenceModel.getParametersanddatapair2annotation()
+						.add(CorrespondenceModelElementsGenerator.generateParametersAndDataPair2Annotation(appliedPair,
+								annotation));
 			}
 		}
 
@@ -281,6 +276,8 @@ public class AnnotationModelGenerator {
 			SecurityLevel level = factory.createSecurityLevel();
 			level.setName(adversary.getName());
 			levels.add(level);
+			this.securityCorrespondenceModel.getAdversary2securitylevel()
+					.add(CorrespondenceModelElementsGenerator.generateAdversaryCorrespondence(adversary, level));
 		}
 
 		return levels;
@@ -293,6 +290,9 @@ public class AnnotationModelGenerator {
 		List<List<SecurityLevel>> powerSetLevels = SetOperations.generatePowerSet(levels);
 
 		for (List<SecurityLevel> from : powerSetLevels) {
+			if (from.size() > 1) {
+
+			}
 			for (List<SecurityLevel> to : powerSetLevels) {
 				if (SetOperations.isIn(from, to) && !SetOperations.sameElements(from, to) && from.size() > 0
 						&& to.size() > 0) {

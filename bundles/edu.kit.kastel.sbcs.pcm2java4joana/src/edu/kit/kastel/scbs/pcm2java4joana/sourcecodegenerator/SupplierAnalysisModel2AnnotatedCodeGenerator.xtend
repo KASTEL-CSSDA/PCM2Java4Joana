@@ -11,16 +11,18 @@ import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Method
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Parameter
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Field
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Variable
+import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class
 
 import edu.kit.kastel.scbs.pcm2java4joana.joana.JOANARoot
 
 import static extension edu.kit.kastel.scbs.pcm2java4joana.sourcecodegenerator.JoanaAnnotationsGenerator.*
 import static extension edu.kit.kastel.scbs.pcm2java4joana.sourcecodegenerator.SourceCodeElementGenerator.*
-import edu.kit.kastel.scbs.pcm2java4joana.utils.JoanaModelUtils
+import edu.kit.ipd.sdq.activextendannotations.Utility
 
+@Utility
 class SupplierAnalysisModel2AnnotatedCodeGenerator {
 	
-	def List<Triplet<String, String, String>> generateAnnotatedCode(SourceCodeRoot sourceCodeModel, JOANARoot joanaModel) {
+	static def List<Triplet<String, String, String>> generateAnnotatedCode(SourceCodeRoot sourceCodeModel, JOANARoot joanaModel) {
 		val contentsForFiles = new ArrayList<Triplet<String, String, String>>()
 		for (topLevelType : sourceCodeModel.topleveltype) {
 			val content = generateTopLevelType(topLevelType, joanaModel)
@@ -30,14 +32,14 @@ class SupplierAnalysisModel2AnnotatedCodeGenerator {
 		return contentsForFiles;	
 	}
 	
-	def String generateTopLevelType(TopLevelType topLevelType, JOANARoot joanaModel) {
+	static def String generateTopLevelType(TopLevelType topLevelType, JOANARoot joanaModel) {
 		switch topLevelType {
-			edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class: generateClass(topLevelType, joanaModel)
+			Class: generateClass(topLevelType, joanaModel)
 			Interface: generateInterface(topLevelType)
 		}
 	}
 	
-	def String generateInterface(Interface inter) {
+	static def String generateInterface(Interface inter) {
 		return '''
 		«generatePackage()»
 		
@@ -45,19 +47,13 @@ class SupplierAnalysisModel2AnnotatedCodeGenerator {
 		
 		public interface «inter.name» {
 			«FOR method : inter.methods»
-				«generateInterfaceMethod(method)»
+				«generateMethod(inter, method, false, null)»
 			«ENDFOR»
 		}
 		'''
 	}
 	
-	def String generateInterfaceMethod(Method method) {
-		return '''
-		«generateDataType(method.type)» «method.name»(«FOR parameter : method.parameter»«generateParameter(parameter, null)»«IF method.parameter.indexOf(parameter) != method.parameter.length - 1», «ENDIF»«ENDFOR»);
-		'''
-	}
-	
-	def String generateClass(edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class sourceCodeClass, JOANARoot joanaModel) {
+	static def String generateClass(Class sourceCodeClass, JOANARoot joanaModel) {
 		return '''
 		«generatePackage()»
 		
@@ -74,7 +70,8 @@ class SupplierAnalysisModel2AnnotatedCodeGenerator {
 		}
 		'''
 	}
-	def String generateFields(List<Field> fields, edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class sourceCodeClass, JOANARoot joanaModel) {
+	
+	static def String generateFields(List<Field> fields, Class sourceCodeClass, JOANARoot joanaModel) {
 		return '''
 			«FOR field : fields»
 				«generateField(field, sourceCodeClass, joanaModel)»
@@ -82,25 +79,26 @@ class SupplierAnalysisModel2AnnotatedCodeGenerator {
 		'''
 	}
 	
-	def String generateField(Field field, edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class sourceCodeClass, JOANARoot joanaModel) {
+	static def String generateField(Field field, Class sourceCodeClass, JOANARoot joanaModel) {
 		switch field {
 			Variable: generateVariable(field)
-			Method: generateMethod(sourceCodeClass, field, joanaModel)
+			Method: generateMethod(sourceCodeClass, field, true, joanaModel)
 		}
 	}
 			
-	def String generateMethod(edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class scClass, Method method, JOANARoot joanaModel) {
+	static def String generateMethod(TopLevelType parent, Method method, boolean isOverride, JOANARoot joanaModel) {
+		
 		return '''
-		«generateJoanaAnnotation(scClass, method, joanaModel)»
-		@Override
-		public «generateDataType(method.type)» «method.name»(«FOR parameter : method.parameter»«IF JoanaModelUtils.getJoanaFlowSpecificationElementsFor(joanaModel, scClass.name, method.name, parameter.name).size != 0»«generateJoanaAnnotation(scClass, method, parameter, joanaModel)» «generateParameter(parameter, null)»«IF method.parameter.indexOf(parameter) != method.parameter.length - 1», «ENDIF»«ENDIF»«ENDFOR») {
+		«generateJoanaAnnotation(parent, method, joanaModel)»
+		«IF isOverride»@Override«ENDIF»
+		public «generateDataType(method.type)» «method.name»(«FOR parameter : method.parameter»«generateParameter(parent, method, parameter, joanaModel)»«IF method.parameter.indexOf(parameter) != method.parameter.length - 1», «ENDIF»«ENDFOR»
 			// TODO: Implement me!
 			«IF method.type !== null»return null;«ENDIF»
 		}
-		'''	
+		'''
 	}
 	
-	def String generateParameter(Parameter parameter, JOANARoot joanaModel) {
-		return '''«generateDataType(parameter.type)» «parameter.name»'''
+	static def String generateParameter(TopLevelType parent, Method method, Parameter parameter, JOANARoot joanaModel) {
+		return '''«generateJoanaAnnotation(parent, method, parameter, joanaModel)» «generateDataType(parameter.type)» «parameter.name»'''
 	}
 }

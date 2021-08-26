@@ -21,11 +21,14 @@ import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.impl.MethodImpl;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.impl.ReferenceTypeImpl;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.impl.VariableImpl;
 
-public class SourceCodeModelUtils {
+public final class SourceCodeModelUtils {
+	private SourceCodeModelUtils() {
+
+	}
+
 	public static Interface getInterface(SourceCodeRoot sourceCodeModel, String entityName) {
 		for (TopLevelType topLevelType : sourceCodeModel.getTopleveltype()) {
 			if (topLevelType.getClass() == InterfaceImpl.class) {
-				String name = topLevelType.getName();
 				if (topLevelType.getName().equals(entityName)) {
 					return (Interface) topLevelType;
 				}
@@ -202,5 +205,53 @@ public class SourceCodeModelUtils {
 			}
 		}
 		return returnValue;
+	}
+
+	public static Parameter getParamter(Method method, String parameterName) {
+		for (Parameter parameter : method.getParameter()) {
+			if (parameter.getName().equals(parameterName)) {
+				return parameter;
+			}
+		}
+		return null;
+	}
+
+	public static boolean hasMethodSignature(Class javaClass, Method method) {
+		for (Field field : javaClass.getFields()) {
+			if (field instanceof Method) {
+				if (SourceCodeModelUtils.haveSameSignature(method, (Method) field)) {
+					return true;
+				}
+			}
+		}
+
+		return false;
+	}
+
+	public static boolean hasMethodSignature(Interface javaInterface, Method method) {
+		for (Method interfaceMethod : javaInterface.getMethods()) {
+			if (method instanceof Method) {
+				if (SourceCodeModelUtils.haveSameSignature(method, interfaceMethod)) {
+					return true;
+				}
+			}
+		}
+
+		return false;
+	}
+
+	public static boolean haveSameSignature(Method method1, Method method2) {
+		if (!method1.getName().equals(method2.getName())
+				|| method1.getParameter().size() != method2.getParameter().size()
+				|| method1.getType().equals(method2.getType())) {
+			return false;
+		}
+
+		for (int i = 0; i < method1.getParameter().size(); i++) {
+			if (!method1.getParameter().get(i).equals(method2.getParameter().get(i))) {
+				return false;
+			}
+		}
+		return true;
 	}
 }

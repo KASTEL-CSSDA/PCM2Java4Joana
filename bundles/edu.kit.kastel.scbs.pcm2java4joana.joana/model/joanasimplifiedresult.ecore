@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="joanasimplifiedresult" nsURI="www.example.org/joanasimplifiedresult"
+    nsPrefix="joanasimplifiedresult">
+  <eClassifiers xsi:type="ecore:EClass" name="Result">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trace" upperBound="-1"
+        eType="#//Trace" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Trace">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tracestate" upperBound="-1"
+        eType="#//TraceState" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TraceState">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tracePosition" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="traceClassName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="securityLevelName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="traceMethod" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//Method"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameterIndex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+</ecore:EPackage>

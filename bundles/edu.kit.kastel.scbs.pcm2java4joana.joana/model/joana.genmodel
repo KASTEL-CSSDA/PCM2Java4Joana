@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
-    modelDirectory="/edu.kit.kastel.scbs.pcm2java4joana.joana/src-gen"
-    creationIcons="false" editDirectory="/edu.kit.kastel.scbs.pcm2java4joana.joana.edit/src-gen"
-    editorDirectory="/edu.kit.kastel.scbs.pcm2java4joana.joana.editor/src-gen" modelPluginID="edu.kit.kastel.scbs.pcm2java4joana.joana"
-    modelName="Joana" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
-    copyrightFields="false" operationReflection="true" importOrganizing="true">
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/edu.kit.kastel.scbs.pcm2java4joana.joana/src"
+    modelPluginID="edu.kit.kastel.scbs.pcm2java4joana.joana" modelName="Joana" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    usedGenPackages="../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.genmodel#//sourcecode"
+    operationReflection="true" importOrganizing="true">
   <foreignModel>joana.ecore</foreignModel>
-  <testsDirectory xsi:nil="true"/>
   <genPackages prefix="Joana" basePackage="edu.kit.kastel.scbs.pcm2java4joana" disposableProviderFactory="true"
       ecorePackage="joana.ecore#/">
     <genClasses ecoreClass="joana.ecore#//EntryPoint">
@@ -18,14 +15,11 @@
     <genClasses ecoreClass="joana.ecore#//Annotation">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joana.ecore#//Annotation/securitylevel"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joana.ecore#//Annotation/annotatedParameter"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joana.ecore#//Annotation/annotatedParameterName"/>
     </genClasses>
     <genClasses ecoreClass="joana.ecore#//FlowSpecificationElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joana.ecore#//FlowSpecificationElement/tag"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joana.ecore#//FlowSpecificationElement/annotatedClass"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joana.ecore#//FlowSpecificationElement/annotatedMethod"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joana.ecore#//FlowSpecificationElement/annotatedClassName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joana.ecore#//FlowSpecificationElement/annotatedMethodName"/>
     </genClasses>
     <genClasses ecoreClass="joana.ecore#//Sink"/>
     <genClasses ecoreClass="joana.ecore#//Source"/>
@@ -46,54 +40,6 @@
     </genClasses>
     <genClasses ecoreClass="joana.ecore#//JoanaElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joana.ecore#//JoanaElement/name"/>
-    </genClasses>
-  </genPackages>
-  <genPackages prefix="Sourcecode" ecorePackage="../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//BuiltInTypes">
-      <genEnumLiterals ecoreEnumLiteral="../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//BuiltInTypes/BOOLEAN"/>
-      <genEnumLiterals ecoreEnumLiteral="../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//BuiltInTypes/BYTE"/>
-      <genEnumLiterals ecoreEnumLiteral="../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//BuiltInTypes/CHAR"/>
-      <genEnumLiterals ecoreEnumLiteral="../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//BuiltInTypes/SHORT"/>
-      <genEnumLiterals ecoreEnumLiteral="../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//BuiltInTypes/INT"/>
-      <genEnumLiterals ecoreEnumLiteral="../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//BuiltInTypes/FLOAT"/>
-      <genEnumLiterals ecoreEnumLiteral="../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//BuiltInTypes/DOUBLE"/>
-      <genEnumLiterals ecoreEnumLiteral="../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//BuiltInTypes/STRING"/>
-      <genEnumLiterals ecoreEnumLiteral="../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//BuiltInTypes/LONG"/>
-    </genEnums>
-    <genClasses ecoreClass="../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//SourceCodeRoot">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//SourceCodeRoot/topleveltype"/>
-    </genClasses>
-    <genClasses ecoreClass="../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//TopLevelType"/>
-    <genClasses ecoreClass="../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//Interface">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//Interface/methods"/>
-    </genClasses>
-    <genClasses ecoreClass="../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//Class">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//Class/implements"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//Class/fields"/>
-    </genClasses>
-    <genClasses ecoreClass="../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//Field"/>
-    <genClasses ecoreClass="../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//Method">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//Method/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//Method/parameter"/>
-    </genClasses>
-    <genClasses ecoreClass="../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//Variable">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//Variable/type"/>
-    </genClasses>
-    <genClasses ecoreClass="../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//Type"/>
-    <genClasses ecoreClass="../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//Parameter">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//Parameter/type"/>
-    </genClasses>
-    <genClasses ecoreClass="../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//BuiltInType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//BuiltInType/builtInType"/>
-    </genClasses>
-    <genClasses ecoreClass="../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//ReferenceType">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//ReferenceType/topleveltype"/>
-    </genClasses>
-    <genClasses ecoreClass="../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//CollectionType">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//CollectionType/type"/>
-    </genClasses>
-    <genClasses ecoreClass="../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//SourceCodeElement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//SourceCodeElement/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

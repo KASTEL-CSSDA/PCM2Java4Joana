@@ -14,28 +14,37 @@ import edu.kit.kastel.scbs.pcm2java4joana.joana.Source
 import edu.kit.kastel.scbs.pcm2java4joana.joana.Annotation
 import edu.kit.kastel.scbs.pcm2java4joana.joana.Sink
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Parameter
+import edu.kit.ipd.sdq.activextendannotations.Utility
+import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.TopLevelType
 
+@Utility
 class JoanaAnnotationsGenerator {
-	static def String generateJoanaAnnotation(edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class scClass, Method method, JOANARoot joanaModel) {
+	static def String generateJoanaAnnotation(TopLevelType parent, Method method, JOANARoot joanaModel) {
+		if (joanaModel === null) {
+			return ''''''
+		}
 		return '''
-		«generateEntryPoints(scClass, method, joanaModel)»
-		«generateSources(scClass, method, joanaModel)»
-		«generateSinks(scClass, method, joanaModel)»'''
+		«generateEntryPoints(parent, method, joanaModel)»
+		«generateSources(parent, method, joanaModel)»
+		«generateSinks(parent, method, joanaModel)»'''
 	}
 	
-	static def String generateJoanaAnnotation(edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class scClass, Method method, Parameter parameter, JOANARoot joanaModel) {
-		return '''«generateSources(scClass, method, parameter, joanaModel)» «generateSinks(scClass, method, parameter, joanaModel)»'''
+	static def String generateJoanaAnnotation(TopLevelType parent, Method method, Parameter parameter, JOANARoot joanaModel) {
+		if (joanaModel === null) {
+			return ''''''
+		}
+		return '''«generateSources(parent, method, parameter, joanaModel)» «generateSinks(parent, method, parameter, joanaModel)»'''
 	}
 	
-	static def String generateEntryPoints(edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class scClass, Method method, JOANARoot joanaModel) {
-		val entryPoints = JoanaModelUtils.getEntryPoints(joanaModel, scClass.name, method.name)
+	static def String generateEntryPoints(TopLevelType parent, Method method, JOANARoot joanaModel) {
+		val entryPoints = JoanaModelUtils.getEntryPoints(joanaModel, parent.name, method.name)
 		return '''
 		«FOR entryPoint : entryPoints»«generateEntryPointAnnotation(entryPoint)»«ENDFOR»
 		'''
 	}
 	
-	static def String generateSources(edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class scClass, Method method, JOANARoot joanaModel) {
-		val sources = JoanaModelUtils.getSourcesFor(joanaModel, scClass.name, method.name)
+	static def String generateSources(TopLevelType parent, Method method, JOANARoot joanaModel) {
+		val sources = JoanaModelUtils.getSourcesFor(joanaModel, parent.name, method.name)
 		val tags = new ArrayList<String>()
 		for(source : sources) {
 			tags.add(source.tag)
@@ -47,8 +56,8 @@ class JoanaAnnotationsGenerator {
 		}
 	}
 	
-	static def String generateSinks(edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class scClass, Method method, Parameter parameter, JOANARoot joanaModel) {
-		val sinks = JoanaModelUtils.getSinksFor(joanaModel, scClass.name, method.name, parameter.name)
+	static def String generateSinks(TopLevelType parent, Method method, Parameter parameter, JOANARoot joanaModel) {
+		val sinks = JoanaModelUtils.getSinksFor(joanaModel, parent.name, method.name, parameter.name)
 		val tags = new ArrayList<String>()
 		for(sink : sinks) {
 			tags.add(sink.tag)
@@ -60,8 +69,8 @@ class JoanaAnnotationsGenerator {
 		}
 	}
 	
-	static def String generateSources(edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class scClass, Method method, Parameter parameter, JOANARoot joanaModel) {
-		val sources = JoanaModelUtils.getSourcesFor(joanaModel, scClass.name, method.name, parameter.name)
+	static def String generateSources(TopLevelType parent, Method method, Parameter parameter, JOANARoot joanaModel) {
+		val sources = JoanaModelUtils.getSourcesFor(joanaModel, parent.name, method.name, parameter.name)
 		val tags = new ArrayList<String>()
 		for(source : sources) {
 			tags.add(source.tag)
@@ -73,8 +82,8 @@ class JoanaAnnotationsGenerator {
 		}
 	}
 	
-	static def String generateSinks(edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class scClass, Method method, JOANARoot joanaModel) {
-		val sinks = JoanaModelUtils.getSinksFor(joanaModel, scClass.name, method.name)
+	static def String generateSinks(TopLevelType parent, Method method, JOANARoot joanaModel) {
+		val sinks = JoanaModelUtils.getSinksFor(joanaModel, parent.name, method.name)
 		val tags = new ArrayList<String>()
 		for(sink : sinks) {
 			tags.add(sink.tag)

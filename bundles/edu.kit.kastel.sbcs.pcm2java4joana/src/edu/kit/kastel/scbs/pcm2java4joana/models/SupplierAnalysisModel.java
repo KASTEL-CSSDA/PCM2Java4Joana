@@ -1,29 +1,30 @@
 package edu.kit.kastel.scbs.pcm2java4joana.models;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 
 import edu.kit.kastel.scbs.pcm2java4joana.joana.JOANARoot;
+import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecurityCorrespondenceModel;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourceCodeRoot;
 
 public class SupplierAnalysisModel {
-	private Resource sourceCodeModel;
+	private final Resource sourceCodeModel;
 	private Resource joanaModel;
-	private Resource correspondenceModel;
-	private IPath destinationFolder;
-	private SourceCodeRoot sourceCodeRoot;
+	private final Resource structuralCorrespondenceModel;
+	private Resource securityCorrespondenceModel;
+	private final IPath destinationFolder;
+	private final SourceCodeRoot sourceCodeRoot;
 	private JOANARoot joanaRoot;
 
-	public SupplierAnalysisModel(Resource sourceCodeModel, Resource correspondenceModel, IPath destinationFolder) {
+	public SupplierAnalysisModel(Resource sourceCodeModel, Resource structuralCorrespondenceModel,
+			IPath destinationFolder) {
 		this.sourceCodeModel = sourceCodeModel;
-		this.correspondenceModel = correspondenceModel;
+		this.structuralCorrespondenceModel = structuralCorrespondenceModel;
+		this.sourceCodeModel.getContents().add(structuralCorrespondenceModel.getContents().get(0));
 		this.sourceCodeRoot = (SourceCodeRoot) sourceCodeModel.getContents().get(0);
 		this.destinationFolder = destinationFolder;
 	}
@@ -47,16 +48,23 @@ public class SupplierAnalysisModel {
 	public void setJoanaModel(JOANARoot joanaModel) {
 		Resource joanaResource = new XMLResourceImpl(URI.createFileURI(
 				destinationFolder.toString() + IPath.SEPARATOR + "GeneratedModels" + IPath.SEPARATOR + "joana.ecore"));
-		joanaResource.getContents().add(joanaModel);
+		sourceCodeModel.getContents().add(joanaModel);
 		this.joanaRoot = joanaModel;
 		this.joanaModel = joanaResource;
 	}
 
+	public void setSecurityCorrespondendenceModel(SecurityCorrespondenceModel securityCorrespondenceModel) {
+		Resource securityCorrespondenceModelResource = new XMLResourceImpl(
+				URI.createFileURI(destinationFolder.toString() + IPath.SEPARATOR + "GeneratedModels" + IPath.SEPARATOR
+						+ "securitycorrespondencemodel.ecore"));
+		securityCorrespondenceModelResource.getContents().add(securityCorrespondenceModel);
+		this.securityCorrespondenceModel = securityCorrespondenceModelResource;
+		this.sourceCodeModel.getContents().add(securityCorrespondenceModel);
+	}
+
 	public void saveSourceCodeModel() {
-		Map<Object, Object> saveOptions = new HashMap<Object, Object>();
-		saveOptions.put(XMLResource.OPTION_PROCESS_DANGLING_HREF, XMLResource.OPTION_PROCESS_DANGLING_HREF_DISCARD);
 		try {
-			this.sourceCodeModel.save(saveOptions);
+			this.sourceCodeModel.save(null);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -72,7 +80,8 @@ public class SupplierAnalysisModel {
 
 	public void saveCorrespondenceModel() {
 		try {
-			this.correspondenceModel.save(null);
+			this.structuralCorrespondenceModel.save(null);
+			this.securityCorrespondenceModel.save(null);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

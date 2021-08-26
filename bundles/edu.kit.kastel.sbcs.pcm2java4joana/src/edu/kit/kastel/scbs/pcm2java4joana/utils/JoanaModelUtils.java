@@ -15,38 +15,20 @@ import edu.kit.kastel.scbs.pcm2java4joana.joana.Lattice;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.SecurityLevel;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.Sink;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.Source;
-import edu.kit.kastel.scbs.pcm2java4joana.joana.impl.EntryPointImpl;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.impl.SinkImpl;
-import edu.kit.kastel.scbs.pcm2java4joana.joana.impl.SourceImpl;
 
-public class JoanaModelUtils {
-	public static List<FlowSpecificationElement> getJoanaFlowSpecificationElementsFor(JOANARoot joanaModel,
-			String className, String methodName) {
-		List<FlowSpecificationElement> elements = new ArrayList<FlowSpecificationElement>();
+public final class JoanaModelUtils {
+	private JoanaModelUtils() {
 
-		if (joanaModel == null) {
-			return elements;
-		}
-
-		for (FlowSpecification flow : joanaModel.getFlowspecification()) {
-			if (flow.getEntrypoint().getAnnotatedClassName().equals(className)
-					&& flow.getEntrypoint().getAnnotatedMethodName().equals(methodName)) {
-				elements.add(flow.getEntrypoint());
-			}
-			for (Annotation specificationElement : flow.getAnnotation()) {
-				if (specificationElement.getAnnotatedClassName().equals(className)
-						&& specificationElement.getAnnotatedMethodName().equals(methodName)
-						&& specificationElement.getAnnotatedParameterName().equals("")) {
-					elements.add(specificationElement);
-				}
-			}
-		}
-
-		return elements;
 	}
 
 	public static List<FlowSpecificationElement> getJoanaFlowSpecificationElementsFor(JOANARoot joanaModel,
-			String className, String methodName, String paramterName) {
+			String className, String methodName) {
+		return JoanaModelUtils.getJoanaFlowSpecificationElementsFor(joanaModel, className, methodName, "");
+	}
+
+	public static List<FlowSpecificationElement> getJoanaFlowSpecificationElementsFor(JOANARoot joanaModel,
+			String className, String methodName, String parameterName) {
 		List<FlowSpecificationElement> elements = new ArrayList<FlowSpecificationElement>();
 
 		if (joanaModel == null) {
@@ -55,9 +37,11 @@ public class JoanaModelUtils {
 
 		for (FlowSpecification flow : joanaModel.getFlowspecification()) {
 			for (Annotation specificationElement : flow.getAnnotation()) {
-				if (specificationElement.getAnnotatedClassName().equals(className)
-						&& specificationElement.getAnnotatedMethodName().equals(methodName)
-						&& specificationElement.getAnnotatedParameterName().equals(paramterName)) {
+				if (specificationElement.getAnnotatedClass().getName().equals(className)
+						&& specificationElement.getAnnotatedMethod().getName().equals(methodName)
+						&& ((specificationElement.getAnnotatedParameter() == null && parameterName.equals(""))
+								|| (specificationElement.getAnnotatedParameter() != null && specificationElement
+										.getAnnotatedParameter().getName().equals(parameterName)))) {
 					elements.add(specificationElement);
 				}
 			}
@@ -69,10 +53,10 @@ public class JoanaModelUtils {
 	public static List<EntryPoint> getEntryPoints(JOANARoot root, String className, String methodName) {
 		List<EntryPoint> entries = new ArrayList<EntryPoint>();
 
-		for (FlowSpecificationElement element : JoanaModelUtils.getJoanaFlowSpecificationElementsFor(root, className,
-				methodName)) {
-			if (element.getClass() == EntryPointImpl.class) {
-				entries.add((EntryPoint) element);
+		for (FlowSpecification element : root.getFlowspecification()) {
+			if (element.getEntrypoint().getAnnotatedClass().getName().equals(className)
+					&& element.getEntrypoint().getAnnotatedMethod().getName().equals(methodName)) {
+				entries.add(element.getEntrypoint());
 			}
 		}
 
@@ -80,16 +64,7 @@ public class JoanaModelUtils {
 	}
 
 	public static List<Source> getSourcesFor(JOANARoot root, String className, String methodName) {
-		List<Source> sources = new ArrayList<Source>();
-
-		for (FlowSpecificationElement element : JoanaModelUtils.getJoanaFlowSpecificationElementsFor(root, className,
-				methodName)) {
-			if (element.getClass() == SourceImpl.class) {
-				sources.add((Source) element);
-			}
-		}
-
-		return sources;
+		return JoanaModelUtils.getSourcesFor(root, className, methodName, "");
 	}
 
 	public static List<Source> getSourcesFor(JOANARoot root, String className, String methodName,
@@ -98,7 +73,7 @@ public class JoanaModelUtils {
 
 		for (FlowSpecificationElement element : JoanaModelUtils.getJoanaFlowSpecificationElementsFor(root, className,
 				methodName, parameterName)) {
-			if (element.getClass() == SourceImpl.class) {
+			if (element instanceof Source) {
 				sources.add((Source) element);
 			}
 		}
@@ -107,16 +82,7 @@ public class JoanaModelUtils {
 	}
 
 	public static List<Sink> getSinksFor(JOANARoot root, String className, String methodName) {
-		List<Sink> sinks = new ArrayList<Sink>();
-
-		for (FlowSpecificationElement element : JoanaModelUtils.getJoanaFlowSpecificationElementsFor(root, className,
-				methodName)) {
-			if (element.getClass() == SinkImpl.class) {
-				sinks.add((Sink) element);
-			}
-		}
-
-		return sinks;
+		return JoanaModelUtils.getSinksFor(root, className, methodName, "");
 	}
 
 	public static List<Sink> getSinksFor(JOANARoot root, String className, String methodName, String parameterName) {

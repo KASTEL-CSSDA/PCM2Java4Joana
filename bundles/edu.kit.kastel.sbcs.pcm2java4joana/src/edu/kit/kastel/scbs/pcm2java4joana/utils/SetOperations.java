@@ -4,7 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class SetOperations {
+public final class SetOperations {
+	private SetOperations() {
+
+	}
+
 	public static <T> List<List<T>> generatePowerSet(List<T> set) {
 		List<List<T>> powerSet = new ArrayList<List<T>>();
 		SetOperations.generatePowerSet(set, 0, new ArrayList<T>(), powerSet);
@@ -33,15 +37,10 @@ public class SetOperations {
 	}
 
 	public static <T> boolean sameElements(List<T> set1, List<T> set2) {
-		if ((set1.size() != set2.size())) {
+		if (set1.size() != set2.size()) {
 			return false;
 		}
-		for (T o : set1) {
-			if (!set2.contains(o)) {
-				return false;
-			}
-		}
-		return true;
+		return SetOperations.isIn(set1, set2);
 	}
 
 	public static <T> List<T> removeDuplicates(List<T> set) {

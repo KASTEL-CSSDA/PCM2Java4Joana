@@ -2,11 +2,10 @@ package edu.kit.kastel.scbs.pcm2java4joana.handlers;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
-import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.internal.xtend.util.Triplet;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -24,32 +23,28 @@ import edu.kit.kastel.scbs.pcm2java4joana.sourcecodegenerator.SupplierAnalysisMo
 public class PCM2Java4JoanaHandler extends AbstractHandler {
 
 	@Override
-	public Object execute(ExecutionEvent event) throws ExecutionException {
+	public Object execute(ExecutionEvent event) {
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindow(event);
 		ISelection selection = HandlerUtil.getCurrentSelection(event);
-		Optional<List<IFile>> list = getFilteredList(selection);
+		List<IFile> list = getFilteredList(selection);
 
-		if (!list.isPresent()) {
-			return null;
-		}
-		if (!ClientAnalysisModel.containsNecessaryFiles(list.get())) {
+		if (!ClientAnalysisModel.containsNecessaryFiles(list)) {
 			MessageDialog.openInformation(window.getShell(), "Information", "Not the necessary files");
 			return null;
 		}
 
-		ClientAnalysisModel models = ClientAnalysisModel.createModelsFromFiles(list.get());
+		ClientAnalysisModel models = ClientAnalysisModel.createModelsFromFiles(list);
 		SupplierAnalysisModelGenerator generator = new SupplierAnalysisModelGenerator(models, models.getBaseFolder());
 		SupplierAnalysisModel supplierAnalysisModel = generator.generate();
 
-		SupplierAnalysisModel2AnnotatedCodeGenerator annotatedCodeGenerator = new SupplierAnalysisModel2AnnotatedCodeGenerator();
-		List<Triplet<String, String, String>> generatedAnnotatedSourceCode = annotatedCodeGenerator
+		List<Triplet<String, String, String>> generatedAnnotatedSourceCode = SupplierAnalysisModel2AnnotatedCodeGenerator
 				.generateAnnotatedCode(supplierAnalysisModel.getSourceCodeRoot(), supplierAnalysisModel.getJoanaRoot());
 		AnnotatedSourceCode annotatedSourceCode = new AnnotatedSourceCode(models.getBaseFolder(),
 				generatedAnnotatedSourceCode);
 
 		supplierAnalysisModel.saveSourceCodeModel();
-		supplierAnalysisModel.saveCorrespondenceModel();
-		supplierAnalysisModel.saveJoanaModel();
+//		supplierAnalysisModel.saveCorrespondenceModel();
+//		supplierAnalysisModel.saveJoanaModel();
 		annotatedSourceCode.save();
 
 		MessageDialog.openInformation(window.getShell(), "Information",
@@ -58,24 +53,14 @@ public class PCM2Java4JoanaHandler extends AbstractHandler {
 		return list;
 	}
 
-	private Optional<List<IFile>> getFilteredList(ISelection selection) {
+	@SuppressWarnings("unchecked")
+	private List<IFile> getFilteredList(ISelection selection) {
 		if (selection instanceof IStructuredSelection) {
 			IStructuredSelection structuredSelection = (IStructuredSelection) selection;
 
-			Object[] filesTmp = structuredSelection.toArray();
-			List<IFile> files = new ArrayList<IFile>();
-
-			for (int i = 0; i < filesTmp.length; i++) {
-				if (filesTmp[i] instanceof IFile) {
-					files.add((IFile) filesTmp[i]);
-				}
-			}
-
-			if (files.size() > 0) {
-				return Optional.ofNullable(files);
-			}
+			return (List<IFile>) structuredSelection.toList().stream().filter(file -> file instanceof IFile)
+					.map(IFile.class::cast).collect(Collectors.toList());
 		}
-
-		return Optional.empty();
+		return new ArrayList<IFile>();
 	}
 }

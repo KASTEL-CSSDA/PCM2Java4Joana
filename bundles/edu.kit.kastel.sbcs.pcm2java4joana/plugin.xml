@@ -4,8 +4,6 @@
   <extension
          point="org.eclipse.ui.commands">
       <command
-            category="transformation"
-            categoryId="pcm2java4joana.commands.category"
             id="pcm2java4joana.commands.transform"
             name="To Java for Joana">
       </command>
@@ -15,8 +13,7 @@
          point="org.eclipse.ui.handlers">
       <handler
             class="edu.kit.kastel.scbs.pcm2java4joana.handlers.PCM2Java4JoanaHandler"
-            commandId="pcm2java4joana.commands.transform"
-            name="">
+            commandId="pcm2java4joana.commands.transform">
       </handler>
    </extension>
  

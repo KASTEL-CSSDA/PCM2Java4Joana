@@ -1,5 +1,6 @@
 package edu.kit.kastel.scbs.pcm2java4joana.sourcecodegenerator;
 
+import edu.kit.ipd.sdq.activextendannotations.Utility;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.BuiltInType;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.BuiltInTypes;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.CollectionType;
@@ -16,8 +17,9 @@ import java.util.List;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.Conversions;
 
+@Utility
 @SuppressWarnings("all")
-public class SourceCodeElementGenerator {
+public final class SourceCodeElementGenerator {
   public static String generateVariable(final Variable variable) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("private ");
@@ -287,5 +289,9 @@ public class SourceCodeElementGenerator {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("package generated.code;");
     return _builder.toString();
+  }
+  
+  private SourceCodeElementGenerator() {
+    
   }
 }
