@@ -1,7 +1,10 @@
 package edu.kit.kastel.scbs.pcm2java4joana.utils;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+
+import org.eclipse.emf.ecore.EObject;
 
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.CollectionType;
@@ -253,5 +256,91 @@ public final class SourceCodeModelUtils {
 			}
 		}
 		return true;
+	}
+
+	public static Collection<EObject> flattenSourceCodeModel(SourceCodeRoot root) {
+		Collection<EObject> objects = new ArrayList<EObject>();
+		objects.add(root);
+
+		for (TopLevelType topLevelType : root.getTopleveltype()) {
+			if (topLevelType instanceof Class) {
+				objects.addAll(flattenClass((Class) topLevelType));
+			}
+			if (topLevelType instanceof Interface) {
+				objects.addAll(flattenInterface((Interface) topLevelType));
+			}
+		}
+
+		return objects;
+	}
+
+	public static Collection<EObject> flattenClass(Class scClass) {
+		Collection<EObject> objects = new ArrayList<EObject>();
+		objects.add(scClass);
+
+		for (Field field : scClass.getFields()) {
+			objects.add(field);
+			if (field instanceof Method) {
+				objects.addAll(flattenMethod((Method) field));
+			}
+			if (field instanceof Variable) {
+				objects.addAll(flattenVariable((Variable) field));
+			}
+		}
+
+		return objects;
+	}
+
+	public static Collection<EObject> flattenInterface(Interface inter) {
+		Collection<EObject> objects = new ArrayList<EObject>();
+		objects.add(inter);
+
+		for (Method method : inter.getMethods()) {
+			objects.add(method);
+			objects.addAll(flattenMethod(method));
+		}
+
+		return objects;
+	}
+
+	public static Collection<EObject> flattenMethod(Method method) {
+		Collection<EObject> objects = new ArrayList<EObject>();
+		objects.add(method);
+		if (method.getType() != null) {
+			objects.addAll(flattenType(method.getType()));
+		}
+
+		for (Parameter parameter : method.getParameter()) {
+			objects.addAll(flattenParameter(parameter));
+		}
+
+		return objects;
+	}
+
+	public static Collection<EObject> flattenParameter(Parameter parameter) {
+		Collection<EObject> objects = new ArrayList<EObject>();
+		objects.add(parameter);
+		objects.addAll(flattenType(parameter.getType()));
+
+		return objects;
+	}
+
+	public static Collection<EObject> flattenVariable(Variable variable) {
+		Collection<EObject> objects = new ArrayList<EObject>();
+		objects.add(variable);
+		objects.addAll(flattenType(variable.getType()));
+
+		return objects;
+	}
+
+	public static Collection<EObject> flattenType(Type type) {
+		Collection<EObject> objects = new ArrayList<EObject>();
+
+		objects.add(type);
+		if (type instanceof CollectionType) {
+			objects.addAll(flattenType((((CollectionType) type).getType())));
+		}
+
+		return objects;
 	}
 }

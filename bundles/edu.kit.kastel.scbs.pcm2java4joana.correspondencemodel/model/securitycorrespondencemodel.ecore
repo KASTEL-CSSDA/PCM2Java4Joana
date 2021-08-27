@@ -4,17 +4,17 @@
     nsPrefix="securitycorrespondencemodel">
   <eClassifiers xsi:type="ecore:EClass" name="Adversary2SecurityLevel">
     <eStructuralFeatures xsi:type="ecore:EReference" name="securityLevels" lowerBound="1"
-        upperBound="-1" eType="ecore:EClass ../../edu.kit.kastel.scbs.pcm2java4joana.joana/model/joana.ecore#//SecurityLevel"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="adversaries" lowerBound="1"
-        upperBound="-1" eType="ecore:EClass ../../edu.kit.kastel.scbs.confidentialitymm/model/confidentiality.ecore#//adversary/Adversary"/>
+        upperBound="-1" eType="ecore:EClass ../../edu.kit.kastel.scbs.pcm2java4joana.joana/model/joana.ecore#//SecurityLevel"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="conf4cbseadversary" lowerBound="1"
+        upperBound="-1" eType="#//Conf4CBSEAdversary" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ParametersAndDataPair2Annotation">
     <eStructuralFeatures xsi:type="ecore:EReference" name="joanaAnnotation" lowerBound="1"
-        eType="ecore:EClass ../../edu.kit.kastel.scbs.pcm2java4joana.joana/model/joana.ecore#//Annotation"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parametersAndDataPair"
-        lowerBound="1" eType="ecore:EClass ../../edu.kit.kastel.scbs.confidentialitymm/model/confidentiality.ecore#//repository/ParametersAndDataPair"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="adversaries" upperBound="-1"
-        eType="ecore:EClass ../../edu.kit.kastel.scbs.confidentialitymm/model/confidentiality.ecore#//adversary/Adversary"/>
+        eType="ecore:EClass ../../edu.kit.kastel.scbs.pcm2java4joana.joana/model/joana.ecore#//Annotation"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="conf4cbseparametersanddatapair"
+        lowerBound="1" eType="#//Conf4CBSEParametersAndDataPair" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SecurityCorrespondenceModel">
     <eStructuralFeatures xsi:type="ecore:EReference" name="adversary2securitylevel"
@@ -22,4 +22,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parametersanddatapair2annotation"
         upperBound="-1" eType="#//ParametersAndDataPair2Annotation" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Conf4CBSEParametersAndDataPair" eSuperTypes="#//Conf4CBSEElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Conf4CBSEElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Conf4CBSEAdversary" eSuperTypes="#//Conf4CBSEElement"/>
 </ecore:EPackage>

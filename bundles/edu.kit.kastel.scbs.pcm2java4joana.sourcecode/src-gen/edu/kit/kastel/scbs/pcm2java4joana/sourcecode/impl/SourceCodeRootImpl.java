@@ -8,10 +8,13 @@ import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.TopLevelType;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +31,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  */
 public class SourceCodeRootImpl extends SourceCodeElementImpl implements SourceCodeRoot {
 	/**
-	 * The cached value of the '{@link #getTopleveltype() <em>Topleveltype</em>}' reference list.
+	 * The cached value of the '{@link #getTopleveltype() <em>Topleveltype</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTopleveltype()
@@ -63,10 +66,24 @@ public class SourceCodeRootImpl extends SourceCodeElementImpl implements SourceC
 	 */
 	public EList<TopLevelType> getTopleveltype() {
 		if (topleveltype == null) {
-			topleveltype = new EObjectResolvingEList<TopLevelType>(TopLevelType.class, this,
+			topleveltype = new EObjectContainmentEList<TopLevelType>(TopLevelType.class, this,
 					SourcecodePackage.SOURCE_CODE_ROOT__TOPLEVELTYPE);
 		}
 		return topleveltype;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case SourcecodePackage.SOURCE_CODE_ROOT__TOPLEVELTYPE:
+			return ((InternalEList<?>) getTopleveltype()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

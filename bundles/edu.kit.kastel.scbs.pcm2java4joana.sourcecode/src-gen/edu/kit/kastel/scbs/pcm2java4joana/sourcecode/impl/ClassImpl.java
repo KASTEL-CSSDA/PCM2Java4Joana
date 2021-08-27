@@ -8,11 +8,15 @@ import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourcecodePackage;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,7 +44,7 @@ public class ClassImpl extends TopLevelTypeImpl implements edu.kit.kastel.scbs.p
 	protected EList<Interface> implements_;
 
 	/**
-	 * The cached value of the '{@link #getFields() <em>Fields</em>}' reference list.
+	 * The cached value of the '{@link #getFields() <em>Fields</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getFields()
@@ -88,9 +92,23 @@ public class ClassImpl extends TopLevelTypeImpl implements edu.kit.kastel.scbs.p
 	 */
 	public EList<Field> getFields() {
 		if (fields == null) {
-			fields = new EObjectResolvingEList<Field>(Field.class, this, SourcecodePackage.CLASS__FIELDS);
+			fields = new EObjectContainmentEList<Field>(Field.class, this, SourcecodePackage.CLASS__FIELDS);
 		}
 		return fields;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case SourcecodePackage.CLASS__FIELDS:
+			return ((InternalEList<?>) getFields()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

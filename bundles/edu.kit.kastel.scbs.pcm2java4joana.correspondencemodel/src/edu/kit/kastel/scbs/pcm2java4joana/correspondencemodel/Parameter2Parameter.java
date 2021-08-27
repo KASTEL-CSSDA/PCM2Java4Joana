@@ -4,8 +4,6 @@ package edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel;
 
 import org.eclipse.emf.ecore.EObject;
 
-import org.palladiosimulator.pcm.repository.Parameter;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Parameter2 Parameter</b></em>'.
@@ -15,8 +13,8 @@ import org.palladiosimulator.pcm.repository.Parameter;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Parameter2Parameter#getPcmParameter <em>Pcm Parameter</em>}</li>
  *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Parameter2Parameter#getJavaParameter <em>Java Parameter</em>}</li>
+ *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Parameter2Parameter#getPcmparameter <em>Pcmparameter</em>}</li>
  * </ul>
  *
  * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.CorrespondencemodelPackage#getParameter2Parameter()
@@ -24,28 +22,6 @@ import org.palladiosimulator.pcm.repository.Parameter;
  * @generated
  */
 public interface Parameter2Parameter extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Pcm Parameter</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Pcm Parameter</em>' reference.
-	 * @see #setPcmParameter(Parameter)
-	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.CorrespondencemodelPackage#getParameter2Parameter_PcmParameter()
-	 * @model required="true"
-	 * @generated
-	 */
-	Parameter getPcmParameter();
-
-	/**
-	 * Sets the value of the '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Parameter2Parameter#getPcmParameter <em>Pcm Parameter</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Pcm Parameter</em>' reference.
-	 * @see #getPcmParameter()
-	 * @generated
-	 */
-	void setPcmParameter(Parameter value);
-
 	/**
 	 * Returns the value of the '<em><b>Java Parameter</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -67,5 +43,27 @@ public interface Parameter2Parameter extends EObject {
 	 * @generated
 	 */
 	void setJavaParameter(edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Parameter value);
+
+	/**
+	 * Returns the value of the '<em><b>Pcmparameter</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Pcmparameter</em>' containment reference.
+	 * @see #setPcmparameter(PCMParameter)
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.CorrespondencemodelPackage#getParameter2Parameter_Pcmparameter()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	PCMParameter getPcmparameter();
+
+	/**
+	 * Sets the value of the '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Parameter2Parameter#getPcmparameter <em>Pcmparameter</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Pcmparameter</em>' containment reference.
+	 * @see #getPcmparameter()
+	 * @generated
+	 */
+	void setPcmparameter(PCMParameter value);
 
 } // Parameter2Parameter

@@ -14,8 +14,12 @@ public class AnnotatedSourceCode {
 	private List<Triplet<String, String, String>> contentForFiles;
 
 	public AnnotatedSourceCode(IPath destinatioFolder, List<Triplet<String, String, String>> contentForFiles) {
-		this.destinationFolder = destinatioFolder;
+		this.destinationFolder = destinatioFolder.append("src-gen");
 		this.contentForFiles = contentForFiles;
+	}
+
+	public IPath getDestinationPath() {
+		return this.destinationFolder;
 	}
 
 	public List<Triplet<String, String, String>> getContentForFiles() {
@@ -23,8 +27,7 @@ public class AnnotatedSourceCode {
 	}
 
 	public void save() {
-		String folder = this.destinationFolder.toString() + IPath.SEPARATOR + "GeneratedModels" + IPath.SEPARATOR
-				+ "GeneratedCode" + IPath.SEPARATOR;
+		String folder = this.destinationFolder.toString() + IPath.SEPARATOR;
 		(new File(folder)).mkdirs();
 
 		for (Triplet<String, String, String> contentForFile : this.contentForFiles) {

@@ -546,7 +546,7 @@ public class SourcecodePackageImpl extends EPackageImpl implements SourcecodePac
 		initEClass(sourceCodeRootEClass, SourceCodeRoot.class, "SourceCodeRoot", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSourceCodeRoot_Topleveltype(), this.getTopLevelType(), null, "topleveltype", null, 0, -1,
-				SourceCodeRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				SourceCodeRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(topLevelTypeEClass, TopLevelType.class, "TopLevelType", !IS_ABSTRACT, !IS_INTERFACE,
@@ -565,7 +565,7 @@ public class SourcecodePackageImpl extends EPackageImpl implements SourcecodePac
 				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getClass_Fields(), this.getField(), null, "fields", null, 0, -1,
 				edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fieldEClass, Field.class, "Field", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -605,7 +605,7 @@ public class SourcecodePackageImpl extends EPackageImpl implements SourcecodePac
 
 		initEClass(collectionTypeEClass, CollectionType.class, "CollectionType", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCollectionType_Type(), this.getType(), null, "type", null, 0, 1, CollectionType.class,
+		initEReference(getCollectionType_Type(), this.getType(), null, "type", null, 1, 1, CollectionType.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

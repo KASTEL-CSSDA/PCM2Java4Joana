@@ -58,7 +58,6 @@ public class JoanaFactoryImpl extends EFactoryImpl implements JoanaFactory {
 		switch (eClass.getClassifierID()) {
 			case JoanaPackage.ENTRY_POINT: return createEntryPoint();
 			case JoanaPackage.ANNOTATION: return createAnnotation();
-			case JoanaPackage.FLOW_SPECIFICATION_ELEMENT: return createFlowSpecificationElement();
 			case JoanaPackage.SINK: return createSink();
 			case JoanaPackage.SOURCE: return createSource();
 			case JoanaPackage.SECURITY_LEVEL: return createSecurityLevel();
@@ -90,16 +89,6 @@ public class JoanaFactoryImpl extends EFactoryImpl implements JoanaFactory {
 	public Annotation createAnnotation() {
 		AnnotationImpl annotation = new AnnotationImpl();
 		return annotation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public FlowSpecificationElement createFlowSpecificationElement() {
-		FlowSpecificationElementImpl flowSpecificationElement = new FlowSpecificationElementImpl();
-		return flowSpecificationElement;
 	}
 
 	/**

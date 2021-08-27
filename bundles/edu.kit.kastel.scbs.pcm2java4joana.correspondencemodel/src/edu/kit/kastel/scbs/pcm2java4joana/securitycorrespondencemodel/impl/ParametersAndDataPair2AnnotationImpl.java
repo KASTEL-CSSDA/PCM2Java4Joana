@@ -2,15 +2,14 @@
  */
 package edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl;
 
-import edu.kit.kastel.scbs.confidentiality.repository.ParametersAndDataPair;
-
 import edu.kit.kastel.scbs.pcm2java4joana.joana.Annotation;
 
+import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEParametersAndDataPair;
 import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.ParametersAndDataPair2Annotation;
 import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecuritycorrespondencemodelPackage;
-
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -26,14 +25,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.ParametersAndDataPair2AnnotationImpl#getJoanaAnnotation <em>Joana Annotation</em>}</li>
- *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.ParametersAndDataPair2AnnotationImpl#getParametersAndDataPair <em>Parameters And Data Pair</em>}</li>
+ *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.ParametersAndDataPair2AnnotationImpl#getConf4cbseparametersanddatapair <em>Conf4cbseparametersanddatapair</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ParametersAndDataPair2AnnotationImpl extends MinimalEObjectImpl.Container implements ParametersAndDataPair2Annotation {
 	/**
-	 * The cached value of the '{@link #getJoanaAnnotation() <em>Joana Annotation</em>}' reference.
+	 * The cached value of the '{@link #getJoanaAnnotation() <em>Joana Annotation</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getJoanaAnnotation()
@@ -43,14 +42,14 @@ public class ParametersAndDataPair2AnnotationImpl extends MinimalEObjectImpl.Con
 	protected Annotation joanaAnnotation;
 
 	/**
-	 * The cached value of the '{@link #getParametersAndDataPair() <em>Parameters And Data Pair</em>}' reference.
+	 * The cached value of the '{@link #getConf4cbseparametersanddatapair() <em>Conf4cbseparametersanddatapair</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getParametersAndDataPair()
+	 * @see #getConf4cbseparametersanddatapair()
 	 * @generated
 	 * @ordered
 	 */
-	protected ParametersAndDataPair parametersAndDataPair;
+	protected Conf4CBSEParametersAndDataPair conf4cbseparametersanddatapair;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -77,14 +76,6 @@ public class ParametersAndDataPair2AnnotationImpl extends MinimalEObjectImpl.Con
 	 * @generated
 	 */
 	public Annotation getJoanaAnnotation() {
-		if (joanaAnnotation != null && joanaAnnotation.eIsProxy()) {
-			InternalEObject oldJoanaAnnotation = (InternalEObject)joanaAnnotation;
-			joanaAnnotation = (Annotation)eResolveProxy(oldJoanaAnnotation);
-			if (joanaAnnotation != oldJoanaAnnotation) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SecuritycorrespondencemodelPackage.PARAMETERS_AND_DATA_PAIR2_ANNOTATION__JOANA_ANNOTATION, oldJoanaAnnotation, joanaAnnotation));
-			}
-		}
 		return joanaAnnotation;
 	}
 
@@ -93,8 +84,14 @@ public class ParametersAndDataPair2AnnotationImpl extends MinimalEObjectImpl.Con
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Annotation basicGetJoanaAnnotation() {
-		return joanaAnnotation;
+	public NotificationChain basicSetJoanaAnnotation(Annotation newJoanaAnnotation, NotificationChain msgs) {
+		Annotation oldJoanaAnnotation = joanaAnnotation;
+		joanaAnnotation = newJoanaAnnotation;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SecuritycorrespondencemodelPackage.PARAMETERS_AND_DATA_PAIR2_ANNOTATION__JOANA_ANNOTATION, oldJoanaAnnotation, newJoanaAnnotation);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -103,27 +100,17 @@ public class ParametersAndDataPair2AnnotationImpl extends MinimalEObjectImpl.Con
 	 * @generated
 	 */
 	public void setJoanaAnnotation(Annotation newJoanaAnnotation) {
-		Annotation oldJoanaAnnotation = joanaAnnotation;
-		joanaAnnotation = newJoanaAnnotation;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SecuritycorrespondencemodelPackage.PARAMETERS_AND_DATA_PAIR2_ANNOTATION__JOANA_ANNOTATION, oldJoanaAnnotation, joanaAnnotation));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ParametersAndDataPair getParametersAndDataPair() {
-		if (parametersAndDataPair != null && parametersAndDataPair.eIsProxy()) {
-			InternalEObject oldParametersAndDataPair = (InternalEObject)parametersAndDataPair;
-			parametersAndDataPair = (ParametersAndDataPair)eResolveProxy(oldParametersAndDataPair);
-			if (parametersAndDataPair != oldParametersAndDataPair) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SecuritycorrespondencemodelPackage.PARAMETERS_AND_DATA_PAIR2_ANNOTATION__PARAMETERS_AND_DATA_PAIR, oldParametersAndDataPair, parametersAndDataPair));
-			}
+		if (newJoanaAnnotation != joanaAnnotation) {
+			NotificationChain msgs = null;
+			if (joanaAnnotation != null)
+				msgs = ((InternalEObject)joanaAnnotation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SecuritycorrespondencemodelPackage.PARAMETERS_AND_DATA_PAIR2_ANNOTATION__JOANA_ANNOTATION, null, msgs);
+			if (newJoanaAnnotation != null)
+				msgs = ((InternalEObject)newJoanaAnnotation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SecuritycorrespondencemodelPackage.PARAMETERS_AND_DATA_PAIR2_ANNOTATION__JOANA_ANNOTATION, null, msgs);
+			msgs = basicSetJoanaAnnotation(newJoanaAnnotation, msgs);
+			if (msgs != null) msgs.dispatch();
 		}
-		return parametersAndDataPair;
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SecuritycorrespondencemodelPackage.PARAMETERS_AND_DATA_PAIR2_ANNOTATION__JOANA_ANNOTATION, newJoanaAnnotation, newJoanaAnnotation));
 	}
 
 	/**
@@ -131,8 +118,8 @@ public class ParametersAndDataPair2AnnotationImpl extends MinimalEObjectImpl.Con
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParametersAndDataPair basicGetParametersAndDataPair() {
-		return parametersAndDataPair;
+	public Conf4CBSEParametersAndDataPair getConf4cbseparametersanddatapair() {
+		return conf4cbseparametersanddatapair;
 	}
 
 	/**
@@ -140,11 +127,49 @@ public class ParametersAndDataPair2AnnotationImpl extends MinimalEObjectImpl.Con
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setParametersAndDataPair(ParametersAndDataPair newParametersAndDataPair) {
-		ParametersAndDataPair oldParametersAndDataPair = parametersAndDataPair;
-		parametersAndDataPair = newParametersAndDataPair;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SecuritycorrespondencemodelPackage.PARAMETERS_AND_DATA_PAIR2_ANNOTATION__PARAMETERS_AND_DATA_PAIR, oldParametersAndDataPair, parametersAndDataPair));
+	public NotificationChain basicSetConf4cbseparametersanddatapair(Conf4CBSEParametersAndDataPair newConf4cbseparametersanddatapair, NotificationChain msgs) {
+		Conf4CBSEParametersAndDataPair oldConf4cbseparametersanddatapair = conf4cbseparametersanddatapair;
+		conf4cbseparametersanddatapair = newConf4cbseparametersanddatapair;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SecuritycorrespondencemodelPackage.PARAMETERS_AND_DATA_PAIR2_ANNOTATION__CONF4CBSEPARAMETERSANDDATAPAIR, oldConf4cbseparametersanddatapair, newConf4cbseparametersanddatapair);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setConf4cbseparametersanddatapair(Conf4CBSEParametersAndDataPair newConf4cbseparametersanddatapair) {
+		if (newConf4cbseparametersanddatapair != conf4cbseparametersanddatapair) {
+			NotificationChain msgs = null;
+			if (conf4cbseparametersanddatapair != null)
+				msgs = ((InternalEObject)conf4cbseparametersanddatapair).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SecuritycorrespondencemodelPackage.PARAMETERS_AND_DATA_PAIR2_ANNOTATION__CONF4CBSEPARAMETERSANDDATAPAIR, null, msgs);
+			if (newConf4cbseparametersanddatapair != null)
+				msgs = ((InternalEObject)newConf4cbseparametersanddatapair).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SecuritycorrespondencemodelPackage.PARAMETERS_AND_DATA_PAIR2_ANNOTATION__CONF4CBSEPARAMETERSANDDATAPAIR, null, msgs);
+			msgs = basicSetConf4cbseparametersanddatapair(newConf4cbseparametersanddatapair, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SecuritycorrespondencemodelPackage.PARAMETERS_AND_DATA_PAIR2_ANNOTATION__CONF4CBSEPARAMETERSANDDATAPAIR, newConf4cbseparametersanddatapair, newConf4cbseparametersanddatapair));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SecuritycorrespondencemodelPackage.PARAMETERS_AND_DATA_PAIR2_ANNOTATION__JOANA_ANNOTATION:
+				return basicSetJoanaAnnotation(null, msgs);
+			case SecuritycorrespondencemodelPackage.PARAMETERS_AND_DATA_PAIR2_ANNOTATION__CONF4CBSEPARAMETERSANDDATAPAIR:
+				return basicSetConf4cbseparametersanddatapair(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -156,11 +181,9 @@ public class ParametersAndDataPair2AnnotationImpl extends MinimalEObjectImpl.Con
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case SecuritycorrespondencemodelPackage.PARAMETERS_AND_DATA_PAIR2_ANNOTATION__JOANA_ANNOTATION:
-				if (resolve) return getJoanaAnnotation();
-				return basicGetJoanaAnnotation();
-			case SecuritycorrespondencemodelPackage.PARAMETERS_AND_DATA_PAIR2_ANNOTATION__PARAMETERS_AND_DATA_PAIR:
-				if (resolve) return getParametersAndDataPair();
-				return basicGetParametersAndDataPair();
+				return getJoanaAnnotation();
+			case SecuritycorrespondencemodelPackage.PARAMETERS_AND_DATA_PAIR2_ANNOTATION__CONF4CBSEPARAMETERSANDDATAPAIR:
+				return getConf4cbseparametersanddatapair();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -170,14 +193,15 @@ public class ParametersAndDataPair2AnnotationImpl extends MinimalEObjectImpl.Con
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case SecuritycorrespondencemodelPackage.PARAMETERS_AND_DATA_PAIR2_ANNOTATION__JOANA_ANNOTATION:
 				setJoanaAnnotation((Annotation)newValue);
 				return;
-			case SecuritycorrespondencemodelPackage.PARAMETERS_AND_DATA_PAIR2_ANNOTATION__PARAMETERS_AND_DATA_PAIR:
-				setParametersAndDataPair((ParametersAndDataPair)newValue);
+			case SecuritycorrespondencemodelPackage.PARAMETERS_AND_DATA_PAIR2_ANNOTATION__CONF4CBSEPARAMETERSANDDATAPAIR:
+				setConf4cbseparametersanddatapair((Conf4CBSEParametersAndDataPair)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -194,8 +218,8 @@ public class ParametersAndDataPair2AnnotationImpl extends MinimalEObjectImpl.Con
 			case SecuritycorrespondencemodelPackage.PARAMETERS_AND_DATA_PAIR2_ANNOTATION__JOANA_ANNOTATION:
 				setJoanaAnnotation((Annotation)null);
 				return;
-			case SecuritycorrespondencemodelPackage.PARAMETERS_AND_DATA_PAIR2_ANNOTATION__PARAMETERS_AND_DATA_PAIR:
-				setParametersAndDataPair((ParametersAndDataPair)null);
+			case SecuritycorrespondencemodelPackage.PARAMETERS_AND_DATA_PAIR2_ANNOTATION__CONF4CBSEPARAMETERSANDDATAPAIR:
+				setConf4cbseparametersanddatapair((Conf4CBSEParametersAndDataPair)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -211,8 +235,8 @@ public class ParametersAndDataPair2AnnotationImpl extends MinimalEObjectImpl.Con
 		switch (featureID) {
 			case SecuritycorrespondencemodelPackage.PARAMETERS_AND_DATA_PAIR2_ANNOTATION__JOANA_ANNOTATION:
 				return joanaAnnotation != null;
-			case SecuritycorrespondencemodelPackage.PARAMETERS_AND_DATA_PAIR2_ANNOTATION__PARAMETERS_AND_DATA_PAIR:
-				return parametersAndDataPair != null;
+			case SecuritycorrespondencemodelPackage.PARAMETERS_AND_DATA_PAIR2_ANNOTATION__CONF4CBSEPARAMETERSANDDATAPAIR:
+				return conf4cbseparametersanddatapair != null;
 		}
 		return super.eIsSet(featureID);
 	}

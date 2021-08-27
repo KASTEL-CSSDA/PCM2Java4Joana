@@ -22,13 +22,13 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface SourceCodeRoot extends SourceCodeElement {
 	/**
-	 * Returns the value of the '<em><b>Topleveltype</b></em>' reference list.
+	 * Returns the value of the '<em><b>Topleveltype</b></em>' containment reference list.
 	 * The list contents are of type {@link edu.kit.kastel.scbs.pcm2java4joana.sourcecode.TopLevelType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Topleveltype</em>' reference list.
+	 * @return the value of the '<em>Topleveltype</em>' containment reference list.
 	 * @see edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourcecodePackage#getSourceCodeRoot_Topleveltype()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<TopLevelType> getTopleveltype();

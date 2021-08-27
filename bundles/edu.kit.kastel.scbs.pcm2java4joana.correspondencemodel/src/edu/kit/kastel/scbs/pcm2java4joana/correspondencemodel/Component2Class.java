@@ -6,8 +6,6 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
 
-import org.palladiosimulator.pcm.repository.BasicComponent;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Component2 Class</b></em>'.
@@ -17,9 +15,9 @@ import org.palladiosimulator.pcm.repository.BasicComponent;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Component2Class#getPcmComponent <em>Pcm Component</em>}</li>
  *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Component2Class#getJavaClass <em>Java Class</em>}</li>
  *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Component2Class#getInterface2interface <em>Interface2interface</em>}</li>
+ *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Component2Class#getPcmcomponent <em>Pcmcomponent</em>}</li>
  * </ul>
  *
  * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.CorrespondencemodelPackage#getComponent2Class()
@@ -27,28 +25,6 @@ import org.palladiosimulator.pcm.repository.BasicComponent;
  * @generated
  */
 public interface Component2Class extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Pcm Component</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Pcm Component</em>' reference.
-	 * @see #setPcmComponent(BasicComponent)
-	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.CorrespondencemodelPackage#getComponent2Class_PcmComponent()
-	 * @model required="true"
-	 * @generated
-	 */
-	BasicComponent getPcmComponent();
-
-	/**
-	 * Sets the value of the '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Component2Class#getPcmComponent <em>Pcm Component</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Pcm Component</em>' reference.
-	 * @see #getPcmComponent()
-	 * @generated
-	 */
-	void setPcmComponent(BasicComponent value);
-
 	/**
 	 * Returns the value of the '<em><b>Java Class</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -82,5 +58,27 @@ public interface Component2Class extends EObject {
 	 * @generated
 	 */
 	EList<Interface2Interface> getInterface2interface();
+
+	/**
+	 * Returns the value of the '<em><b>Pcmcomponent</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Pcmcomponent</em>' containment reference.
+	 * @see #setPcmcomponent(PCMComponent)
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.CorrespondencemodelPackage#getComponent2Class_Pcmcomponent()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	PCMComponent getPcmcomponent();
+
+	/**
+	 * Sets the value of the '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Component2Class#getPcmcomponent <em>Pcmcomponent</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Pcmcomponent</em>' containment reference.
+	 * @see #getPcmcomponent()
+	 * @generated
+	 */
+	void setPcmcomponent(PCMComponent value);
 
 } // Component2Class

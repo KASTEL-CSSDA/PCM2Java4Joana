@@ -7,7 +7,6 @@ import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourcecodePackage;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.TopLevelType;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 

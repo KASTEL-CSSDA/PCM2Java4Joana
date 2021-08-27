@@ -1,10 +1,11 @@
 package edu.kit.kastel.scbs.pcm2java4joana.modelgenerator;
 
 import org.eclipse.core.runtime.IPath;
-import org.eclipse.emf.ecore.resource.Resource;
 
+import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.StructuralCorrespondenceModel;
 import edu.kit.kastel.scbs.pcm2java4joana.models.ClientAnalysisModel;
 import edu.kit.kastel.scbs.pcm2java4joana.models.SupplierAnalysisModel;
+import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourceCodeRoot;
 import edu.kit.kastel.scbs.pcm2java4joana.utils.Tuple;
 
 public class SupplierAnalysisModelGenerator {
@@ -20,7 +21,7 @@ public class SupplierAnalysisModelGenerator {
 		SourceCodeModelWithCorrespondenceModelGenerator sourceCodeGenerator = new SourceCodeModelWithCorrespondenceModelGenerator(
 				models.getRepository(), this.destinationFolder);
 
-		Tuple<Resource, Resource> sourceCodeModel = sourceCodeGenerator
+		Tuple<SourceCodeRoot, StructuralCorrespondenceModel> sourceCodeModel = sourceCodeGenerator
 				.generateSourceCodeModelWithCorrespondenceModel();
 
 		SupplierAnalysisModel supplierAnalysisModel = new SupplierAnalysisModel(sourceCodeModel.getFirst(),

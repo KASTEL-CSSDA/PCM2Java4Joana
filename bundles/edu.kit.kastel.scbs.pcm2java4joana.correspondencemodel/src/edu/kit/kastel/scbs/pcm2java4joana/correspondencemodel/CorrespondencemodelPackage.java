@@ -2,6 +2,7 @@
  */
 package edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -66,22 +67,13 @@ public interface CorrespondencemodelPackage extends EPackage {
 	int COMPONENT2_CLASS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Pcm Component</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPONENT2_CLASS__PCM_COMPONENT = 0;
-
-	/**
 	 * The feature id for the '<em><b>Java Class</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT2_CLASS__JAVA_CLASS = 1;
+	int COMPONENT2_CLASS__JAVA_CLASS = 0;
 
 	/**
 	 * The feature id for the '<em><b>Interface2interface</b></em>' containment reference list.
@@ -90,7 +82,16 @@ public interface CorrespondencemodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT2_CLASS__INTERFACE2INTERFACE = 2;
+	int COMPONENT2_CLASS__INTERFACE2INTERFACE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Pcmcomponent</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT2_CLASS__PCMCOMPONENT = 2;
 
 	/**
 	 * The number of structural features of the '<em>Component2 Class</em>' class.
@@ -121,22 +122,13 @@ public interface CorrespondencemodelPackage extends EPackage {
 	int INTERFACE2_INTERFACE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Pcm Interface</b></em>' reference.
+	 * The feature id for the '<em><b>Java Interface</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERFACE2_INTERFACE__PCM_INTERFACE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Java Interface</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTERFACE2_INTERFACE__JAVA_INTERFACE = 1;
+	int INTERFACE2_INTERFACE__JAVA_INTERFACE = 0;
 
 	/**
 	 * The feature id for the '<em><b>Operation2method</b></em>' containment reference list.
@@ -145,7 +137,16 @@ public interface CorrespondencemodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTERFACE2_INTERFACE__OPERATION2METHOD = 2;
+	int INTERFACE2_INTERFACE__OPERATION2METHOD = 1;
+
+	/**
+	 * The feature id for the '<em><b>Pcminterface</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERFACE2_INTERFACE__PCMINTERFACE = 2;
 
 	/**
 	 * The number of structural features of the '<em>Interface2 Interface</em>' class.
@@ -176,22 +177,13 @@ public interface CorrespondencemodelPackage extends EPackage {
 	int OPERATION2_METHOD = 2;
 
 	/**
-	 * The feature id for the '<em><b>Pcm Operation</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OPERATION2_METHOD__PCM_OPERATION = 0;
-
-	/**
 	 * The feature id for the '<em><b>Java Method</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION2_METHOD__JAVA_METHOD = 1;
+	int OPERATION2_METHOD__JAVA_METHOD = 0;
 
 	/**
 	 * The feature id for the '<em><b>Parameter2parameter</b></em>' containment reference list.
@@ -200,7 +192,16 @@ public interface CorrespondencemodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION2_METHOD__PARAMETER2PARAMETER = 2;
+	int OPERATION2_METHOD__PARAMETER2PARAMETER = 1;
+
+	/**
+	 * The feature id for the '<em><b>Pcmoperation</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION2_METHOD__PCMOPERATION = 2;
 
 	/**
 	 * The number of structural features of the '<em>Operation2 Method</em>' class.
@@ -231,22 +232,22 @@ public interface CorrespondencemodelPackage extends EPackage {
 	int PARAMETER2_PARAMETER = 3;
 
 	/**
-	 * The feature id for the '<em><b>Pcm Parameter</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER2_PARAMETER__PCM_PARAMETER = 0;
-
-	/**
 	 * The feature id for the '<em><b>Java Parameter</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER2_PARAMETER__JAVA_PARAMETER = 1;
+	int PARAMETER2_PARAMETER__JAVA_PARAMETER = 0;
+
+	/**
+	 * The feature id for the '<em><b>Pcmparameter</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER2_PARAMETER__PCMPARAMETER = 1;
 
 	/**
 	 * The number of structural features of the '<em>Parameter2 Parameter</em>' class.
@@ -305,6 +306,264 @@ public interface CorrespondencemodelPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl.PCMElementImpl <em>PCM Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl.PCMElementImpl
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl.CorrespondencemodelPackageImpl#getPCMElement()
+	 * @generated
+	 */
+	int PCM_ELEMENT = 5;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_ELEMENT__ID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_ELEMENT__NAME = 1;
+
+	/**
+	 * The number of structural features of the '<em>PCM Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_ELEMENT_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>PCM Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_ELEMENT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl.PCMComponentImpl <em>PCM Component</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl.PCMComponentImpl
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl.CorrespondencemodelPackageImpl#getPCMComponent()
+	 * @generated
+	 */
+	int PCM_COMPONENT = 6;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_COMPONENT__ID = PCM_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_COMPONENT__NAME = PCM_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Pcminterface</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_COMPONENT__PCMINTERFACE = PCM_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>PCM Component</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_COMPONENT_FEATURE_COUNT = PCM_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>PCM Component</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_COMPONENT_OPERATION_COUNT = PCM_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl.PCMInterfaceImpl <em>PCM Interface</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl.PCMInterfaceImpl
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl.CorrespondencemodelPackageImpl#getPCMInterface()
+	 * @generated
+	 */
+	int PCM_INTERFACE = 7;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_INTERFACE__ID = PCM_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_INTERFACE__NAME = PCM_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Pcmoperation</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_INTERFACE__PCMOPERATION = PCM_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>PCM Interface</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_INTERFACE_FEATURE_COUNT = PCM_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>PCM Interface</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_INTERFACE_OPERATION_COUNT = PCM_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl.PCMOperationImpl <em>PCM Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl.PCMOperationImpl
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl.CorrespondencemodelPackageImpl#getPCMOperation()
+	 * @generated
+	 */
+	int PCM_OPERATION = 8;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_OPERATION__ID = PCM_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_OPERATION__NAME = PCM_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Pcmparameter</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_OPERATION__PCMPARAMETER = PCM_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>PCM Operation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_OPERATION_FEATURE_COUNT = PCM_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>PCM Operation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_OPERATION_OPERATION_COUNT = PCM_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl.PCMParameterImpl <em>PCM Parameter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl.PCMParameterImpl
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl.CorrespondencemodelPackageImpl#getPCMParameter()
+	 * @generated
+	 */
+	int PCM_PARAMETER = 9;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_PARAMETER__ID = PCM_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_PARAMETER__NAME = PCM_ELEMENT__NAME;
+
+	/**
+	 * The number of structural features of the '<em>PCM Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_PARAMETER_FEATURE_COUNT = PCM_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>PCM Parameter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_PARAMETER_OPERATION_COUNT = PCM_ELEMENT_OPERATION_COUNT + 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Component2Class <em>Component2 Class</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -313,17 +572,6 @@ public interface CorrespondencemodelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getComponent2Class();
-
-	/**
-	 * Returns the meta object for the reference '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Component2Class#getPcmComponent <em>Pcm Component</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Pcm Component</em>'.
-	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Component2Class#getPcmComponent()
-	 * @see #getComponent2Class()
-	 * @generated
-	 */
-	EReference getComponent2Class_PcmComponent();
 
 	/**
 	 * Returns the meta object for the reference '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Component2Class#getJavaClass <em>Java Class</em>}'.
@@ -348,6 +596,17 @@ public interface CorrespondencemodelPackage extends EPackage {
 	EReference getComponent2Class_Interface2interface();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Component2Class#getPcmcomponent <em>Pcmcomponent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Pcmcomponent</em>'.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Component2Class#getPcmcomponent()
+	 * @see #getComponent2Class()
+	 * @generated
+	 */
+	EReference getComponent2Class_Pcmcomponent();
+
+	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Interface2Interface <em>Interface2 Interface</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -358,21 +617,10 @@ public interface CorrespondencemodelPackage extends EPackage {
 	EClass getInterface2Interface();
 
 	/**
-	 * Returns the meta object for the reference '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Interface2Interface#getPcmInterface <em>Pcm Interface</em>}'.
+	 * Returns the meta object for the containment reference '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Interface2Interface#getJavaInterface <em>Java Interface</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Pcm Interface</em>'.
-	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Interface2Interface#getPcmInterface()
-	 * @see #getInterface2Interface()
-	 * @generated
-	 */
-	EReference getInterface2Interface_PcmInterface();
-
-	/**
-	 * Returns the meta object for the reference '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Interface2Interface#getJavaInterface <em>Java Interface</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Java Interface</em>'.
+	 * @return the meta object for the containment reference '<em>Java Interface</em>'.
 	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Interface2Interface#getJavaInterface()
 	 * @see #getInterface2Interface()
 	 * @generated
@@ -391,6 +639,17 @@ public interface CorrespondencemodelPackage extends EPackage {
 	EReference getInterface2Interface_Operation2method();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Interface2Interface#getPcminterface <em>Pcminterface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Pcminterface</em>'.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Interface2Interface#getPcminterface()
+	 * @see #getInterface2Interface()
+	 * @generated
+	 */
+	EReference getInterface2Interface_Pcminterface();
+
+	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Operation2Method <em>Operation2 Method</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -399,17 +658,6 @@ public interface CorrespondencemodelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getOperation2Method();
-
-	/**
-	 * Returns the meta object for the reference '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Operation2Method#getPcmOperation <em>Pcm Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Pcm Operation</em>'.
-	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Operation2Method#getPcmOperation()
-	 * @see #getOperation2Method()
-	 * @generated
-	 */
-	EReference getOperation2Method_PcmOperation();
 
 	/**
 	 * Returns the meta object for the reference '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Operation2Method#getJavaMethod <em>Java Method</em>}'.
@@ -434,6 +682,17 @@ public interface CorrespondencemodelPackage extends EPackage {
 	EReference getOperation2Method_Parameter2parameter();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Operation2Method#getPcmoperation <em>Pcmoperation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Pcmoperation</em>'.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Operation2Method#getPcmoperation()
+	 * @see #getOperation2Method()
+	 * @generated
+	 */
+	EReference getOperation2Method_Pcmoperation();
+
+	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Parameter2Parameter <em>Parameter2 Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -442,17 +701,6 @@ public interface CorrespondencemodelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getParameter2Parameter();
-
-	/**
-	 * Returns the meta object for the reference '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Parameter2Parameter#getPcmParameter <em>Pcm Parameter</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Pcm Parameter</em>'.
-	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Parameter2Parameter#getPcmParameter()
-	 * @see #getParameter2Parameter()
-	 * @generated
-	 */
-	EReference getParameter2Parameter_PcmParameter();
 
 	/**
 	 * Returns the meta object for the reference '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Parameter2Parameter#getJavaParameter <em>Java Parameter</em>}'.
@@ -464,6 +712,17 @@ public interface CorrespondencemodelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getParameter2Parameter_JavaParameter();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Parameter2Parameter#getPcmparameter <em>Pcmparameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Pcmparameter</em>'.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Parameter2Parameter#getPcmparameter()
+	 * @see #getParameter2Parameter()
+	 * @generated
+	 */
+	EReference getParameter2Parameter_Pcmparameter();
 
 	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.StructuralCorrespondenceModel <em>Structural Correspondence Model</em>}'.
@@ -485,6 +744,111 @@ public interface CorrespondencemodelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getStructuralCorrespondenceModel_Component2class();
+
+	/**
+	 * Returns the meta object for class '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMElement <em>PCM Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>PCM Element</em>'.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMElement
+	 * @generated
+	 */
+	EClass getPCMElement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMElement#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMElement#getId()
+	 * @see #getPCMElement()
+	 * @generated
+	 */
+	EAttribute getPCMElement_Id();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMElement#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMElement#getName()
+	 * @see #getPCMElement()
+	 * @generated
+	 */
+	EAttribute getPCMElement_Name();
+
+	/**
+	 * Returns the meta object for class '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMComponent <em>PCM Component</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>PCM Component</em>'.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMComponent
+	 * @generated
+	 */
+	EClass getPCMComponent();
+
+	/**
+	 * Returns the meta object for the reference list '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMComponent#getPcminterface <em>Pcminterface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Pcminterface</em>'.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMComponent#getPcminterface()
+	 * @see #getPCMComponent()
+	 * @generated
+	 */
+	EReference getPCMComponent_Pcminterface();
+
+	/**
+	 * Returns the meta object for class '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMInterface <em>PCM Interface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>PCM Interface</em>'.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMInterface
+	 * @generated
+	 */
+	EClass getPCMInterface();
+
+	/**
+	 * Returns the meta object for the reference list '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMInterface#getPcmoperation <em>Pcmoperation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Pcmoperation</em>'.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMInterface#getPcmoperation()
+	 * @see #getPCMInterface()
+	 * @generated
+	 */
+	EReference getPCMInterface_Pcmoperation();
+
+	/**
+	 * Returns the meta object for class '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMOperation <em>PCM Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>PCM Operation</em>'.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMOperation
+	 * @generated
+	 */
+	EClass getPCMOperation();
+
+	/**
+	 * Returns the meta object for the reference list '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMOperation#getPcmparameter <em>Pcmparameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Pcmparameter</em>'.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMOperation#getPcmparameter()
+	 * @see #getPCMOperation()
+	 * @generated
+	 */
+	EReference getPCMOperation_Pcmparameter();
+
+	/**
+	 * Returns the meta object for class '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMParameter <em>PCM Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>PCM Parameter</em>'.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMParameter
+	 * @generated
+	 */
+	EClass getPCMParameter();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -520,14 +884,6 @@ public interface CorrespondencemodelPackage extends EPackage {
 		EClass COMPONENT2_CLASS = eINSTANCE.getComponent2Class();
 
 		/**
-		 * The meta object literal for the '<em><b>Pcm Component</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COMPONENT2_CLASS__PCM_COMPONENT = eINSTANCE.getComponent2Class_PcmComponent();
-
-		/**
 		 * The meta object literal for the '<em><b>Java Class</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -544,6 +900,14 @@ public interface CorrespondencemodelPackage extends EPackage {
 		EReference COMPONENT2_CLASS__INTERFACE2INTERFACE = eINSTANCE.getComponent2Class_Interface2interface();
 
 		/**
+		 * The meta object literal for the '<em><b>Pcmcomponent</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPONENT2_CLASS__PCMCOMPONENT = eINSTANCE.getComponent2Class_Pcmcomponent();
+
+		/**
 		 * The meta object literal for the '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl.Interface2InterfaceImpl <em>Interface2 Interface</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -554,15 +918,7 @@ public interface CorrespondencemodelPackage extends EPackage {
 		EClass INTERFACE2_INTERFACE = eINSTANCE.getInterface2Interface();
 
 		/**
-		 * The meta object literal for the '<em><b>Pcm Interface</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference INTERFACE2_INTERFACE__PCM_INTERFACE = eINSTANCE.getInterface2Interface_PcmInterface();
-
-		/**
-		 * The meta object literal for the '<em><b>Java Interface</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Java Interface</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -578,6 +934,14 @@ public interface CorrespondencemodelPackage extends EPackage {
 		EReference INTERFACE2_INTERFACE__OPERATION2METHOD = eINSTANCE.getInterface2Interface_Operation2method();
 
 		/**
+		 * The meta object literal for the '<em><b>Pcminterface</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERFACE2_INTERFACE__PCMINTERFACE = eINSTANCE.getInterface2Interface_Pcminterface();
+
+		/**
 		 * The meta object literal for the '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl.Operation2MethodImpl <em>Operation2 Method</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -586,14 +950,6 @@ public interface CorrespondencemodelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass OPERATION2_METHOD = eINSTANCE.getOperation2Method();
-
-		/**
-		 * The meta object literal for the '<em><b>Pcm Operation</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference OPERATION2_METHOD__PCM_OPERATION = eINSTANCE.getOperation2Method_PcmOperation();
 
 		/**
 		 * The meta object literal for the '<em><b>Java Method</b></em>' reference feature.
@@ -612,6 +968,14 @@ public interface CorrespondencemodelPackage extends EPackage {
 		EReference OPERATION2_METHOD__PARAMETER2PARAMETER = eINSTANCE.getOperation2Method_Parameter2parameter();
 
 		/**
+		 * The meta object literal for the '<em><b>Pcmoperation</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPERATION2_METHOD__PCMOPERATION = eINSTANCE.getOperation2Method_Pcmoperation();
+
+		/**
 		 * The meta object literal for the '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl.Parameter2ParameterImpl <em>Parameter2 Parameter</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -622,20 +986,20 @@ public interface CorrespondencemodelPackage extends EPackage {
 		EClass PARAMETER2_PARAMETER = eINSTANCE.getParameter2Parameter();
 
 		/**
-		 * The meta object literal for the '<em><b>Pcm Parameter</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PARAMETER2_PARAMETER__PCM_PARAMETER = eINSTANCE.getParameter2Parameter_PcmParameter();
-
-		/**
 		 * The meta object literal for the '<em><b>Java Parameter</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference PARAMETER2_PARAMETER__JAVA_PARAMETER = eINSTANCE.getParameter2Parameter_JavaParameter();
+
+		/**
+		 * The meta object literal for the '<em><b>Pcmparameter</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER2_PARAMETER__PCMPARAMETER = eINSTANCE.getParameter2Parameter_Pcmparameter();
 
 		/**
 		 * The meta object literal for the '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl.StructuralCorrespondenceModelImpl <em>Structural Correspondence Model</em>}' class.
@@ -654,6 +1018,96 @@ public interface CorrespondencemodelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference STRUCTURAL_CORRESPONDENCE_MODEL__COMPONENT2CLASS = eINSTANCE.getStructuralCorrespondenceModel_Component2class();
+
+		/**
+		 * The meta object literal for the '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl.PCMElementImpl <em>PCM Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl.PCMElementImpl
+		 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl.CorrespondencemodelPackageImpl#getPCMElement()
+		 * @generated
+		 */
+		EClass PCM_ELEMENT = eINSTANCE.getPCMElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PCM_ELEMENT__ID = eINSTANCE.getPCMElement_Id();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PCM_ELEMENT__NAME = eINSTANCE.getPCMElement_Name();
+
+		/**
+		 * The meta object literal for the '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl.PCMComponentImpl <em>PCM Component</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl.PCMComponentImpl
+		 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl.CorrespondencemodelPackageImpl#getPCMComponent()
+		 * @generated
+		 */
+		EClass PCM_COMPONENT = eINSTANCE.getPCMComponent();
+
+		/**
+		 * The meta object literal for the '<em><b>Pcminterface</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PCM_COMPONENT__PCMINTERFACE = eINSTANCE.getPCMComponent_Pcminterface();
+
+		/**
+		 * The meta object literal for the '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl.PCMInterfaceImpl <em>PCM Interface</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl.PCMInterfaceImpl
+		 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl.CorrespondencemodelPackageImpl#getPCMInterface()
+		 * @generated
+		 */
+		EClass PCM_INTERFACE = eINSTANCE.getPCMInterface();
+
+		/**
+		 * The meta object literal for the '<em><b>Pcmoperation</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PCM_INTERFACE__PCMOPERATION = eINSTANCE.getPCMInterface_Pcmoperation();
+
+		/**
+		 * The meta object literal for the '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl.PCMOperationImpl <em>PCM Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl.PCMOperationImpl
+		 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl.CorrespondencemodelPackageImpl#getPCMOperation()
+		 * @generated
+		 */
+		EClass PCM_OPERATION = eINSTANCE.getPCMOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Pcmparameter</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PCM_OPERATION__PCMPARAMETER = eINSTANCE.getPCMOperation_Pcmparameter();
+
+		/**
+		 * The meta object literal for the '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl.PCMParameterImpl <em>PCM Parameter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl.PCMParameterImpl
+		 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl.CorrespondencemodelPackageImpl#getPCMParameter()
+		 * @generated
+		 */
+		EClass PCM_PARAMETER = eINSTANCE.getPCMParameter();
 
 	}
 

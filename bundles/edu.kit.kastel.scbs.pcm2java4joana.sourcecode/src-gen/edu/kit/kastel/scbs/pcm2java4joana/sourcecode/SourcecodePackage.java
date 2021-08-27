@@ -114,7 +114,7 @@ public interface SourcecodePackage extends EPackage {
 	int SOURCE_CODE_ROOT__NAME = SOURCE_CODE_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Topleveltype</b></em>' reference list.
+	 * The feature id for the '<em><b>Topleveltype</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -252,7 +252,7 @@ public interface SourcecodePackage extends EPackage {
 	int CLASS__IMPLEMENTS = TOP_LEVEL_TYPE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Fields</b></em>' reference list.
+	 * The feature id for the '<em><b>Fields</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -658,10 +658,10 @@ public interface SourcecodePackage extends EPackage {
 	EClass getSourceCodeRoot();
 
 	/**
-	 * Returns the meta object for the reference list '{@link edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourceCodeRoot#getTopleveltype <em>Topleveltype</em>}'.
+	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourceCodeRoot#getTopleveltype <em>Topleveltype</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Topleveltype</em>'.
+	 * @return the meta object for the containment reference list '<em>Topleveltype</em>'.
 	 * @see edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourceCodeRoot#getTopleveltype()
 	 * @see #getSourceCodeRoot()
 	 * @generated
@@ -721,10 +721,10 @@ public interface SourcecodePackage extends EPackage {
 	EReference getClass_Implements();
 
 	/**
-	 * Returns the meta object for the reference list '{@link edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class#getFields <em>Fields</em>}'.
+	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class#getFields <em>Fields</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Fields</em>'.
+	 * @return the meta object for the containment reference list '<em>Fields</em>'.
 	 * @see edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class#getFields()
 	 * @see #getClass_()
 	 * @generated
@@ -953,7 +953,7 @@ public interface SourcecodePackage extends EPackage {
 		EClass SOURCE_CODE_ROOT = eINSTANCE.getSourceCodeRoot();
 
 		/**
-		 * The meta object literal for the '<em><b>Topleveltype</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Topleveltype</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1007,7 +1007,7 @@ public interface SourcecodePackage extends EPackage {
 		EReference CLASS__IMPLEMENTS = eINSTANCE.getClass_Implements();
 
 		/**
-		 * The meta object literal for the '<em><b>Fields</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Fields</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

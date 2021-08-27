@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class FlowSpecificationElementImpl extends JoanaElementImpl implements FlowSpecificationElement {
+public abstract class FlowSpecificationElementImpl extends JoanaElementImpl implements FlowSpecificationElement {
 	/**
 	 * The default value of the '{@link #getTag() <em>Tag</em>}' attribute.
 	 * <!-- begin-user-doc -->

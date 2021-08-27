@@ -80,6 +80,18 @@ public class SecuritycorrespondencemodelAdapterFactory extends AdapterFactoryImp
 				return createSecurityCorrespondenceModelAdapter();
 			}
 			@Override
+			public Adapter caseConf4CBSEParametersAndDataPair(Conf4CBSEParametersAndDataPair object) {
+				return createConf4CBSEParametersAndDataPairAdapter();
+			}
+			@Override
+			public Adapter caseConf4CBSEElement(Conf4CBSEElement object) {
+				return createConf4CBSEElementAdapter();
+			}
+			@Override
+			public Adapter caseConf4CBSEAdversary(Conf4CBSEAdversary object) {
+				return createConf4CBSEAdversaryAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -138,6 +150,48 @@ public class SecuritycorrespondencemodelAdapterFactory extends AdapterFactoryImp
 	 * @generated
 	 */
 	public Adapter createSecurityCorrespondenceModelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEParametersAndDataPair <em>Conf4 CBSE Parameters And Data Pair</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEParametersAndDataPair
+	 * @generated
+	 */
+	public Adapter createConf4CBSEParametersAndDataPairAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEElement <em>Conf4 CBSE Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEElement
+	 * @generated
+	 */
+	public Adapter createConf4CBSEElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEAdversary <em>Conf4 CBSE Adversary</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEAdversary
+	 * @generated
+	 */
+	public Adapter createConf4CBSEAdversaryAdapter() {
 		return null;
 	}
 

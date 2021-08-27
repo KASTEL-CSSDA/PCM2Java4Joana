@@ -49,6 +49,33 @@ public interface SecuritycorrespondencemodelFactory extends EFactory {
 	SecurityCorrespondenceModel createSecurityCorrespondenceModel();
 
 	/**
+	 * Returns a new object of class '<em>Conf4 CBSE Parameters And Data Pair</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Conf4 CBSE Parameters And Data Pair</em>'.
+	 * @generated
+	 */
+	Conf4CBSEParametersAndDataPair createConf4CBSEParametersAndDataPair();
+
+	/**
+	 * Returns a new object of class '<em>Conf4 CBSE Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Conf4 CBSE Element</em>'.
+	 * @generated
+	 */
+	Conf4CBSEElement createConf4CBSEElement();
+
+	/**
+	 * Returns a new object of class '<em>Conf4 CBSE Adversary</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Conf4 CBSE Adversary</em>'.
+	 * @generated
+	 */
+	Conf4CBSEAdversary createConf4CBSEAdversary();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

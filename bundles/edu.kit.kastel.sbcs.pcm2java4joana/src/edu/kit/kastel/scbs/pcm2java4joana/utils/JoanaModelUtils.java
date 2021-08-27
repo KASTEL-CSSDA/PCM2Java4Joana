@@ -1,8 +1,11 @@
 package edu.kit.kastel.scbs.pcm2java4joana.utils;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import org.eclipse.emf.ecore.EObject;
 
 import edu.kit.kastel.scbs.pcm2java4joana.joana.Annotation;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.EntryPoint;
@@ -104,7 +107,7 @@ public final class JoanaModelUtils {
 	}
 
 	public static String combineIntoOneSecurityLevel(List<SecurityLevel> levels) {
-		List<SecurityLevel> sorted = JoanaModelUtils.sortSecurityLevels(levels);
+		List<SecurityLevel> sorted = JoanaModelUtils.sortSecurityLevels(JoanaModelUtils.copySecurityLevels(levels));
 		String combined = "";
 		for (SecurityLevel level : sorted) {
 			combined += level.getName();
@@ -144,5 +147,21 @@ public final class JoanaModelUtils {
 		SecurityLevel copiedLevel = factory.createSecurityLevel();
 		copiedLevel.setName(level.getName());
 		return copiedLevel;
+	}
+
+	public static Annotation copyAnnotation(Annotation annotation) {
+		JoanaFactory factory = JoanaFactory.eINSTANCE;
+		Annotation copiedAnnotation = factory.createAnnotation();
+		copiedAnnotation.setAnnotatedClass(annotation.getAnnotatedClass());
+		copiedAnnotation.setAnnotatedMethod(annotation.getAnnotatedMethod());
+		copiedAnnotation.setAnnotatedParameter(annotation.getAnnotatedParameter());
+		copiedAnnotation.getSecuritylevel().addAll(copySecurityLevels(annotation.getSecuritylevel()));
+		return copiedAnnotation;
+	}
+
+	public static Collection<EObject> flattenJoanaModel() {
+		Collection<EObject> objects = new ArrayList<EObject>();
+
+		return objects;
 	}
 }

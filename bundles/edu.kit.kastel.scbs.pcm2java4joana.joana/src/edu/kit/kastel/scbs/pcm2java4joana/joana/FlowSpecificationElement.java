@@ -19,7 +19,7 @@ import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Method;
  * </ul>
  *
  * @see edu.kit.kastel.scbs.pcm2java4joana.joana.JoanaPackage#getFlowSpecificationElement()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface FlowSpecificationElement extends JoanaElement {

@@ -67,6 +67,51 @@ public interface CorrespondencemodelFactory extends EFactory {
 	StructuralCorrespondenceModel createStructuralCorrespondenceModel();
 
 	/**
+	 * Returns a new object of class '<em>PCM Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>PCM Element</em>'.
+	 * @generated
+	 */
+	PCMElement createPCMElement();
+
+	/**
+	 * Returns a new object of class '<em>PCM Component</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>PCM Component</em>'.
+	 * @generated
+	 */
+	PCMComponent createPCMComponent();
+
+	/**
+	 * Returns a new object of class '<em>PCM Interface</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>PCM Interface</em>'.
+	 * @generated
+	 */
+	PCMInterface createPCMInterface();
+
+	/**
+	 * Returns a new object of class '<em>PCM Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>PCM Operation</em>'.
+	 * @generated
+	 */
+	PCMOperation createPCMOperation();
+
+	/**
+	 * Returns a new object of class '<em>PCM Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>PCM Parameter</em>'.
+	 * @generated
+	 */
+	PCMParameter createPCMParameter();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

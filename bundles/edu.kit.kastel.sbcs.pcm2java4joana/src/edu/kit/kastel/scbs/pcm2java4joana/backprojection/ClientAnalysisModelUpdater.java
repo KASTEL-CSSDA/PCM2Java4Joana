@@ -6,11 +6,11 @@ import edu.kit.kastel.scbs.confidentiality.adversary.Adversary;
 import edu.kit.kastel.scbs.confidentiality.data.DataIdentifying;
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.StructuralCorrespondenceModel;
 import edu.kit.kastel.scbs.pcm2java4joana.models.ClientAnalysisModel;
-import edu.kit.kastel.scbs.pcm2java4joana.models.CorrespondenceModelUtils;
 import edu.kit.kastel.scbs.pcm2java4joana.models.EquationSystem;
 import edu.kit.kastel.scbs.pcm2java4joana.models.SecurityLevelEquation;
 import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.ParametersAndDataPair2Annotation;
 import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecurityCorrespondenceModel;
+import edu.kit.kastel.scbs.pcm2java4joana.utils.CorrespondenceModelUtils;
 
 public class ClientAnalysisModelUpdater {
 	public void adaptClientAnalysisModel(ClientAnalysisModel clientAnalysisModel,
@@ -26,9 +26,10 @@ public class ClientAnalysisModelUpdater {
 
 			for (Adversary adversary : adversaries) {
 				for (DataIdentifying dataSet : adversary.getMayKnowData()) {
-					if (!pair2Annotation.getParametersAndDataPair().getDataTargets().contains(dataSet)) {
-						pair2Annotation.getParametersAndDataPair().getDataTargets().add(dataSet);
-					}
+					// TODO: Rework with new correspondence model
+//					if (!pair2Annotation.getParametersAndDataPair().getDataTargets().contains(dataSet)) {
+//						pair2Annotation.getParametersAndDataPair().getDataTargets().add(dataSet);
+//					}
 				}
 			}
 		}

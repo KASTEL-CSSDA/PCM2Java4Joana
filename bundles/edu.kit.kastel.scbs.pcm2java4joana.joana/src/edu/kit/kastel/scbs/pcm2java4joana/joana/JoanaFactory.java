@@ -40,15 +40,6 @@ public interface JoanaFactory extends EFactory {
 	Annotation createAnnotation();
 
 	/**
-	 * Returns a new object of class '<em>Flow Specification Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Flow Specification Element</em>'.
-	 * @generated
-	 */
-	FlowSpecificationElement createFlowSpecificationElement();
-
-	/**
 	 * Returns a new object of class '<em>Sink</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

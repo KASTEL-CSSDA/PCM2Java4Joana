@@ -3,7 +3,7 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="sourcecode" nsURI="http://www.example.org/sourcecode" nsPrefix="sourcecode">
   <eClassifiers xsi:type="ecore:EClass" name="SourceCodeRoot" eSuperTypes="#//SourceCodeElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="topleveltype" upperBound="-1"
-        eType="#//TopLevelType"/>
+        eType="#//TopLevelType" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TopLevelType" eSuperTypes="#//SourceCodeElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Interface" eSuperTypes="#//TopLevelType">
@@ -14,7 +14,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="implements" upperBound="-1"
         eType="#//Interface"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="fields" upperBound="-1"
-        eType="#//Field"/>
+        eType="#//Field" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Field" eSuperTypes="#//SourceCodeElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Method" eSuperTypes="#//Field">

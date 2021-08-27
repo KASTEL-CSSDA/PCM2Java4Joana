@@ -96,6 +96,40 @@ public class CorrespondencemodelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CorrespondencemodelPackage.PCM_ELEMENT: {
+				PCMElement pcmElement = (PCMElement)theEObject;
+				T result = casePCMElement(pcmElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorrespondencemodelPackage.PCM_COMPONENT: {
+				PCMComponent pcmComponent = (PCMComponent)theEObject;
+				T result = casePCMComponent(pcmComponent);
+				if (result == null) result = casePCMElement(pcmComponent);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorrespondencemodelPackage.PCM_INTERFACE: {
+				PCMInterface pcmInterface = (PCMInterface)theEObject;
+				T result = casePCMInterface(pcmInterface);
+				if (result == null) result = casePCMElement(pcmInterface);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorrespondencemodelPackage.PCM_OPERATION: {
+				PCMOperation pcmOperation = (PCMOperation)theEObject;
+				T result = casePCMOperation(pcmOperation);
+				if (result == null) result = casePCMElement(pcmOperation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CorrespondencemodelPackage.PCM_PARAMETER: {
+				PCMParameter pcmParameter = (PCMParameter)theEObject;
+				T result = casePCMParameter(pcmParameter);
+				if (result == null) result = casePCMElement(pcmParameter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -172,6 +206,81 @@ public class CorrespondencemodelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseStructuralCorrespondenceModel(StructuralCorrespondenceModel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>PCM Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>PCM Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePCMElement(PCMElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>PCM Component</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>PCM Component</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePCMComponent(PCMComponent object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>PCM Interface</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>PCM Interface</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePCMInterface(PCMInterface object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>PCM Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>PCM Operation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePCMOperation(PCMOperation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>PCM Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>PCM Parameter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePCMParameter(PCMParameter object) {
 		return null;
 	}
 

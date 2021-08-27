@@ -1,4 +1,4 @@
-package edu.kit.kastel.scbs.pcm2java4joana.models;
+package edu.kit.kastel.scbs.pcm2java4joana.utils;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -17,8 +17,6 @@ import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Parameters
 import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecurityCorrespondenceModel;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Interface;
-import edu.kit.kastel.scbs.pcm2java4joana.utils.JoanaModelUtils;
-import edu.kit.kastel.scbs.pcm2java4joana.utils.SourceCodeModelUtils;
 
 public final class CorrespondenceModelUtils {
 	private CorrespondenceModelUtils() {
@@ -90,7 +88,7 @@ public final class CorrespondenceModelUtils {
 				.getAdversary2securitylevel()) {
 			if (JoanaModelUtils.combineIntoOneSecurityLevel(adversary2SecurityLevel.getSecurityLevels())
 					.equals(securityLevel)) {
-				return adversary2SecurityLevel.getAdversaries();
+//				return adversary2SecurityLevel.getAdversaries(); // TODO: Rework for new correspondence model
 			}
 		}
 		return null;

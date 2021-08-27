@@ -6,6 +6,7 @@ import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Correspondencemode
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Interface2Interface;
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Operation2Method;
 
+import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMInterface;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Interface;
 
 import java.util.Collection;
@@ -16,7 +17,6 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -24,8 +24,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
-import org.palladiosimulator.pcm.repository.OperationInterface;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,26 +33,16 @@ import org.palladiosimulator.pcm.repository.OperationInterface;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl.Interface2InterfaceImpl#getPcmInterface <em>Pcm Interface</em>}</li>
  *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl.Interface2InterfaceImpl#getJavaInterface <em>Java Interface</em>}</li>
  *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl.Interface2InterfaceImpl#getOperation2method <em>Operation2method</em>}</li>
+ *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl.Interface2InterfaceImpl#getPcminterface <em>Pcminterface</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class Interface2InterfaceImpl extends MinimalEObjectImpl.Container implements Interface2Interface {
 	/**
-	 * The cached value of the '{@link #getPcmInterface() <em>Pcm Interface</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPcmInterface()
-	 * @generated
-	 * @ordered
-	 */
-	protected OperationInterface pcmInterface;
-
-	/**
-	 * The cached value of the '{@link #getJavaInterface() <em>Java Interface</em>}' reference.
+	 * The cached value of the '{@link #getJavaInterface() <em>Java Interface</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getJavaInterface()
@@ -72,6 +60,16 @@ public class Interface2InterfaceImpl extends MinimalEObjectImpl.Container implem
 	 * @ordered
 	 */
 	protected EList<Operation2Method> operation2method;
+
+	/**
+	 * The cached value of the '{@link #getPcminterface() <em>Pcminterface</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPcminterface()
+	 * @generated
+	 * @ordered
+	 */
+	protected PCMInterface pcminterface;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -97,53 +95,7 @@ public class Interface2InterfaceImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public OperationInterface getPcmInterface() {
-		if (pcmInterface != null && ((EObject)pcmInterface).eIsProxy()) {
-			InternalEObject oldPcmInterface = (InternalEObject)pcmInterface;
-			pcmInterface = (OperationInterface)eResolveProxy(oldPcmInterface);
-			if (pcmInterface != oldPcmInterface) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CorrespondencemodelPackage.INTERFACE2_INTERFACE__PCM_INTERFACE, oldPcmInterface, pcmInterface));
-			}
-		}
-		return pcmInterface;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public OperationInterface basicGetPcmInterface() {
-		return pcmInterface;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPcmInterface(OperationInterface newPcmInterface) {
-		OperationInterface oldPcmInterface = pcmInterface;
-		pcmInterface = newPcmInterface;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorrespondencemodelPackage.INTERFACE2_INTERFACE__PCM_INTERFACE, oldPcmInterface, pcmInterface));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Interface getJavaInterface() {
-		if (javaInterface != null && javaInterface.eIsProxy()) {
-			InternalEObject oldJavaInterface = (InternalEObject)javaInterface;
-			javaInterface = (Interface)eResolveProxy(oldJavaInterface);
-			if (javaInterface != oldJavaInterface) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CorrespondencemodelPackage.INTERFACE2_INTERFACE__JAVA_INTERFACE, oldJavaInterface, javaInterface));
-			}
-		}
 		return javaInterface;
 	}
 
@@ -152,8 +104,14 @@ public class Interface2InterfaceImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Interface basicGetJavaInterface() {
-		return javaInterface;
+	public NotificationChain basicSetJavaInterface(Interface newJavaInterface, NotificationChain msgs) {
+		Interface oldJavaInterface = javaInterface;
+		javaInterface = newJavaInterface;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorrespondencemodelPackage.INTERFACE2_INTERFACE__JAVA_INTERFACE, oldJavaInterface, newJavaInterface);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -162,10 +120,17 @@ public class Interface2InterfaceImpl extends MinimalEObjectImpl.Container implem
 	 * @generated
 	 */
 	public void setJavaInterface(Interface newJavaInterface) {
-		Interface oldJavaInterface = javaInterface;
-		javaInterface = newJavaInterface;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CorrespondencemodelPackage.INTERFACE2_INTERFACE__JAVA_INTERFACE, oldJavaInterface, javaInterface));
+		if (newJavaInterface != javaInterface) {
+			NotificationChain msgs = null;
+			if (javaInterface != null)
+				msgs = ((InternalEObject)javaInterface).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorrespondencemodelPackage.INTERFACE2_INTERFACE__JAVA_INTERFACE, null, msgs);
+			if (newJavaInterface != null)
+				msgs = ((InternalEObject)newJavaInterface).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorrespondencemodelPackage.INTERFACE2_INTERFACE__JAVA_INTERFACE, null, msgs);
+			msgs = basicSetJavaInterface(newJavaInterface, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorrespondencemodelPackage.INTERFACE2_INTERFACE__JAVA_INTERFACE, newJavaInterface, newJavaInterface));
 	}
 
 	/**
@@ -185,11 +150,58 @@ public class Interface2InterfaceImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public PCMInterface getPcminterface() {
+		return pcminterface;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPcminterface(PCMInterface newPcminterface, NotificationChain msgs) {
+		PCMInterface oldPcminterface = pcminterface;
+		pcminterface = newPcminterface;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorrespondencemodelPackage.INTERFACE2_INTERFACE__PCMINTERFACE, oldPcminterface, newPcminterface);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPcminterface(PCMInterface newPcminterface) {
+		if (newPcminterface != pcminterface) {
+			NotificationChain msgs = null;
+			if (pcminterface != null)
+				msgs = ((InternalEObject)pcminterface).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CorrespondencemodelPackage.INTERFACE2_INTERFACE__PCMINTERFACE, null, msgs);
+			if (newPcminterface != null)
+				msgs = ((InternalEObject)newPcminterface).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CorrespondencemodelPackage.INTERFACE2_INTERFACE__PCMINTERFACE, null, msgs);
+			msgs = basicSetPcminterface(newPcminterface, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CorrespondencemodelPackage.INTERFACE2_INTERFACE__PCMINTERFACE, newPcminterface, newPcminterface));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case CorrespondencemodelPackage.INTERFACE2_INTERFACE__JAVA_INTERFACE:
+				return basicSetJavaInterface(null, msgs);
 			case CorrespondencemodelPackage.INTERFACE2_INTERFACE__OPERATION2METHOD:
 				return ((InternalEList<?>)getOperation2method()).basicRemove(otherEnd, msgs);
+			case CorrespondencemodelPackage.INTERFACE2_INTERFACE__PCMINTERFACE:
+				return basicSetPcminterface(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -202,14 +214,12 @@ public class Interface2InterfaceImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CorrespondencemodelPackage.INTERFACE2_INTERFACE__PCM_INTERFACE:
-				if (resolve) return getPcmInterface();
-				return basicGetPcmInterface();
 			case CorrespondencemodelPackage.INTERFACE2_INTERFACE__JAVA_INTERFACE:
-				if (resolve) return getJavaInterface();
-				return basicGetJavaInterface();
+				return getJavaInterface();
 			case CorrespondencemodelPackage.INTERFACE2_INTERFACE__OPERATION2METHOD:
 				return getOperation2method();
+			case CorrespondencemodelPackage.INTERFACE2_INTERFACE__PCMINTERFACE:
+				return getPcminterface();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -223,15 +233,15 @@ public class Interface2InterfaceImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CorrespondencemodelPackage.INTERFACE2_INTERFACE__PCM_INTERFACE:
-				setPcmInterface((OperationInterface)newValue);
-				return;
 			case CorrespondencemodelPackage.INTERFACE2_INTERFACE__JAVA_INTERFACE:
 				setJavaInterface((Interface)newValue);
 				return;
 			case CorrespondencemodelPackage.INTERFACE2_INTERFACE__OPERATION2METHOD:
 				getOperation2method().clear();
 				getOperation2method().addAll((Collection<? extends Operation2Method>)newValue);
+				return;
+			case CorrespondencemodelPackage.INTERFACE2_INTERFACE__PCMINTERFACE:
+				setPcminterface((PCMInterface)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -245,14 +255,14 @@ public class Interface2InterfaceImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CorrespondencemodelPackage.INTERFACE2_INTERFACE__PCM_INTERFACE:
-				setPcmInterface((OperationInterface)null);
-				return;
 			case CorrespondencemodelPackage.INTERFACE2_INTERFACE__JAVA_INTERFACE:
 				setJavaInterface((Interface)null);
 				return;
 			case CorrespondencemodelPackage.INTERFACE2_INTERFACE__OPERATION2METHOD:
 				getOperation2method().clear();
+				return;
+			case CorrespondencemodelPackage.INTERFACE2_INTERFACE__PCMINTERFACE:
+				setPcminterface((PCMInterface)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -266,12 +276,12 @@ public class Interface2InterfaceImpl extends MinimalEObjectImpl.Container implem
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CorrespondencemodelPackage.INTERFACE2_INTERFACE__PCM_INTERFACE:
-				return pcmInterface != null;
 			case CorrespondencemodelPackage.INTERFACE2_INTERFACE__JAVA_INTERFACE:
 				return javaInterface != null;
 			case CorrespondencemodelPackage.INTERFACE2_INTERFACE__OPERATION2METHOD:
 				return operation2method != null && !operation2method.isEmpty();
+			case CorrespondencemodelPackage.INTERFACE2_INTERFACE__PCMINTERFACE:
+				return pcminterface != null;
 		}
 		return super.eIsSet(featureID);
 	}

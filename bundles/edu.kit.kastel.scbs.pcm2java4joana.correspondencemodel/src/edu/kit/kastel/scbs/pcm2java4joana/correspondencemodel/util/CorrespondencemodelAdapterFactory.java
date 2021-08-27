@@ -88,6 +88,26 @@ public class CorrespondencemodelAdapterFactory extends AdapterFactoryImpl {
 				return createStructuralCorrespondenceModelAdapter();
 			}
 			@Override
+			public Adapter casePCMElement(PCMElement object) {
+				return createPCMElementAdapter();
+			}
+			@Override
+			public Adapter casePCMComponent(PCMComponent object) {
+				return createPCMComponentAdapter();
+			}
+			@Override
+			public Adapter casePCMInterface(PCMInterface object) {
+				return createPCMInterfaceAdapter();
+			}
+			@Override
+			public Adapter casePCMOperation(PCMOperation object) {
+				return createPCMOperationAdapter();
+			}
+			@Override
+			public Adapter casePCMParameter(PCMParameter object) {
+				return createPCMParameterAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -174,6 +194,76 @@ public class CorrespondencemodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createStructuralCorrespondenceModelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMElement <em>PCM Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMElement
+	 * @generated
+	 */
+	public Adapter createPCMElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMComponent <em>PCM Component</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMComponent
+	 * @generated
+	 */
+	public Adapter createPCMComponentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMInterface <em>PCM Interface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMInterface
+	 * @generated
+	 */
+	public Adapter createPCMInterfaceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMOperation <em>PCM Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMOperation
+	 * @generated
+	 */
+	public Adapter createPCMOperationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMParameter <em>PCM Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMParameter
+	 * @generated
+	 */
+	public Adapter createPCMParameterAdapter() {
 		return null;
 	}
 

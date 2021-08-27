@@ -26,7 +26,7 @@ public interface CollectionType extends Type {
 	 * @return the value of the '<em>Type</em>' containment reference.
 	 * @see #setType(Type)
 	 * @see edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourcecodePackage#getCollectionType_Type()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	Type getType();

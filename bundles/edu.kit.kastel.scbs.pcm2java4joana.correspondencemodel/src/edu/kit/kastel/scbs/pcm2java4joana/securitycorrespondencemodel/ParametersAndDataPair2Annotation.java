@@ -2,10 +2,7 @@
  */
 package edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel;
 
-import edu.kit.kastel.scbs.confidentiality.repository.ParametersAndDataPair;
-
 import edu.kit.kastel.scbs.pcm2java4joana.joana.Annotation;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -18,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.ParametersAndDataPair2Annotation#getJoanaAnnotation <em>Joana Annotation</em>}</li>
- *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.ParametersAndDataPair2Annotation#getParametersAndDataPair <em>Parameters And Data Pair</em>}</li>
+ *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.ParametersAndDataPair2Annotation#getConf4cbseparametersanddatapair <em>Conf4cbseparametersanddatapair</em>}</li>
  * </ul>
  *
  * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecuritycorrespondencemodelPackage#getParametersAndDataPair2Annotation()
@@ -27,47 +24,47 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ParametersAndDataPair2Annotation extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Joana Annotation</b></em>' reference.
+	 * Returns the value of the '<em><b>Joana Annotation</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Joana Annotation</em>' reference.
+	 * @return the value of the '<em>Joana Annotation</em>' containment reference.
 	 * @see #setJoanaAnnotation(Annotation)
 	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecuritycorrespondencemodelPackage#getParametersAndDataPair2Annotation_JoanaAnnotation()
-	 * @model required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	Annotation getJoanaAnnotation();
 
 	/**
-	 * Sets the value of the '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.ParametersAndDataPair2Annotation#getJoanaAnnotation <em>Joana Annotation</em>}' reference.
+	 * Sets the value of the '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.ParametersAndDataPair2Annotation#getJoanaAnnotation <em>Joana Annotation</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Joana Annotation</em>' reference.
+	 * @param value the new value of the '<em>Joana Annotation</em>' containment reference.
 	 * @see #getJoanaAnnotation()
 	 * @generated
 	 */
 	void setJoanaAnnotation(Annotation value);
 
 	/**
-	 * Returns the value of the '<em><b>Parameters And Data Pair</b></em>' reference.
+	 * Returns the value of the '<em><b>Conf4cbseparametersanddatapair</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parameters And Data Pair</em>' reference.
-	 * @see #setParametersAndDataPair(ParametersAndDataPair)
-	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecuritycorrespondencemodelPackage#getParametersAndDataPair2Annotation_ParametersAndDataPair()
-	 * @model required="true"
+	 * @return the value of the '<em>Conf4cbseparametersanddatapair</em>' containment reference.
+	 * @see #setConf4cbseparametersanddatapair(Conf4CBSEParametersAndDataPair)
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecuritycorrespondencemodelPackage#getParametersAndDataPair2Annotation_Conf4cbseparametersanddatapair()
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	ParametersAndDataPair getParametersAndDataPair();
+	Conf4CBSEParametersAndDataPair getConf4cbseparametersanddatapair();
 
 	/**
-	 * Sets the value of the '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.ParametersAndDataPair2Annotation#getParametersAndDataPair <em>Parameters And Data Pair</em>}' reference.
+	 * Sets the value of the '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.ParametersAndDataPair2Annotation#getConf4cbseparametersanddatapair <em>Conf4cbseparametersanddatapair</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Parameters And Data Pair</em>' reference.
-	 * @see #getParametersAndDataPair()
+	 * @param value the new value of the '<em>Conf4cbseparametersanddatapair</em>' containment reference.
+	 * @see #getConf4cbseparametersanddatapair()
 	 * @generated
 	 */
-	void setParametersAndDataPair(ParametersAndDataPair value);
+	void setConf4cbseparametersanddatapair(Conf4CBSEParametersAndDataPair value);
 
 } // ParametersAndDataPair2Annotation

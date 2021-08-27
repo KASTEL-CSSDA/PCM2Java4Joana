@@ -35,13 +35,13 @@ public interface Class extends TopLevelType {
 	EList<Interface> getImplements();
 
 	/**
-	 * Returns the value of the '<em><b>Fields</b></em>' reference list.
+	 * Returns the value of the '<em><b>Fields</b></em>' containment reference list.
 	 * The list contents are of type {@link edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Field}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Fields</em>' reference list.
+	 * @return the value of the '<em>Fields</em>' containment reference list.
 	 * @see edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourcecodePackage#getClass_Fields()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Field> getFields();

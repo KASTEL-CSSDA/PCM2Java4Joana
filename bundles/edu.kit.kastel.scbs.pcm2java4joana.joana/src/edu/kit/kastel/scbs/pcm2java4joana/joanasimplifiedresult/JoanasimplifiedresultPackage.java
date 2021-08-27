@@ -177,13 +177,13 @@ public interface JoanasimplifiedresultPackage extends EPackage {
 	int TRACE_STATE__TRACE_METHOD = 3;
 
 	/**
-	 * The feature id for the '<em><b>Parameter</b></em>' reference.
+	 * The feature id for the '<em><b>Parameter Index</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRACE_STATE__PARAMETER = 4;
+	int TRACE_STATE__PARAMETER_INDEX = 4;
 
 	/**
 	 * The number of structural features of the '<em>Trace State</em>' class.
@@ -301,15 +301,15 @@ public interface JoanasimplifiedresultPackage extends EPackage {
 	EReference getTraceState_TraceMethod();
 
 	/**
-	 * Returns the meta object for the reference '{@link edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.TraceState#getParameter <em>Parameter</em>}'.
+	 * Returns the meta object for the attribute '{@link edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.TraceState#getParameterIndex <em>Parameter Index</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Parameter</em>'.
-	 * @see edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.TraceState#getParameter()
+	 * @return the meta object for the attribute '<em>Parameter Index</em>'.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.TraceState#getParameterIndex()
 	 * @see #getTraceState()
 	 * @generated
 	 */
-	EReference getTraceState_Parameter();
+	EAttribute getTraceState_ParameterIndex();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -413,12 +413,12 @@ public interface JoanasimplifiedresultPackage extends EPackage {
 		EReference TRACE_STATE__TRACE_METHOD = eINSTANCE.getTraceState_TraceMethod();
 
 		/**
-		 * The meta object literal for the '<em><b>Parameter</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Parameter Index</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TRACE_STATE__PARAMETER = eINSTANCE.getTraceState_Parameter();
+		EAttribute TRACE_STATE__PARAMETER_INDEX = eINSTANCE.getTraceState_ParameterIndex();
 
 	}
 

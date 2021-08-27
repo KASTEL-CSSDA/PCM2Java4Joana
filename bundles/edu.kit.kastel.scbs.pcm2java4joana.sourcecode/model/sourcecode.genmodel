@@ -24,7 +24,7 @@
       <genEnumLiterals ecoreEnumLiteral="sourcecode.ecore#//BuiltInTypes/LONG"/>
     </genEnums>
     <genClasses ecoreClass="sourcecode.ecore#//SourceCodeRoot">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sourcecode.ecore#//SourceCodeRoot/topleveltype"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference sourcecode.ecore#//SourceCodeRoot/topleveltype"/>
     </genClasses>
     <genClasses ecoreClass="sourcecode.ecore#//TopLevelType"/>
     <genClasses ecoreClass="sourcecode.ecore#//Interface">
@@ -32,7 +32,7 @@
     </genClasses>
     <genClasses ecoreClass="sourcecode.ecore#//Class">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sourcecode.ecore#//Class/implements"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sourcecode.ecore#//Class/fields"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference sourcecode.ecore#//Class/fields"/>
     </genClasses>
     <genClasses ecoreClass="sourcecode.ecore#//Field"/>
     <genClasses ecoreClass="sourcecode.ecore#//Method">

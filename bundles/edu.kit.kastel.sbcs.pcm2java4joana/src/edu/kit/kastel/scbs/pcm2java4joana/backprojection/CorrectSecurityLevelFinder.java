@@ -6,10 +6,10 @@ import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.StructuralCorrespo
 import edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.Result;
 import edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.Trace;
 import edu.kit.kastel.scbs.pcm2java4joana.models.AggregatedTraceState;
-import edu.kit.kastel.scbs.pcm2java4joana.models.CorrespondenceModelUtils;
 import edu.kit.kastel.scbs.pcm2java4joana.models.EquationSystem;
 import edu.kit.kastel.scbs.pcm2java4joana.models.SecurityLevelEquation;
 import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecurityCorrespondenceModel;
+import edu.kit.kastel.scbs.pcm2java4joana.utils.CorrespondenceModelUtils;
 
 public class CorrectSecurityLevelFinder {
 	public void findCorrectSecurityLevel(StructuralCorrespondenceModel structuralCorrespondenceModel,

@@ -5,85 +5,70 @@ import java.io.IOException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
+import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
 
+import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.StructuralCorrespondenceModel;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.JOANARoot;
 import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecurityCorrespondenceModel;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourceCodeRoot;
 
 public class SupplierAnalysisModel {
-	private final Resource sourceCodeModel;
-	private Resource joanaModel;
-	private final Resource structuralCorrespondenceModel;
-	private Resource securityCorrespondenceModel;
-	private final IPath destinationFolder;
+	private final IPath modelPath;
+	private final StructuralCorrespondenceModel structuralCorrespondenceModel;
 	private final SourceCodeRoot sourceCodeRoot;
 	private JOANARoot joanaRoot;
+	private SecurityCorrespondenceModel securityCorrespondenceModel;
 
-	public SupplierAnalysisModel(Resource sourceCodeModel, Resource structuralCorrespondenceModel,
-			IPath destinationFolder) {
-		this.sourceCodeModel = sourceCodeModel;
+	public SupplierAnalysisModel(SourceCodeRoot sourceCodeModel,
+			StructuralCorrespondenceModel structuralCorrespondenceModel, IPath destinationFolder) {
 		this.structuralCorrespondenceModel = structuralCorrespondenceModel;
-		this.sourceCodeModel.getContents().add(structuralCorrespondenceModel.getContents().get(0));
-		this.sourceCodeRoot = (SourceCodeRoot) sourceCodeModel.getContents().get(0);
-		this.destinationFolder = destinationFolder;
+		this.sourceCodeRoot = sourceCodeModel;
+		this.modelPath = destinationFolder.append(IPath.SEPARATOR + "model-gen/models.ecore");
 	}
 
-	public Resource getSourceCodeModel() {
-		return this.sourceCodeModel;
-	}
-
-	public Resource getJoanaModel() {
-		return this.joanaModel;
-	}
-
-	public SourceCodeRoot getSourceCodeRoot() {
+	public SourceCodeRoot getSourceCodeModel() {
 		return this.sourceCodeRoot;
 	}
 
-	public JOANARoot getJoanaRoot() {
+	public JOANARoot getJoanaModel() {
 		return this.joanaRoot;
 	}
 
+	public SecurityCorrespondenceModel getSecurityCorrespondenceModel() {
+		return this.securityCorrespondenceModel;
+	}
+
+	public StructuralCorrespondenceModel getCorrespondenceModel() {
+		return this.structuralCorrespondenceModel;
+	}
+
+	public IPath getDestinationPath() {
+		return this.modelPath;
+	}
+
 	public void setJoanaModel(JOANARoot joanaModel) {
-		Resource joanaResource = new XMLResourceImpl(URI.createFileURI(
-				destinationFolder.toString() + IPath.SEPARATOR + "GeneratedModels" + IPath.SEPARATOR + "joana.ecore"));
-		sourceCodeModel.getContents().add(joanaModel);
 		this.joanaRoot = joanaModel;
-		this.joanaModel = joanaResource;
 	}
 
 	public void setSecurityCorrespondendenceModel(SecurityCorrespondenceModel securityCorrespondenceModel) {
-		Resource securityCorrespondenceModelResource = new XMLResourceImpl(
-				URI.createFileURI(destinationFolder.toString() + IPath.SEPARATOR + "GeneratedModels" + IPath.SEPARATOR
-						+ "securitycorrespondencemodel.ecore"));
-		securityCorrespondenceModelResource.getContents().add(securityCorrespondenceModel);
-		this.securityCorrespondenceModel = securityCorrespondenceModelResource;
-		this.sourceCodeModel.getContents().add(securityCorrespondenceModel);
+		this.securityCorrespondenceModel = securityCorrespondenceModel;
 	}
 
-	public void saveSourceCodeModel() {
-		try {
-			this.sourceCodeModel.save(null);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	public void save() {
+		EcoreResourceFactoryImpl fac = new EcoreResourceFactoryImpl();
+		Resource res = fac.createResource(URI.createFileURI(this.modelPath.toString()));
+		res.getContents().add(sourceCodeRoot);
+		res.getContents().add(joanaRoot);
+		res.getContents().add(structuralCorrespondenceModel);
+		res.getContents().add(securityCorrespondenceModel);
+		saveResource(res);
 	}
 
-	public void saveJoanaModel() {
+	private void saveResource(Resource resource) {
 		try {
-			this.joanaModel.save(null);
+			resource.save(null);
 		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void saveCorrespondenceModel() {
-		try {
-			this.structuralCorrespondenceModel.save(null);
-			this.securityCorrespondenceModel.save(null);
-		} catch (IOException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 }

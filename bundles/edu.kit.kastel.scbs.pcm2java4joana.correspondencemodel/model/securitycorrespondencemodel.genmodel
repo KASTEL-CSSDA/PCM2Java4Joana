@@ -9,16 +9,21 @@
   <genPackages prefix="Securitycorrespondencemodel" basePackage="edu.kit.kastel.scbs.pcm2java4joana"
       disposableProviderFactory="true" ecorePackage="securitycorrespondencemodel.ecore#/">
     <genClasses ecoreClass="securitycorrespondencemodel.ecore#//Adversary2SecurityLevel">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference securitycorrespondencemodel.ecore#//Adversary2SecurityLevel/securityLevels"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference securitycorrespondencemodel.ecore#//Adversary2SecurityLevel/adversaries"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference securitycorrespondencemodel.ecore#//Adversary2SecurityLevel/securityLevels"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference securitycorrespondencemodel.ecore#//Adversary2SecurityLevel/conf4cbseadversary"/>
     </genClasses>
     <genClasses ecoreClass="securitycorrespondencemodel.ecore#//ParametersAndDataPair2Annotation">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference securitycorrespondencemodel.ecore#//ParametersAndDataPair2Annotation/joanaAnnotation"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference securitycorrespondencemodel.ecore#//ParametersAndDataPair2Annotation/parametersAndDataPair"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference securitycorrespondencemodel.ecore#//ParametersAndDataPair2Annotation/joanaAnnotation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference securitycorrespondencemodel.ecore#//ParametersAndDataPair2Annotation/conf4cbseparametersanddatapair"/>
     </genClasses>
     <genClasses ecoreClass="securitycorrespondencemodel.ecore#//SecurityCorrespondenceModel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference securitycorrespondencemodel.ecore#//SecurityCorrespondenceModel/adversary2securitylevel"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference securitycorrespondencemodel.ecore#//SecurityCorrespondenceModel/parametersanddatapair2annotation"/>
     </genClasses>
+    <genClasses ecoreClass="securitycorrespondencemodel.ecore#//Conf4CBSEParametersAndDataPair"/>
+    <genClasses ecoreClass="securitycorrespondencemodel.ecore#//Conf4CBSEElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute securitycorrespondencemodel.ecore#//Conf4CBSEElement/id"/>
+    </genClasses>
+    <genClasses ecoreClass="securitycorrespondencemodel.ecore#//Conf4CBSEAdversary"/>
   </genPackages>
 </genmodel:GenModel>

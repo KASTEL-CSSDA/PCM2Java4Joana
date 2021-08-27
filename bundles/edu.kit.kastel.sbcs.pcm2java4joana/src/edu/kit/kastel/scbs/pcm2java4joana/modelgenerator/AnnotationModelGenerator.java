@@ -62,8 +62,7 @@ public class AnnotationModelGenerator {
 		Lattice lattice = this.generateLattice(levels);
 		List<Annotation> annotations = this.generateAnnotations(levelToDatasetsMapping,
 				confidentiality.getParametersAndDataPairs(),
-				(SourceCodeRoot) this.supplierAnalysisModel.getSourceCodeModel().getContents().get(0),
-				this.clientAnalysisModel);
+				(SourceCodeRoot) this.supplierAnalysisModel.getSourceCodeModel(), this.clientAnalysisModel);
 		List<FlowSpecification> flowSpecifications = this.generateFlowSpecifications(annotations, lattice, levels);
 
 		JoanaFactory factory = JoanaFactory.eINSTANCE;

@@ -65,12 +65,12 @@ public class SourceCodeModelWithCorrespondenceModelGenerator {
 				+ "GeneratedModels" + IPath.SEPARATOR + "correspondenceModel" + repository.getEntityName() + ".ecore"));
 	}
 
-	public Tuple<Resource, Resource> generateSourceCodeModelWithCorrespondenceModel() {
+	public Tuple<SourceCodeRoot, StructuralCorrespondenceModel> generateSourceCodeModelWithCorrespondenceModel() {
 		return this.generateSourceCodeModel(this.sourceRepository, this.sourceCodeModel, this.correspondenceModel);
 	}
 
-	private Tuple<Resource, Resource> generateSourceCodeModel(Repository rep, Resource sourceCodeModel,
-			Resource correspondenceModel) {
+	private Tuple<SourceCodeRoot, StructuralCorrespondenceModel> generateSourceCodeModel(Repository rep,
+			Resource sourceCodeModel, Resource correspondenceModel) {
 		SourcecodeFactory sourceCodeFactory = SourcecodeFactory.eINSTANCE;
 		SourceCodeRoot root = sourceCodeFactory.createSourceCodeRoot();
 		root.setName(rep.getEntityName());
@@ -91,7 +91,7 @@ public class SourceCodeModelWithCorrespondenceModelGenerator {
 		sourceCodeModel.getContents().add(root);
 		correspondenceModel.getContents().add(correspondenceModelRoot);
 
-		return new Tuple<Resource, Resource>(sourceCodeModel, correspondenceModel);
+		return new Tuple<SourceCodeRoot, StructuralCorrespondenceModel>(root, correspondenceModelRoot);
 	}
 
 	private void generateBasicComponents(SourceCodeRoot sourceCodeRoot,

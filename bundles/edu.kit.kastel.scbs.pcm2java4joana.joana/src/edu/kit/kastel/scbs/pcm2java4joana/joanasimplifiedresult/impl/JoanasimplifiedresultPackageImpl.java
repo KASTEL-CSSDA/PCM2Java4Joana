@@ -195,8 +195,8 @@ public class JoanasimplifiedresultPackageImpl extends EPackageImpl implements Jo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTraceState_Parameter() {
-		return (EReference)traceStateEClass.getEStructuralFeatures().get(4);
+	public EAttribute getTraceState_ParameterIndex() {
+		return (EAttribute)traceStateEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -238,7 +238,7 @@ public class JoanasimplifiedresultPackageImpl extends EPackageImpl implements Jo
 		createEAttribute(traceStateEClass, TRACE_STATE__TRACE_CLASS_NAME);
 		createEAttribute(traceStateEClass, TRACE_STATE__SECURITY_LEVEL_NAME);
 		createEReference(traceStateEClass, TRACE_STATE__TRACE_METHOD);
-		createEReference(traceStateEClass, TRACE_STATE__PARAMETER);
+		createEAttribute(traceStateEClass, TRACE_STATE__PARAMETER_INDEX);
 	}
 
 	/**
@@ -285,7 +285,7 @@ public class JoanasimplifiedresultPackageImpl extends EPackageImpl implements Jo
 		initEAttribute(getTraceState_TraceClassName(), ecorePackage.getEString(), "traceClassName", null, 1, 1, TraceState.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTraceState_SecurityLevelName(), ecorePackage.getEString(), "securityLevelName", null, 1, 1, TraceState.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTraceState_TraceMethod(), theSourcecodePackage.getMethod(), null, "traceMethod", null, 1, 1, TraceState.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTraceState_Parameter(), theSourcecodePackage.getParameter(), null, "parameter", null, 0, 1, TraceState.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTraceState_ParameterIndex(), ecorePackage.getEInt(), "parameterIndex", null, 0, 1, TraceState.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

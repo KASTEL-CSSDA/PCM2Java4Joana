@@ -7,7 +7,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="lattice" lowerBound="1"
         eType="#//Lattice" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Annotation" abstract="true" eSuperTypes="#//FlowSpecificationElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Annotation" eSuperTypes="#//FlowSpecificationElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="securitylevel" lowerBound="1"
         upperBound="-1" eType="#//SecurityLevel" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="annotatedParameter" eType="ecore:EClass ../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.ecore#//Parameter"/>

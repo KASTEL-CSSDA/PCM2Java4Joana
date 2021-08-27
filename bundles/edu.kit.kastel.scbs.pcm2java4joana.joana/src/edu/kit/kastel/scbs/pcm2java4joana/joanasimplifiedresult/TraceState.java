@@ -3,8 +3,6 @@
 package edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult;
 
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Method;
-import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Parameter;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -20,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.TraceState#getTraceClassName <em>Trace Class Name</em>}</li>
  *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.TraceState#getSecurityLevelName <em>Security Level Name</em>}</li>
  *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.TraceState#getTraceMethod <em>Trace Method</em>}</li>
- *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.TraceState#getParameter <em>Parameter</em>}</li>
+ *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.TraceState#getParameterIndex <em>Parameter Index</em>}</li>
  * </ul>
  *
  * @see edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.JoanasimplifiedresultPackage#getTraceState()
@@ -117,25 +115,25 @@ public interface TraceState extends EObject {
 	void setTraceMethod(Method value);
 
 	/**
-	 * Returns the value of the '<em><b>Parameter</b></em>' reference.
+	 * Returns the value of the '<em><b>Parameter Index</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parameter</em>' reference.
-	 * @see #setParameter(Parameter)
-	 * @see edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.JoanasimplifiedresultPackage#getTraceState_Parameter()
+	 * @return the value of the '<em>Parameter Index</em>' attribute.
+	 * @see #setParameterIndex(int)
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.JoanasimplifiedresultPackage#getTraceState_ParameterIndex()
 	 * @model
 	 * @generated
 	 */
-	Parameter getParameter();
+	int getParameterIndex();
 
 	/**
-	 * Sets the value of the '{@link edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.TraceState#getParameter <em>Parameter</em>}' reference.
+	 * Sets the value of the '{@link edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.TraceState#getParameterIndex <em>Parameter Index</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Parameter</em>' reference.
-	 * @see #getParameter()
+	 * @param value the new value of the '<em>Parameter Index</em>' attribute.
+	 * @see #getParameterIndex()
 	 * @generated
 	 */
-	void setParameter(Parameter value);
+	void setParameterIndex(int value);
 
 } // TraceState

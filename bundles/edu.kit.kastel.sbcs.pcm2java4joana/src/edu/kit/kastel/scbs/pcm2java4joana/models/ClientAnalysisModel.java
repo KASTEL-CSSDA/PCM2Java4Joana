@@ -2,18 +2,14 @@ package edu.kit.kastel.scbs.pcm2java4joana.models;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.Resource.Factory.Registry;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.modelversioning.emfprofileapplication.ProfileApplication;
-import org.palladiosimulator.pcm.PcmPackage;
 import org.palladiosimulator.pcm.repository.Repository;
 
 import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
@@ -101,16 +97,6 @@ public class ClientAnalysisModel {
 			}
 		}
 
-		Registry registry = Resource.Factory.Registry.INSTANCE;
-		Map<String, Object> map = registry.getExtensionToFactoryMap();
-
-		PcmPackage.eINSTANCE.eClass();
-
-		map.put("repository", new XMIResourceFactoryImpl());
-		map.put("pcmconfidentialityprofile", new XMIResourceFactoryImpl());
-		map.put("confidentiality", new XMIResourceFactoryImpl());
-		map.put("adversary", new XMIResourceFactoryImpl());
-
 		ResourceSetImpl resSet = new ResourceSetImpl();
 
 		URI repositoryUri = URI.createFileURI(repositoryPath.toString());
@@ -139,8 +125,7 @@ public class ClientAnalysisModel {
 				.getContents().get(0);
 		Adversaries adversary = (Adversaries) resourceAdversary.getContents().get(0);
 
-		IPath basePath = repositoryPath.removeLastSegments(2)
-				.append(IPath.SEPARATOR + repository.getEntityName() + "Generated");
+		IPath basePath = repositoryPath.removeLastSegments(1);
 		return new ClientAnalysisModel(repository, profile, confidentiality, adversary, basePath);
 	}
 

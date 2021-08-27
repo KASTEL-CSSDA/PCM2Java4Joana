@@ -6,8 +6,6 @@ import edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.Joanasimplifiedr
 import edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.TraceState;
 
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Method;
-import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Parameter;
-
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -28,7 +26,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.impl.TraceStateImpl#getTraceClassName <em>Trace Class Name</em>}</li>
  *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.impl.TraceStateImpl#getSecurityLevelName <em>Security Level Name</em>}</li>
  *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.impl.TraceStateImpl#getTraceMethod <em>Trace Method</em>}</li>
- *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.impl.TraceStateImpl#getParameter <em>Parameter</em>}</li>
+ *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.impl.TraceStateImpl#getParameterIndex <em>Parameter Index</em>}</li>
  * </ul>
  *
  * @generated
@@ -105,14 +103,24 @@ public class TraceStateImpl extends MinimalEObjectImpl.Container implements Trac
 	protected Method traceMethod;
 
 	/**
-	 * The cached value of the '{@link #getParameter() <em>Parameter</em>}' reference.
+	 * The default value of the '{@link #getParameterIndex() <em>Parameter Index</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getParameter()
+	 * @see #getParameterIndex()
 	 * @generated
 	 * @ordered
 	 */
-	protected Parameter parameter;
+	protected static final int PARAMETER_INDEX_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getParameterIndex() <em>Parameter Index</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParameterIndex()
+	 * @generated
+	 * @ordered
+	 */
+	protected int parameterIndex = PARAMETER_INDEX_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -239,16 +247,8 @@ public class TraceStateImpl extends MinimalEObjectImpl.Container implements Trac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Parameter getParameter() {
-		if (parameter != null && parameter.eIsProxy()) {
-			InternalEObject oldParameter = (InternalEObject)parameter;
-			parameter = (Parameter)eResolveProxy(oldParameter);
-			if (parameter != oldParameter) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JoanasimplifiedresultPackage.TRACE_STATE__PARAMETER, oldParameter, parameter));
-			}
-		}
-		return parameter;
+	public int getParameterIndex() {
+		return parameterIndex;
 	}
 
 	/**
@@ -256,20 +256,11 @@ public class TraceStateImpl extends MinimalEObjectImpl.Container implements Trac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Parameter basicGetParameter() {
-		return parameter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setParameter(Parameter newParameter) {
-		Parameter oldParameter = parameter;
-		parameter = newParameter;
+	public void setParameterIndex(int newParameterIndex) {
+		int oldParameterIndex = parameterIndex;
+		parameterIndex = newParameterIndex;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JoanasimplifiedresultPackage.TRACE_STATE__PARAMETER, oldParameter, parameter));
+			eNotify(new ENotificationImpl(this, Notification.SET, JoanasimplifiedresultPackage.TRACE_STATE__PARAMETER_INDEX, oldParameterIndex, parameterIndex));
 	}
 
 	/**
@@ -289,9 +280,8 @@ public class TraceStateImpl extends MinimalEObjectImpl.Container implements Trac
 			case JoanasimplifiedresultPackage.TRACE_STATE__TRACE_METHOD:
 				if (resolve) return getTraceMethod();
 				return basicGetTraceMethod();
-			case JoanasimplifiedresultPackage.TRACE_STATE__PARAMETER:
-				if (resolve) return getParameter();
-				return basicGetParameter();
+			case JoanasimplifiedresultPackage.TRACE_STATE__PARAMETER_INDEX:
+				return getParameterIndex();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -316,8 +306,8 @@ public class TraceStateImpl extends MinimalEObjectImpl.Container implements Trac
 			case JoanasimplifiedresultPackage.TRACE_STATE__TRACE_METHOD:
 				setTraceMethod((Method)newValue);
 				return;
-			case JoanasimplifiedresultPackage.TRACE_STATE__PARAMETER:
-				setParameter((Parameter)newValue);
+			case JoanasimplifiedresultPackage.TRACE_STATE__PARAMETER_INDEX:
+				setParameterIndex((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -343,8 +333,8 @@ public class TraceStateImpl extends MinimalEObjectImpl.Container implements Trac
 			case JoanasimplifiedresultPackage.TRACE_STATE__TRACE_METHOD:
 				setTraceMethod((Method)null);
 				return;
-			case JoanasimplifiedresultPackage.TRACE_STATE__PARAMETER:
-				setParameter((Parameter)null);
+			case JoanasimplifiedresultPackage.TRACE_STATE__PARAMETER_INDEX:
+				setParameterIndex(PARAMETER_INDEX_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -366,8 +356,8 @@ public class TraceStateImpl extends MinimalEObjectImpl.Container implements Trac
 				return SECURITY_LEVEL_NAME_EDEFAULT == null ? securityLevelName != null : !SECURITY_LEVEL_NAME_EDEFAULT.equals(securityLevelName);
 			case JoanasimplifiedresultPackage.TRACE_STATE__TRACE_METHOD:
 				return traceMethod != null;
-			case JoanasimplifiedresultPackage.TRACE_STATE__PARAMETER:
-				return parameter != null;
+			case JoanasimplifiedresultPackage.TRACE_STATE__PARAMETER_INDEX:
+				return parameterIndex != PARAMETER_INDEX_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -388,6 +378,8 @@ public class TraceStateImpl extends MinimalEObjectImpl.Container implements Trac
 		result.append(traceClassName);
 		result.append(", securityLevelName: ");
 		result.append(securityLevelName);
+		result.append(", parameterIndex: ");
+		result.append(parameterIndex);
 		result.append(')');
 		return result.toString();
 	}

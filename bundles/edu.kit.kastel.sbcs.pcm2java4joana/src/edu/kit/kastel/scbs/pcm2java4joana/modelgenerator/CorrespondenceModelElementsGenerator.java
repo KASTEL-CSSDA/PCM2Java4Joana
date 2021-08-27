@@ -12,11 +12,16 @@ import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Component2Class;
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.CorrespondencemodelFactory;
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Interface2Interface;
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Operation2Method;
+import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMComponent;
+import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMInterface;
+import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMOperation;
+import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMParameter;
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Parameter2Parameter;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.Annotation;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.SecurityLevel;
-import edu.kit.kastel.scbs.pcm2java4joana.models.CorrespondenceModelUtils;
 import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Adversary2SecurityLevel;
+import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEAdversary;
+import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEParametersAndDataPair;
 import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.ParametersAndDataPair2Annotation;
 import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecurityCorrespondenceModel;
 import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecuritycorrespondencemodelFactory;
@@ -24,6 +29,8 @@ import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Interface;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Method;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Parameter;
+import edu.kit.kastel.scbs.pcm2java4joana.utils.CorrespondenceModelUtils;
+import edu.kit.kastel.scbs.pcm2java4joana.utils.JoanaModelUtils;
 
 public final class CorrespondenceModelElementsGenerator {
 	private CorrespondenceModelElementsGenerator() {
@@ -33,8 +40,11 @@ public final class CorrespondenceModelElementsGenerator {
 	public static Component2Class generateComponentCorrespondence(BasicComponent pcmComponent, Class javaClass) {
 		CorrespondencemodelFactory correspondenceFactory = CorrespondencemodelFactory.eINSTANCE;
 		Component2Class componentCorrespondence = correspondenceFactory.createComponent2Class();
+		PCMComponent component = correspondenceFactory.createPCMComponent();
+		component.setId(pcmComponent.getId());
+		component.setName(pcmComponent.getEntityName());
 		componentCorrespondence.setJavaClass(javaClass);
-		componentCorrespondence.setPcmComponent(pcmComponent);
+		componentCorrespondence.setPcmcomponent(component);
 		return componentCorrespondence;
 	}
 
@@ -42,8 +52,11 @@ public final class CorrespondenceModelElementsGenerator {
 			Interface javaInterface) {
 		CorrespondencemodelFactory correspondenceFactory = CorrespondencemodelFactory.eINSTANCE;
 		Interface2Interface interfaceCorrespondence = correspondenceFactory.createInterface2Interface();
+		PCMInterface inter = correspondenceFactory.createPCMInterface();
+		inter.setId(pcmInterface.getId());
+		inter.setName(pcmInterface.getEntityName());
 		interfaceCorrespondence.setJavaInterface(javaInterface);
-		interfaceCorrespondence.setPcmInterface(pcmInterface);
+		interfaceCorrespondence.setPcminterface(inter);
 
 		return interfaceCorrespondence;
 	}
@@ -51,8 +64,11 @@ public final class CorrespondenceModelElementsGenerator {
 	public static Operation2Method generateMethodCorrespondence(OperationSignature pcmOperation, Method javaMethod) {
 		CorrespondencemodelFactory correspondencesFactory = CorrespondencemodelFactory.eINSTANCE;
 		Operation2Method methodCorrespondence = correspondencesFactory.createOperation2Method();
+		PCMOperation operation = correspondencesFactory.createPCMOperation();
+		operation.setId(pcmOperation.getId());
+		operation.setName(pcmOperation.getEntityName());
 		methodCorrespondence.setJavaMethod(javaMethod);
-		methodCorrespondence.setPcmOperation(pcmOperation);
+		methodCorrespondence.setPcmoperation(operation);
 
 		return methodCorrespondence;
 	}
@@ -61,8 +77,11 @@ public final class CorrespondenceModelElementsGenerator {
 			org.palladiosimulator.pcm.repository.Parameter pcmParameter, Parameter javaParameter) {
 		CorrespondencemodelFactory correspondencesFactory = CorrespondencemodelFactory.eINSTANCE;
 		Parameter2Parameter parameterCorrespondence = correspondencesFactory.createParameter2Parameter();
+		PCMParameter parameter = correspondencesFactory.createPCMParameter();
+		parameter.setId(pcmParameter.getParameterName());
+		parameter.setName(pcmParameter.getParameterName());
 		parameterCorrespondence.setJavaParameter(javaParameter);
-		parameterCorrespondence.setPcmParameter(pcmParameter);
+		parameterCorrespondence.setPcmparameter(parameter);
 
 		return parameterCorrespondence;
 	}
@@ -71,8 +90,10 @@ public final class CorrespondenceModelElementsGenerator {
 			SecurityLevel securityLevel) {
 		SecuritycorrespondencemodelFactory correspondenceFactory = SecuritycorrespondencemodelFactory.eINSTANCE;
 		Adversary2SecurityLevel correspondence = correspondenceFactory.createAdversary2SecurityLevel();
-		correspondence.getSecurityLevels().add(securityLevel);
-		correspondence.getAdversaries().add(adversary);
+		Conf4CBSEAdversary conf4cbseAdversary = correspondenceFactory.createConf4CBSEAdversary();
+		conf4cbseAdversary.setId(adversary.getId());
+		correspondence.getSecurityLevels().add(JoanaModelUtils.copySecurityLevel(securityLevel));
+		correspondence.getConf4cbseadversary().add(conf4cbseAdversary);
 
 		return correspondence;
 	}
@@ -83,10 +104,10 @@ public final class CorrespondenceModelElementsGenerator {
 		Adversary2SecurityLevel adversary2SecurityLevel = factory.createAdversary2SecurityLevel();
 
 		for (SecurityLevel level : levels) {
-			Adversary adversary = CorrespondenceModelUtils.getAdversary2SecurityLevel(correspondenceModel, level)
-					.getAdversaries().get(0);
-			adversary2SecurityLevel.getAdversaries().add(adversary);
-			adversary2SecurityLevel.getSecurityLevels().add(level);
+			Conf4CBSEAdversary adversary = CorrespondenceModelUtils
+					.getAdversary2SecurityLevel(correspondenceModel, level).getConf4cbseadversary().get(0);
+			adversary2SecurityLevel.getConf4cbseadversary().add(adversary);
+			adversary2SecurityLevel.getSecurityLevels().add(JoanaModelUtils.copySecurityLevel(level));
 		}
 
 		return adversary2SecurityLevel;
@@ -96,8 +117,10 @@ public final class CorrespondenceModelElementsGenerator {
 			ParametersAndDataPair dataPair, Annotation annotation) {
 		SecuritycorrespondencemodelFactory factory = SecuritycorrespondencemodelFactory.eINSTANCE;
 		ParametersAndDataPair2Annotation dataPair2Annotation = factory.createParametersAndDataPair2Annotation();
-		dataPair2Annotation.setJoanaAnnotation(annotation);
-		dataPair2Annotation.setParametersAndDataPair(dataPair);
+		Conf4CBSEParametersAndDataPair pair = factory.createConf4CBSEParametersAndDataPair();
+		pair.setId(dataPair.getId());
+		dataPair2Annotation.setJoanaAnnotation(JoanaModelUtils.copyAnnotation(annotation));
+		dataPair2Annotation.setConf4cbseparametersanddatapair(pair);
 
 		return dataPair2Annotation;
 	}
