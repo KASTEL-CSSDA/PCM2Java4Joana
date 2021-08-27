@@ -7,15 +7,14 @@ import java.io.PrintWriter;
 import java.util.List;
 
 import org.eclipse.core.runtime.IPath;
-import org.eclipse.internal.xtend.util.Triplet;
 
 import edu.kit.kastel.scbs.pcm2java4joana.exceptions.CodeSaveException;
 
 public class AnnotatedSourceCode {
 	private IPath destinationFolder;
-	private List<Triplet<String, String, String>> contentForFiles;
+	private List<CodeWithFile> contentForFiles;
 
-	public AnnotatedSourceCode(IPath destinatioFolder, List<Triplet<String, String, String>> contentForFiles) {
+	public AnnotatedSourceCode(IPath destinatioFolder, List<CodeWithFile> contentForFiles) {
 		this.destinationFolder = destinatioFolder.append("src-gen");
 		this.contentForFiles = contentForFiles;
 	}
@@ -24,7 +23,7 @@ public class AnnotatedSourceCode {
 		return this.destinationFolder;
 	}
 
-	public List<Triplet<String, String, String>> getContentForFiles() {
+	public List<CodeWithFile> getContentForFiles() {
 		return contentForFiles;
 	}
 
@@ -32,8 +31,8 @@ public class AnnotatedSourceCode {
 		String folder = this.destinationFolder.toString() + IPath.SEPARATOR;
 		(new File(folder)).mkdirs();
 
-		for (Triplet<String, String, String> contentForFile : this.contentForFiles) {
-			String filePath = folder + contentForFile.getSecond();
+		for (CodeWithFile contentForFile : this.contentForFiles) {
+			String filePath = folder + contentForFile.getFile();
 			File file = new File(filePath);
 			if (!file.exists()) {
 				try {
@@ -46,7 +45,7 @@ public class AnnotatedSourceCode {
 
 			try {
 				PrintWriter writer = new PrintWriter(file);
-				writer.print(contentForFile.getFirst());
+				writer.print(contentForFile.getSourceCode());
 				writer.close();
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();

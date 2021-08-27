@@ -2,11 +2,9 @@ package edu.kit.kastel.scbs.pcm2java4joana.modelgenerator;
 
 import org.eclipse.core.runtime.IPath;
 
-import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.StructuralCorrespondenceModel;
 import edu.kit.kastel.scbs.pcm2java4joana.models.ClientAnalysisModel;
+import edu.kit.kastel.scbs.pcm2java4joana.models.SourceCodeWithCorrespondences;
 import edu.kit.kastel.scbs.pcm2java4joana.models.SupplierAnalysisModel;
-import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourceCodeRoot;
-import edu.kit.kastel.scbs.pcm2java4joana.utils.Tuple;
 
 public class SupplierAnalysisModelGenerator {
 	private ClientAnalysisModel models;
@@ -21,11 +19,11 @@ public class SupplierAnalysisModelGenerator {
 		SourceCodeModelWithCorrespondenceModelGenerator sourceCodeGenerator = new SourceCodeModelWithCorrespondenceModelGenerator(
 				models.getRepository(), this.destinationFolder);
 
-		Tuple<SourceCodeRoot, StructuralCorrespondenceModel> sourceCodeModel = sourceCodeGenerator
+		SourceCodeWithCorrespondences sourceCodeModel = sourceCodeGenerator
 				.generateSourceCodeModelWithCorrespondenceModel();
 
-		SupplierAnalysisModel supplierAnalysisModel = new SupplierAnalysisModel(sourceCodeModel.getFirst(),
-				sourceCodeModel.getSecond(), this.destinationFolder);
+		SupplierAnalysisModel supplierAnalysisModel = new SupplierAnalysisModel(sourceCodeModel.getSourceCodeModel(),
+				sourceCodeModel.getStructuralCorrespondenceModel(), this.destinationFolder);
 
 		AnnotationModelGenerator annotationsModelGenerator = new AnnotationModelGenerator(this.models,
 				supplierAnalysisModel);

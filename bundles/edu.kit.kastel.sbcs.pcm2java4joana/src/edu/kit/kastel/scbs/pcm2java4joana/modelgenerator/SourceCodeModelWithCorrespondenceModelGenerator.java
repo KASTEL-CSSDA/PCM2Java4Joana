@@ -27,6 +27,7 @@ import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Interface2Interfac
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Operation2Method;
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Parameter2Parameter;
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.StructuralCorrespondenceModel;
+import edu.kit.kastel.scbs.pcm2java4joana.models.SourceCodeWithCorrespondences;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.BuiltInType;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.BuiltInTypes;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class;
@@ -56,11 +57,11 @@ public class SourceCodeModelWithCorrespondenceModelGenerator {
 		this.compositeClasses = new HashMap<String, Class>();
 	}
 
-	public Tuple<SourceCodeRoot, StructuralCorrespondenceModel> generateSourceCodeModelWithCorrespondenceModel() {
+	public SourceCodeWithCorrespondences generateSourceCodeModelWithCorrespondenceModel() {
 		return this.generateSourceCodeModel(this.sourceRepository);
 	}
 
-	private Tuple<SourceCodeRoot, StructuralCorrespondenceModel> generateSourceCodeModel(Repository rep) {
+	private SourceCodeWithCorrespondences generateSourceCodeModel(Repository rep) {
 		SourcecodeFactory sourceCodeFactory = SourcecodeFactory.eINSTANCE;
 		SourceCodeRoot root = sourceCodeFactory.createSourceCodeRoot();
 		root.setName(rep.getEntityName());
@@ -79,7 +80,7 @@ public class SourceCodeModelWithCorrespondenceModelGenerator {
 			root.getTopleveltype().add(compositeClass);
 		}
 
-		return new Tuple<SourceCodeRoot, StructuralCorrespondenceModel>(root, correspondenceModelRoot);
+		return new SourceCodeWithCorrespondences(root, correspondenceModelRoot);
 	}
 
 	private void generateBasicComponents(SourceCodeRoot sourceCodeRoot,

@@ -14,7 +14,6 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
-import org.eclipse.internal.xtend.util.Triplet;
 import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
@@ -30,6 +29,7 @@ import edu.kit.kastel.scbs.pcm2java4joana.exceptions.RefreshException;
 import edu.kit.kastel.scbs.pcm2java4joana.modelgenerator.SupplierAnalysisModelGenerator;
 import edu.kit.kastel.scbs.pcm2java4joana.models.AnnotatedSourceCode;
 import edu.kit.kastel.scbs.pcm2java4joana.models.ClientAnalysisModel;
+import edu.kit.kastel.scbs.pcm2java4joana.models.CodeWithFile;
 import edu.kit.kastel.scbs.pcm2java4joana.models.SupplierAnalysisModel;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecodegenerator.SupplierAnalysisModel2AnnotatedCodeGenerator;
 
@@ -77,7 +77,7 @@ public class PCM2Java4JoanaHandler extends AbstractHandler {
 		SupplierAnalysisModelGenerator generator = new SupplierAnalysisModelGenerator(models, basePath);
 		SupplierAnalysisModel supplierAnalysisModel = generator.generate();
 
-		List<Triplet<String, String, String>> generatedAnnotatedSourceCode = SupplierAnalysisModel2AnnotatedCodeGenerator
+		List<CodeWithFile> generatedAnnotatedSourceCode = SupplierAnalysisModel2AnnotatedCodeGenerator
 				.generateAnnotatedCode(supplierAnalysisModel.getSourceCodeModel(),
 						supplierAnalysisModel.getJoanaModel());
 		AnnotatedSourceCode annotatedSourceCode = new AnnotatedSourceCode(basePath, generatedAnnotatedSourceCode);

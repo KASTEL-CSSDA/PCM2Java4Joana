@@ -2,6 +2,7 @@ package edu.kit.kastel.scbs.pcm2java4joana.sourcecodegenerator;
 
 import edu.kit.ipd.sdq.activextendannotations.Utility;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.JOANARoot;
+import edu.kit.kastel.scbs.pcm2java4joana.models.CodeWithFile;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Field;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Interface;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Method;
@@ -13,22 +14,21 @@ import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Variable;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.internal.xtend.util.Triplet;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.Conversions;
 
 @Utility
 @SuppressWarnings("all")
 public final class SupplierAnalysisModel2AnnotatedCodeGenerator {
-  public static List<Triplet<String, String, String>> generateAnnotatedCode(final SourceCodeRoot sourceCodeModel, final JOANARoot joanaModel) {
-    final ArrayList<Triplet<String, String, String>> contentsForFiles = new ArrayList<Triplet<String, String, String>>();
+  public static List<CodeWithFile> generateAnnotatedCode(final SourceCodeRoot sourceCodeModel, final JOANARoot joanaModel) {
+    final ArrayList<CodeWithFile> contentsForFiles = new ArrayList<CodeWithFile>();
     EList<TopLevelType> _topleveltype = sourceCodeModel.getTopleveltype();
     for (final TopLevelType topLevelType : _topleveltype) {
       {
         final String content = SupplierAnalysisModel2AnnotatedCodeGenerator.generateTopLevelType(topLevelType, joanaModel);
         String _name = topLevelType.getName();
         String _plus = (_name + ".java");
-        final Triplet<String, String, String> newTuple = new Triplet<String, String, String>(content, _plus, "");
+        final CodeWithFile newTuple = new CodeWithFile(content, _plus);
         contentsForFiles.add(newTuple);
       }
     }

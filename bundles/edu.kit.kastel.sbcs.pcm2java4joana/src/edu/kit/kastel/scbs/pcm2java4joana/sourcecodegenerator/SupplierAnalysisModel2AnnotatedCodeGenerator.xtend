@@ -18,15 +18,16 @@ import edu.kit.kastel.scbs.pcm2java4joana.joana.JOANARoot
 import static extension edu.kit.kastel.scbs.pcm2java4joana.sourcecodegenerator.JoanaAnnotationsGenerator.*
 import static extension edu.kit.kastel.scbs.pcm2java4joana.sourcecodegenerator.SourceCodeElementGenerator.*
 import edu.kit.ipd.sdq.activextendannotations.Utility
+import edu.kit.kastel.scbs.pcm2java4joana.models.CodeWithFile
 
 @Utility
 class SupplierAnalysisModel2AnnotatedCodeGenerator {
 	
-	static def List<Triplet<String, String, String>> generateAnnotatedCode(SourceCodeRoot sourceCodeModel, JOANARoot joanaModel) {
-		val contentsForFiles = new ArrayList<Triplet<String, String, String>>()
+	static def List<CodeWithFile> generateAnnotatedCode(SourceCodeRoot sourceCodeModel, JOANARoot joanaModel) {
+		val contentsForFiles = new ArrayList<CodeWithFile>()
 		for (topLevelType : sourceCodeModel.topleveltype) {
 			val content = generateTopLevelType(topLevelType, joanaModel)
-			val newTuple = new Triplet<String, String, String>(content, topLevelType.name + ".java", "")
+			val newTuple = new CodeWithFile(content, topLevelType.name + ".java")
 			contentsForFiles.add(newTuple)
 		}
 		return contentsForFiles;	
