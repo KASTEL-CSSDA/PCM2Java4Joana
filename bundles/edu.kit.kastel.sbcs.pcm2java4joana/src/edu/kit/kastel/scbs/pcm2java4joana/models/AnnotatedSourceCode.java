@@ -9,6 +9,8 @@ import java.util.List;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.internal.xtend.util.Triplet;
 
+import edu.kit.kastel.scbs.pcm2java4joana.exceptions.CodeSaveException;
+
 public class AnnotatedSourceCode {
 	private IPath destinationFolder;
 	private List<Triplet<String, String, String>> contentForFiles;
@@ -26,7 +28,7 @@ public class AnnotatedSourceCode {
 		return contentForFiles;
 	}
 
-	public void save() {
+	public void save() throws CodeSaveException {
 		String folder = this.destinationFolder.toString() + IPath.SEPARATOR;
 		(new File(folder)).mkdirs();
 
@@ -38,6 +40,7 @@ public class AnnotatedSourceCode {
 					file.createNewFile();
 				} catch (IOException e) {
 					e.printStackTrace();
+					throw new CodeSaveException(e.getMessage());
 				}
 			}
 
@@ -47,6 +50,7 @@ public class AnnotatedSourceCode {
 				writer.close();
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
+				throw new CodeSaveException(e.getMessage());
 			}
 		}
 	}

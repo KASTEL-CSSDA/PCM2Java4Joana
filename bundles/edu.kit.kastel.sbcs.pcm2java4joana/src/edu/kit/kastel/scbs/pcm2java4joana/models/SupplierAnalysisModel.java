@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
 
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.StructuralCorrespondenceModel;
+import edu.kit.kastel.scbs.pcm2java4joana.exceptions.ModelSaveException;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.JOANARoot;
 import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecurityCorrespondenceModel;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourceCodeRoot;
@@ -54,7 +55,7 @@ public class SupplierAnalysisModel {
 		this.securityCorrespondenceModel = securityCorrespondenceModel;
 	}
 
-	public void save() {
+	public void save() throws ModelSaveException {
 		EcoreResourceFactoryImpl fac = new EcoreResourceFactoryImpl();
 		Resource res = fac.createResource(URI.createFileURI(this.modelPath.toString()));
 		res.getContents().add(sourceCodeRoot);
@@ -64,11 +65,12 @@ public class SupplierAnalysisModel {
 		saveResource(res);
 	}
 
-	private void saveResource(Resource resource) {
+	private void saveResource(Resource resource) throws ModelSaveException {
 		try {
 			resource.save(null);
 		} catch (IOException e) {
-			throw new RuntimeException(e);
+			e.printStackTrace();
+			throw new ModelSaveException(e.getMessage());
 		}
 	}
 }

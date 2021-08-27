@@ -14,6 +14,7 @@ import org.palladiosimulator.pcm.repository.Repository;
 
 import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
 import edu.kit.kastel.scbs.confidentiality.adversary.Adversaries;
+import edu.kit.kastel.scbs.pcm2java4joana.exceptions.InputException;
 
 public class ClientAnalysisModel {
 	private static final String PCM_REPOSITORY_FILE_ENDING = "repository";
@@ -78,7 +79,7 @@ public class ClientAnalysisModel {
 		return hasRepository && hasConfidentiality && hasAdversary;
 	}
 
-	public static ClientAnalysisModel createModelsFromFiles(List<IFile> files) {
+	public static ClientAnalysisModel createModelsFromFiles(List<IFile> files) throws InputException {
 		IPath repositoryPath = null;
 		IPath confidentialityPath = null;
 		IPath adversaryPath = null;
@@ -116,7 +117,8 @@ public class ClientAnalysisModel {
 			resourceConfidentiality.load(null);
 			resourceAdversary.load(null);
 		} catch (IOException e) {
-			return null;
+			e.printStackTrace();
+			throw new InputException(e.getMessage());
 		}
 
 		Repository repository = (Repository) resourceRepository.getContents().get(0);

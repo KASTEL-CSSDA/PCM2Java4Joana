@@ -6,9 +6,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.runtime.IPath;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 import org.palladiosimulator.pcm.repository.BasicComponent;
 import org.palladiosimulator.pcm.repository.CollectionDataType;
 import org.palladiosimulator.pcm.repository.CompositeDataType;
@@ -48,8 +45,6 @@ public class SourceCodeModelWithCorrespondenceModelGenerator {
 	private Repository sourceRepository;
 	private List<String> compositeClassNames;
 	private List<String> providedInterfaceNames;
-	private Resource sourceCodeModel;
-	private Resource correspondenceModel;
 	private Map<String, Tuple<Interface, Interface2Interface>> providedInterfaces;
 	private Map<String, Class> compositeClasses;
 
@@ -59,18 +54,13 @@ public class SourceCodeModelWithCorrespondenceModelGenerator {
 		this.providedInterfaceNames = new ArrayList<String>();
 		this.providedInterfaces = new HashMap<String, Tuple<Interface, Interface2Interface>>();
 		this.compositeClasses = new HashMap<String, Class>();
-		this.sourceCodeModel = new XMLResourceImpl(URI.createFileURI(destinationFolder.toString() + IPath.SEPARATOR
-				+ "GeneratedModels" + IPath.SEPARATOR + repository.getEntityName() + ".ecore"));
-		this.correspondenceModel = new XMLResourceImpl(URI.createFileURI(destinationFolder.toString() + IPath.SEPARATOR
-				+ "GeneratedModels" + IPath.SEPARATOR + "correspondenceModel" + repository.getEntityName() + ".ecore"));
 	}
 
 	public Tuple<SourceCodeRoot, StructuralCorrespondenceModel> generateSourceCodeModelWithCorrespondenceModel() {
-		return this.generateSourceCodeModel(this.sourceRepository, this.sourceCodeModel, this.correspondenceModel);
+		return this.generateSourceCodeModel(this.sourceRepository);
 	}
 
-	private Tuple<SourceCodeRoot, StructuralCorrespondenceModel> generateSourceCodeModel(Repository rep,
-			Resource sourceCodeModel, Resource correspondenceModel) {
+	private Tuple<SourceCodeRoot, StructuralCorrespondenceModel> generateSourceCodeModel(Repository rep) {
 		SourcecodeFactory sourceCodeFactory = SourcecodeFactory.eINSTANCE;
 		SourceCodeRoot root = sourceCodeFactory.createSourceCodeRoot();
 		root.setName(rep.getEntityName());
@@ -88,8 +78,6 @@ public class SourceCodeModelWithCorrespondenceModelGenerator {
 			Class compositeClass = this.compositeClasses.get(compositeClassName);
 			root.getTopleveltype().add(compositeClass);
 		}
-		sourceCodeModel.getContents().add(root);
-		correspondenceModel.getContents().add(correspondenceModelRoot);
 
 		return new Tuple<SourceCodeRoot, StructuralCorrespondenceModel>(root, correspondenceModelRoot);
 	}

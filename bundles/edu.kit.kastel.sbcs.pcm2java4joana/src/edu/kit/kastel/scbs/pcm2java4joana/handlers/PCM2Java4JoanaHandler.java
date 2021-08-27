@@ -23,6 +23,10 @@ import org.eclipse.jface.window.Window;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
 
+import edu.kit.kastel.scbs.pcm2java4joana.exceptions.CodeSaveException;
+import edu.kit.kastel.scbs.pcm2java4joana.exceptions.InputException;
+import edu.kit.kastel.scbs.pcm2java4joana.exceptions.ModelSaveException;
+import edu.kit.kastel.scbs.pcm2java4joana.exceptions.RefreshException;
 import edu.kit.kastel.scbs.pcm2java4joana.modelgenerator.SupplierAnalysisModelGenerator;
 import edu.kit.kastel.scbs.pcm2java4joana.models.AnnotatedSourceCode;
 import edu.kit.kastel.scbs.pcm2java4joana.models.ClientAnalysisModel;
@@ -54,7 +58,14 @@ public class PCM2Java4JoanaHandler extends AbstractHandler {
 					"Der Generations-Prozess wurde abgebrochen.");
 		}
 
-		ClientAnalysisModel models = ClientAnalysisModel.createModelsFromFiles(list);
+		ClientAnalysisModel models;
+		try {
+			models = ClientAnalysisModel.createModelsFromFiles(list);
+		} catch (InputException e1) {
+			MessageDialog.openError(window.getShell(), "Error",
+					"Die drei Modelle adversary, confidentiality und repository konnten nicht eingelesen werden.");
+			return null;
+		}
 
 		IPath basePath;
 		if (!savingPath.equals("")) {
@@ -71,13 +82,29 @@ public class PCM2Java4JoanaHandler extends AbstractHandler {
 						supplierAnalysisModel.getJoanaModel());
 		AnnotatedSourceCode annotatedSourceCode = new AnnotatedSourceCode(basePath, generatedAnnotatedSourceCode);
 
-		supplierAnalysisModel.save();
-		annotatedSourceCode.save();
-		this.refreshProject(models.getBaseFolder());
-
+		try {
+			supplierAnalysisModel.save();
+		} catch (ModelSaveException e1) {
+			MessageDialog.openError(window.getShell(), "Error",
+					"Die generierten Modelle, Source Code Modell, Joana Modell, Struktur-Korrespondenzenmodell und Sicherheits-Korrespondenzenmodell konnten nicht gespeichert werden.");
+			return null;
+		}
+		try {
+			annotatedSourceCode.save();
+		} catch (CodeSaveException e1) {
+			MessageDialog.openError(window.getShell(), "Error",
+					"Der generierte Quellcode konnte nicht gespeichert werden.");
+			return null;
+		}
+		try {
+			this.refreshProject(models.getBaseFolder());
+		} catch (RefreshException e) {
+			MessageDialog.openWarning(window.getShell(), "Warning",
+					"Das Projekt konnte nicht automatisch aktuallisiert werden. Bitte aktualisieren Sie das Projekt noch einmal manuell.");
+		}
 		MessageDialog.openInformation(window.getShell(), "Information",
-				"Die Generation der Modelle und des Quellcodes war erfolgreich. \n " + "Speicherort Modelle: "
-						+ supplierAnalysisModel.getDestinationPath().toString() + "\n" + "Speicherort Quellcode: "
+				"Die Generation der Modelle und des Quellcodes war erfolgreich. \n " + "Speicherort Modelle: \n"
+						+ supplierAnalysisModel.getDestinationPath().toString() + "\n" + "Speicherort Quellcode: \n"
 						+ annotatedSourceCode.getDestinationPath().toString());
 
 		return list;
@@ -94,7 +121,7 @@ public class PCM2Java4JoanaHandler extends AbstractHandler {
 		return new ArrayList<IFile>();
 	}
 
-	private void refreshProject(IPath projectPath) {
+	private void refreshProject(IPath projectPath) throws RefreshException {
 		IWorkspace workspace = ResourcesPlugin.getWorkspace();
 		try {
 			IProjectDescription description = workspace.loadProjectDescription(projectPath.append(".project"));
@@ -102,8 +129,8 @@ public class PCM2Java4JoanaHandler extends AbstractHandler {
 			project.open(null);
 			project.refreshLocal(1, null);
 		} catch (CoreException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			throw new RefreshException(e.getMessage());
 		}
 	}
 }
