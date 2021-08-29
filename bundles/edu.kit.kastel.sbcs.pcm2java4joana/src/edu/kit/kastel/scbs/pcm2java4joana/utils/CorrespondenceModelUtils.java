@@ -96,11 +96,19 @@ public final class CorrespondenceModelUtils {
 
 	public static Collection<Adversary> resolveSecurityLevelToAdversary(
 			SecurityCorrespondenceModel securityCorrespondenceModel, Adversaries adversaries, String securityLevel) {
+		List<SecurityLevel> levels = getSecurityLevels(securityCorrespondenceModel);
+		List<List<SecurityLevel>> allLevels = SetOperations.generatePowerSet(levels);
+		List<SecurityLevel> usedLevels = JoanaModelUtils.resolveToSecurityLevels(securityLevel, allLevels);
+		return reolveSecurityLevelToAdversary(securityCorrespondenceModel, adversaries, usedLevels);
+	}
+
+	public static Collection<Adversary> reolveSecurityLevelToAdversary(
+			SecurityCorrespondenceModel securityCorrespondenceModel, Adversaries adversaries,
+			List<SecurityLevel> securityLevel) {
 		Collection<Adversary> correspondingAdversaries = new ArrayList<Adversary>();
 		for (Adversary2SecurityLevel adversary2SecurityLevel : securityCorrespondenceModel
 				.getAdversary2securitylevel()) {
-			if (JoanaModelUtils.combineIntoOneSecurityLevel(adversary2SecurityLevel.getSecurityLevels())
-					.equals(securityLevel)) {
+			if (securityLevel.contains(adversary2SecurityLevel.getSecurityLevels().get(0))) {
 				for (Conf4CBSEAdversary conf4cbseAdversary : adversary2SecurityLevel.getConf4cbseadversary()) {
 					Adversary adversary = ConfidentialityModelUtils.getAdversary(adversaries,
 							conf4cbseAdversary.getId());
@@ -113,13 +121,6 @@ public final class CorrespondenceModelUtils {
 			}
 		}
 		return correspondingAdversaries;
-	}
-
-	public static Collection<Adversary> reolveSecurityLevelToAdversary(
-			SecurityCorrespondenceModel securityCorrespondenceModel, Adversaries adversaries,
-			List<SecurityLevel> securityLevel) {
-		return resolveSecurityLevelToAdversary(securityCorrespondenceModel, adversaries,
-				JoanaModelUtils.combineIntoOneSecurityLevel(securityLevel));
 	}
 
 	public static Adversary2SecurityLevel getAdversary2SecurityLevel(SecurityCorrespondenceModel correspondenceModel,

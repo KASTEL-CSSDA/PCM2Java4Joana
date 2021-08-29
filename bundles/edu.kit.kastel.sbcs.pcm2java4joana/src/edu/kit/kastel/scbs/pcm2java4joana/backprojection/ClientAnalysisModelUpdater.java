@@ -28,7 +28,8 @@ public final class ClientAnalysisModelUpdater {
 					.getParamtersAndDataPairAnnotationCorrespondence(securityCorrespondenceModel,
 							equation.getOwner().getBaseState());
 			Collection<Adversary> adversaries = CorrespondenceModelUtils.reolveSecurityLevelToAdversary(
-					securityCorrespondenceModel, clientAnalysisModel.getAdversary(), equation.getSecurityLevel());
+					securityCorrespondenceModel, clientAnalysisModel.getAdversary(),
+					equation.getCorrectSecurityLevel());
 			ParametersAndDataPair parametersAndDataPairs = ConfidentialityModelUtils.getParamersAndDataPair(
 					clientAnalysisModel.getConfidentiality(),
 					pair2Annotation.getConf4cbseparametersanddatapair().getId());

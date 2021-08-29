@@ -83,11 +83,18 @@ public final class CorrectSecurityLevelFinder {
 					boolean isSuccessorPublic = publicMethodsPositions.contains(position + 1);
 					List<SecurityLevel> successorLevel = JoanaModelUtils.resolveToSecurityLevels(
 							trace.getTracestate().get(position + 1).getSecurityLevelName(), allSecurityLevels);
-					AggregatedTraceState successor = new AggregatedTraceState(trace.getTracestate().get(position + 1),
-							CorrespondenceModelUtils.getInterfaceForTraceState(structuralCorrespondenceModel,
-									trace.getTracestate().get(position + 1)),
-							isSuccessorPublic, successorLevel);
-					equation.addPredecessor(getState(successor, publicStates));
+					AggregatedTraceState successor;
+					if (isSuccessorPublic) {
+						successor = new AggregatedTraceState(trace.getTracestate().get(position + 1),
+								CorrespondenceModelUtils.getInterfaceForTraceState(structuralCorrespondenceModel,
+										trace.getTracestate().get(position + 1)),
+								isSuccessorPublic, successorLevel);
+					} else {
+						successor = new AggregatedTraceState(trace.getTracestate().get(position + 1), null,
+								isSuccessorPublic, successorLevel);
+					}
+
+					equation.addSuccessor(getState(successor, publicStates));
 				}
 				equationSystem.addEquation(equation);
 			}

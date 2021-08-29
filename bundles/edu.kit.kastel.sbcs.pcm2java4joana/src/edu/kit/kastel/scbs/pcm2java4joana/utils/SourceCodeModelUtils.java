@@ -256,10 +256,8 @@ public final class SourceCodeModelUtils {
 
 	public static boolean hasMethodSignature(Interface javaInterface, ResultMethod method) {
 		for (Method interfaceMethod : javaInterface.getMethods()) {
-			if (method instanceof Method) {
-				if (SourceCodeModelUtils.haveSameSignature(interfaceMethod, method)) {
-					return true;
-				}
+			if (SourceCodeModelUtils.haveSameSignature(interfaceMethod, method)) {
+				return true;
 			}
 		}
 

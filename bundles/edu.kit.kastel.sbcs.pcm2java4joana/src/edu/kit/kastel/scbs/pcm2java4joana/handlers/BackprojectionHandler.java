@@ -87,7 +87,8 @@ public class BackprojectionHandler extends AbstractHandler {
 					"Das Projekt konnte nicht automatisch aktuallisiert werden. Bitte aktualisieren Sie das Projekt noch einmal manuell.");
 		}
 		MessageDialog.openInformation(window.getShell(), "Information",
-				"Das Client Analyse Modell wurde erfolgreich mit korrekteren Security Levels angepasst");
+				"Das Client Analyse Modell wurde erfolgreich mit korrekteren Security Levels angepasst! \n Für das Gleichungssystem wurde ein Score von "
+						+ equationSystem.getScore() + "erreicht.");
 
 		return null;
 	}
@@ -98,7 +99,7 @@ public class BackprojectionHandler extends AbstractHandler {
 			IProjectDescription description = workspace.loadProjectDescription(projectPath.append(".project"));
 			IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(description.getName());
 			project.open(null);
-			project.refreshLocal(1, null);
+			project.refreshLocal(3, null);
 		} catch (CoreException e) {
 			e.printStackTrace();
 			throw new RefreshException(e.getMessage());

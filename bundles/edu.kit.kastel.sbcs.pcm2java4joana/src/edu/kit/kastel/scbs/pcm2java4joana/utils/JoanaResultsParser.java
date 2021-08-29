@@ -163,6 +163,7 @@ public class JoanaResultsParser {
 
 		String securityLevel = getEntryValue(line, securityLevelKey);
 		traceState.setSecurityLevelName(securityLevel);
+		traceState.setResultmethod(method);
 
 		return traceState;
 	}

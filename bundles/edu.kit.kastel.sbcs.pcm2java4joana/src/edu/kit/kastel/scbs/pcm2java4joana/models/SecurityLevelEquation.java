@@ -47,6 +47,10 @@ public class SecurityLevelEquation {
 	}
 
 	public List<SecurityLevel> getSecurityLevel() {
+		return this.ownTraceState.getSecurityLevel();
+	}
+
+	public List<SecurityLevel> getCorrectSecurityLevel() {
 		return this.correctSecurityLevel;
 	}
 
