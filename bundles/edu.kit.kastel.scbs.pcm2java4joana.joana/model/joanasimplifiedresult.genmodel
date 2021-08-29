@@ -18,8 +18,16 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanasimplifiedresult.ecore#//TraceState/tracePosition"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanasimplifiedresult.ecore#//TraceState/traceClassName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanasimplifiedresult.ecore#//TraceState/securityLevelName"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference joanasimplifiedresult.ecore#//TraceState/traceMethod"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanasimplifiedresult.ecore#//TraceState/parameterIndex"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joanasimplifiedresult.ecore#//TraceState/resultmethod"/>
+    </genClasses>
+    <genClasses ecoreClass="joanasimplifiedresult.ecore#//ResultType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanasimplifiedresult.ecore#//ResultType/typeString"/>
+    </genClasses>
+    <genClasses ecoreClass="joanasimplifiedresult.ecore#//ResultMethod">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joanasimplifiedresult.ecore#//ResultMethod/paramterTypes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joanasimplifiedresult.ecore#//ResultMethod/returnType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanasimplifiedresult.ecore#//ResultMethod/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

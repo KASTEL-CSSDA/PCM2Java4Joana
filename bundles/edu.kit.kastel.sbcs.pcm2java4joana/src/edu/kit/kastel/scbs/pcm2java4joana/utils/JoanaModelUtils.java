@@ -1,11 +1,8 @@
 package edu.kit.kastel.scbs.pcm2java4joana.utils;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import org.eclipse.emf.ecore.EObject;
 
 import edu.kit.kastel.scbs.pcm2java4joana.joana.Annotation;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.EntryPoint;
@@ -116,6 +113,16 @@ public final class JoanaModelUtils {
 		return combined;
 	}
 
+	public static List<SecurityLevel> resolveToSecurityLevels(String securityLevel,
+			List<List<SecurityLevel>> allLevels) {
+		for (List<SecurityLevel> level : allLevels) {
+			if (securityLevel.equals(combineIntoOneSecurityLevel(level))) {
+				return level;
+			}
+		}
+		return null;
+	}
+
 	public static Lattice copyLattice(Lattice lattice) {
 		JoanaFactory factory = JoanaFactory.eINSTANCE;
 		Lattice copiedLattice = factory.createLattice();
@@ -157,11 +164,5 @@ public final class JoanaModelUtils {
 		copiedAnnotation.setAnnotatedParameter(annotation.getAnnotatedParameter());
 		copiedAnnotation.getSecuritylevel().addAll(copySecurityLevels(annotation.getSecuritylevel()));
 		return copiedAnnotation;
-	}
-
-	public static Collection<EObject> flattenJoanaModel() {
-		Collection<EObject> objects = new ArrayList<EObject>();
-
-		return objects;
 	}
 }

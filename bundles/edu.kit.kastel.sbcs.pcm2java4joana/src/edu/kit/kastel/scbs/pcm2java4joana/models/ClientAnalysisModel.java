@@ -1,7 +1,7 @@
 package edu.kit.kastel.scbs.pcm2java4joana.models;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.Collection;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IPath;
@@ -9,32 +9,37 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
 import org.modelversioning.emfprofileapplication.ProfileApplication;
 import org.palladiosimulator.pcm.repository.Repository;
 
 import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
 import edu.kit.kastel.scbs.confidentiality.adversary.Adversaries;
 import edu.kit.kastel.scbs.pcm2java4joana.exceptions.InputException;
+import edu.kit.kastel.scbs.pcm2java4joana.exceptions.ModelSaveException;
 
 public class ClientAnalysisModel {
 	private static final String PCM_REPOSITORY_FILE_ENDING = "repository";
 	private static final String ACCESS_ANALYSIS_CONFIDENTIALITY_FILE_ENDING = "confidentiality";
 	private static final String ACCESS_ANALYSIS_ADVESARY_FILE_ENDING = "adversary";
 
-	private Repository repository;
-	private ProfileApplication profile;
-	private ConfidentialitySpecification confidentiality;
-	private Adversaries adversaries;
+	private final Repository repository;
+	private final ProfileApplication profile;
+	private final ConfidentialitySpecification confidentiality;
+	private final Adversaries adversaries;
 
-	private IPath baseFolder;
+	private final IPath confidentialityPath;
+	private final IPath baseFolder;
 
 	public ClientAnalysisModel(Repository repository, ProfileApplication profile,
-			ConfidentialitySpecification confidentiality, Adversaries adversaries, IPath baseFolder) {
+			ConfidentialitySpecification confidentiality, Adversaries adversaries, IPath baseFolder,
+			IPath confidentialityPath) {
 		this.repository = repository;
 		this.profile = profile;
 		this.confidentiality = confidentiality;
 		this.adversaries = adversaries;
 		this.baseFolder = baseFolder;
+		this.confidentialityPath = confidentialityPath;
 	}
 
 	public Repository getRepository() {
@@ -57,7 +62,7 @@ public class ClientAnalysisModel {
 		return this.baseFolder;
 	}
 
-	public static boolean containsNecessaryFiles(List<IFile> files) {
+	public static boolean containsNecessaryFiles(Collection<IFile> files) {
 		boolean hasRepository = false;
 		boolean hasAdversary = false;
 		boolean hasConfidentiality = false;
@@ -79,7 +84,23 @@ public class ClientAnalysisModel {
 		return hasRepository && hasConfidentiality && hasAdversary;
 	}
 
-	public static ClientAnalysisModel createModelsFromFiles(List<IFile> files) throws InputException {
+	public void updateConfidentialityModel() throws ModelSaveException {
+		EcoreResourceFactoryImpl fac = new EcoreResourceFactoryImpl();
+		Resource res = fac.createResource(URI.createFileURI(this.confidentialityPath.toString()));
+		res.getContents().add(confidentiality);
+		saveResource(res);
+	}
+
+	private void saveResource(Resource resource) throws ModelSaveException {
+		try {
+			resource.save(null);
+		} catch (IOException e) {
+			e.printStackTrace();
+			throw new ModelSaveException(e.getMessage());
+		}
+	}
+
+	public static ClientAnalysisModel createModelsFromFiles(Collection<IFile> files) throws InputException {
 		IPath repositoryPath = null;
 		IPath confidentialityPath = null;
 		IPath adversaryPath = null;
@@ -128,7 +149,6 @@ public class ClientAnalysisModel {
 		Adversaries adversary = (Adversaries) resourceAdversary.getContents().get(0);
 
 		IPath basePath = repositoryPath.removeLastSegments(1);
-		return new ClientAnalysisModel(repository, profile, confidentiality, adversary, basePath);
+		return new ClientAnalysisModel(repository, profile, confidentiality, adversary, basePath, confidentialityPath);
 	}
-
 }

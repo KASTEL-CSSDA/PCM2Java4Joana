@@ -59,6 +59,8 @@ public class JoanasimplifiedresultFactoryImpl extends EFactoryImpl implements Jo
 			case JoanasimplifiedresultPackage.RESULT: return createResult();
 			case JoanasimplifiedresultPackage.TRACE: return createTrace();
 			case JoanasimplifiedresultPackage.TRACE_STATE: return createTraceState();
+			case JoanasimplifiedresultPackage.RESULT_TYPE: return createResultType();
+			case JoanasimplifiedresultPackage.RESULT_METHOD: return createResultMethod();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -92,6 +94,26 @@ public class JoanasimplifiedresultFactoryImpl extends EFactoryImpl implements Jo
 	public TraceState createTraceState() {
 		TraceStateImpl traceState = new TraceStateImpl();
 		return traceState;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ResultType createResultType() {
+		ResultTypeImpl resultType = new ResultTypeImpl();
+		return resultType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ResultMethod createResultMethod() {
+		ResultMethodImpl resultMethod = new ResultMethodImpl();
+		return resultMethod;
 	}
 
 	/**

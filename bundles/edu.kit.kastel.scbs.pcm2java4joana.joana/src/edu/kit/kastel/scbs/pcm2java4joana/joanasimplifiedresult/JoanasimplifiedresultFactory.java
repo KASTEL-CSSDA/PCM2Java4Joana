@@ -49,6 +49,24 @@ public interface JoanasimplifiedresultFactory extends EFactory {
 	TraceState createTraceState();
 
 	/**
+	 * Returns a new object of class '<em>Result Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Result Type</em>'.
+	 * @generated
+	 */
+	ResultType createResultType();
+
+	/**
+	 * Returns a new object of class '<em>Result Method</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Result Method</em>'.
+	 * @generated
+	 */
+	ResultMethod createResultMethod();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

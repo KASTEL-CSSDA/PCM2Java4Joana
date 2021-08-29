@@ -168,22 +168,22 @@ public interface JoanasimplifiedresultPackage extends EPackage {
 	int TRACE_STATE__SECURITY_LEVEL_NAME = 2;
 
 	/**
-	 * The feature id for the '<em><b>Trace Method</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRACE_STATE__TRACE_METHOD = 3;
-
-	/**
 	 * The feature id for the '<em><b>Parameter Index</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRACE_STATE__PARAMETER_INDEX = 4;
+	int TRACE_STATE__PARAMETER_INDEX = 3;
+
+	/**
+	 * The feature id for the '<em><b>Resultmethod</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRACE_STATE__RESULTMETHOD = 4;
 
 	/**
 	 * The number of structural features of the '<em>Trace State</em>' class.
@@ -202,6 +202,99 @@ public interface JoanasimplifiedresultPackage extends EPackage {
 	 * @ordered
 	 */
 	int TRACE_STATE_OPERATION_COUNT = 0;
+
+
+	/**
+	 * The meta object id for the '{@link edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.impl.ResultTypeImpl <em>Result Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.impl.ResultTypeImpl
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.impl.JoanasimplifiedresultPackageImpl#getResultType()
+	 * @generated
+	 */
+	int RESULT_TYPE = 3;
+
+	/**
+	 * The feature id for the '<em><b>Type String</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT_TYPE__TYPE_STRING = 0;
+
+	/**
+	 * The number of structural features of the '<em>Result Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT_TYPE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Result Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT_TYPE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.impl.ResultMethodImpl <em>Result Method</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.impl.ResultMethodImpl
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.impl.JoanasimplifiedresultPackageImpl#getResultMethod()
+	 * @generated
+	 */
+	int RESULT_METHOD = 4;
+
+	/**
+	 * The feature id for the '<em><b>Paramter Types</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT_METHOD__PARAMTER_TYPES = 0;
+
+	/**
+	 * The feature id for the '<em><b>Return Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT_METHOD__RETURN_TYPE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT_METHOD__NAME = 2;
+
+	/**
+	 * The number of structural features of the '<em>Result Method</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT_METHOD_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Result Method</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT_METHOD_OPERATION_COUNT = 0;
 
 
 	/**
@@ -290,17 +383,6 @@ public interface JoanasimplifiedresultPackage extends EPackage {
 	EAttribute getTraceState_SecurityLevelName();
 
 	/**
-	 * Returns the meta object for the reference '{@link edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.TraceState#getTraceMethod <em>Trace Method</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Trace Method</em>'.
-	 * @see edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.TraceState#getTraceMethod()
-	 * @see #getTraceState()
-	 * @generated
-	 */
-	EReference getTraceState_TraceMethod();
-
-	/**
 	 * Returns the meta object for the attribute '{@link edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.TraceState#getParameterIndex <em>Parameter Index</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -310,6 +392,81 @@ public interface JoanasimplifiedresultPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTraceState_ParameterIndex();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.TraceState#getResultmethod <em>Resultmethod</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Resultmethod</em>'.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.TraceState#getResultmethod()
+	 * @see #getTraceState()
+	 * @generated
+	 */
+	EReference getTraceState_Resultmethod();
+
+	/**
+	 * Returns the meta object for class '{@link edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.ResultType <em>Result Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Result Type</em>'.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.ResultType
+	 * @generated
+	 */
+	EClass getResultType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.ResultType#getTypeString <em>Type String</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type String</em>'.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.ResultType#getTypeString()
+	 * @see #getResultType()
+	 * @generated
+	 */
+	EAttribute getResultType_TypeString();
+
+	/**
+	 * Returns the meta object for class '{@link edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.ResultMethod <em>Result Method</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Result Method</em>'.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.ResultMethod
+	 * @generated
+	 */
+	EClass getResultMethod();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.ResultMethod#getParamterTypes <em>Paramter Types</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Paramter Types</em>'.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.ResultMethod#getParamterTypes()
+	 * @see #getResultMethod()
+	 * @generated
+	 */
+	EReference getResultMethod_ParamterTypes();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.ResultMethod#getReturnType <em>Return Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Return Type</em>'.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.ResultMethod#getReturnType()
+	 * @see #getResultMethod()
+	 * @generated
+	 */
+	EReference getResultMethod_ReturnType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.ResultMethod#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.ResultMethod#getName()
+	 * @see #getResultMethod()
+	 * @generated
+	 */
+	EAttribute getResultMethod_Name();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -405,20 +562,72 @@ public interface JoanasimplifiedresultPackage extends EPackage {
 		EAttribute TRACE_STATE__SECURITY_LEVEL_NAME = eINSTANCE.getTraceState_SecurityLevelName();
 
 		/**
-		 * The meta object literal for the '<em><b>Trace Method</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TRACE_STATE__TRACE_METHOD = eINSTANCE.getTraceState_TraceMethod();
-
-		/**
 		 * The meta object literal for the '<em><b>Parameter Index</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute TRACE_STATE__PARAMETER_INDEX = eINSTANCE.getTraceState_ParameterIndex();
+
+		/**
+		 * The meta object literal for the '<em><b>Resultmethod</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TRACE_STATE__RESULTMETHOD = eINSTANCE.getTraceState_Resultmethod();
+
+		/**
+		 * The meta object literal for the '{@link edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.impl.ResultTypeImpl <em>Result Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.impl.ResultTypeImpl
+		 * @see edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.impl.JoanasimplifiedresultPackageImpl#getResultType()
+		 * @generated
+		 */
+		EClass RESULT_TYPE = eINSTANCE.getResultType();
+
+		/**
+		 * The meta object literal for the '<em><b>Type String</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESULT_TYPE__TYPE_STRING = eINSTANCE.getResultType_TypeString();
+
+		/**
+		 * The meta object literal for the '{@link edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.impl.ResultMethodImpl <em>Result Method</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.impl.ResultMethodImpl
+		 * @see edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.impl.JoanasimplifiedresultPackageImpl#getResultMethod()
+		 * @generated
+		 */
+		EClass RESULT_METHOD = eINSTANCE.getResultMethod();
+
+		/**
+		 * The meta object literal for the '<em><b>Paramter Types</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESULT_METHOD__PARAMTER_TYPES = eINSTANCE.getResultMethod_ParamterTypes();
+
+		/**
+		 * The meta object literal for the '<em><b>Return Type</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESULT_METHOD__RETURN_TYPE = eINSTANCE.getResultMethod_ReturnType();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESULT_METHOD__NAME = eINSTANCE.getResultMethod_Name();
 
 	}
 

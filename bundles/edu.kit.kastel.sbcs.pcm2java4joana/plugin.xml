@@ -5,7 +5,11 @@
          point="org.eclipse.ui.commands">
       <command
             id="pcm2java4joana.commands.transform"
-            name="To Java for Joana">
+            name="To Java for JOANA">
+      </command>
+      <command
+            id="pcm2java4joana.commands.backproject"
+            name="Backproject JOANA Results">
       </command>
    </extension>
   	
@@ -14,6 +18,10 @@
       <handler
             class="edu.kit.kastel.scbs.pcm2java4joana.handlers.PCM2Java4JoanaHandler"
             commandId="pcm2java4joana.commands.transform">
+      </handler>
+      <handler
+            class="edu.kit.kastel.scbs.pcm2java4joana.handlers.BackprojectionHandler"
+            commandId="pcm2java4joana.commands.backproject">
       </handler>
    </extension>
  
@@ -24,6 +32,14 @@
             <command
                   commandId="pcm2java4joana.commands.transform"
                   id="pcm2java4joana.menus.transform"
+                  mnemonic="S">
+            </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="popup:org.eclipse.ui.popup.any">
+            <command
+                  commandId="pcm2java4joana.commands.backproject"
+                  id="pcm2java4joana.menus.backproject"
                   mnemonic="S">
             </command>
       </menuContribution>

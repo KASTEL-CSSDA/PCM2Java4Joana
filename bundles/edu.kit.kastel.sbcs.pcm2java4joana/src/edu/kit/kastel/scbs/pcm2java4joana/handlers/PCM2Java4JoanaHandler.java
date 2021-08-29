@@ -1,8 +1,7 @@
 package edu.kit.kastel.scbs.pcm2java4joana.handlers;
 
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -17,7 +16,6 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.window.Window;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
@@ -32,6 +30,7 @@ import edu.kit.kastel.scbs.pcm2java4joana.models.ClientAnalysisModel;
 import edu.kit.kastel.scbs.pcm2java4joana.models.CodeWithFile;
 import edu.kit.kastel.scbs.pcm2java4joana.models.SupplierAnalysisModel;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecodegenerator.SupplierAnalysisModel2AnnotatedCodeGenerator;
+import edu.kit.kastel.scbs.pcm2java4joana.utils.InputUtils;
 
 public class PCM2Java4JoanaHandler extends AbstractHandler {
 
@@ -39,7 +38,7 @@ public class PCM2Java4JoanaHandler extends AbstractHandler {
 	public Object execute(ExecutionEvent event) {
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindow(event);
 		ISelection selection = HandlerUtil.getCurrentSelection(event);
-		List<IFile> list = getFilteredList(selection);
+		Collection<IFile> list = InputUtils.getFilteredList(selection);
 
 		if (!ClientAnalysisModel.containsNecessaryFiles(list)) {
 			MessageDialog.openInformation(window.getShell(), "Information",
@@ -56,6 +55,7 @@ public class PCM2Java4JoanaHandler extends AbstractHandler {
 		} else {
 			MessageDialog.openInformation(window.getShell(), "Information",
 					"Der Generations-Prozess wurde abgebrochen.");
+			return null;
 		}
 
 		ClientAnalysisModel models;
@@ -108,17 +108,6 @@ public class PCM2Java4JoanaHandler extends AbstractHandler {
 						+ annotatedSourceCode.getDestinationPath().toString());
 
 		return list;
-	}
-
-	@SuppressWarnings("unchecked")
-	private List<IFile> getFilteredList(ISelection selection) {
-		if (selection instanceof IStructuredSelection) {
-			IStructuredSelection structuredSelection = (IStructuredSelection) selection;
-
-			return (List<IFile>) structuredSelection.toList().stream().filter(file -> file instanceof IFile)
-					.map(IFile.class::cast).collect(Collectors.toList());
-		}
-		return new ArrayList<IFile>();
 	}
 
 	private void refreshProject(IPath projectPath) throws RefreshException {

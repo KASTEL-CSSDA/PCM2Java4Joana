@@ -84,6 +84,18 @@ public class JoanasimplifiedresultSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case JoanasimplifiedresultPackage.RESULT_TYPE: {
+				ResultType resultType = (ResultType)theEObject;
+				T result = caseResultType(resultType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JoanasimplifiedresultPackage.RESULT_METHOD: {
+				ResultMethod resultMethod = (ResultMethod)theEObject;
+				T result = caseResultMethod(resultMethod);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -130,6 +142,36 @@ public class JoanasimplifiedresultSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTraceState(TraceState object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Result Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Result Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseResultType(ResultType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Result Method</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Result Method</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseResultMethod(ResultMethod object) {
 		return null;
 	}
 

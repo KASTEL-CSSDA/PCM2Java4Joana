@@ -1,11 +1,10 @@
 package edu.kit.kastel.scbs.pcm2java4joana.utils;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
-import org.eclipse.emf.ecore.EObject;
-
+import edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.ResultMethod;
+import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.BuiltInType;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.CollectionType;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Field;
@@ -231,10 +230,34 @@ public final class SourceCodeModelUtils {
 		return false;
 	}
 
+	public static boolean hasMethodSignature(Class javaClass, ResultMethod method) {
+		for (Field field : javaClass.getFields()) {
+			if (field instanceof Method) {
+				if (SourceCodeModelUtils.haveSameSignature((Method) field, method)) {
+					return true;
+				}
+			}
+		}
+
+		return false;
+	}
+
 	public static boolean hasMethodSignature(Interface javaInterface, Method method) {
 		for (Method interfaceMethod : javaInterface.getMethods()) {
 			if (method instanceof Method) {
 				if (SourceCodeModelUtils.haveSameSignature(method, interfaceMethod)) {
+					return true;
+				}
+			}
+		}
+
+		return false;
+	}
+
+	public static boolean hasMethodSignature(Interface javaInterface, ResultMethod method) {
+		for (Method interfaceMethod : javaInterface.getMethods()) {
+			if (method instanceof Method) {
+				if (SourceCodeModelUtils.haveSameSignature(interfaceMethod, method)) {
 					return true;
 				}
 			}
@@ -258,89 +281,69 @@ public final class SourceCodeModelUtils {
 		return true;
 	}
 
-	public static Collection<EObject> flattenSourceCodeModel(SourceCodeRoot root) {
-		Collection<EObject> objects = new ArrayList<EObject>();
-		objects.add(root);
-
-		for (TopLevelType topLevelType : root.getTopleveltype()) {
-			if (topLevelType instanceof Class) {
-				objects.addAll(flattenClass((Class) topLevelType));
-			}
-			if (topLevelType instanceof Interface) {
-				objects.addAll(flattenInterface((Interface) topLevelType));
-			}
+	public static boolean haveSameSignature(Method method1, ResultMethod method2) {
+		if (!method1.getName().equals(method2.getName())
+				|| method1.getParameter().size() != method2.getParamterTypes().size()) {
+			return false;
 		}
 
-		return objects;
-	}
+		if (!sameType(method1.getType(), method2.getReturnType().getTypeString())) {
+			return false;
+		}
 
-	public static Collection<EObject> flattenClass(Class scClass) {
-		Collection<EObject> objects = new ArrayList<EObject>();
-		objects.add(scClass);
-
-		for (Field field : scClass.getFields()) {
-			objects.add(field);
-			if (field instanceof Method) {
-				objects.addAll(flattenMethod((Method) field));
-			}
-			if (field instanceof Variable) {
-				objects.addAll(flattenVariable((Variable) field));
+		for (int i = 0; i < method1.getParameter().size(); i++) {
+			if (!sameType(method1.getParameter().get(i).getType(), method2.getParamterTypes().get(i).getTypeString())) {
+				return false;
 			}
 		}
-
-		return objects;
+		return true;
 	}
 
-	public static Collection<EObject> flattenInterface(Interface inter) {
-		Collection<EObject> objects = new ArrayList<EObject>();
-		objects.add(inter);
-
-		for (Method method : inter.getMethods()) {
-			objects.add(method);
-			objects.addAll(flattenMethod(method));
+	public static boolean haveSameSignature(ResultMethod method1, ResultMethod method2) {
+		if (!method1.getName().equals(method2.getName())
+				|| method1.getParamterTypes().size() != method2.getParamterTypes().size()) {
+			return false;
 		}
 
-		return objects;
-	}
-
-	public static Collection<EObject> flattenMethod(Method method) {
-		Collection<EObject> objects = new ArrayList<EObject>();
-		objects.add(method);
-		if (method.getType() != null) {
-			objects.addAll(flattenType(method.getType()));
+		if (!method1.getReturnType().getTypeString().equals(method2.getReturnType().getTypeString())) {
+			return false;
 		}
 
-		for (Parameter parameter : method.getParameter()) {
-			objects.addAll(flattenParameter(parameter));
+		for (int i = 0; i < method1.getParamterTypes().size(); i++) {
+			if (!method1.getParamterTypes().get(i).getTypeString()
+					.equals(method2.getParamterTypes().get(i).getTypeString())) {
+				return false;
+			}
 		}
-
-		return objects;
+		return true;
 	}
 
-	public static Collection<EObject> flattenParameter(Parameter parameter) {
-		Collection<EObject> objects = new ArrayList<EObject>();
-		objects.add(parameter);
-		objects.addAll(flattenType(parameter.getType()));
-
-		return objects;
-	}
-
-	public static Collection<EObject> flattenVariable(Variable variable) {
-		Collection<EObject> objects = new ArrayList<EObject>();
-		objects.add(variable);
-		objects.addAll(flattenType(variable.getType()));
-
-		return objects;
-	}
-
-	public static Collection<EObject> flattenType(Type type) {
-		Collection<EObject> objects = new ArrayList<EObject>();
-
-		objects.add(type);
+	private static boolean sameType(Type type, String typeName) {
+		if (type instanceof BuiltInType) {
+			return sameBuiltInType((BuiltInType) type, typeName);
+		}
 		if (type instanceof CollectionType) {
-			objects.addAll(flattenType((((CollectionType) type).getType())));
+			return isCollectionType(typeName);
+		}
+		if (type instanceof ReferenceType) {
+			return sameReferenceType((ReferenceType) type, typeName);
 		}
 
-		return objects;
+		return false;
+	}
+
+	private static boolean sameBuiltInType(BuiltInType type, String typeName) {
+		if (typeName.contains("String")) {
+			typeName = typeName.split(".")[2];
+		}
+		return type.getBuiltInType().getName().toLowerCase().equals(typeName.toLowerCase());
+	}
+
+	private static boolean sameReferenceType(ReferenceType type, String typeName) {
+		return typeName.contains(type.getTopleveltype().getName());
+	}
+
+	private static boolean isCollectionType(String typeName) {
+		return typeName.contains("Collection") || typeName.contains("List") || typeName.contains("ArrayList");
 	}
 }

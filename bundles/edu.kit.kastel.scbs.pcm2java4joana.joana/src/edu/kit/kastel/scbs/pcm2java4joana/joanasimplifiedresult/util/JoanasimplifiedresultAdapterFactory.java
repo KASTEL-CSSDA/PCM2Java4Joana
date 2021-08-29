@@ -80,6 +80,14 @@ public class JoanasimplifiedresultAdapterFactory extends AdapterFactoryImpl {
 				return createTraceStateAdapter();
 			}
 			@Override
+			public Adapter caseResultType(ResultType object) {
+				return createResultTypeAdapter();
+			}
+			@Override
+			public Adapter caseResultMethod(ResultMethod object) {
+				return createResultMethodAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -138,6 +146,34 @@ public class JoanasimplifiedresultAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTraceStateAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.ResultType <em>Result Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.ResultType
+	 * @generated
+	 */
+	public Adapter createResultTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.ResultMethod <em>Result Method</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.ResultMethod
+	 * @generated
+	 */
+	public Adapter createResultMethodAdapter() {
 		return null;
 	}
 

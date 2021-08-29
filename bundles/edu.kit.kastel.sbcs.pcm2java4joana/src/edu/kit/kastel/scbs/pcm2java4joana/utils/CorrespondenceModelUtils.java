@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import edu.kit.kastel.scbs.confidentiality.adversary.Adversaries;
 import edu.kit.kastel.scbs.confidentiality.adversary.Adversary;
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Component2Class;
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Interface2Interface;
@@ -13,6 +14,7 @@ import edu.kit.kastel.scbs.pcm2java4joana.joana.SecurityLevel;
 import edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.Trace;
 import edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.TraceState;
 import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Adversary2SecurityLevel;
+import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEAdversary;
 import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.ParametersAndDataPair2Annotation;
 import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecurityCorrespondenceModel;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class;
@@ -22,8 +24,18 @@ public final class CorrespondenceModelUtils {
 	private CorrespondenceModelUtils() {
 	}
 
-	public static Collection<Integer> findPublicMethodPositions(
-			StructuralCorrespondenceModel structuralCorrespondenceModel, Trace trace) {
+	public static List<SecurityLevel> getSecurityLevels(SecurityCorrespondenceModel correspondenceModel) {
+		List<SecurityLevel> securityLevels = new ArrayList<SecurityLevel>();
+
+		for (Adversary2SecurityLevel correspondence : correspondenceModel.getAdversary2securitylevel()) {
+			securityLevels.add(correspondence.getSecurityLevels().get(0));
+		}
+
+		return securityLevels;
+	}
+
+	public static List<Integer> findPublicMethodPositions(StructuralCorrespondenceModel structuralCorrespondenceModel,
+			Trace trace) {
 		List<Integer> publicMethodPositions = new ArrayList<Integer>();
 
 		for (int i = 0; i < trace.getTracestate().size(); i++) {
@@ -41,7 +53,7 @@ public final class CorrespondenceModelUtils {
 		for (Component2Class component2Class : structuralCorrespondenceModel.getComponent2class()) {
 			Class component = component2Class.getJavaClass();
 			if (component.getName().equals(state.getTraceClassName())
-					&& SourceCodeModelUtils.hasMethodSignature(component, state.getTraceMethod())) {
+					&& SourceCodeModelUtils.hasMethodSignature(component, state.getResultmethod())) {
 				return component2Class;
 			}
 		}
@@ -52,7 +64,7 @@ public final class CorrespondenceModelUtils {
 			TraceState state) {
 		Component2Class component2Class = getComponentClassCorrespondence(structuralCorrespondenceModel, state);
 		for (Interface inter : component2Class.getJavaClass().getImplements()) {
-			if (SourceCodeModelUtils.hasMethodSignature(inter, state.getTraceMethod())) {
+			if (SourceCodeModelUtils.hasMethodSignature(inter, state.getResultmethod())) {
 				return inter;
 			}
 		}
@@ -75,23 +87,39 @@ public final class CorrespondenceModelUtils {
 				.getParametersanddatapair2annotation()) {
 			Annotation joanaAnnotation = pair2Annotation.getJoanaAnnotation();
 			if (joanaAnnotation.getAnnotatedClass().getName().equals(state.getTraceClassName()) && SourceCodeModelUtils
-					.haveSameSignature(joanaAnnotation.getAnnotatedMethod(), state.getTraceMethod())) {
+					.haveSameSignature(joanaAnnotation.getAnnotatedMethod(), state.getResultmethod())) {
 				return pair2Annotation;
 			}
 		}
 		return null;
 	}
 
-	public static Collection<Adversary> reolveSecurityLevelToAdversary(
-			SecurityCorrespondenceModel securityCorrespondenceModel, String securityLevel) {
+	public static Collection<Adversary> resolveSecurityLevelToAdversary(
+			SecurityCorrespondenceModel securityCorrespondenceModel, Adversaries adversaries, String securityLevel) {
+		Collection<Adversary> correspondingAdversaries = new ArrayList<Adversary>();
 		for (Adversary2SecurityLevel adversary2SecurityLevel : securityCorrespondenceModel
 				.getAdversary2securitylevel()) {
 			if (JoanaModelUtils.combineIntoOneSecurityLevel(adversary2SecurityLevel.getSecurityLevels())
 					.equals(securityLevel)) {
-//				return adversary2SecurityLevel.getAdversaries(); // TODO: Rework for new correspondence model
+				for (Conf4CBSEAdversary conf4cbseAdversary : adversary2SecurityLevel.getConf4cbseadversary()) {
+					Adversary adversary = ConfidentialityModelUtils.getAdversary(adversaries,
+							conf4cbseAdversary.getId());
+					if (adversary != null) {
+						correspondingAdversaries.add(adversary);
+					} else {
+						System.err.print("No adversary found for " + conf4cbseAdversary.getId());
+					}
+				}
 			}
 		}
-		return null;
+		return correspondingAdversaries;
+	}
+
+	public static Collection<Adversary> reolveSecurityLevelToAdversary(
+			SecurityCorrespondenceModel securityCorrespondenceModel, Adversaries adversaries,
+			List<SecurityLevel> securityLevel) {
+		return resolveSecurityLevelToAdversary(securityCorrespondenceModel, adversaries,
+				JoanaModelUtils.combineIntoOneSecurityLevel(securityLevel));
 	}
 
 	public static Adversary2SecurityLevel getAdversary2SecurityLevel(SecurityCorrespondenceModel correspondenceModel,

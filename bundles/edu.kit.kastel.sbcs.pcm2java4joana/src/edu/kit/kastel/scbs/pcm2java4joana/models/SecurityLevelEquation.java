@@ -2,14 +2,16 @@ package edu.kit.kastel.scbs.pcm2java4joana.models;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
+import edu.kit.kastel.scbs.pcm2java4joana.joana.SecurityLevel;
 import edu.kit.kastel.scbs.pcm2java4joana.utils.TraceStateUtils;
 
 public class SecurityLevelEquation {
 	private Collection<AggregatedTraceState> predecessors;
 	private Collection<AggregatedTraceState> successors;
 	private final AggregatedTraceState ownTraceState;
-	private String correctSecurityLevel;
+	private List<SecurityLevel> correctSecurityLevel;
 
 	public SecurityLevelEquation(AggregatedTraceState ownTraceState) {
 		this.ownTraceState = ownTraceState;
@@ -29,11 +31,26 @@ public class SecurityLevelEquation {
 		return this.successors;
 	}
 
-	public String getSecurityLevel() {
+	// Basic case means if it has no public successors or predecessors
+	public boolean isBasicCase() {
+		for (AggregatedTraceState predecessor : predecessors) {
+			if (predecessor.isPublicMethod()) {
+				return false;
+			}
+		}
+		for (AggregatedTraceState successor : successors) {
+			if (successor.isPublicMethod()) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public List<SecurityLevel> getSecurityLevel() {
 		return this.correctSecurityLevel;
 	}
 
-	public void setCorrectSecurityLevel(String correctSecurityLevel) {
+	public void setCorrectSecurityLevel(List<SecurityLevel> correctSecurityLevel) {
 		this.correctSecurityLevel = correctSecurityLevel;
 	}
 
@@ -59,5 +76,23 @@ public class SecurityLevelEquation {
 		if (!TraceStateUtils.containsTraceState(this.successors, traceState)) {
 			this.successors.add(traceState);
 		}
+	}
+
+	public int howManySolved(List<SecurityLevel> level) {
+		int solved = 0;
+
+		for (AggregatedTraceState state : predecessors) {
+			if (state.getSecurityLevel().containsAll(level)) {
+				solved += 1;
+			}
+		}
+
+		for (AggregatedTraceState state : successors) {
+			if (level.containsAll(state.getSecurityLevel())) {
+				solved += 1;
+			}
+		}
+
+		return solved;
 	}
 }

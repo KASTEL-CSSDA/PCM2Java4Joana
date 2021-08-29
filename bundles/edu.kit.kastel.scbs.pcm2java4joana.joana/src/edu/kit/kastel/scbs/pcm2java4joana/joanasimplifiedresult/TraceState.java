@@ -2,7 +2,6 @@
  */
 package edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult;
 
-import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Method;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -17,8 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.TraceState#getTracePosition <em>Trace Position</em>}</li>
  *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.TraceState#getTraceClassName <em>Trace Class Name</em>}</li>
  *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.TraceState#getSecurityLevelName <em>Security Level Name</em>}</li>
- *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.TraceState#getTraceMethod <em>Trace Method</em>}</li>
  *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.TraceState#getParameterIndex <em>Parameter Index</em>}</li>
+ *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.TraceState#getResultmethod <em>Resultmethod</em>}</li>
  * </ul>
  *
  * @see edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.JoanasimplifiedresultPackage#getTraceState()
@@ -93,28 +92,6 @@ public interface TraceState extends EObject {
 	void setSecurityLevelName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Trace Method</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Trace Method</em>' reference.
-	 * @see #setTraceMethod(Method)
-	 * @see edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.JoanasimplifiedresultPackage#getTraceState_TraceMethod()
-	 * @model required="true"
-	 * @generated
-	 */
-	Method getTraceMethod();
-
-	/**
-	 * Sets the value of the '{@link edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.TraceState#getTraceMethod <em>Trace Method</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Trace Method</em>' reference.
-	 * @see #getTraceMethod()
-	 * @generated
-	 */
-	void setTraceMethod(Method value);
-
-	/**
 	 * Returns the value of the '<em><b>Parameter Index</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -135,5 +112,27 @@ public interface TraceState extends EObject {
 	 * @generated
 	 */
 	void setParameterIndex(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Resultmethod</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Resultmethod</em>' containment reference.
+	 * @see #setResultmethod(ResultMethod)
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.JoanasimplifiedresultPackage#getTraceState_Resultmethod()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	ResultMethod getResultmethod();
+
+	/**
+	 * Sets the value of the '{@link edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.TraceState#getResultmethod <em>Resultmethod</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Resultmethod</em>' containment reference.
+	 * @see #getResultmethod()
+	 * @generated
+	 */
+	void setResultmethod(ResultMethod value);
 
 } // TraceState

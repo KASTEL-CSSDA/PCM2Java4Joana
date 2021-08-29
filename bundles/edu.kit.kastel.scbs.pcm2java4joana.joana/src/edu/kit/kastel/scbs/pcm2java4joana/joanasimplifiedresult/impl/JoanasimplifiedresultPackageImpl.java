@@ -5,6 +5,8 @@ package edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.impl;
 import edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.JoanasimplifiedresultFactory;
 import edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.JoanasimplifiedresultPackage;
 import edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.Result;
+import edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.ResultMethod;
+import edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.ResultType;
 import edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.Trace;
 import edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.TraceState;
 
@@ -44,6 +46,20 @@ public class JoanasimplifiedresultPackageImpl extends EPackageImpl implements Jo
 	 * @generated
 	 */
 	private EClass traceStateEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass resultTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass resultMethodEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -186,8 +202,8 @@ public class JoanasimplifiedresultPackageImpl extends EPackageImpl implements Jo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTraceState_TraceMethod() {
-		return (EReference)traceStateEClass.getEStructuralFeatures().get(3);
+	public EAttribute getTraceState_ParameterIndex() {
+		return (EAttribute)traceStateEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -195,8 +211,62 @@ public class JoanasimplifiedresultPackageImpl extends EPackageImpl implements Jo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTraceState_ParameterIndex() {
-		return (EAttribute)traceStateEClass.getEStructuralFeatures().get(4);
+	public EReference getTraceState_Resultmethod() {
+		return (EReference)traceStateEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getResultType() {
+		return resultTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getResultType_TypeString() {
+		return (EAttribute)resultTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getResultMethod() {
+		return resultMethodEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getResultMethod_ParamterTypes() {
+		return (EReference)resultMethodEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getResultMethod_ReturnType() {
+		return (EReference)resultMethodEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getResultMethod_Name() {
+		return (EAttribute)resultMethodEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -237,8 +307,16 @@ public class JoanasimplifiedresultPackageImpl extends EPackageImpl implements Jo
 		createEAttribute(traceStateEClass, TRACE_STATE__TRACE_POSITION);
 		createEAttribute(traceStateEClass, TRACE_STATE__TRACE_CLASS_NAME);
 		createEAttribute(traceStateEClass, TRACE_STATE__SECURITY_LEVEL_NAME);
-		createEReference(traceStateEClass, TRACE_STATE__TRACE_METHOD);
 		createEAttribute(traceStateEClass, TRACE_STATE__PARAMETER_INDEX);
+		createEReference(traceStateEClass, TRACE_STATE__RESULTMETHOD);
+
+		resultTypeEClass = createEClass(RESULT_TYPE);
+		createEAttribute(resultTypeEClass, RESULT_TYPE__TYPE_STRING);
+
+		resultMethodEClass = createEClass(RESULT_METHOD);
+		createEReference(resultMethodEClass, RESULT_METHOD__PARAMTER_TYPES);
+		createEReference(resultMethodEClass, RESULT_METHOD__RETURN_TYPE);
+		createEAttribute(resultMethodEClass, RESULT_METHOD__NAME);
 	}
 
 	/**
@@ -264,9 +342,6 @@ public class JoanasimplifiedresultPackageImpl extends EPackageImpl implements Jo
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
-		// Obtain other dependent packages
-		SourcecodePackage theSourcecodePackage = (SourcecodePackage)EPackage.Registry.INSTANCE.getEPackage(SourcecodePackage.eNS_URI);
-
 		// Create type parameters
 
 		// Set bounds for type parameters
@@ -284,8 +359,16 @@ public class JoanasimplifiedresultPackageImpl extends EPackageImpl implements Jo
 		initEAttribute(getTraceState_TracePosition(), ecorePackage.getEInt(), "tracePosition", null, 1, 1, TraceState.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTraceState_TraceClassName(), ecorePackage.getEString(), "traceClassName", null, 1, 1, TraceState.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTraceState_SecurityLevelName(), ecorePackage.getEString(), "securityLevelName", null, 1, 1, TraceState.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTraceState_TraceMethod(), theSourcecodePackage.getMethod(), null, "traceMethod", null, 1, 1, TraceState.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTraceState_ParameterIndex(), ecorePackage.getEInt(), "parameterIndex", null, 0, 1, TraceState.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTraceState_Resultmethod(), this.getResultMethod(), null, "resultmethod", null, 1, 1, TraceState.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(resultTypeEClass, ResultType.class, "ResultType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getResultType_TypeString(), ecorePackage.getEString(), "typeString", null, 1, 1, ResultType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(resultMethodEClass, ResultMethod.class, "ResultMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getResultMethod_ParamterTypes(), this.getResultType(), null, "paramterTypes", null, 0, -1, ResultMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getResultMethod_ReturnType(), this.getResultType(), null, "returnType", null, 0, 1, ResultMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getResultMethod_Name(), ecorePackage.getEString(), "name", null, 1, 1, ResultMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
