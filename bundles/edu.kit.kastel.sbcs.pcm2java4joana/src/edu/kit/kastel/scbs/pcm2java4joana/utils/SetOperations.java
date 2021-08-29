@@ -56,4 +56,9 @@ public final class SetOperations {
 		}
 		return without;
 	}
+
+	public static <T> List<T> merge(List<T> set1, List<T> set2) {
+		set1.addAll(set2);
+		return removeDuplicates(set1);
+	}
 }

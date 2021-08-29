@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import edu.kit.kastel.scbs.pcm2java4joana.joana.SecurityLevel;
+import edu.kit.kastel.scbs.pcm2java4joana.utils.SetOperations;
 import edu.kit.kastel.scbs.pcm2java4joana.utils.TraceStateUtils;
 
 public class EquationSystem {
@@ -61,11 +62,19 @@ public class EquationSystem {
 
 			int bestScore = -1;
 			List<SecurityLevel> bestSecurityLevel = new ArrayList<SecurityLevel>();
-			for (List<SecurityLevel> securityLevel : securityLevels) {
-				int tempScore = equations.get(i).howManySolved(securityLevel);
-				if (tempScore > bestScore) {
-					bestScore = tempScore;
-					bestSecurityLevel = securityLevel;
+			if (equations.get(i).getPredecessors().size() == 0) {
+				bestSecurityLevel = equations.get(i).getSecurityLevel();
+				for (AggregatedTraceState state : equations.get(i).getSuccessors()) {
+					bestSecurityLevel = SetOperations.merge(bestSecurityLevel, state.getSecurityLevel());
+				}
+				bestScore = equations.get(i).getSuccessors().size();
+			} else {
+				for (List<SecurityLevel> securityLevel : securityLevels) {
+					int tempScore = equations.get(i).howManySolved(securityLevel);
+					if (tempScore > bestScore) {
+						bestScore = tempScore;
+						bestSecurityLevel = securityLevel;
+					}
 				}
 			}
 			bestLevels.put(i, bestSecurityLevel);
