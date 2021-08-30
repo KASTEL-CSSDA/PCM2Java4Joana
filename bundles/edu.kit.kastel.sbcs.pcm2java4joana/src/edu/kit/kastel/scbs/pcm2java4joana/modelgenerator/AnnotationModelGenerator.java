@@ -13,9 +13,8 @@ import org.palladiosimulator.pcm.repository.OperationSignature;
 
 import edu.kit.ipd.sdq.commons.util.org.palladiosimulator.mdsdprofiles.api.StereotypeAPIUtil;
 import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
-import edu.kit.kastel.scbs.confidentiality.adversary.Adversaries;
-import edu.kit.kastel.scbs.confidentiality.adversary.Adversary;
 import edu.kit.kastel.scbs.confidentiality.data.DataIdentifying;
+import edu.kit.kastel.scbs.confidentiality.data.DataSet;
 import edu.kit.kastel.scbs.confidentiality.repository.ParametersAndDataPair;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.Annotation;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.EntryPoint;
@@ -55,10 +54,10 @@ public class AnnotationModelGenerator {
 
 	public SupplierAnalysisModel generateJoanaModel() {
 		ConfidentialitySpecification confidentiality = this.clientAnalysisModel.getConfidentiality();
-		Adversaries adversaries = this.clientAnalysisModel.getAdversary();
-		List<SecurityLevel> levels = this.generateLevels(adversaries);
-		Map<SecurityLevel, List<DataIdentifying>> levelToDatasetsMapping = this
-				.generateSecurityLevelToDatasetMapping(adversaries);
+
+		List<SecurityLevel> levels = this.generateLevels(confidentiality);
+		Map<SecurityLevel, DataIdentifying> levelToDatasetsMapping = this
+				.generateSecurityLevelToDatasetMapping(confidentiality);
 		Lattice lattice = this.generateLattice(levels);
 		List<Annotation> annotations = this.generateAnnotations(levelToDatasetsMapping,
 				confidentiality.getParametersAndDataPairs(),
@@ -161,7 +160,7 @@ public class AnnotationModelGenerator {
 		return entryPoint;
 	}
 
-	private List<Annotation> generateAnnotations(Map<SecurityLevel, List<DataIdentifying>> levelToDatasetsMapping,
+	private List<Annotation> generateAnnotations(Map<SecurityLevel, DataIdentifying> levelToDatasetsMapping,
 			List<ParametersAndDataPair> parametersAndDataPair, SourceCodeRoot sourceCode,
 			ClientAnalysisModel clientAnalysisModel) {
 		List<Annotation> annotations = new ArrayList<Annotation>();
@@ -180,7 +179,7 @@ public class AnnotationModelGenerator {
 		return annotations;
 	}
 
-	private List<Annotation> generateAnnotation(Map<SecurityLevel, List<DataIdentifying>> levelToDatasetsMapping,
+	private List<Annotation> generateAnnotation(Map<SecurityLevel, DataIdentifying> levelToDatasetsMapping,
 			StereotypeApplication stereotypeApplication, SourceCodeRoot sourceCode) {
 		JoanaFactory factory = JoanaFactory.eINSTANCE;
 
@@ -235,14 +234,14 @@ public class AnnotationModelGenerator {
 	}
 
 	private List<SecurityLevel> getSecurityLevel(ParametersAndDataPair pair,
-			Map<SecurityLevel, List<DataIdentifying>> levelToDatasetsMapping) {
+			Map<SecurityLevel, DataIdentifying> levelToDatasetsMapping) {
 		List<SecurityLevel> levels = new ArrayList<SecurityLevel>();
 		List<DataIdentifying> targets = pair.getDataTargets();
 
 		var it = levelToDatasetsMapping.entrySet().iterator();
 		while (it.hasNext()) {
-			var entry = (Entry<SecurityLevel, List<DataIdentifying>>) it.next();
-			if (SetOperations.isIn(targets, entry.getValue())) {
+			var entry = (Entry<SecurityLevel, DataIdentifying>) it.next();
+			if (targets.contains(entry.getValue())) {
 				levels.add(entry.getKey());
 			}
 		}
@@ -250,33 +249,36 @@ public class AnnotationModelGenerator {
 		return levels;
 	}
 
-	private Map<SecurityLevel, List<DataIdentifying>> generateSecurityLevelToDatasetMapping(Adversaries adversaries) {
+	private Map<SecurityLevel, DataIdentifying> generateSecurityLevelToDatasetMapping(
+			ConfidentialitySpecification specification) {
 		JoanaFactory factory = JoanaFactory.eINSTANCE;
-		Map<SecurityLevel, List<DataIdentifying>> levelToDataset = new HashMap<SecurityLevel, List<DataIdentifying>>();
+		Map<SecurityLevel, DataIdentifying> levelToDataset = new HashMap<SecurityLevel, DataIdentifying>();
 
-		for (Adversary adversary : adversaries.getAdversaries()) {
-			SecurityLevel level = factory.createSecurityLevel();
-			level.setName(adversary.getName());
-			List<DataIdentifying> castedList = new ArrayList<DataIdentifying>();
-			for (DataIdentifying data : adversary.getMayKnowData()) {
-				castedList.add(data);
+		for (DataIdentifying dataIdentifying : specification.getDataIdentifier()) {
+			if (dataIdentifying instanceof DataSet) {
+				DataSet dataset = (DataSet) dataIdentifying;
+				SecurityLevel level = factory.createSecurityLevel();
+				level.setName(dataset.getName());
+				levelToDataset.put(level, dataset);
 			}
-			levelToDataset.put(level, castedList);
 		}
 
 		return levelToDataset;
 	}
 
-	private List<SecurityLevel> generateLevels(Adversaries adversaries) {
+	private List<SecurityLevel> generateLevels(ConfidentialitySpecification specification) {
 		JoanaFactory factory = JoanaFactory.eINSTANCE;
 		List<SecurityLevel> levels = new ArrayList<SecurityLevel>();
 
-		for (Adversary adversary : adversaries.getAdversaries()) {
-			SecurityLevel level = factory.createSecurityLevel();
-			level.setName(adversary.getName());
-			levels.add(level);
-			this.securityCorrespondenceModel.getAdversary2securitylevel()
-					.add(CorrespondenceModelElementsGenerator.generateAdversaryCorrespondence(adversary, level));
+		for (DataIdentifying dataIdentifying : specification.getDataIdentifier()) {
+			if (dataIdentifying instanceof DataSet) {
+				DataSet dataset = (DataSet) dataIdentifying;
+				SecurityLevel level = factory.createSecurityLevel();
+				level.setName(dataset.getName());
+				levels.add(level);
+				this.securityCorrespondenceModel.getAdversary2securitylevel()
+						.add(CorrespondenceModelElementsGenerator.generateDatasetCorrespondence(dataset, level));
+			}
 		}
 
 		return levels;

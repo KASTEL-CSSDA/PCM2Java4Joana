@@ -6,7 +6,7 @@ import org.palladiosimulator.pcm.repository.BasicComponent;
 import org.palladiosimulator.pcm.repository.OperationInterface;
 import org.palladiosimulator.pcm.repository.OperationSignature;
 
-import edu.kit.kastel.scbs.confidentiality.adversary.Adversary;
+import edu.kit.kastel.scbs.confidentiality.data.DataSet;
 import edu.kit.kastel.scbs.confidentiality.repository.ParametersAndDataPair;
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Component2Class;
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.CorrespondencemodelFactory;
@@ -86,12 +86,11 @@ public final class CorrespondenceModelElementsGenerator {
 		return parameterCorrespondence;
 	}
 
-	public static Adversary2SecurityLevel generateAdversaryCorrespondence(Adversary adversary,
-			SecurityLevel securityLevel) {
+	public static Adversary2SecurityLevel generateDatasetCorrespondence(DataSet dataset, SecurityLevel securityLevel) {
 		SecuritycorrespondencemodelFactory correspondenceFactory = SecuritycorrespondencemodelFactory.eINSTANCE;
 		Adversary2SecurityLevel correspondence = correspondenceFactory.createAdversary2SecurityLevel();
 		Conf4CBSEAdversary conf4cbseAdversary = correspondenceFactory.createConf4CBSEAdversary();
-		conf4cbseAdversary.setId(adversary.getId());
+		conf4cbseAdversary.setId(dataset.getId());
 		correspondence.getSecurityLevels().add(JoanaModelUtils.copySecurityLevel(securityLevel));
 		correspondence.getConf4cbseadversary().add(conf4cbseAdversary);
 
