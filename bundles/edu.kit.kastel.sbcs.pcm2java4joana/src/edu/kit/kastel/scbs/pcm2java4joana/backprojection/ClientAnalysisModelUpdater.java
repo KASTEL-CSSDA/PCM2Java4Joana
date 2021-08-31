@@ -2,8 +2,7 @@ package edu.kit.kastel.scbs.pcm2java4joana.backprojection;
 
 import java.util.Collection;
 
-import edu.kit.kastel.scbs.confidentiality.adversary.Adversary;
-import edu.kit.kastel.scbs.confidentiality.data.DataIdentifying;
+import edu.kit.kastel.scbs.confidentiality.data.DataSet;
 import edu.kit.kastel.scbs.confidentiality.repository.ParametersAndDataPair;
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.StructuralCorrespondenceModel;
 import edu.kit.kastel.scbs.pcm2java4joana.models.ClientAnalysisModel;
@@ -27,18 +26,16 @@ public final class ClientAnalysisModelUpdater {
 			ParametersAndDataPair2Annotation pair2Annotation = CorrespondenceModelUtils
 					.getParamtersAndDataPairAnnotationCorrespondence(securityCorrespondenceModel,
 							equation.getOwner().getBaseState());
-			Collection<Adversary> adversaries = CorrespondenceModelUtils.reolveSecurityLevelToAdversary(
-					securityCorrespondenceModel, clientAnalysisModel.getAdversary(),
+			Collection<DataSet> datasets = CorrespondenceModelUtils.reolveSecurityLevelToAdversary(
+					securityCorrespondenceModel, clientAnalysisModel.getConfidentiality(),
 					equation.getCorrectSecurityLevel());
 			ParametersAndDataPair parametersAndDataPairs = ConfidentialityModelUtils.getParamersAndDataPair(
 					clientAnalysisModel.getConfidentiality(),
 					pair2Annotation.getConf4cbseparametersanddatapair().getId());
 
-			for (Adversary adversary : adversaries) {
-				for (DataIdentifying dataSet : adversary.getMayKnowData()) {
-					if (!parametersAndDataPairs.getDataTargets().contains(dataSet)) {
-						parametersAndDataPairs.getDataTargets().add(dataSet);
-					}
+			for (DataSet dataSet : datasets) {
+				if (!parametersAndDataPairs.getDataTargets().contains(dataSet)) {
+					parametersAndDataPairs.getDataTargets().add(dataSet);
 				}
 			}
 		}

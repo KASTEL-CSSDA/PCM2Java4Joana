@@ -1,8 +1,8 @@
 package edu.kit.kastel.scbs.pcm2java4joana.utils;
 
 import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
-import edu.kit.kastel.scbs.confidentiality.adversary.Adversaries;
-import edu.kit.kastel.scbs.confidentiality.adversary.Adversary;
+import edu.kit.kastel.scbs.confidentiality.data.DataIdentifying;
+import edu.kit.kastel.scbs.confidentiality.data.DataSet;
 import edu.kit.kastel.scbs.confidentiality.repository.ParametersAndDataPair;
 
 public final class ConfidentialityModelUtils {
@@ -10,10 +10,10 @@ public final class ConfidentialityModelUtils {
 
 	}
 
-	public static Adversary getAdversary(Adversaries adversaries, String adversaryId) {
-		for (Adversary adversary : adversaries.getAdversaries()) {
-			if (adversary.getId().equals(adversaryId)) {
-				return adversary;
+	public static DataSet getDataset(ConfidentialitySpecification specification, String datasetId) {
+		for (DataIdentifying adversary : specification.getDataIdentifier()) {
+			if (adversary.getId().equals(datasetId)) {
+				return (DataSet) adversary;
 			}
 		}
 

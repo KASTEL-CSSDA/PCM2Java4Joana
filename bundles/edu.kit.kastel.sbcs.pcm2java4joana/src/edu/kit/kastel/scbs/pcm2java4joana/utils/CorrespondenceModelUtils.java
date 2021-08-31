@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import edu.kit.kastel.scbs.confidentiality.adversary.Adversaries;
-import edu.kit.kastel.scbs.confidentiality.adversary.Adversary;
+import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
+import edu.kit.kastel.scbs.confidentiality.data.DataSet;
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Component2Class;
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Interface2Interface;
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.StructuralCorrespondenceModel;
@@ -94,24 +94,24 @@ public final class CorrespondenceModelUtils {
 		return null;
 	}
 
-	public static Collection<Adversary> resolveSecurityLevelToAdversary(
-			SecurityCorrespondenceModel securityCorrespondenceModel, Adversaries adversaries, String securityLevel) {
+	public static Collection<DataSet> resolveSecurityLevelToAdversary(
+			SecurityCorrespondenceModel securityCorrespondenceModel, ConfidentialitySpecification adversaries,
+			String securityLevel) {
 		List<SecurityLevel> levels = getSecurityLevels(securityCorrespondenceModel);
 		List<List<SecurityLevel>> allLevels = SetOperations.generatePowerSet(levels);
 		List<SecurityLevel> usedLevels = JoanaModelUtils.resolveToSecurityLevels(securityLevel, allLevels);
 		return reolveSecurityLevelToAdversary(securityCorrespondenceModel, adversaries, usedLevels);
 	}
 
-	public static Collection<Adversary> reolveSecurityLevelToAdversary(
-			SecurityCorrespondenceModel securityCorrespondenceModel, Adversaries adversaries,
+	public static Collection<DataSet> reolveSecurityLevelToAdversary(
+			SecurityCorrespondenceModel securityCorrespondenceModel, ConfidentialitySpecification specification,
 			List<SecurityLevel> securityLevel) {
-		Collection<Adversary> correspondingAdversaries = new ArrayList<Adversary>();
+		Collection<DataSet> correspondingAdversaries = new ArrayList<DataSet>();
 		for (Adversary2SecurityLevel adversary2SecurityLevel : securityCorrespondenceModel
 				.getAdversary2securitylevel()) {
 			if (securityLevel.contains(adversary2SecurityLevel.getSecurityLevels().get(0))) {
 				for (Conf4CBSEAdversary conf4cbseAdversary : adversary2SecurityLevel.getConf4cbseadversary()) {
-					Adversary adversary = ConfidentialityModelUtils.getAdversary(adversaries,
-							conf4cbseAdversary.getId());
+					DataSet adversary = ConfidentialityModelUtils.getDataset(specification, conf4cbseAdversary.getId());
 					if (adversary != null) {
 						correspondingAdversaries.add(adversary);
 					} else {
