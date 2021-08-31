@@ -12,11 +12,10 @@ import de.uka.ipd.sdq.units.UnitsPackage;
 
 import edu.kit.kastel.scbs.confidentiality.ConfidentialityPackage;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.JoanaPackage;
-
-import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Adversary2SecurityLevel;
-import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEAdversary;
+import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEDataSet;
 import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEElement;
 import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEParametersAndDataPair;
+import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.DataSet2SecurityLevel;
 import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.ParametersAndDataPair2Annotation;
 import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecurityCorrespondenceModel;
 import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecuritycorrespondencemodelFactory;
@@ -46,7 +45,7 @@ public class SecuritycorrespondencemodelPackageImpl extends EPackageImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass adversary2SecurityLevelEClass = null;
+	private EClass dataSet2SecurityLevelEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -81,7 +80,7 @@ public class SecuritycorrespondencemodelPackageImpl extends EPackageImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass conf4CBSEAdversaryEClass = null;
+	private EClass conf4CBSEDataSetEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -160,8 +159,8 @@ public class SecuritycorrespondencemodelPackageImpl extends EPackageImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAdversary2SecurityLevel() {
-		return adversary2SecurityLevelEClass;
+	public EClass getDataSet2SecurityLevel() {
+		return dataSet2SecurityLevelEClass;
 	}
 
 	/**
@@ -169,8 +168,8 @@ public class SecuritycorrespondencemodelPackageImpl extends EPackageImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAdversary2SecurityLevel_SecurityLevels() {
-		return (EReference)adversary2SecurityLevelEClass.getEStructuralFeatures().get(0);
+	public EReference getDataSet2SecurityLevel_SecurityLevels() {
+		return (EReference)dataSet2SecurityLevelEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -178,8 +177,8 @@ public class SecuritycorrespondencemodelPackageImpl extends EPackageImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAdversary2SecurityLevel_Conf4cbseadversary() {
-		return (EReference)adversary2SecurityLevelEClass.getEStructuralFeatures().get(1);
+	public EReference getDataSet2SecurityLevel_Conf4cbsedataset() {
+		return (EReference)dataSet2SecurityLevelEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -223,7 +222,7 @@ public class SecuritycorrespondencemodelPackageImpl extends EPackageImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSecurityCorrespondenceModel_Adversary2securitylevel() {
+	public EReference getSecurityCorrespondenceModel_Parametersanddatapair2annotation() {
 		return (EReference)securityCorrespondenceModelEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -232,7 +231,7 @@ public class SecuritycorrespondencemodelPackageImpl extends EPackageImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSecurityCorrespondenceModel_Parametersanddatapair2annotation() {
+	public EReference getSecurityCorrespondenceModel_Dataset2securitylevel() {
 		return (EReference)securityCorrespondenceModelEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -268,8 +267,8 @@ public class SecuritycorrespondencemodelPackageImpl extends EPackageImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getConf4CBSEAdversary() {
-		return conf4CBSEAdversaryEClass;
+	public EClass getConf4CBSEDataSet() {
+		return conf4CBSEDataSetEClass;
 	}
 
 	/**
@@ -300,24 +299,24 @@ public class SecuritycorrespondencemodelPackageImpl extends EPackageImpl impleme
 		isCreated = true;
 
 		// Create classes and their features
-		adversary2SecurityLevelEClass = createEClass(ADVERSARY2_SECURITY_LEVEL);
-		createEReference(adversary2SecurityLevelEClass, ADVERSARY2_SECURITY_LEVEL__SECURITY_LEVELS);
-		createEReference(adversary2SecurityLevelEClass, ADVERSARY2_SECURITY_LEVEL__CONF4CBSEADVERSARY);
+		dataSet2SecurityLevelEClass = createEClass(DATA_SET2_SECURITY_LEVEL);
+		createEReference(dataSet2SecurityLevelEClass, DATA_SET2_SECURITY_LEVEL__SECURITY_LEVELS);
+		createEReference(dataSet2SecurityLevelEClass, DATA_SET2_SECURITY_LEVEL__CONF4CBSEDATASET);
 
 		parametersAndDataPair2AnnotationEClass = createEClass(PARAMETERS_AND_DATA_PAIR2_ANNOTATION);
 		createEReference(parametersAndDataPair2AnnotationEClass, PARAMETERS_AND_DATA_PAIR2_ANNOTATION__JOANA_ANNOTATION);
 		createEReference(parametersAndDataPair2AnnotationEClass, PARAMETERS_AND_DATA_PAIR2_ANNOTATION__CONF4CBSEPARAMETERSANDDATAPAIR);
 
 		securityCorrespondenceModelEClass = createEClass(SECURITY_CORRESPONDENCE_MODEL);
-		createEReference(securityCorrespondenceModelEClass, SECURITY_CORRESPONDENCE_MODEL__ADVERSARY2SECURITYLEVEL);
 		createEReference(securityCorrespondenceModelEClass, SECURITY_CORRESPONDENCE_MODEL__PARAMETERSANDDATAPAIR2ANNOTATION);
+		createEReference(securityCorrespondenceModelEClass, SECURITY_CORRESPONDENCE_MODEL__DATASET2SECURITYLEVEL);
 
 		conf4CBSEParametersAndDataPairEClass = createEClass(CONF4_CBSE_PARAMETERS_AND_DATA_PAIR);
 
 		conf4CBSEElementEClass = createEClass(CONF4_CBSE_ELEMENT);
 		createEAttribute(conf4CBSEElementEClass, CONF4_CBSE_ELEMENT__ID);
 
-		conf4CBSEAdversaryEClass = createEClass(CONF4_CBSE_ADVERSARY);
+		conf4CBSEDataSetEClass = createEClass(CONF4_CBSE_DATA_SET);
 	}
 
 	/**
@@ -353,27 +352,27 @@ public class SecuritycorrespondencemodelPackageImpl extends EPackageImpl impleme
 
 		// Add supertypes to classes
 		conf4CBSEParametersAndDataPairEClass.getESuperTypes().add(this.getConf4CBSEElement());
-		conf4CBSEAdversaryEClass.getESuperTypes().add(this.getConf4CBSEElement());
+		conf4CBSEDataSetEClass.getESuperTypes().add(this.getConf4CBSEElement());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(adversary2SecurityLevelEClass, Adversary2SecurityLevel.class, "Adversary2SecurityLevel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAdversary2SecurityLevel_SecurityLevels(), theJoanaPackage.getSecurityLevel(), null, "securityLevels", null, 1, -1, Adversary2SecurityLevel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAdversary2SecurityLevel_Conf4cbseadversary(), this.getConf4CBSEAdversary(), null, "conf4cbseadversary", null, 1, -1, Adversary2SecurityLevel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(dataSet2SecurityLevelEClass, DataSet2SecurityLevel.class, "DataSet2SecurityLevel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDataSet2SecurityLevel_SecurityLevels(), theJoanaPackage.getSecurityLevel(), null, "securityLevels", null, 1, -1, DataSet2SecurityLevel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDataSet2SecurityLevel_Conf4cbsedataset(), this.getConf4CBSEDataSet(), null, "conf4cbsedataset", null, 1, -1, DataSet2SecurityLevel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parametersAndDataPair2AnnotationEClass, ParametersAndDataPair2Annotation.class, "ParametersAndDataPair2Annotation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getParametersAndDataPair2Annotation_JoanaAnnotation(), theJoanaPackage.getAnnotation(), null, "joanaAnnotation", null, 1, 1, ParametersAndDataPair2Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getParametersAndDataPair2Annotation_Conf4cbseparametersanddatapair(), this.getConf4CBSEParametersAndDataPair(), null, "conf4cbseparametersanddatapair", null, 1, 1, ParametersAndDataPair2Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(securityCorrespondenceModelEClass, SecurityCorrespondenceModel.class, "SecurityCorrespondenceModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSecurityCorrespondenceModel_Adversary2securitylevel(), this.getAdversary2SecurityLevel(), null, "adversary2securitylevel", null, 0, -1, SecurityCorrespondenceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSecurityCorrespondenceModel_Parametersanddatapair2annotation(), this.getParametersAndDataPair2Annotation(), null, "parametersanddatapair2annotation", null, 0, -1, SecurityCorrespondenceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSecurityCorrespondenceModel_Dataset2securitylevel(), this.getDataSet2SecurityLevel(), null, "dataset2securitylevel", null, 0, -1, SecurityCorrespondenceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(conf4CBSEParametersAndDataPairEClass, Conf4CBSEParametersAndDataPair.class, "Conf4CBSEParametersAndDataPair", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(conf4CBSEElementEClass, Conf4CBSEElement.class, "Conf4CBSEElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConf4CBSEElement_Id(), theEcorePackage.getEString(), "id", null, 1, 1, Conf4CBSEElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(conf4CBSEAdversaryEClass, Conf4CBSEAdversary.class, "Conf4CBSEAdversary", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(conf4CBSEDataSetEClass, Conf4CBSEDataSet.class, "Conf4CBSEDataSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

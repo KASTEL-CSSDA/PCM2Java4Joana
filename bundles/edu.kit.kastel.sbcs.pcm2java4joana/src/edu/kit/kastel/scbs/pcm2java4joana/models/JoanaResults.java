@@ -9,9 +9,9 @@ import java.util.Collection;
 
 import org.eclipse.core.resources.IFile;
 
+import edu.kit.kastel.scbs.pcm2java4joana.backprojection.JoanaResultsParser;
 import edu.kit.kastel.scbs.pcm2java4joana.exceptions.InputException;
 import edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.Result;
-import edu.kit.kastel.scbs.pcm2java4joana.utils.JoanaResultsParser;
 
 public class JoanaResults {
 	private static final String JOANA_RESULT_FILE_ENDING = "joanaresults";

@@ -68,8 +68,8 @@ public class SecuritycorrespondencemodelAdapterFactory extends AdapterFactoryImp
 	protected SecuritycorrespondencemodelSwitch<Adapter> modelSwitch =
 		new SecuritycorrespondencemodelSwitch<Adapter>() {
 			@Override
-			public Adapter caseAdversary2SecurityLevel(Adversary2SecurityLevel object) {
-				return createAdversary2SecurityLevelAdapter();
+			public Adapter caseDataSet2SecurityLevel(DataSet2SecurityLevel object) {
+				return createDataSet2SecurityLevelAdapter();
 			}
 			@Override
 			public Adapter caseParametersAndDataPair2Annotation(ParametersAndDataPair2Annotation object) {
@@ -88,8 +88,8 @@ public class SecuritycorrespondencemodelAdapterFactory extends AdapterFactoryImp
 				return createConf4CBSEElementAdapter();
 			}
 			@Override
-			public Adapter caseConf4CBSEAdversary(Conf4CBSEAdversary object) {
-				return createConf4CBSEAdversaryAdapter();
+			public Adapter caseConf4CBSEDataSet(Conf4CBSEDataSet object) {
+				return createConf4CBSEDataSetAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -112,16 +112,16 @@ public class SecuritycorrespondencemodelAdapterFactory extends AdapterFactoryImp
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Adversary2SecurityLevel <em>Adversary2 Security Level</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.DataSet2SecurityLevel <em>Data Set2 Security Level</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Adversary2SecurityLevel
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.DataSet2SecurityLevel
 	 * @generated
 	 */
-	public Adapter createAdversary2SecurityLevelAdapter() {
+	public Adapter createDataSet2SecurityLevelAdapter() {
 		return null;
 	}
 
@@ -182,16 +182,16 @@ public class SecuritycorrespondencemodelAdapterFactory extends AdapterFactoryImp
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEAdversary <em>Conf4 CBSE Adversary</em>}'.
+	 * Creates a new adapter for an object of class '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEDataSet <em>Conf4 CBSE Data Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEAdversary
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEDataSet
 	 * @generated
 	 */
-	public Adapter createConf4CBSEAdversaryAdapter() {
+	public Adapter createConf4CBSEDataSetAdapter() {
 		return null;
 	}
 

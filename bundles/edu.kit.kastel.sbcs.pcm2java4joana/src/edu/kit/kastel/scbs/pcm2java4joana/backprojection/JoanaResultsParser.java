@@ -1,4 +1,4 @@
-package edu.kit.kastel.scbs.pcm2java4joana.utils;
+package edu.kit.kastel.scbs.pcm2java4joana.backprojection;
 
 import java.io.BufferedReader;
 import java.io.IOException;

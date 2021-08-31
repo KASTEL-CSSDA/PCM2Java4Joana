@@ -66,9 +66,9 @@ public class SecuritycorrespondencemodelSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case SecuritycorrespondencemodelPackage.ADVERSARY2_SECURITY_LEVEL: {
-				Adversary2SecurityLevel adversary2SecurityLevel = (Adversary2SecurityLevel)theEObject;
-				T result = caseAdversary2SecurityLevel(adversary2SecurityLevel);
+			case SecuritycorrespondencemodelPackage.DATA_SET2_SECURITY_LEVEL: {
+				DataSet2SecurityLevel dataSet2SecurityLevel = (DataSet2SecurityLevel)theEObject;
+				T result = caseDataSet2SecurityLevel(dataSet2SecurityLevel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -97,10 +97,10 @@ public class SecuritycorrespondencemodelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SecuritycorrespondencemodelPackage.CONF4_CBSE_ADVERSARY: {
-				Conf4CBSEAdversary conf4CBSEAdversary = (Conf4CBSEAdversary)theEObject;
-				T result = caseConf4CBSEAdversary(conf4CBSEAdversary);
-				if (result == null) result = caseConf4CBSEElement(conf4CBSEAdversary);
+			case SecuritycorrespondencemodelPackage.CONF4_CBSE_DATA_SET: {
+				Conf4CBSEDataSet conf4CBSEDataSet = (Conf4CBSEDataSet)theEObject;
+				T result = caseConf4CBSEDataSet(conf4CBSEDataSet);
+				if (result == null) result = caseConf4CBSEElement(conf4CBSEDataSet);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -109,17 +109,17 @@ public class SecuritycorrespondencemodelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Adversary2 Security Level</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Data Set2 Security Level</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Adversary2 Security Level</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Data Set2 Security Level</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAdversary2SecurityLevel(Adversary2SecurityLevel object) {
+	public T caseDataSet2SecurityLevel(DataSet2SecurityLevel object) {
 		return null;
 	}
 
@@ -184,17 +184,17 @@ public class SecuritycorrespondencemodelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Conf4 CBSE Adversary</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Conf4 CBSE Data Set</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Conf4 CBSE Adversary</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Conf4 CBSE Data Set</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseConf4CBSEAdversary(Conf4CBSEAdversary object) {
+	public T caseConf4CBSEDataSet(Conf4CBSEDataSet object) {
 		return null;
 	}
 

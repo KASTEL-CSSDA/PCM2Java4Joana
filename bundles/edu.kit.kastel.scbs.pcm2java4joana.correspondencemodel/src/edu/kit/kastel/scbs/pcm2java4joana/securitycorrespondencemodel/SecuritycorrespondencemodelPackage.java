@@ -57,14 +57,14 @@ public interface SecuritycorrespondencemodelPackage extends EPackage {
 	SecuritycorrespondencemodelPackage eINSTANCE = edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.SecuritycorrespondencemodelPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.Adversary2SecurityLevelImpl <em>Adversary2 Security Level</em>}' class.
+	 * The meta object id for the '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.DataSet2SecurityLevelImpl <em>Data Set2 Security Level</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.Adversary2SecurityLevelImpl
-	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.SecuritycorrespondencemodelPackageImpl#getAdversary2SecurityLevel()
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.DataSet2SecurityLevelImpl
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.SecuritycorrespondencemodelPackageImpl#getDataSet2SecurityLevel()
 	 * @generated
 	 */
-	int ADVERSARY2_SECURITY_LEVEL = 0;
+	int DATA_SET2_SECURITY_LEVEL = 0;
 
 	/**
 	 * The feature id for the '<em><b>Security Levels</b></em>' containment reference list.
@@ -73,34 +73,34 @@ public interface SecuritycorrespondencemodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ADVERSARY2_SECURITY_LEVEL__SECURITY_LEVELS = 0;
+	int DATA_SET2_SECURITY_LEVEL__SECURITY_LEVELS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Conf4cbseadversary</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Conf4cbsedataset</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ADVERSARY2_SECURITY_LEVEL__CONF4CBSEADVERSARY = 1;
+	int DATA_SET2_SECURITY_LEVEL__CONF4CBSEDATASET = 1;
 
 	/**
-	 * The number of structural features of the '<em>Adversary2 Security Level</em>' class.
+	 * The number of structural features of the '<em>Data Set2 Security Level</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ADVERSARY2_SECURITY_LEVEL_FEATURE_COUNT = 2;
+	int DATA_SET2_SECURITY_LEVEL_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of operations of the '<em>Adversary2 Security Level</em>' class.
+	 * The number of operations of the '<em>Data Set2 Security Level</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ADVERSARY2_SECURITY_LEVEL_OPERATION_COUNT = 0;
+	int DATA_SET2_SECURITY_LEVEL_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.ParametersAndDataPair2AnnotationImpl <em>Parameters And Data Pair2 Annotation</em>}' class.
@@ -159,22 +159,22 @@ public interface SecuritycorrespondencemodelPackage extends EPackage {
 	int SECURITY_CORRESPONDENCE_MODEL = 2;
 
 	/**
-	 * The feature id for the '<em><b>Adversary2securitylevel</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SECURITY_CORRESPONDENCE_MODEL__ADVERSARY2SECURITYLEVEL = 0;
-
-	/**
 	 * The feature id for the '<em><b>Parametersanddatapair2annotation</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SECURITY_CORRESPONDENCE_MODEL__PARAMETERSANDDATAPAIR2ANNOTATION = 1;
+	int SECURITY_CORRESPONDENCE_MODEL__PARAMETERSANDDATAPAIR2ANNOTATION = 0;
+
+	/**
+	 * The feature id for the '<em><b>Dataset2securitylevel</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SECURITY_CORRESPONDENCE_MODEL__DATASET2SECURITYLEVEL = 1;
 
 	/**
 	 * The number of structural features of the '<em>Security Correspondence Model</em>' class.
@@ -270,14 +270,14 @@ public interface SecuritycorrespondencemodelPackage extends EPackage {
 	int CONF4_CBSE_PARAMETERS_AND_DATA_PAIR_OPERATION_COUNT = CONF4_CBSE_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.Conf4CBSEAdversaryImpl <em>Conf4 CBSE Adversary</em>}' class.
+	 * The meta object id for the '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.Conf4CBSEDataSetImpl <em>Conf4 CBSE Data Set</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.Conf4CBSEAdversaryImpl
-	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.SecuritycorrespondencemodelPackageImpl#getConf4CBSEAdversary()
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.Conf4CBSEDataSetImpl
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.SecuritycorrespondencemodelPackageImpl#getConf4CBSEDataSet()
 	 * @generated
 	 */
-	int CONF4_CBSE_ADVERSARY = 5;
+	int CONF4_CBSE_DATA_SET = 5;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -286,58 +286,58 @@ public interface SecuritycorrespondencemodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONF4_CBSE_ADVERSARY__ID = CONF4_CBSE_ELEMENT__ID;
+	int CONF4_CBSE_DATA_SET__ID = CONF4_CBSE_ELEMENT__ID;
 
 	/**
-	 * The number of structural features of the '<em>Conf4 CBSE Adversary</em>' class.
+	 * The number of structural features of the '<em>Conf4 CBSE Data Set</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONF4_CBSE_ADVERSARY_FEATURE_COUNT = CONF4_CBSE_ELEMENT_FEATURE_COUNT + 0;
+	int CONF4_CBSE_DATA_SET_FEATURE_COUNT = CONF4_CBSE_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Conf4 CBSE Adversary</em>' class.
+	 * The number of operations of the '<em>Conf4 CBSE Data Set</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONF4_CBSE_ADVERSARY_OPERATION_COUNT = CONF4_CBSE_ELEMENT_OPERATION_COUNT + 0;
+	int CONF4_CBSE_DATA_SET_OPERATION_COUNT = CONF4_CBSE_ELEMENT_OPERATION_COUNT + 0;
 
 
 	/**
-	 * Returns the meta object for class '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Adversary2SecurityLevel <em>Adversary2 Security Level</em>}'.
+	 * Returns the meta object for class '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.DataSet2SecurityLevel <em>Data Set2 Security Level</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Adversary2 Security Level</em>'.
-	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Adversary2SecurityLevel
+	 * @return the meta object for class '<em>Data Set2 Security Level</em>'.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.DataSet2SecurityLevel
 	 * @generated
 	 */
-	EClass getAdversary2SecurityLevel();
+	EClass getDataSet2SecurityLevel();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Adversary2SecurityLevel#getSecurityLevels <em>Security Levels</em>}'.
+	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.DataSet2SecurityLevel#getSecurityLevels <em>Security Levels</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Security Levels</em>'.
-	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Adversary2SecurityLevel#getSecurityLevels()
-	 * @see #getAdversary2SecurityLevel()
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.DataSet2SecurityLevel#getSecurityLevels()
+	 * @see #getDataSet2SecurityLevel()
 	 * @generated
 	 */
-	EReference getAdversary2SecurityLevel_SecurityLevels();
+	EReference getDataSet2SecurityLevel_SecurityLevels();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Adversary2SecurityLevel#getConf4cbseadversary <em>Conf4cbseadversary</em>}'.
+	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.DataSet2SecurityLevel#getConf4cbsedataset <em>Conf4cbsedataset</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Conf4cbseadversary</em>'.
-	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Adversary2SecurityLevel#getConf4cbseadversary()
-	 * @see #getAdversary2SecurityLevel()
+	 * @return the meta object for the containment reference list '<em>Conf4cbsedataset</em>'.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.DataSet2SecurityLevel#getConf4cbsedataset()
+	 * @see #getDataSet2SecurityLevel()
 	 * @generated
 	 */
-	EReference getAdversary2SecurityLevel_Conf4cbseadversary();
+	EReference getDataSet2SecurityLevel_Conf4cbsedataset();
 
 	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.ParametersAndDataPair2Annotation <em>Parameters And Data Pair2 Annotation</em>}'.
@@ -382,17 +382,6 @@ public interface SecuritycorrespondencemodelPackage extends EPackage {
 	EClass getSecurityCorrespondenceModel();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecurityCorrespondenceModel#getAdversary2securitylevel <em>Adversary2securitylevel</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Adversary2securitylevel</em>'.
-	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecurityCorrespondenceModel#getAdversary2securitylevel()
-	 * @see #getSecurityCorrespondenceModel()
-	 * @generated
-	 */
-	EReference getSecurityCorrespondenceModel_Adversary2securitylevel();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecurityCorrespondenceModel#getParametersanddatapair2annotation <em>Parametersanddatapair2annotation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -402,6 +391,17 @@ public interface SecuritycorrespondencemodelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSecurityCorrespondenceModel_Parametersanddatapair2annotation();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecurityCorrespondenceModel#getDataset2securitylevel <em>Dataset2securitylevel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Dataset2securitylevel</em>'.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecurityCorrespondenceModel#getDataset2securitylevel()
+	 * @see #getSecurityCorrespondenceModel()
+	 * @generated
+	 */
+	EReference getSecurityCorrespondenceModel_Dataset2securitylevel();
 
 	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEParametersAndDataPair <em>Conf4 CBSE Parameters And Data Pair</em>}'.
@@ -435,14 +435,14 @@ public interface SecuritycorrespondencemodelPackage extends EPackage {
 	EAttribute getConf4CBSEElement_Id();
 
 	/**
-	 * Returns the meta object for class '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEAdversary <em>Conf4 CBSE Adversary</em>}'.
+	 * Returns the meta object for class '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEDataSet <em>Conf4 CBSE Data Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Conf4 CBSE Adversary</em>'.
-	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEAdversary
+	 * @return the meta object for class '<em>Conf4 CBSE Data Set</em>'.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEDataSet
 	 * @generated
 	 */
-	EClass getConf4CBSEAdversary();
+	EClass getConf4CBSEDataSet();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -468,14 +468,14 @@ public interface SecuritycorrespondencemodelPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.Adversary2SecurityLevelImpl <em>Adversary2 Security Level</em>}' class.
+		 * The meta object literal for the '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.DataSet2SecurityLevelImpl <em>Data Set2 Security Level</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.Adversary2SecurityLevelImpl
-		 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.SecuritycorrespondencemodelPackageImpl#getAdversary2SecurityLevel()
+		 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.DataSet2SecurityLevelImpl
+		 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.SecuritycorrespondencemodelPackageImpl#getDataSet2SecurityLevel()
 		 * @generated
 		 */
-		EClass ADVERSARY2_SECURITY_LEVEL = eINSTANCE.getAdversary2SecurityLevel();
+		EClass DATA_SET2_SECURITY_LEVEL = eINSTANCE.getDataSet2SecurityLevel();
 
 		/**
 		 * The meta object literal for the '<em><b>Security Levels</b></em>' containment reference list feature.
@@ -483,15 +483,15 @@ public interface SecuritycorrespondencemodelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ADVERSARY2_SECURITY_LEVEL__SECURITY_LEVELS = eINSTANCE.getAdversary2SecurityLevel_SecurityLevels();
+		EReference DATA_SET2_SECURITY_LEVEL__SECURITY_LEVELS = eINSTANCE.getDataSet2SecurityLevel_SecurityLevels();
 
 		/**
-		 * The meta object literal for the '<em><b>Conf4cbseadversary</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Conf4cbsedataset</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ADVERSARY2_SECURITY_LEVEL__CONF4CBSEADVERSARY = eINSTANCE.getAdversary2SecurityLevel_Conf4cbseadversary();
+		EReference DATA_SET2_SECURITY_LEVEL__CONF4CBSEDATASET = eINSTANCE.getDataSet2SecurityLevel_Conf4cbsedataset();
 
 		/**
 		 * The meta object literal for the '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.ParametersAndDataPair2AnnotationImpl <em>Parameters And Data Pair2 Annotation</em>}' class.
@@ -530,20 +530,20 @@ public interface SecuritycorrespondencemodelPackage extends EPackage {
 		EClass SECURITY_CORRESPONDENCE_MODEL = eINSTANCE.getSecurityCorrespondenceModel();
 
 		/**
-		 * The meta object literal for the '<em><b>Adversary2securitylevel</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SECURITY_CORRESPONDENCE_MODEL__ADVERSARY2SECURITYLEVEL = eINSTANCE.getSecurityCorrespondenceModel_Adversary2securitylevel();
-
-		/**
 		 * The meta object literal for the '<em><b>Parametersanddatapair2annotation</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference SECURITY_CORRESPONDENCE_MODEL__PARAMETERSANDDATAPAIR2ANNOTATION = eINSTANCE.getSecurityCorrespondenceModel_Parametersanddatapair2annotation();
+
+		/**
+		 * The meta object literal for the '<em><b>Dataset2securitylevel</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SECURITY_CORRESPONDENCE_MODEL__DATASET2SECURITYLEVEL = eINSTANCE.getSecurityCorrespondenceModel_Dataset2securitylevel();
 
 		/**
 		 * The meta object literal for the '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.Conf4CBSEParametersAndDataPairImpl <em>Conf4 CBSE Parameters And Data Pair</em>}' class.
@@ -574,14 +574,14 @@ public interface SecuritycorrespondencemodelPackage extends EPackage {
 		EAttribute CONF4_CBSE_ELEMENT__ID = eINSTANCE.getConf4CBSEElement_Id();
 
 		/**
-		 * The meta object literal for the '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.Conf4CBSEAdversaryImpl <em>Conf4 CBSE Adversary</em>}' class.
+		 * The meta object literal for the '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.Conf4CBSEDataSetImpl <em>Conf4 CBSE Data Set</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.Conf4CBSEAdversaryImpl
-		 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.SecuritycorrespondencemodelPackageImpl#getConf4CBSEAdversary()
+		 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.Conf4CBSEDataSetImpl
+		 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.SecuritycorrespondencemodelPackageImpl#getConf4CBSEDataSet()
 		 * @generated
 		 */
-		EClass CONF4_CBSE_ADVERSARY = eINSTANCE.getConf4CBSEAdversary();
+		EClass CONF4_CBSE_DATA_SET = eINSTANCE.getConf4CBSEDataSet();
 
 	}
 

@@ -59,7 +59,7 @@ public class AggregatedTraceState {
 			return false;
 		}
 
-		return this.baseState.equals(toCompare.getBaseState());
+		return true;
 	}
 
 	@Override

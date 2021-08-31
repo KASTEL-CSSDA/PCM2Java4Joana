@@ -15,8 +15,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecurityCorrespondenceModel#getAdversary2securitylevel <em>Adversary2securitylevel</em>}</li>
  *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecurityCorrespondenceModel#getParametersanddatapair2annotation <em>Parametersanddatapair2annotation</em>}</li>
+ *   <li>{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecurityCorrespondenceModel#getDataset2securitylevel <em>Dataset2securitylevel</em>}</li>
  * </ul>
  *
  * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecuritycorrespondencemodelPackage#getSecurityCorrespondenceModel()
@@ -24,18 +24,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface SecurityCorrespondenceModel extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Adversary2securitylevel</b></em>' containment reference list.
-	 * The list contents are of type {@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Adversary2SecurityLevel}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Adversary2securitylevel</em>' containment reference list.
-	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecuritycorrespondencemodelPackage#getSecurityCorrespondenceModel_Adversary2securitylevel()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Adversary2SecurityLevel> getAdversary2securitylevel();
-
 	/**
 	 * Returns the value of the '<em><b>Parametersanddatapair2annotation</b></em>' containment reference list.
 	 * The list contents are of type {@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.ParametersAndDataPair2Annotation}.
@@ -47,5 +35,17 @@ public interface SecurityCorrespondenceModel extends EObject {
 	 * @generated
 	 */
 	EList<ParametersAndDataPair2Annotation> getParametersanddatapair2annotation();
+
+	/**
+	 * Returns the value of the '<em><b>Dataset2securitylevel</b></em>' containment reference list.
+	 * The list contents are of type {@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.DataSet2SecurityLevel}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Dataset2securitylevel</em>' containment reference list.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecuritycorrespondencemodelPackage#getSecurityCorrespondenceModel_Dataset2securitylevel()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<DataSet2SecurityLevel> getDataset2securitylevel();
 
 } // SecurityCorrespondenceModel

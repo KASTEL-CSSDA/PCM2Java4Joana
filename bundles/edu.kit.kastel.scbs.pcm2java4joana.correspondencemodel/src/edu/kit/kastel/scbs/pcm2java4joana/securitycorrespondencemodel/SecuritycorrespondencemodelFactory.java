@@ -22,13 +22,13 @@ public interface SecuritycorrespondencemodelFactory extends EFactory {
 	SecuritycorrespondencemodelFactory eINSTANCE = edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.SecuritycorrespondencemodelFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Adversary2 Security Level</em>'.
+	 * Returns a new object of class '<em>Data Set2 Security Level</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Adversary2 Security Level</em>'.
+	 * @return a new object of class '<em>Data Set2 Security Level</em>'.
 	 * @generated
 	 */
-	Adversary2SecurityLevel createAdversary2SecurityLevel();
+	DataSet2SecurityLevel createDataSet2SecurityLevel();
 
 	/**
 	 * Returns a new object of class '<em>Parameters And Data Pair2 Annotation</em>'.
@@ -67,13 +67,13 @@ public interface SecuritycorrespondencemodelFactory extends EFactory {
 	Conf4CBSEElement createConf4CBSEElement();
 
 	/**
-	 * Returns a new object of class '<em>Conf4 CBSE Adversary</em>'.
+	 * Returns a new object of class '<em>Conf4 CBSE Data Set</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Conf4 CBSE Adversary</em>'.
+	 * @return a new object of class '<em>Conf4 CBSE Data Set</em>'.
 	 * @generated
 	 */
-	Conf4CBSEAdversary createConf4CBSEAdversary();
+	Conf4CBSEDataSet createConf4CBSEDataSet();
 
 	/**
 	 * Returns the package supported by this factory.

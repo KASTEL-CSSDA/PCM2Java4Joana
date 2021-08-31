@@ -19,9 +19,9 @@ import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMParameter;
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Parameter2Parameter;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.Annotation;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.SecurityLevel;
-import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Adversary2SecurityLevel;
-import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEAdversary;
+import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEDataSet;
 import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEParametersAndDataPair;
+import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.DataSet2SecurityLevel;
 import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.ParametersAndDataPair2Annotation;
 import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecurityCorrespondenceModel;
 import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecuritycorrespondencemodelFactory;
@@ -86,30 +86,30 @@ public final class CorrespondenceModelElementsGenerator {
 		return parameterCorrespondence;
 	}
 
-	public static Adversary2SecurityLevel generateDatasetCorrespondence(DataSet dataset, SecurityLevel securityLevel) {
+	public static DataSet2SecurityLevel generateDatasetCorrespondence(DataSet dataset, SecurityLevel securityLevel) {
 		SecuritycorrespondencemodelFactory correspondenceFactory = SecuritycorrespondencemodelFactory.eINSTANCE;
-		Adversary2SecurityLevel correspondence = correspondenceFactory.createAdversary2SecurityLevel();
-		Conf4CBSEAdversary conf4cbseAdversary = correspondenceFactory.createConf4CBSEAdversary();
-		conf4cbseAdversary.setId(dataset.getId());
+		DataSet2SecurityLevel correspondence = correspondenceFactory.createDataSet2SecurityLevel();
+		Conf4CBSEDataSet conf4cbseDataset = correspondenceFactory.createConf4CBSEDataSet();
+		conf4cbseDataset.setId(dataset.getId());
 		correspondence.getSecurityLevels().add(JoanaModelUtils.copySecurityLevel(securityLevel));
-		correspondence.getConf4cbseadversary().add(conf4cbseAdversary);
+		correspondence.getConf4cbsedataset().add(conf4cbseDataset);
 
 		return correspondence;
 	}
 
-	public static Adversary2SecurityLevel generateAdversary2SecurityLevel(List<SecurityLevel> levels,
+	public static DataSet2SecurityLevel generateDataSet2SecurityLevel(List<SecurityLevel> levels,
 			SecurityCorrespondenceModel correspondenceModel) {
 		SecuritycorrespondencemodelFactory factory = SecuritycorrespondencemodelFactory.eINSTANCE;
-		Adversary2SecurityLevel adversary2SecurityLevel = factory.createAdversary2SecurityLevel();
+		DataSet2SecurityLevel datatSet2SecurityLevel = factory.createDataSet2SecurityLevel();
 
 		for (SecurityLevel level : levels) {
-			Conf4CBSEAdversary adversary = CorrespondenceModelUtils
-					.getAdversary2SecurityLevel(correspondenceModel, level).getConf4cbseadversary().get(0);
-			adversary2SecurityLevel.getConf4cbseadversary().add(adversary);
-			adversary2SecurityLevel.getSecurityLevels().add(JoanaModelUtils.copySecurityLevel(level));
+			Conf4CBSEDataSet dataset = CorrespondenceModelUtils.getDataSet2SecurityLevel(correspondenceModel, level)
+					.getConf4cbsedataset().get(0);
+			datatSet2SecurityLevel.getConf4cbsedataset().add(dataset);
+			datatSet2SecurityLevel.getSecurityLevels().add(JoanaModelUtils.copySecurityLevel(level));
 		}
 
-		return adversary2SecurityLevel;
+		return datatSet2SecurityLevel;
 	}
 
 	public static ParametersAndDataPair2Annotation generateParametersAndDataPair2Annotation(

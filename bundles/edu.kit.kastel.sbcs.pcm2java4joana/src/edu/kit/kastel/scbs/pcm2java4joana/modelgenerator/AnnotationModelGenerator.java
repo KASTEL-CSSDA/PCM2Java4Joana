@@ -276,7 +276,7 @@ public class AnnotationModelGenerator {
 				SecurityLevel level = factory.createSecurityLevel();
 				level.setName(dataset.getName());
 				levels.add(level);
-				this.securityCorrespondenceModel.getAdversary2securitylevel()
+				this.securityCorrespondenceModel.getDataset2securitylevel()
 						.add(CorrespondenceModelElementsGenerator.generateDatasetCorrespondence(dataset, level));
 			}
 		}

@@ -13,8 +13,8 @@ import edu.kit.kastel.scbs.pcm2java4joana.joana.Annotation;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.SecurityLevel;
 import edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.Trace;
 import edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.TraceState;
-import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Adversary2SecurityLevel;
-import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEAdversary;
+import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEDataSet;
+import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.DataSet2SecurityLevel;
 import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.ParametersAndDataPair2Annotation;
 import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecurityCorrespondenceModel;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class;
@@ -27,7 +27,7 @@ public final class CorrespondenceModelUtils {
 	public static List<SecurityLevel> getSecurityLevels(SecurityCorrespondenceModel correspondenceModel) {
 		List<SecurityLevel> securityLevels = new ArrayList<SecurityLevel>();
 
-		for (Adversary2SecurityLevel correspondence : correspondenceModel.getAdversary2securitylevel()) {
+		for (DataSet2SecurityLevel correspondence : correspondenceModel.getDataset2securitylevel()) {
 			securityLevels.add(correspondence.getSecurityLevels().get(0));
 		}
 
@@ -107,10 +107,9 @@ public final class CorrespondenceModelUtils {
 			SecurityCorrespondenceModel securityCorrespondenceModel, ConfidentialitySpecification specification,
 			List<SecurityLevel> securityLevel) {
 		Collection<DataSet> correspondingAdversaries = new ArrayList<DataSet>();
-		for (Adversary2SecurityLevel adversary2SecurityLevel : securityCorrespondenceModel
-				.getAdversary2securitylevel()) {
+		for (DataSet2SecurityLevel adversary2SecurityLevel : securityCorrespondenceModel.getDataset2securitylevel()) {
 			if (securityLevel.contains(adversary2SecurityLevel.getSecurityLevels().get(0))) {
-				for (Conf4CBSEAdversary conf4cbseAdversary : adversary2SecurityLevel.getConf4cbseadversary()) {
+				for (Conf4CBSEDataSet conf4cbseAdversary : adversary2SecurityLevel.getConf4cbsedataset()) {
 					DataSet adversary = ConfidentialityModelUtils.getDataset(specification, conf4cbseAdversary.getId());
 					if (adversary != null) {
 						correspondingAdversaries.add(adversary);
@@ -123,12 +122,12 @@ public final class CorrespondenceModelUtils {
 		return correspondingAdversaries;
 	}
 
-	public static Adversary2SecurityLevel getAdversary2SecurityLevel(SecurityCorrespondenceModel correspondenceModel,
+	public static DataSet2SecurityLevel getDataSet2SecurityLevel(SecurityCorrespondenceModel correspondenceModel,
 			SecurityLevel level) {
-		for (Adversary2SecurityLevel adversary2SecurityLevel : correspondenceModel.getAdversary2securitylevel()) {
-			if (adversary2SecurityLevel.getSecurityLevels().size() == 1
-					&& adversary2SecurityLevel.getSecurityLevels().contains(level)) {
-				return adversary2SecurityLevel;
+		for (DataSet2SecurityLevel dataSet2SecurityLevel : correspondenceModel.getDataset2securitylevel()) {
+			if (dataSet2SecurityLevel.getSecurityLevels().size() == 1
+					&& dataSet2SecurityLevel.getSecurityLevels().contains(level)) {
+				return dataSet2SecurityLevel;
 			}
 		}
 		return null;

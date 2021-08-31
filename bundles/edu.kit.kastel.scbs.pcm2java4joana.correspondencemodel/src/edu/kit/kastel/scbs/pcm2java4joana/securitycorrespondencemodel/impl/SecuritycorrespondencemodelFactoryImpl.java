@@ -56,12 +56,12 @@ public class SecuritycorrespondencemodelFactoryImpl extends EFactoryImpl impleme
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case SecuritycorrespondencemodelPackage.ADVERSARY2_SECURITY_LEVEL: return createAdversary2SecurityLevel();
+			case SecuritycorrespondencemodelPackage.DATA_SET2_SECURITY_LEVEL: return createDataSet2SecurityLevel();
 			case SecuritycorrespondencemodelPackage.PARAMETERS_AND_DATA_PAIR2_ANNOTATION: return createParametersAndDataPair2Annotation();
 			case SecuritycorrespondencemodelPackage.SECURITY_CORRESPONDENCE_MODEL: return createSecurityCorrespondenceModel();
 			case SecuritycorrespondencemodelPackage.CONF4_CBSE_PARAMETERS_AND_DATA_PAIR: return createConf4CBSEParametersAndDataPair();
 			case SecuritycorrespondencemodelPackage.CONF4_CBSE_ELEMENT: return createConf4CBSEElement();
-			case SecuritycorrespondencemodelPackage.CONF4_CBSE_ADVERSARY: return createConf4CBSEAdversary();
+			case SecuritycorrespondencemodelPackage.CONF4_CBSE_DATA_SET: return createConf4CBSEDataSet();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -72,9 +72,9 @@ public class SecuritycorrespondencemodelFactoryImpl extends EFactoryImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Adversary2SecurityLevel createAdversary2SecurityLevel() {
-		Adversary2SecurityLevelImpl adversary2SecurityLevel = new Adversary2SecurityLevelImpl();
-		return adversary2SecurityLevel;
+	public DataSet2SecurityLevel createDataSet2SecurityLevel() {
+		DataSet2SecurityLevelImpl dataSet2SecurityLevel = new DataSet2SecurityLevelImpl();
+		return dataSet2SecurityLevel;
 	}
 
 	/**
@@ -122,9 +122,9 @@ public class SecuritycorrespondencemodelFactoryImpl extends EFactoryImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Conf4CBSEAdversary createConf4CBSEAdversary() {
-		Conf4CBSEAdversaryImpl conf4CBSEAdversary = new Conf4CBSEAdversaryImpl();
-		return conf4CBSEAdversary;
+	public Conf4CBSEDataSet createConf4CBSEDataSet() {
+		Conf4CBSEDataSetImpl conf4CBSEDataSet = new Conf4CBSEDataSetImpl();
+		return conf4CBSEDataSet;
 	}
 
 	/**
