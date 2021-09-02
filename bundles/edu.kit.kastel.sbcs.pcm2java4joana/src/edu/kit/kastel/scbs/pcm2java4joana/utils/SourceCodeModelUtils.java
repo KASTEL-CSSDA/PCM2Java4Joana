@@ -16,11 +16,6 @@ import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourceCodeRoot;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.TopLevelType;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Type;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Variable;
-import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.impl.ClassImpl;
-import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.impl.CollectionTypeImpl;
-import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.impl.InterfaceImpl;
-import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.impl.MethodImpl;
-import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.impl.ReferenceTypeImpl;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.impl.VariableImpl;
 
 public final class SourceCodeModelUtils {
@@ -30,7 +25,7 @@ public final class SourceCodeModelUtils {
 
 	public static Interface getInterface(SourceCodeRoot sourceCodeModel, String entityName) {
 		for (TopLevelType topLevelType : sourceCodeModel.getTopleveltype()) {
-			if (topLevelType.getClass() == InterfaceImpl.class) {
+			if (topLevelType instanceof Interface) {
 				if (topLevelType.getName().equals(entityName)) {
 					return (Interface) topLevelType;
 				}
@@ -42,7 +37,7 @@ public final class SourceCodeModelUtils {
 	public static List<Class> getComponents(SourceCodeRoot sourceCodeModel, Interface implemented) {
 		List<Class> components = new ArrayList<Class>();
 		for (TopLevelType topLevelType : sourceCodeModel.getTopleveltype()) {
-			if (topLevelType.getClass() == ClassImpl.class) {
+			if (topLevelType instanceof Class) {
 				Class component = (Class) topLevelType;
 				if (component.getImplements().contains(implemented)) {
 					components.add(component);
@@ -75,7 +70,7 @@ public final class SourceCodeModelUtils {
 	public static List<Variable> getVariables(Class scClass) {
 		List<Variable> variables = new ArrayList<Variable>();
 		for (Field field : scClass.getFields()) {
-			if (field.getClass() == VariableImpl.class) {
+			if (field instanceof Variable) {
 				variables.add((Variable) field);
 			}
 		}
@@ -85,10 +80,10 @@ public final class SourceCodeModelUtils {
 	public static boolean hasCollectionType(List<Field> fields) {
 		boolean returnValue = false;
 		for (Field field : fields) {
-			if (field.getClass() == Variable.class) {
+			if (field instanceof Variable) {
 				returnValue = returnValue || SourceCodeModelUtils.hasVariableCollectionType((Variable) field);
 			}
-			if (field.getClass() == Method.class) {
+			if (field instanceof Method) {
 				returnValue = returnValue || SourceCodeModelUtils.hasMethodCollectionType((Method) field);
 			}
 		}
@@ -96,12 +91,12 @@ public final class SourceCodeModelUtils {
 	}
 
 	public static boolean hasMethodCollectionType(Method method) {
-		if (method.getType() != null && method.getType().getClass() == CollectionTypeImpl.class) {
+		if (method.getType() != null && method.getType() instanceof CollectionType) {
 			return true;
 		}
 
 		for (Parameter parameter : method.getParameter()) {
-			if (parameter.getType() != null && parameter.getType().getClass() == CollectionTypeImpl.class) {
+			if (parameter.getType() != null && parameter.getType() instanceof CollectionType) {
 				return true;
 			}
 		}
@@ -110,7 +105,7 @@ public final class SourceCodeModelUtils {
 	}
 
 	public static boolean hasVariableCollectionType(Variable variable) {
-		if (variable.getType().getClass() == CollectionTypeImpl.class) {
+		if (variable.getType() instanceof CollectionType) {
 			return true;
 		}
 		return false;
@@ -127,10 +122,10 @@ public final class SourceCodeModelUtils {
 
 	public static List<String> getReferenceTypes(Field field) {
 		List<String> returnValue = new ArrayList<String>();
-		if (field.getClass() == VariableImpl.class) {
+		if (field instanceof VariableImpl) {
 			returnValue.addAll(SourceCodeModelUtils.getReferenceTypeForVariable((Variable) field));
 		}
-		if (field.getClass() == MethodImpl.class) {
+		if (field instanceof Method) {
 			returnValue.addAll(SourceCodeModelUtils.getReferenceTypeForMethod((Method) field));
 		}
 		return returnValue;
@@ -141,10 +136,10 @@ public final class SourceCodeModelUtils {
 		var referenceTypes = new ArrayList<String>();
 
 		if (method.getType() != null) {
-			if (method.getType().getClass() == ReferenceTypeImpl.class) {
+			if (method.getType() instanceof ReferenceType) {
 				methodType = SourceCodeModelUtils.getReferenceTypeName((ReferenceType) method.getType());
 			}
-			if (method.getType().getClass() == CollectionType.class) {
+			if (method.getType() instanceof CollectionType) {
 				methodType = SourceCodeModelUtils.getReferenceTypeForCollectionType((CollectionType) method.getType());
 			}
 			if (!methodType.equals("")) {
@@ -164,10 +159,10 @@ public final class SourceCodeModelUtils {
 
 	public static String getReferenceTypeForParameter(Parameter parameter) {
 		String returnValue = "";
-		if (parameter.getType() != null && parameter.getType().getClass() == ReferenceTypeImpl.class) {
+		if (parameter.getType() != null && parameter.getType() instanceof ReferenceType) {
 			returnValue = SourceCodeModelUtils.getReferenceTypeName((ReferenceType) parameter.getType());
 		}
-		if (parameter.getType() != null && parameter.getType().getClass() == CollectionTypeImpl.class) {
+		if (parameter.getType() != null && parameter.getType() instanceof CollectionType) {
 			returnValue = SourceCodeModelUtils.getReferenceTypeForCollectionType((CollectionType) parameter.getType());
 		}
 		return returnValue;
@@ -177,10 +172,10 @@ public final class SourceCodeModelUtils {
 		List<String> referenceTypes = new ArrayList<String>();
 		String referenceType = "";
 		if (variable.getType() != null) {
-			if (variable.getType().getClass() == ReferenceTypeImpl.class) {
+			if (variable.getType() instanceof ReferenceType) {
 				referenceType = SourceCodeModelUtils.getReferenceTypeName((ReferenceType) variable.getType());
 			}
-			if (variable.getType().getClass() == CollectionTypeImpl.class) {
+			if (variable.getType() instanceof CollectionType) {
 				referenceType = SourceCodeModelUtils
 						.getReferenceTypeForCollectionType((CollectionType) variable.getType());
 			}
@@ -199,10 +194,10 @@ public final class SourceCodeModelUtils {
 		Type innerType = type.getType();
 		String returnValue = "";
 		if (innerType != null) {
-			if (innerType.getClass() == ReferenceTypeImpl.class) {
+			if (innerType instanceof ReferenceType) {
 				returnValue = SourceCodeModelUtils.getReferenceTypeName((ReferenceType) innerType);
 			}
-			if (innerType.getClass() == CollectionTypeImpl.class) {
+			if (innerType instanceof CollectionType) {
 				returnValue = SourceCodeModelUtils.getReferenceTypeForCollectionType((CollectionType) innerType);
 			}
 		}

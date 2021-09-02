@@ -48,10 +48,14 @@ class SupplierAnalysisModel2AnnotatedCodeGenerator {
 		
 		public interface «inter.name» {
 			«FOR method : inter.methods»
-				«generateMethod(inter, method, false, null)»
+				«generateInterfaceMethod(method)»
 			«ENDFOR»
 		}
 		'''
+	}
+	
+	static def String generateInterfaceMethod(Method method) {
+		return '''«generateDataType(method.type)» «method.name»(«FOR parameter : method.parameter»«generateDataType(parameter.type)» «parameter.name»«IF method.parameter.indexOf(parameter) != method.parameter.length - 1», «ENDIF»«ENDFOR»);'''
 	}
 	
 	static def String generateClass(Class sourceCodeClass, JOANARoot joanaModel) {
@@ -92,7 +96,7 @@ class SupplierAnalysisModel2AnnotatedCodeGenerator {
 		return '''
 		«generateJoanaAnnotation(parent, method, joanaModel)»
 		«IF isOverride»@Override«ENDIF»
-		public «generateDataType(method.type)» «method.name»(«FOR parameter : method.parameter»«generateParameter(parent, method, parameter, joanaModel)»«IF method.parameter.indexOf(parameter) != method.parameter.length - 1», «ENDIF»«ENDFOR»
+		public «generateDataType(method.type)» «method.name»(«FOR parameter : method.parameter»«generateParameter(parent, method, parameter, joanaModel)»«IF method.parameter.indexOf(parameter) != method.parameter.length - 1», «ENDIF»«ENDFOR») {
 			// TODO: Implement me!
 			«IF method.type !== null»return null;«ENDIF»
 		}

@@ -77,7 +77,7 @@ class SourceCodeElementGenerator {
 		switch type.builtInType {
 			case BOOLEAN: return '''Boolean'''
 			case BYTE: return '''Byte'''
-			case CHAR: return '''Char'''
+			case CHAR: return '''Character'''
 			case SHORT: return '''Short'''
 			case INT: return '''Integer'''
 			case FLOAT: return '''Float'''

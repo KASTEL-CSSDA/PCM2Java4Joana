@@ -191,7 +191,7 @@ public final class SourceCodeElementGenerator {
           return _builder_1.toString();
         case CHAR:
           StringConcatenation _builder_2 = new StringConcatenation();
-          _builder_2.append("Char");
+          _builder_2.append("Character");
           return _builder_2.toString();
         case SHORT:
           StringConcatenation _builder_3 = new StringConcatenation();

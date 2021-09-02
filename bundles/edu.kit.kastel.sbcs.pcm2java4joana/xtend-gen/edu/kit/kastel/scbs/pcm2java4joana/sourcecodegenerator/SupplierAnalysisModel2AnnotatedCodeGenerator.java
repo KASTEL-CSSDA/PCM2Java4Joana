@@ -70,13 +70,44 @@ public final class SupplierAnalysisModel2AnnotatedCodeGenerator {
       EList<Method> _methods = inter.getMethods();
       for(final Method method : _methods) {
         _builder.append("\t");
-        String _generateMethod = SupplierAnalysisModel2AnnotatedCodeGenerator.generateMethod(inter, method, false, null);
-        _builder.append(_generateMethod, "\t");
+        String _generateInterfaceMethod = SupplierAnalysisModel2AnnotatedCodeGenerator.generateInterfaceMethod(method);
+        _builder.append(_generateInterfaceMethod, "\t");
         _builder.newLineIfNotEmpty();
       }
     }
     _builder.append("}");
     _builder.newLine();
+    return _builder.toString();
+  }
+  
+  public static String generateInterfaceMethod(final Method method) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _generateDataType = SourceCodeElementGenerator.generateDataType(method.getType());
+    _builder.append(_generateDataType);
+    _builder.append(" ");
+    String _name = method.getName();
+    _builder.append(_name);
+    _builder.append("(");
+    {
+      EList<Parameter> _parameter = method.getParameter();
+      for(final Parameter parameter : _parameter) {
+        String _generateDataType_1 = SourceCodeElementGenerator.generateDataType(parameter.getType());
+        _builder.append(_generateDataType_1);
+        _builder.append(" ");
+        String _name_1 = parameter.getName();
+        _builder.append(_name_1);
+        {
+          int _indexOf = method.getParameter().indexOf(parameter);
+          int _length = ((Object[])Conversions.unwrapArray(method.getParameter(), Object.class)).length;
+          int _minus = (_length - 1);
+          boolean _notEquals = (_indexOf != _minus);
+          if (_notEquals) {
+            _builder.append(", ");
+          }
+        }
+      }
+    }
+    _builder.append(");");
     return _builder.toString();
   }
   
@@ -192,6 +223,7 @@ public final class SupplierAnalysisModel2AnnotatedCodeGenerator {
         }
       }
     }
+    _builder.append(") {");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("// TODO: Implement me!");
