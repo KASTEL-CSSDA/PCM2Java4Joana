@@ -64,8 +64,7 @@ public class BackprojectionHandler extends AbstractHandler {
 					correspondenceModels.getStructuralCorrespondenceModel(),
 					correspondenceModels.getSecurityCorrespondenceModel(), result);
 		} catch (InputException e) {
-			MessageDialog.openError(window.getShell(), "Error",
-					"Es gab Probleme beim Bestimmen des richtigen Sicherheitslevels.");
+			MessageDialog.openError(window.getShell(), "Error", e.getMessage());
 			return null;
 		}
 

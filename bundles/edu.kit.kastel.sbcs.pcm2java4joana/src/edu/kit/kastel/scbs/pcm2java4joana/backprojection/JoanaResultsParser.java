@@ -125,7 +125,9 @@ public class JoanaResultsParser {
 		}
 
 		line = reader.readLine();
-		String className = getEntryValue(line, CLASS_KEY);
+		String fullyQualifiedClassName = getEntryValue(line, CLASS_KEY);
+		String[] classNameParts = fullyQualifiedClassName.split("\\.");
+		String className = classNameParts[classNameParts.length - 1];
 		traceState.setTraceClassName(className);
 
 		line = reader.readLine();

@@ -329,6 +329,9 @@ public final class SourceCodeModelUtils {
 		if (typeName.contains("String")) {
 			typeName = typeName.split(".")[2];
 		}
+		if (typeName.equals("Character")) {
+			typeName = "Char";
+		}
 		return type.getBuiltInType().getName().toLowerCase().equals(typeName.toLowerCase());
 	}
 
