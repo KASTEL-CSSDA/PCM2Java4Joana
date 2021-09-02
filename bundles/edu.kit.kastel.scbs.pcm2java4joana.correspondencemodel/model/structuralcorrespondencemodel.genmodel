@@ -3,46 +3,46 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel/src"
     modelPluginID="edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel" modelName="Structuralcorrespondencemodel"
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="5.0" copyrightFields="false" usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.genmodel#//sourcecode"
+    complianceLevel="5.0" copyrightFields="false" usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecodemodel.genmodel#//sourcecode"
     operationReflection="true" importOrganizing="true">
-  <foreignModel>correspondencemodel.ecore</foreignModel>
+  <foreignModel>structuralcorrespondencemodel.ecore</foreignModel>
   <genPackages prefix="Correspondencemodel" basePackage="edu.kit.kastel.scbs.pcm2java4joana"
-      disposableProviderFactory="true" ecorePackage="correspondencemodel.ecore#/">
-    <genClasses ecoreClass="correspondencemodel.ecore#//Component2Class">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference correspondencemodel.ecore#//Component2Class/javaClass"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference correspondencemodel.ecore#//Component2Class/interface2interface"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference correspondencemodel.ecore#//Component2Class/pcmcomponent"/>
+      disposableProviderFactory="true" ecorePackage="structuralcorrespondencemodel.ecore#/">
+    <genClasses ecoreClass="structuralcorrespondencemodel.ecore#//Component2Class">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference structuralcorrespondencemodel.ecore#//Component2Class/javaClass"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference structuralcorrespondencemodel.ecore#//Component2Class/interface2interface"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference structuralcorrespondencemodel.ecore#//Component2Class/pcmcomponent"/>
     </genClasses>
-    <genClasses ecoreClass="correspondencemodel.ecore#//Interface2Interface">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference correspondencemodel.ecore#//Interface2Interface/javaInterface"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference correspondencemodel.ecore#//Interface2Interface/operation2method"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference correspondencemodel.ecore#//Interface2Interface/pcminterface"/>
+    <genClasses ecoreClass="structuralcorrespondencemodel.ecore#//Interface2Interface">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference structuralcorrespondencemodel.ecore#//Interface2Interface/javaInterface"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference structuralcorrespondencemodel.ecore#//Interface2Interface/operation2method"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference structuralcorrespondencemodel.ecore#//Interface2Interface/pcminterface"/>
     </genClasses>
-    <genClasses ecoreClass="correspondencemodel.ecore#//Operation2Method">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference correspondencemodel.ecore#//Operation2Method/javaMethod"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference correspondencemodel.ecore#//Operation2Method/parameter2parameter"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference correspondencemodel.ecore#//Operation2Method/pcmoperation"/>
+    <genClasses ecoreClass="structuralcorrespondencemodel.ecore#//Operation2Method">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference structuralcorrespondencemodel.ecore#//Operation2Method/javaMethod"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference structuralcorrespondencemodel.ecore#//Operation2Method/parameter2parameter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference structuralcorrespondencemodel.ecore#//Operation2Method/pcmoperation"/>
     </genClasses>
-    <genClasses ecoreClass="correspondencemodel.ecore#//Parameter2Parameter">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference correspondencemodel.ecore#//Parameter2Parameter/javaParameter"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference correspondencemodel.ecore#//Parameter2Parameter/pcmparameter"/>
+    <genClasses ecoreClass="structuralcorrespondencemodel.ecore#//Parameter2Parameter">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference structuralcorrespondencemodel.ecore#//Parameter2Parameter/javaParameter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference structuralcorrespondencemodel.ecore#//Parameter2Parameter/pcmparameter"/>
     </genClasses>
-    <genClasses ecoreClass="correspondencemodel.ecore#//StructuralCorrespondenceModel">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference correspondencemodel.ecore#//StructuralCorrespondenceModel/component2class"/>
+    <genClasses ecoreClass="structuralcorrespondencemodel.ecore#//StructuralCorrespondenceModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference structuralcorrespondencemodel.ecore#//StructuralCorrespondenceModel/component2class"/>
     </genClasses>
-    <genClasses ecoreClass="correspondencemodel.ecore#//PCMElement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute correspondencemodel.ecore#//PCMElement/id"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute correspondencemodel.ecore#//PCMElement/name"/>
+    <genClasses ecoreClass="structuralcorrespondencemodel.ecore#//PCMElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute structuralcorrespondencemodel.ecore#//PCMElement/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute structuralcorrespondencemodel.ecore#//PCMElement/name"/>
     </genClasses>
-    <genClasses ecoreClass="correspondencemodel.ecore#//PCMComponent">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference correspondencemodel.ecore#//PCMComponent/pcminterface"/>
+    <genClasses ecoreClass="structuralcorrespondencemodel.ecore#//PCMComponent">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference structuralcorrespondencemodel.ecore#//PCMComponent/pcminterface"/>
     </genClasses>
-    <genClasses ecoreClass="correspondencemodel.ecore#//PCMInterface">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference correspondencemodel.ecore#//PCMInterface/pcmoperation"/>
+    <genClasses ecoreClass="structuralcorrespondencemodel.ecore#//PCMInterface">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference structuralcorrespondencemodel.ecore#//PCMInterface/pcmoperation"/>
     </genClasses>
-    <genClasses ecoreClass="correspondencemodel.ecore#//PCMOperation">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference correspondencemodel.ecore#//PCMOperation/pcmparameter"/>
+    <genClasses ecoreClass="structuralcorrespondencemodel.ecore#//PCMOperation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference structuralcorrespondencemodel.ecore#//PCMOperation/pcmparameter"/>
     </genClasses>
-    <genClasses ecoreClass="correspondencemodel.ecore#//PCMParameter"/>
+    <genClasses ecoreClass="structuralcorrespondencemodel.ecore#//PCMParameter"/>
   </genPackages>
 </genmodel:GenModel>

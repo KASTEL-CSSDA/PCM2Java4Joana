@@ -9,9 +9,6 @@ import edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.ResultMethod;
 import edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.ResultType;
 import edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.Trace;
 import edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.TraceState;
-
-import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourcecodePackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -107,9 +104,6 @@ public class JoanasimplifiedresultPackageImpl extends EPackageImpl implements Jo
 		JoanasimplifiedresultPackageImpl theJoanasimplifiedresultPackage = registeredJoanasimplifiedresultPackage instanceof JoanasimplifiedresultPackageImpl ? (JoanasimplifiedresultPackageImpl)registeredJoanasimplifiedresultPackage : new JoanasimplifiedresultPackageImpl();
 
 		isInited = true;
-
-		// Initialize simple dependencies
-		SourcecodePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theJoanasimplifiedresultPackage.createPackageContents();

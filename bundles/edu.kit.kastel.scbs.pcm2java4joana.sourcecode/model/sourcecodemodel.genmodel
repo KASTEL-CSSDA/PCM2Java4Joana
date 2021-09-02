@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/edu.kit.kastel.scbs.pcm2java4joana.sourcecode/src"
+    modelPluginID="edu.kit.kastel.scbs.pcm2java4joana.sourcecode" modelName="Sourcecodemodel"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>sourcecodemodel.ecore</foreignModel>
+  <genPackages prefix="Sourcecode" basePackage="edu.kit.kastel.scbs.pcm2java4joana"
+      disposableProviderFactory="true" ecorePackage="sourcecodemodel.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="sourcecodemodel.ecore#//BuiltInTypes">
+      <genEnumLiterals ecoreEnumLiteral="sourcecodemodel.ecore#//BuiltInTypes/BOOLEAN"/>
+      <genEnumLiterals ecoreEnumLiteral="sourcecodemodel.ecore#//BuiltInTypes/BYTE"/>
+      <genEnumLiterals ecoreEnumLiteral="sourcecodemodel.ecore#//BuiltInTypes/CHAR"/>
+      <genEnumLiterals ecoreEnumLiteral="sourcecodemodel.ecore#//BuiltInTypes/SHORT"/>
+      <genEnumLiterals ecoreEnumLiteral="sourcecodemodel.ecore#//BuiltInTypes/INT"/>
+      <genEnumLiterals ecoreEnumLiteral="sourcecodemodel.ecore#//BuiltInTypes/FLOAT"/>
+      <genEnumLiterals ecoreEnumLiteral="sourcecodemodel.ecore#//BuiltInTypes/DOUBLE"/>
+      <genEnumLiterals ecoreEnumLiteral="sourcecodemodel.ecore#//BuiltInTypes/STRING"/>
+      <genEnumLiterals ecoreEnumLiteral="sourcecodemodel.ecore#//BuiltInTypes/LONG"/>
+    </genEnums>
+    <genClasses ecoreClass="sourcecodemodel.ecore#//SourceCodeRoot">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sourcecodemodel.ecore#//SourceCodeRoot/topleveltype"/>
+    </genClasses>
+    <genClasses ecoreClass="sourcecodemodel.ecore#//TopLevelType"/>
+    <genClasses ecoreClass="sourcecodemodel.ecore#//Interface">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sourcecodemodel.ecore#//Interface/methods"/>
+    </genClasses>
+    <genClasses ecoreClass="sourcecodemodel.ecore#//Class">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sourcecodemodel.ecore#//Class/implements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sourcecodemodel.ecore#//Class/fields"/>
+    </genClasses>
+    <genClasses ecoreClass="sourcecodemodel.ecore#//Field"/>
+    <genClasses ecoreClass="sourcecodemodel.ecore#//Method">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sourcecodemodel.ecore#//Method/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sourcecodemodel.ecore#//Method/parameter"/>
+    </genClasses>
+    <genClasses ecoreClass="sourcecodemodel.ecore#//Variable">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sourcecodemodel.ecore#//Variable/type"/>
+    </genClasses>
+    <genClasses ecoreClass="sourcecodemodel.ecore#//Type"/>
+    <genClasses ecoreClass="sourcecodemodel.ecore#//Parameter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sourcecodemodel.ecore#//Parameter/type"/>
+    </genClasses>
+    <genClasses ecoreClass="sourcecodemodel.ecore#//BuiltInType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sourcecodemodel.ecore#//BuiltInType/builtInType"/>
+    </genClasses>
+    <genClasses ecoreClass="sourcecodemodel.ecore#//ReferenceType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sourcecodemodel.ecore#//ReferenceType/topleveltype"/>
+    </genClasses>
+    <genClasses ecoreClass="sourcecodemodel.ecore#//CollectionType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sourcecodemodel.ecore#//CollectionType/type"/>
+    </genClasses>
+    <genClasses ecoreClass="sourcecodemodel.ecore#//SourceCodeElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sourcecodemodel.ecore#//SourceCodeElement/name"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

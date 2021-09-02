@@ -8,12 +8,12 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-11
-Export-Package: edu.kit.kastel.scbs.pcm2java4joana.joana,
- edu.kit.kastel.scbs.pcm2java4joana.joana.impl,
- edu.kit.kastel.scbs.pcm2java4joana.joana.util,
- edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult,
+Export-Package: edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult,
  edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.impl,
- edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.util
+ edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.util,
+ edu.kit.kastel.scbs.pcm2java4joana.joana,
+ edu.kit.kastel.scbs.pcm2java4joana.joana.impl,
+ edu.kit.kastel.scbs.pcm2java4joana.joana.util
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.core.runtime,
  edu.kit.kastel.scbs.pcm2java4joana.sourcecode;bundle-version="0.1.0";visibility:=reexport

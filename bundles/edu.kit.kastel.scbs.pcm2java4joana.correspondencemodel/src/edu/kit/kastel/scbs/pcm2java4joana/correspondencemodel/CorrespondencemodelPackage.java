@@ -304,7 +304,6 @@ public interface CorrespondencemodelPackage extends EPackage {
 	 */
 	int STRUCTURAL_CORRESPONDENCE_MODEL_OPERATION_COUNT = 0;
 
-
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl.PCMElementImpl <em>PCM Element</em>}' class.
 	 * <!-- begin-user-doc -->

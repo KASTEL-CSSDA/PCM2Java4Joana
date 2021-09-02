@@ -5,8 +5,8 @@ package edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl;
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Component2Class;
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.CorrespondencemodelPackage;
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Interface2Interface;
-
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMComponent;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;

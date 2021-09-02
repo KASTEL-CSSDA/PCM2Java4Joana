@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="correspondencemodel" nsURI="http://www.example.org/correspondencemodel"
+    nsPrefix="correspondencemodel">
+  <eClassifiers xsi:type="ecore:EClass" name="Component2Class">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="javaClass" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecodemodel.ecore#//Class"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interface2interface" upperBound="-1"
+        eType="#//Interface2Interface" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pcmcomponent" lowerBound="1"
+        eType="#//PCMComponent" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Interface2Interface">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="javaInterface" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecodemodel.ecore#//Interface"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operation2method" upperBound="-1"
+        eType="#//Operation2Method" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pcminterface" lowerBound="1"
+        eType="#//PCMInterface" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Operation2Method">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="javaMethod" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecodemodel.ecore#//Method"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameter2parameter" upperBound="-1"
+        eType="#//Parameter2Parameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pcmoperation" unique="false"
+        lowerBound="1" eType="#//PCMOperation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Parameter2Parameter">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="javaParameter" lowerBound="1"
+        eType="ecore:EClass ../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecodemodel.ecore#//Parameter"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pcmparameter" lowerBound="1"
+        eType="#//PCMParameter" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StructuralCorrespondenceModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component2class" upperBound="-1"
+        eType="#//Component2Class" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PCMElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PCMComponent" eSuperTypes="#//PCMElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pcminterface" upperBound="-1"
+        eType="#//PCMInterface"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PCMInterface" eSuperTypes="#//PCMElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pcmoperation" upperBound="-1"
+        eType="#//PCMOperation"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PCMOperation" eSuperTypes="#//PCMElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pcmparameter" upperBound="-1"
+        eType="#//PCMParameter"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PCMParameter" eSuperTypes="#//PCMElement"/>
+</ecore:EPackage>

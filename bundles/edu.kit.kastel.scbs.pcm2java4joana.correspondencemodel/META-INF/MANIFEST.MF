@@ -9,12 +9,12 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-11,
  JavaSE-11
-Export-Package: edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel,
- edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl,
- edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.util,
- edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel,
+Export-Package: edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel,
  edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl,
- edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.util
+ edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.util,
+ edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel,
+ edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl,
+ edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.util
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  edu.kit.kastel.scbs.confidentialitymm;visibility:=reexport,
  de.uka.ipd.sdq.identifier;visibility:=reexport,

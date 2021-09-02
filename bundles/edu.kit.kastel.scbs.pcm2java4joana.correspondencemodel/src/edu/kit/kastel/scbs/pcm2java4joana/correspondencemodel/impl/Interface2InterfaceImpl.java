@@ -5,8 +5,8 @@ package edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl;
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.CorrespondencemodelPackage;
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Interface2Interface;
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Operation2Method;
-
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMInterface;
+
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Interface;
 
 import java.util.Collection;

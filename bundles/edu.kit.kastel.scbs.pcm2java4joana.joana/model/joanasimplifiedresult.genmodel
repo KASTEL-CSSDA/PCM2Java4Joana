@@ -3,31 +3,30 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/edu.kit.kastel.scbs.pcm2java4joana.joana/src"
     modelPluginID="edu.kit.kastel.scbs.pcm2java4joana.joana" modelName="Joanasimplifiedresult"
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="5.0" copyrightFields="false" usedGenPackages="../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecode.genmodel#//sourcecode"
-    operationReflection="true" importOrganizing="true">
-  <foreignModel>joanasimplifiedresult.ecore</foreignModel>
+    complianceLevel="5.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>joanasimplifiedresultmodel.ecore</foreignModel>
   <genPackages prefix="Joanasimplifiedresult" basePackage="edu.kit.kastel.scbs.pcm2java4joana"
-      disposableProviderFactory="true" ecorePackage="joanasimplifiedresult.ecore#/">
-    <genClasses ecoreClass="joanasimplifiedresult.ecore#//Result">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joanasimplifiedresult.ecore#//Result/trace"/>
+      disposableProviderFactory="true" ecorePackage="joanasimplifiedresultmodel.ecore#/">
+    <genClasses ecoreClass="joanasimplifiedresultmodel.ecore#//Result">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joanasimplifiedresultmodel.ecore#//Result/trace"/>
     </genClasses>
-    <genClasses ecoreClass="joanasimplifiedresult.ecore#//Trace">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joanasimplifiedresult.ecore#//Trace/tracestate"/>
+    <genClasses ecoreClass="joanasimplifiedresultmodel.ecore#//Trace">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joanasimplifiedresultmodel.ecore#//Trace/tracestate"/>
     </genClasses>
-    <genClasses ecoreClass="joanasimplifiedresult.ecore#//TraceState">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanasimplifiedresult.ecore#//TraceState/tracePosition"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanasimplifiedresult.ecore#//TraceState/traceClassName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanasimplifiedresult.ecore#//TraceState/securityLevelName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanasimplifiedresult.ecore#//TraceState/parameterIndex"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joanasimplifiedresult.ecore#//TraceState/resultmethod"/>
+    <genClasses ecoreClass="joanasimplifiedresultmodel.ecore#//TraceState">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanasimplifiedresultmodel.ecore#//TraceState/tracePosition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanasimplifiedresultmodel.ecore#//TraceState/traceClassName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanasimplifiedresultmodel.ecore#//TraceState/securityLevelName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanasimplifiedresultmodel.ecore#//TraceState/parameterIndex"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joanasimplifiedresultmodel.ecore#//TraceState/resultmethod"/>
     </genClasses>
-    <genClasses ecoreClass="joanasimplifiedresult.ecore#//ResultType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanasimplifiedresult.ecore#//ResultType/typeString"/>
+    <genClasses ecoreClass="joanasimplifiedresultmodel.ecore#//ResultType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanasimplifiedresultmodel.ecore#//ResultType/typeString"/>
     </genClasses>
-    <genClasses ecoreClass="joanasimplifiedresult.ecore#//ResultMethod">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joanasimplifiedresult.ecore#//ResultMethod/paramterTypes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joanasimplifiedresult.ecore#//ResultMethod/returnType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanasimplifiedresult.ecore#//ResultMethod/name"/>
+    <genClasses ecoreClass="joanasimplifiedresultmodel.ecore#//ResultMethod">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joanasimplifiedresultmodel.ecore#//ResultMethod/paramterTypes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference joanasimplifiedresultmodel.ecore#//ResultMethod/returnType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute joanasimplifiedresultmodel.ecore#//ResultMethod/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

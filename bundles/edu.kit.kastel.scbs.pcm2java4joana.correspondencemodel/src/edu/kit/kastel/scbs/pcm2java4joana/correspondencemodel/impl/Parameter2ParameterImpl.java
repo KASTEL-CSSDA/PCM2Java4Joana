@@ -6,9 +6,11 @@ import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Correspondencemode
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMParameter;
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Parameter2Parameter;
 
-import org.eclipse.emf.common.notify.Notification;
+import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Parameter;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -38,7 +40,7 @@ public class Parameter2ParameterImpl extends MinimalEObjectImpl.Container implem
 	 * @generated
 	 * @ordered
 	 */
-	protected edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Parameter javaParameter;
+	protected Parameter javaParameter;
 
 	/**
 	 * The cached value of the '{@link #getPcmparameter() <em>Pcmparameter</em>}' containment reference.
@@ -74,10 +76,10 @@ public class Parameter2ParameterImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Parameter getJavaParameter() {
+	public Parameter getJavaParameter() {
 		if (javaParameter != null && javaParameter.eIsProxy()) {
 			InternalEObject oldJavaParameter = (InternalEObject)javaParameter;
-			javaParameter = (edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Parameter)eResolveProxy(oldJavaParameter);
+			javaParameter = (Parameter)eResolveProxy(oldJavaParameter);
 			if (javaParameter != oldJavaParameter) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CorrespondencemodelPackage.PARAMETER2_PARAMETER__JAVA_PARAMETER, oldJavaParameter, javaParameter));
@@ -91,7 +93,7 @@ public class Parameter2ParameterImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Parameter basicGetJavaParameter() {
+	public Parameter basicGetJavaParameter() {
 		return javaParameter;
 	}
 
@@ -100,8 +102,8 @@ public class Parameter2ParameterImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setJavaParameter(edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Parameter newJavaParameter) {
-		edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Parameter oldJavaParameter = javaParameter;
+	public void setJavaParameter(Parameter newJavaParameter) {
+		Parameter oldJavaParameter = javaParameter;
 		javaParameter = newJavaParameter;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CorrespondencemodelPackage.PARAMETER2_PARAMETER__JAVA_PARAMETER, oldJavaParameter, javaParameter));
@@ -190,7 +192,7 @@ public class Parameter2ParameterImpl extends MinimalEObjectImpl.Container implem
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CorrespondencemodelPackage.PARAMETER2_PARAMETER__JAVA_PARAMETER:
-				setJavaParameter((edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Parameter)newValue);
+				setJavaParameter((Parameter)newValue);
 				return;
 			case CorrespondencemodelPackage.PARAMETER2_PARAMETER__PCMPARAMETER:
 				setPcmparameter((PCMParameter)newValue);
@@ -208,7 +210,7 @@ public class Parameter2ParameterImpl extends MinimalEObjectImpl.Container implem
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case CorrespondencemodelPackage.PARAMETER2_PARAMETER__JAVA_PARAMETER:
-				setJavaParameter((edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Parameter)null);
+				setJavaParameter((Parameter)null);
 				return;
 			case CorrespondencemodelPackage.PARAMETER2_PARAMETER__PCMPARAMETER:
 				setPcmparameter((PCMParameter)null);
