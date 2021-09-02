@@ -38,6 +38,16 @@ public class EquationSystem {
 		return this.score;
 	}
 
+	public int getTotalPossibleScore() {
+		int totalScore = 0;
+		for (SecurityLevelEquation equation : equations) {
+			totalScore += equation.getPredecessors().size();
+			totalScore += equation.getSuccessors().size();
+		}
+
+		return totalScore;
+	}
+
 	public void solve(List<List<SecurityLevel>> securityLevels) {
 		int score = 0;
 		Map<Integer, List<SecurityLevel>> solution = new HashMap<Integer, List<SecurityLevel>>();

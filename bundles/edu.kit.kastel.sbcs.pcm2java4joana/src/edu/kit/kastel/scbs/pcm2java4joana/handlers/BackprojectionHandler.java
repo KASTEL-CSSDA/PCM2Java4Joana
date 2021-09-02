@@ -69,6 +69,14 @@ public class BackprojectionHandler extends AbstractHandler {
 			return null;
 		}
 
+		boolean confirm = MessageDialog.openConfirm(window.getShell(), "Confirmation",
+				"Die Sicherheitslevel für die Komponenteninterfacemethoden wurden auf der Basis der JOANA Ergebnisse approximiert. \n "
+						+ "Es konnten " + equationSystem.getScore() + " von " + equationSystem.getTotalPossibleScore()
+						+ " invalide Beziehungen entfernt. \n" + "Sollen die Ergebnisse zurückprojeziert werden?");
+		if (!confirm) {
+			return null;
+		}
+
 		ClientAnalysisModelUpdater.adaptClientAnalysisModel(clientAnalysisModel,
 				correspondenceModels.getStructuralCorrespondenceModel(),
 				correspondenceModels.getSecurityCorrespondenceModel(), equationSystem);
