@@ -16,92 +16,104 @@ import edu.kit.kastel.scbs.pcm2java4joana.joana.Sink
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Parameter
 import edu.kit.ipd.sdq.activextendannotations.Utility
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.TopLevelType
+import java.io.BufferedWriter
 
 @Utility
 class JoanaAnnotationsGenerator {
-	static def String generateJoanaAnnotation(TopLevelType parent, Method method, JOANARoot joanaModel) {
+	static def void generateJoanaAnnotation(TopLevelType parent, Method method, JOANARoot joanaModel, BufferedWriter writer) {
 		if (joanaModel === null) {
-			return ''''''
+			return
 		}
-		return '''
-		«generateEntryPoints(parent, method, joanaModel)»
-		«generateSources(parent, method, joanaModel)»
-		«generateSinks(parent, method, joanaModel)»'''
+
+		generateEntryPoints(parent, method, joanaModel, writer)
+		generateSources(parent, method, joanaModel, writer)
+		generateSinks(parent, method, joanaModel, writer)
 	}
 	
-	static def String generateJoanaAnnotation(TopLevelType parent, Method method, Parameter parameter, JOANARoot joanaModel) {
+	static def void generateJoanaAnnotation(TopLevelType parent, Method method, Parameter parameter, JOANARoot joanaModel, BufferedWriter writer) {
 		if (joanaModel === null) {
-			return ''''''
+			return
 		}
-		return '''«generateSources(parent, method, parameter, joanaModel)» «generateSinks(parent, method, parameter, joanaModel)»'''
+		generateSources(parent, method, parameter, joanaModel, writer)
+		generateSinks(parent, method, parameter, joanaModel, writer)
 	}
 	
-	static def String generateEntryPoints(TopLevelType parent, Method method, JOANARoot joanaModel) {
+	static def void generateEntryPoints(TopLevelType parent, Method method, JOANARoot joanaModel, BufferedWriter writer) {
 		val entryPoints = JoanaModelUtils.getEntryPoints(joanaModel, parent.name, method.name)
-		return '''
-		«FOR entryPoint : entryPoints»«generateEntryPointAnnotation(entryPoint)»«ENDFOR»
-		'''
+		for (entryPoint : entryPoints) {
+			generateEntryPointAnnotation(entryPoint, writer)
+		}
 	}
 	
-	static def String generateSources(TopLevelType parent, Method method, JOANARoot joanaModel) {
+	static def void generateSources(TopLevelType parent, Method method, JOANARoot joanaModel, BufferedWriter writer) {
 		val sources = JoanaModelUtils.getSourcesFor(joanaModel, parent.name, method.name)
 		val tags = new ArrayList<String>()
 		for(source : sources) {
-			tags.add(source.tag)
+			tags.addAll(source.tag)
 		}
 		if (sources.size == 0) {
-			return ''''''
+			return
 		} else {
-			return '''@Source«generateAnnotation(sources.get(0), tags)»'''
+			val content = '''@Source«generateAnnotation(sources.get(0), tags)»'''
+			writer.write(content)
+			writer.flush()
 		}
 	}
 	
-	static def String generateSinks(TopLevelType parent, Method method, Parameter parameter, JOANARoot joanaModel) {
+	static def void generateSinks(TopLevelType parent, Method method, Parameter parameter, JOANARoot joanaModel, BufferedWriter writer) {
 		val sinks = JoanaModelUtils.getSinksFor(joanaModel, parent.name, method.name, parameter.name)
 		val tags = new ArrayList<String>()
 		for(sink : sinks) {
-			tags.add(sink.tag)
+			tags.addAll(sink.tag)
 		}
 		if (sinks.size == 0) {
-			return ''''''
+			return
 		} else {
-			return '''@Sink«generateAnnotation(sinks.get(0), tags)»'''
+			val content =  '''@Sink«generateAnnotation(sinks.get(0), tags)»'''
+			writer.write(content)
+			writer.flush()
 		}
 	}
 	
-	static def String generateSources(TopLevelType parent, Method method, Parameter parameter, JOANARoot joanaModel) {
+	static def void generateSources(TopLevelType parent, Method method, Parameter parameter, JOANARoot joanaModel, BufferedWriter writer) {
 		val sources = JoanaModelUtils.getSourcesFor(joanaModel, parent.name, method.name, parameter.name)
 		val tags = new ArrayList<String>()
 		for(source : sources) {
-			tags.add(source.tag)
+			tags.addAll(source.tag)
 		}
 		if (sources.size == 0) {
-			return ''''''
+			return
 		} else {
-			return '''@Source«generateAnnotation(sources.get(0), tags)»'''
+			val content = '''@Source«generateAnnotation(sources.get(0), tags)»'''
+			writer.write(content)
+			writer.flush()
 		}
 	}
 	
-	static def String generateSinks(TopLevelType parent, Method method, JOANARoot joanaModel) {
+	static def void generateSinks(TopLevelType parent, Method method, JOANARoot joanaModel, BufferedWriter writer) {
 		val sinks = JoanaModelUtils.getSinksFor(joanaModel, parent.name, method.name)
 		val tags = new ArrayList<String>()
 		for(sink : sinks) {
-			tags.add(sink.tag)
+			tags.addAll(sink.tag)
 		}
 		if (sinks.size == 0) {
-			return ''''''
+			return
 		} else {
-			return '''@Sink«generateAnnotation(sinks.get(0), tags)»'''
+			val content = '''@Sink«generateAnnotation(sinks.get(0), tags)»'''
+			writer.write(content)
+			writer.flush()
 		}
 	}
 	
-	static def String generateEntryPointAnnotation(EntryPoint element) {
-		return '''
-		@EntryPoint(tag = "«element.tag»",
+	static def void generateEntryPointAnnotation(EntryPoint element, BufferedWriter writer) {
+		val content = '''
+		@EntryPoint(tag = "«element.tag.get(0)»",
 			levels = «generateLevelsAnnotation(element.securitylevels)»,
 			lattice = «generateLattice(element.lattice)»
 		)
 		'''
+		writer.write(content)
+		writer.flush()
 	}
 	
 	static def String generateLattice(Lattice lattice) {		

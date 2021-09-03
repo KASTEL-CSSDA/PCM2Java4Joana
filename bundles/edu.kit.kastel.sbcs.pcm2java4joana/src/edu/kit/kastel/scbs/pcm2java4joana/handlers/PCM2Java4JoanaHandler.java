@@ -79,7 +79,7 @@ public class PCM2Java4JoanaHandler extends AbstractHandler {
 
 		List<CodeWithFile> generatedAnnotatedSourceCode = SupplierAnalysisModel2AnnotatedCodeGenerator
 				.generateAnnotatedCode(supplierAnalysisModel.getSourceCodeModel(),
-						supplierAnalysisModel.getJoanaModel());
+						supplierAnalysisModel.getJoanaModel(), basePath);
 		AnnotatedSourceCode annotatedSourceCode = new AnnotatedSourceCode(basePath, generatedAnnotatedSourceCode);
 
 		try {

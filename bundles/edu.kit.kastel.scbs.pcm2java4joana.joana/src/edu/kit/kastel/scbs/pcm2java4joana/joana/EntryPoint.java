@@ -23,34 +23,34 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface EntryPoint extends FlowSpecificationElement {
 	/**
-	 * Returns the value of the '<em><b>Securitylevels</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Securitylevels</b></em>' reference list.
 	 * The list contents are of type {@link edu.kit.kastel.scbs.pcm2java4joana.joana.SecurityLevel}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Securitylevels</em>' containment reference list.
+	 * @return the value of the '<em>Securitylevels</em>' reference list.
 	 * @see edu.kit.kastel.scbs.pcm2java4joana.joana.JoanaPackage#getEntryPoint_Securitylevels()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
 	EList<SecurityLevel> getSecuritylevels();
 
 	/**
-	 * Returns the value of the '<em><b>Lattice</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Lattice</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Lattice</em>' containment reference.
+	 * @return the value of the '<em>Lattice</em>' reference.
 	 * @see #setLattice(Lattice)
 	 * @see edu.kit.kastel.scbs.pcm2java4joana.joana.JoanaPackage#getEntryPoint_Lattice()
-	 * @model containment="true" required="true"
+	 * @model required="true"
 	 * @generated
 	 */
 	Lattice getLattice();
 
 	/**
-	 * Sets the value of the '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.EntryPoint#getLattice <em>Lattice</em>}' containment reference.
+	 * Sets the value of the '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.EntryPoint#getLattice <em>Lattice</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Lattice</em>' containment reference.
+	 * @param value the new value of the '<em>Lattice</em>' reference.
 	 * @see #getLattice()
 	 * @generated
 	 */

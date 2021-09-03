@@ -12,32 +12,40 @@ import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.TopLevelType;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Type;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Variable;
 import edu.kit.kastel.scbs.pcm2java4joana.utils.SourceCodeModelUtils;
+import java.io.BufferedWriter;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipse.xtext.xbase.lib.Exceptions;
 
 @Utility
 @SuppressWarnings("all")
 public final class SourceCodeElementGenerator {
-  public static String generateVariable(final Variable variable) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("private ");
-    String _generateDataType = SourceCodeElementGenerator.generateDataType(variable.getType());
-    _builder.append(_generateDataType);
-    _builder.append(" ");
-    String _name = variable.getName();
-    _builder.append(_name);
-    _builder.append(";");
-    _builder.newLineIfNotEmpty();
-    _builder.newLine();
-    String _generateGetter = SourceCodeElementGenerator.generateGetter(variable);
-    _builder.append(_generateGetter);
-    _builder.newLineIfNotEmpty();
-    String _generateSetter = SourceCodeElementGenerator.generateSetter(variable);
-    _builder.append(_generateSetter);
-    _builder.newLineIfNotEmpty();
-    return _builder.toString();
+  public static void generateVariable(final Variable variable, final BufferedWriter writer) {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("private ");
+      String _generateDataType = SourceCodeElementGenerator.generateDataType(variable.getType());
+      _builder.append(_generateDataType);
+      _builder.append(" ");
+      String _name = variable.getName();
+      _builder.append(_name);
+      _builder.append(";");
+      _builder.newLineIfNotEmpty();
+      _builder.newLine();
+      String _generateGetter = SourceCodeElementGenerator.generateGetter(variable);
+      _builder.append(_generateGetter);
+      _builder.newLineIfNotEmpty();
+      String _generateSetter = SourceCodeElementGenerator.generateSetter(variable);
+      _builder.append(_generateSetter);
+      _builder.newLineIfNotEmpty();
+      final String content = _builder.toString();
+      writer.write(content);
+      writer.flush();
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
   }
   
   public static String generateConstructor(final edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class scClass) {

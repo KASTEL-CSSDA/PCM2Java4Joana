@@ -18,9 +18,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -48,7 +46,7 @@ public class FlowSpecificationImpl extends JoanaElementImpl implements FlowSpeci
 	protected EntryPoint entrypoint;
 
 	/**
-	 * The cached value of the '{@link #getAnnotation() <em>Annotation</em>}' containment reference list.
+	 * The cached value of the '{@link #getAnnotation() <em>Annotation</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getAnnotation()
@@ -126,7 +124,7 @@ public class FlowSpecificationImpl extends JoanaElementImpl implements FlowSpeci
 	 */
 	public EList<Annotation> getAnnotation() {
 		if (annotation == null) {
-			annotation = new EObjectContainmentEList<Annotation>(Annotation.class, this, JoanaPackage.FLOW_SPECIFICATION__ANNOTATION);
+			annotation = new EObjectResolvingEList<Annotation>(Annotation.class, this, JoanaPackage.FLOW_SPECIFICATION__ANNOTATION);
 		}
 		return annotation;
 	}
@@ -141,8 +139,6 @@ public class FlowSpecificationImpl extends JoanaElementImpl implements FlowSpeci
 		switch (featureID) {
 			case JoanaPackage.FLOW_SPECIFICATION__ENTRYPOINT:
 				return basicSetEntrypoint(null, msgs);
-			case JoanaPackage.FLOW_SPECIFICATION__ANNOTATION:
-				return ((InternalEList<?>)getAnnotation()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}

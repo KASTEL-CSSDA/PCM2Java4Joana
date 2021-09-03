@@ -5,9 +5,10 @@ package edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.impl;
 import edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.JoanasimplifiedresultPackage;
 import edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.ResultMethod;
 import edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.TraceState;
-import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 

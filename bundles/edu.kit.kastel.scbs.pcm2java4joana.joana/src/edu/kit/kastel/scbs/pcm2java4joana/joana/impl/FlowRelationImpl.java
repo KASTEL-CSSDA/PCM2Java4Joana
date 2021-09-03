@@ -7,15 +7,10 @@ import edu.kit.kastel.scbs.pcm2java4joana.joana.JoanaPackage;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.SecurityLevel;
 
 import java.util.Collection;
-
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -34,7 +29,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class FlowRelationImpl extends JoanaElementImpl implements FlowRelation {
 	/**
-	 * The cached value of the '{@link #getFrom() <em>From</em>}' containment reference list.
+	 * The cached value of the '{@link #getFrom() <em>From</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getFrom()
@@ -44,7 +39,7 @@ public class FlowRelationImpl extends JoanaElementImpl implements FlowRelation {
 	protected EList<SecurityLevel> from;
 
 	/**
-	 * The cached value of the '{@link #getTo() <em>To</em>}' containment reference list.
+	 * The cached value of the '{@link #getTo() <em>To</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTo()
@@ -79,7 +74,7 @@ public class FlowRelationImpl extends JoanaElementImpl implements FlowRelation {
 	 */
 	public EList<SecurityLevel> getFrom() {
 		if (from == null) {
-			from = new EObjectContainmentEList.Unsettable<SecurityLevel>(SecurityLevel.class, this, JoanaPackage.FLOW_RELATION__FROM);
+			from = new EObjectResolvingEList.Unsettable<SecurityLevel>(SecurityLevel.class, this, JoanaPackage.FLOW_RELATION__FROM);
 		}
 		return from;
 	}
@@ -109,25 +104,9 @@ public class FlowRelationImpl extends JoanaElementImpl implements FlowRelation {
 	 */
 	public EList<SecurityLevel> getTo() {
 		if (to == null) {
-			to = new EObjectContainmentEList<SecurityLevel>(SecurityLevel.class, this, JoanaPackage.FLOW_RELATION__TO);
+			to = new EObjectResolvingEList<SecurityLevel>(SecurityLevel.class, this, JoanaPackage.FLOW_RELATION__TO);
 		}
 		return to;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case JoanaPackage.FLOW_RELATION__FROM:
-				return ((InternalEList<?>)getFrom()).basicRemove(otherEnd, msgs);
-			case JoanaPackage.FLOW_RELATION__TO:
-				return ((InternalEList<?>)getTo()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

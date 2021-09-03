@@ -203,7 +203,6 @@ public interface JoanasimplifiedresultPackage extends EPackage {
 	 */
 	int TRACE_STATE_OPERATION_COUNT = 0;
 
-
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.impl.ResultTypeImpl <em>Result Type</em>}' class.
 	 * <!-- begin-user-doc -->

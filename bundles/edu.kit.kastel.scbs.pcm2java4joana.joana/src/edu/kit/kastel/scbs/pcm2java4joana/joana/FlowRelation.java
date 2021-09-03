@@ -23,21 +23,21 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface FlowRelation extends JoanaElement {
 	/**
-	 * Returns the value of the '<em><b>From</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>From</b></em>' reference list.
 	 * The list contents are of type {@link edu.kit.kastel.scbs.pcm2java4joana.joana.SecurityLevel}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>From</em>' containment reference list.
+	 * @return the value of the '<em>From</em>' reference list.
 	 * @see #isSetFrom()
 	 * @see #unsetFrom()
 	 * @see edu.kit.kastel.scbs.pcm2java4joana.joana.JoanaPackage#getFlowRelation_From()
-	 * @model containment="true" unsettable="true" required="true"
+	 * @model unsettable="true" required="true"
 	 * @generated
 	 */
 	EList<SecurityLevel> getFrom();
 
 	/**
-	 * Unsets the value of the '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.FlowRelation#getFrom <em>From</em>}' containment reference list.
+	 * Unsets the value of the '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.FlowRelation#getFrom <em>From</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #isSetFrom()
@@ -47,10 +47,10 @@ public interface FlowRelation extends JoanaElement {
 	void unsetFrom();
 
 	/**
-	 * Returns whether the value of the '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.FlowRelation#getFrom <em>From</em>}' containment reference list is set.
+	 * Returns whether the value of the '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.FlowRelation#getFrom <em>From</em>}' reference list is set.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return whether the value of the '<em>From</em>' containment reference list is set.
+	 * @return whether the value of the '<em>From</em>' reference list is set.
 	 * @see #unsetFrom()
 	 * @see #getFrom()
 	 * @generated
@@ -58,13 +58,13 @@ public interface FlowRelation extends JoanaElement {
 	boolean isSetFrom();
 
 	/**
-	 * Returns the value of the '<em><b>To</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>To</b></em>' reference list.
 	 * The list contents are of type {@link edu.kit.kastel.scbs.pcm2java4joana.joana.SecurityLevel}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>To</em>' containment reference list.
+	 * @return the value of the '<em>To</em>' reference list.
 	 * @see edu.kit.kastel.scbs.pcm2java4joana.joana.JoanaPackage#getFlowRelation_To()
-	 * @model containment="true" required="true"
+	 * @model required="true"
 	 * @generated
 	 */
 	EList<SecurityLevel> getTo();

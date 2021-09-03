@@ -1,6 +1,5 @@
 package edu.kit.kastel.scbs.pcm2java4joana.sourcecodegenerator
 
-import org.eclipse.internal.xtend.util.Triplet
 import java.util.List
 import java.util.ArrayList
 
@@ -19,29 +18,55 @@ import static extension edu.kit.kastel.scbs.pcm2java4joana.sourcecodegenerator.J
 import static extension edu.kit.kastel.scbs.pcm2java4joana.sourcecodegenerator.SourceCodeElementGenerator.*
 import edu.kit.ipd.sdq.activextendannotations.Utility
 import edu.kit.kastel.scbs.pcm2java4joana.models.CodeWithFile
+import org.eclipse.core.runtime.IPath
+import java.io.File
+import java.io.IOException
+import edu.kit.kastel.scbs.pcm2java4joana.exceptions.CodeSaveException
+import java.io.BufferedWriter
+import java.io.FileWriter
 
 @Utility
 class SupplierAnalysisModel2AnnotatedCodeGenerator {
 	
-	static def List<CodeWithFile> generateAnnotatedCode(SourceCodeRoot sourceCodeModel, JOANARoot joanaModel) {
+	static def List<CodeWithFile> generateAnnotatedCode(SourceCodeRoot sourceCodeModel, JOANARoot joanaModel, IPath baseFolder) {
 		val contentsForFiles = new ArrayList<CodeWithFile>()
+		val destinationFolder = baseFolder.append("src-gen");
+		val folder = destinationFolder.toString() + IPath.SEPARATOR;
+		(new File(folder)).mkdirs();
+		
 		for (topLevelType : sourceCodeModel.topleveltype) {
-			val content = generateTopLevelType(topLevelType, joanaModel)
-			val newTuple = new CodeWithFile(content, topLevelType.name + ".java")
-			contentsForFiles.add(newTuple)
+			val filePath = folder + topLevelType.name + ".java";
+			val file = new File(filePath);
+			if (!file.exists()) {
+				try {
+					file.createNewFile();
+				} catch (IOException e) {
+					e.printStackTrace();
+					throw new CodeSaveException(e.getMessage());
+				}
+			}
+			val fw = new FileWriter(file);
+			val writer = new BufferedWriter(fw);
+			
+			generateTopLevelType(topLevelType, joanaModel, writer)
+			
+			writer.close();
+			fw.close();
+//			val newTuple = new CodeWithFile(content, topLevelType.name + ".java")
+//			contentsForFiles.add(newTuple)
 		}
 		return contentsForFiles;	
 	}
 	
-	static def String generateTopLevelType(TopLevelType topLevelType, JOANARoot joanaModel) {
+	static def void generateTopLevelType(TopLevelType topLevelType, JOANARoot joanaModel, BufferedWriter writer) {
 		switch topLevelType {
-			Class: generateClass(topLevelType, joanaModel)
-			Interface: generateInterface(topLevelType)
+			Class: generateClass(topLevelType, joanaModel, writer)
+			Interface: generateInterface(topLevelType, writer)
 		}
 	}
 	
-	static def String generateInterface(Interface inter) {
-		return '''
+	static def void generateInterface(Interface inter, BufferedWriter writer) {
+		val content = '''
 		«generatePackage()»
 		
 		«generateImportsInterface(inter.methods)»
@@ -52,58 +77,78 @@ class SupplierAnalysisModel2AnnotatedCodeGenerator {
 			«ENDFOR»
 		}
 		'''
+		writer.write(content);
 	}
 	
 	static def String generateInterfaceMethod(Method method) {
 		return '''«generateDataType(method.type)» «method.name»(«FOR parameter : method.parameter»«generateDataType(parameter.type)» «parameter.name»«IF method.parameter.indexOf(parameter) != method.parameter.length - 1», «ENDIF»«ENDFOR»);'''
 	}
 	
-	static def String generateClass(Class sourceCodeClass, JOANARoot joanaModel) {
-		return '''
+	static def void generateClass(Class sourceCodeClass, JOANARoot joanaModel, BufferedWriter writer) {
+		val packageAndImports =  '''
 		«generatePackage()»
 		
 		import edu.kit.joana.ui.annotations.*;
 		«FOR toImport : sourceCodeClass.implements»
 			«generateImport(toImport)»
 		«ENDFOR»
-		«generateImports(sourceCodeClass.fields)»
+		«generateImports(sourceCodeClass.fields)»'''
+		writer.write(packageAndImports)
+		writer.flush()
 		
-		public class «sourceCodeClass.name» «IF sourceCodeClass.implements.size > 0»implements «generateImplements(sourceCodeClass.implements)»«ENDIF»{
-			«generateFields(sourceCodeClass.fields, sourceCodeClass, joanaModel)»
-			
-			«generateConstructor(sourceCodeClass)»
+		
+		val classDefinition = '''public class «sourceCodeClass.name» «IF sourceCodeClass.implements.size > 0»implements «generateImplements(sourceCodeClass.implements)»«ENDIF»{ '''
+		writer.write(classDefinition)
+		writer.flush()
+		
+		generateFields(sourceCodeClass.fields, sourceCodeClass, joanaModel, writer)			
+		val constructor =  '''«generateConstructor(sourceCodeClass)»
+		}'''
+		
+		writer.write(constructor)
+		writer.flush()
+	}
+	
+	static def void generateFields(List<Field> fields, Class sourceCodeClass, JOANARoot joanaModel, BufferedWriter writer) {
+		for(field : fields) {
+			generateField(field, sourceCodeClass, joanaModel, writer)
 		}
-		'''
 	}
 	
-	static def String generateFields(List<Field> fields, Class sourceCodeClass, JOANARoot joanaModel) {
-		return '''
-			«FOR field : fields»
-				«generateField(field, sourceCodeClass, joanaModel)»
-			«ENDFOR»
-		'''
-	}
-	
-	static def String generateField(Field field, Class sourceCodeClass, JOANARoot joanaModel) {
+	static def void generateField(Field field, Class sourceCodeClass, JOANARoot joanaModel, BufferedWriter writer) {
 		switch field {
-			Variable: generateVariable(field)
-			Method: generateMethod(sourceCodeClass, field, true, joanaModel)
+			Variable: generateVariable(field, writer)
+			Method: generateMethod(sourceCodeClass, field, true, joanaModel, writer)
 		}
 	}
 			
-	static def String generateMethod(TopLevelType parent, Method method, boolean isOverride, JOANARoot joanaModel) {
-		
-		return '''
-		«generateJoanaAnnotation(parent, method, joanaModel)»
-		«IF isOverride»@Override«ENDIF»
-		public «generateDataType(method.type)» «method.name»(«FOR parameter : method.parameter»«generateParameter(parent, method, parameter, joanaModel)»«IF method.parameter.indexOf(parameter) != method.parameter.length - 1», «ENDIF»«ENDFOR») {
-			// TODO: Implement me!
-			«IF method.type !== null»return null;«ENDIF»
+	static def void generateMethod(TopLevelType parent, Method method, boolean isOverride, JOANARoot joanaModel, BufferedWriter writer) {
+		generateJoanaAnnotation(parent, method, joanaModel, writer)
+		if (isOverride) {
+			writer.write("@Override \n")
 		}
-		'''
+		val content = '''public «generateDataType(method.type)» «method.name»('''
+		writer.write(content)
+		writer.flush()
+		
+		for(parameter : method.parameter) {
+			generateParameter(parent, method, parameter, joanaModel, writer)
+			if(method.parameter.indexOf(parameter) != method.parameter.length - 1) {
+				writer.write(",")
+			}
+		}
+		writer.write(") { \n")		
+		if (method.type !== null) {
+			writer.write("return null; \n")
+		}
+		writer.write("} \n")
+		writer.flush()
 	}
 	
-	static def String generateParameter(TopLevelType parent, Method method, Parameter parameter, JOANARoot joanaModel) {
-		return '''«generateJoanaAnnotation(parent, method, parameter, joanaModel)» «generateDataType(parameter.type)» «parameter.name»'''
+	static def void generateParameter(TopLevelType parent, Method method, Parameter parameter, JOANARoot joanaModel, BufferedWriter writer) {
+		generateJoanaAnnotation(parent, method, parameter, joanaModel, writer)
+		val content = '''generateDataType(parameter.type)» «parameter.name»'''
+		writer.write(content)
+		writer.flush()
 	}
 }

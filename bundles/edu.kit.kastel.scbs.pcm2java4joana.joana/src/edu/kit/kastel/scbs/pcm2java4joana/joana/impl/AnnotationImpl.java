@@ -11,17 +11,13 @@ import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Parameter;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,7 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class AnnotationImpl extends FlowSpecificationElementImpl implements Annotation {
 	/**
-	 * The cached value of the '{@link #getSecuritylevel() <em>Securitylevel</em>}' containment reference list.
+	 * The cached value of the '{@link #getSecuritylevel() <em>Securitylevel</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getSecuritylevel()
@@ -84,7 +80,7 @@ public class AnnotationImpl extends FlowSpecificationElementImpl implements Anno
 	 */
 	public EList<SecurityLevel> getSecuritylevel() {
 		if (securitylevel == null) {
-			securitylevel = new EObjectContainmentEList<SecurityLevel>(SecurityLevel.class, this, JoanaPackage.ANNOTATION__SECURITYLEVEL);
+			securitylevel = new EObjectResolvingEList<SecurityLevel>(SecurityLevel.class, this, JoanaPackage.ANNOTATION__SECURITYLEVEL);
 		}
 		return securitylevel;
 	}
@@ -125,20 +121,6 @@ public class AnnotationImpl extends FlowSpecificationElementImpl implements Anno
 		annotatedParameter = newAnnotatedParameter;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JoanaPackage.ANNOTATION__ANNOTATED_PARAMETER, oldAnnotatedParameter, annotatedParameter));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case JoanaPackage.ANNOTATION__SECURITYLEVEL:
-				return ((InternalEList<?>)getSecuritylevel()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

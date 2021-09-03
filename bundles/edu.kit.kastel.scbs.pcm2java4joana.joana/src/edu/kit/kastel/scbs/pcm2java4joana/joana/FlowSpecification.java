@@ -45,13 +45,13 @@ public interface FlowSpecification extends JoanaElement {
 	void setEntrypoint(EntryPoint value);
 
 	/**
-	 * Returns the value of the '<em><b>Annotation</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Annotation</b></em>' reference list.
 	 * The list contents are of type {@link edu.kit.kastel.scbs.pcm2java4joana.joana.Annotation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Annotation</em>' containment reference list.
+	 * @return the value of the '<em>Annotation</em>' reference list.
 	 * @see edu.kit.kastel.scbs.pcm2java4joana.joana.JoanaPackage#getFlowSpecification_Annotation()
-	 * @model containment="true" required="true"
+	 * @model required="true"
 	 * @generated
 	 */
 	EList<Annotation> getAnnotation();

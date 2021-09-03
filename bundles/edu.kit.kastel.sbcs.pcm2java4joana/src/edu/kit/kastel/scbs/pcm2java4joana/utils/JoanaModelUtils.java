@@ -70,15 +70,32 @@ public final class JoanaModelUtils {
 	public static List<Source> getSourcesFor(JOANARoot root, String className, String methodName,
 			String parameterName) {
 		List<Source> sources = new ArrayList<Source>();
+		List<Annotation> annotations = getAnnotationsFor(root, className, methodName, parameterName);
 
-		for (FlowSpecificationElement element : JoanaModelUtils.getJoanaFlowSpecificationElementsFor(root, className,
-				methodName, parameterName)) {
+		for (Annotation element : annotations) {
 			if (element instanceof Source) {
 				sources.add((Source) element);
 			}
 		}
 
 		return sources;
+	}
+	
+	public static List<Annotation> getAnnotationsFor(JOANARoot root, String className, String methodName, String parameterName) {
+		List<Annotation> annotations = root.getAnnotation();
+		
+		List<Annotation> foundAnnotations = new ArrayList<Annotation>();
+		for (Annotation annotation : annotations) {
+			if (annotation.getAnnotatedClass().getName().equals(className)
+					&& annotation.getAnnotatedMethod().getName().equals(methodName)
+					&& ((annotation.getAnnotatedParameter() == null && parameterName.equals(""))
+							|| (annotation.getAnnotatedParameter() != null && annotation
+									.getAnnotatedParameter().getName().equals(parameterName)))) {
+				foundAnnotations.add(annotation);
+			}
+		}
+		
+		return foundAnnotations;
 	}
 
 	public static List<Sink> getSinksFor(JOANARoot root, String className, String methodName) {
@@ -87,10 +104,10 @@ public final class JoanaModelUtils {
 
 	public static List<Sink> getSinksFor(JOANARoot root, String className, String methodName, String parameterName) {
 		List<Sink> sinks = new ArrayList<Sink>();
+		List<Annotation> annotations = getAnnotationsFor(root, className, methodName, parameterName);
 
-		for (FlowSpecificationElement element : JoanaModelUtils.getJoanaFlowSpecificationElementsFor(root, className,
-				methodName, parameterName)) {
-			if (element.getClass() == SinkImpl.class) {
+		for (Annotation element : annotations) {
+			if (element instanceof Sink) {
 				sinks.add((Sink) element);
 			}
 		}
@@ -104,7 +121,7 @@ public final class JoanaModelUtils {
 	}
 
 	public static String combineIntoOneSecurityLevel(List<SecurityLevel> levels) {
-		List<SecurityLevel> sorted = JoanaModelUtils.sortSecurityLevels(JoanaModelUtils.copySecurityLevels(levels));
+		List<SecurityLevel> sorted = JoanaModelUtils.sortSecurityLevels(levels);
 		String combined = "";
 		for (SecurityLevel level : sorted) {
 			combined += level.getName();
@@ -123,46 +140,13 @@ public final class JoanaModelUtils {
 		return null;
 	}
 
-	public static Lattice copyLattice(Lattice lattice) {
-		JoanaFactory factory = JoanaFactory.eINSTANCE;
-		Lattice copiedLattice = factory.createLattice();
-		for (FlowRelation relation : lattice.getFlowrelation()) {
-			copiedLattice.getFlowrelation().add(JoanaModelUtils.copyFlowRelation(relation));
-		}
-		return copiedLattice;
-	}
-
-	public static FlowRelation copyFlowRelation(FlowRelation relation) {
-		JoanaFactory factory = JoanaFactory.eINSTANCE;
-		FlowRelation flowRelation = factory.createFlowRelation();
-		flowRelation.getTo().addAll(JoanaModelUtils.copySecurityLevels(relation.getTo()));
-		flowRelation.getFrom().addAll(JoanaModelUtils.copySecurityLevels(relation.getFrom()));
-
-		return flowRelation;
-	}
-
-	public static List<SecurityLevel> copySecurityLevels(List<SecurityLevel> levels) {
-		List<SecurityLevel> copiedlLevels = new ArrayList<SecurityLevel>();
-		for (SecurityLevel level : levels) {
-			copiedlLevels.add(JoanaModelUtils.copySecurityLevel(level));
-		}
-		return copiedlLevels;
-	}
-
-	public static SecurityLevel copySecurityLevel(SecurityLevel level) {
-		JoanaFactory factory = JoanaFactory.eINSTANCE;
-		SecurityLevel copiedLevel = factory.createSecurityLevel();
-		copiedLevel.setName(level.getName());
-		return copiedLevel;
-	}
-
 	public static Annotation copyAnnotation(Annotation annotation) {
 		JoanaFactory factory = JoanaFactory.eINSTANCE;
 		Annotation copiedAnnotation = factory.createAnnotation();
 		copiedAnnotation.setAnnotatedClass(annotation.getAnnotatedClass());
 		copiedAnnotation.setAnnotatedMethod(annotation.getAnnotatedMethod());
 		copiedAnnotation.setAnnotatedParameter(annotation.getAnnotatedParameter());
-		copiedAnnotation.getSecuritylevel().addAll(copySecurityLevels(annotation.getSecuritylevel()));
+		copiedAnnotation.getSecuritylevel().addAll(annotation.getSecuritylevel());
 		return copiedAnnotation;
 	}
 }

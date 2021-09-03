@@ -9,6 +9,7 @@ import edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.ResultMethod;
 import edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.ResultType;
 import edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.Trace;
 import edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.TraceState;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;

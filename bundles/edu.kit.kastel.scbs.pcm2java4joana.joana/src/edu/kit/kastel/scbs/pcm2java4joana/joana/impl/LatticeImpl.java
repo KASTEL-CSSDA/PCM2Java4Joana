@@ -7,14 +7,11 @@ import edu.kit.kastel.scbs.pcm2java4joana.joana.JoanaPackage;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.Lattice;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 

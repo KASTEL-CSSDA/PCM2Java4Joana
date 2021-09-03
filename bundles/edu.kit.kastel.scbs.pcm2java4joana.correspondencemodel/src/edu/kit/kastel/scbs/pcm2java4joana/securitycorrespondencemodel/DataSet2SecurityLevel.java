@@ -27,13 +27,13 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface DataSet2SecurityLevel extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Security Levels</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Security Levels</b></em>' reference list.
 	 * The list contents are of type {@link edu.kit.kastel.scbs.pcm2java4joana.joana.SecurityLevel}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Security Levels</em>' containment reference list.
+	 * @return the value of the '<em>Security Levels</em>' reference list.
 	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecuritycorrespondencemodelPackage#getDataSet2SecurityLevel_SecurityLevels()
-	 * @model containment="true" required="true"
+	 * @model required="true"
 	 * @generated
 	 */
 	EList<SecurityLevel> getSecurityLevels();

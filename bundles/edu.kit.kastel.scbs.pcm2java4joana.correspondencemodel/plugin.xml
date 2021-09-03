@@ -7,19 +7,19 @@
 <plugin>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated securitycorrespondencemodel -->
-      <package
-            uri="www.example.org/securitycorrespondencemodel"
-            class="edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecuritycorrespondencemodelPackage"
-            genModel="model/securitycorrespondencemodel.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated structuralcorrespondencemodel -->
       <package
             uri="http://www.example.org/correspondencemodel"
             class="edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.CorrespondencemodelPackage"
             genModel="model/structuralcorrespondencemodel.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated securitycorrespondencemodel -->
+      <package
+            uri="www.example.org/securitycorrespondencemodel"
+            class="edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecuritycorrespondencemodelPackage"
+            genModel="model/securitycorrespondencemodel.genmodel"/>
    </extension>
 
 </plugin>

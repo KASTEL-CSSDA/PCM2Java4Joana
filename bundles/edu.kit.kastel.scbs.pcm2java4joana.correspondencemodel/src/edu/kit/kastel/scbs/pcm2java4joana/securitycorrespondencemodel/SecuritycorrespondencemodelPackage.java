@@ -67,7 +67,7 @@ public interface SecuritycorrespondencemodelPackage extends EPackage {
 	int DATA_SET2_SECURITY_LEVEL = 0;
 
 	/**
-	 * The feature id for the '<em><b>Security Levels</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Security Levels</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -194,7 +194,6 @@ public interface SecuritycorrespondencemodelPackage extends EPackage {
 	 */
 	int SECURITY_CORRESPONDENCE_MODEL_OPERATION_COUNT = 0;
 
-
 	/**
 	 * The meta object id for the '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.Conf4CBSEElementImpl <em>Conf4 CBSE Element</em>}' class.
 	 * <!-- begin-user-doc -->
@@ -318,10 +317,10 @@ public interface SecuritycorrespondencemodelPackage extends EPackage {
 	EClass getDataSet2SecurityLevel();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.DataSet2SecurityLevel#getSecurityLevels <em>Security Levels</em>}'.
+	 * Returns the meta object for the reference list '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.DataSet2SecurityLevel#getSecurityLevels <em>Security Levels</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Security Levels</em>'.
+	 * @return the meta object for the reference list '<em>Security Levels</em>'.
 	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.DataSet2SecurityLevel#getSecurityLevels()
 	 * @see #getDataSet2SecurityLevel()
 	 * @generated
@@ -478,7 +477,7 @@ public interface SecuritycorrespondencemodelPackage extends EPackage {
 		EClass DATA_SET2_SECURITY_LEVEL = eINSTANCE.getDataSet2SecurityLevel();
 
 		/**
-		 * The meta object literal for the '<em><b>Security Levels</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Security Levels</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

@@ -358,6 +358,33 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getJOANARoot_Lattice() {
+		return (EReference)joanaRootEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getJOANARoot_Securitylevel() {
+		return (EReference)joanaRootEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getJOANARoot_Annotation() {
+		return (EReference)joanaRootEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getFlowSpecification() {
 		return flowSpecificationEClass;
 	}
@@ -454,6 +481,9 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 
 		joanaRootEClass = createEClass(JOANA_ROOT);
 		createEReference(joanaRootEClass, JOANA_ROOT__FLOWSPECIFICATION);
+		createEReference(joanaRootEClass, JOANA_ROOT__LATTICE);
+		createEReference(joanaRootEClass, JOANA_ROOT__SECURITYLEVEL);
+		createEReference(joanaRootEClass, JOANA_ROOT__ANNOTATION);
 
 		flowSpecificationEClass = createEClass(FLOW_SPECIFICATION);
 		createEReference(flowSpecificationEClass, FLOW_SPECIFICATION__ENTRYPOINT);
@@ -507,15 +537,15 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(entryPointEClass, EntryPoint.class, "EntryPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEntryPoint_Securitylevels(), this.getSecurityLevel(), null, "securitylevels", null, 0, -1, EntryPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEntryPoint_Lattice(), this.getLattice(), null, "lattice", null, 1, 1, EntryPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEntryPoint_Securitylevels(), this.getSecurityLevel(), null, "securitylevels", null, 0, -1, EntryPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEntryPoint_Lattice(), this.getLattice(), null, "lattice", null, 1, 1, EntryPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(annotationEClass, Annotation.class, "Annotation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAnnotation_Securitylevel(), this.getSecurityLevel(), null, "securitylevel", null, 1, -1, Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAnnotation_Securitylevel(), this.getSecurityLevel(), null, "securitylevel", null, 1, -1, Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAnnotation_AnnotatedParameter(), theSourcecodePackage.getParameter(), null, "annotatedParameter", null, 0, 1, Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(flowSpecificationElementEClass, FlowSpecificationElement.class, "FlowSpecificationElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getFlowSpecificationElement_Tag(), ecorePackage.getEString(), "tag", "", 1, 1, FlowSpecificationElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFlowSpecificationElement_Tag(), ecorePackage.getEString(), "tag", "", 0, -1, FlowSpecificationElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFlowSpecificationElement_AnnotatedClass(), theSourcecodePackage.getClass_(), null, "annotatedClass", null, 1, 1, FlowSpecificationElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFlowSpecificationElement_AnnotatedMethod(), theSourcecodePackage.getMethod(), null, "annotatedMethod", null, 1, 1, FlowSpecificationElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -529,15 +559,18 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 		initEReference(getLattice_Flowrelation(), this.getFlowRelation(), null, "flowrelation", null, 0, -1, Lattice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(flowRelationEClass, FlowRelation.class, "FlowRelation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getFlowRelation_From(), this.getSecurityLevel(), null, "from", null, 1, -1, FlowRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFlowRelation_To(), this.getSecurityLevel(), null, "to", null, 1, -1, FlowRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFlowRelation_From(), this.getSecurityLevel(), null, "from", null, 1, -1, FlowRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFlowRelation_To(), this.getSecurityLevel(), null, "to", null, 1, -1, FlowRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(joanaRootEClass, JOANARoot.class, "JOANARoot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getJOANARoot_Flowspecification(), this.getFlowSpecification(), null, "flowspecification", null, 0, -1, JOANARoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJOANARoot_Lattice(), this.getLattice(), null, "lattice", null, 1, 1, JOANARoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJOANARoot_Securitylevel(), this.getSecurityLevel(), null, "securitylevel", null, 0, -1, JOANARoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getJOANARoot_Annotation(), this.getAnnotation(), null, "annotation", null, 0, -1, JOANARoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(flowSpecificationEClass, FlowSpecification.class, "FlowSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFlowSpecification_Entrypoint(), this.getEntryPoint(), null, "entrypoint", null, 1, 1, FlowSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFlowSpecification_Annotation(), this.getAnnotation(), null, "annotation", null, 1, -1, FlowSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFlowSpecification_Annotation(), this.getAnnotation(), null, "annotation", null, 1, -1, FlowSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(joanaElementEClass, JoanaElement.class, "JoanaElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJoanaElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, JoanaElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

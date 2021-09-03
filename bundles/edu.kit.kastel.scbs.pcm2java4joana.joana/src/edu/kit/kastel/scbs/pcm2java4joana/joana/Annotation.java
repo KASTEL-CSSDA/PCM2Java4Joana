@@ -25,13 +25,13 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Annotation extends FlowSpecificationElement {
 	/**
-	 * Returns the value of the '<em><b>Securitylevel</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Securitylevel</b></em>' reference list.
 	 * The list contents are of type {@link edu.kit.kastel.scbs.pcm2java4joana.joana.SecurityLevel}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Securitylevel</em>' containment reference list.
+	 * @return the value of the '<em>Securitylevel</em>' reference list.
 	 * @see edu.kit.kastel.scbs.pcm2java4joana.joana.JoanaPackage#getAnnotation_Securitylevel()
-	 * @model containment="true" required="true"
+	 * @model required="true"
 	 * @generated
 	 */
 	EList<SecurityLevel> getSecuritylevel();

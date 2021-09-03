@@ -14,17 +14,21 @@ import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.ReferenceType
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.CollectionType
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class
 import edu.kit.ipd.sdq.activextendannotations.Utility
+import java.io.BufferedWriter
 
 @Utility
 class SourceCodeElementGenerator {
 
-	static def String generateVariable(Variable variable) {
-		return '''
+	static def void generateVariable(Variable variable, BufferedWriter writer) {
+		val content =  '''
 		private «generateDataType(variable.type)» «variable.name»;
 		
 		«generateGetter(variable)»
 		«generateSetter(variable)»
 		'''
+		
+		writer.write(content)
+		writer.flush()
 	}
 	
 	static def String generateConstructor(Class scClass) {

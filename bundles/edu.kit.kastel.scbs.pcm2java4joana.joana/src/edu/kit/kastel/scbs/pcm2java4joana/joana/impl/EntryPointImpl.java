@@ -10,17 +10,13 @@ import edu.kit.kastel.scbs.pcm2java4joana.joana.SecurityLevel;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,7 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class EntryPointImpl extends FlowSpecificationElementImpl implements EntryPoint {
 	/**
-	 * The cached value of the '{@link #getSecuritylevels() <em>Securitylevels</em>}' containment reference list.
+	 * The cached value of the '{@link #getSecuritylevels() <em>Securitylevels</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getSecuritylevels()
@@ -48,7 +44,7 @@ public class EntryPointImpl extends FlowSpecificationElementImpl implements Entr
 	protected EList<SecurityLevel> securitylevels;
 
 	/**
-	 * The cached value of the '{@link #getLattice() <em>Lattice</em>}' containment reference.
+	 * The cached value of the '{@link #getLattice() <em>Lattice</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getLattice()
@@ -83,7 +79,7 @@ public class EntryPointImpl extends FlowSpecificationElementImpl implements Entr
 	 */
 	public EList<SecurityLevel> getSecuritylevels() {
 		if (securitylevels == null) {
-			securitylevels = new EObjectContainmentEList<SecurityLevel>(SecurityLevel.class, this, JoanaPackage.ENTRY_POINT__SECURITYLEVELS);
+			securitylevels = new EObjectResolvingEList<SecurityLevel>(SecurityLevel.class, this, JoanaPackage.ENTRY_POINT__SECURITYLEVELS);
 		}
 		return securitylevels;
 	}
@@ -94,6 +90,14 @@ public class EntryPointImpl extends FlowSpecificationElementImpl implements Entr
 	 * @generated
 	 */
 	public Lattice getLattice() {
+		if (lattice != null && lattice.eIsProxy()) {
+			InternalEObject oldLattice = (InternalEObject)lattice;
+			lattice = (Lattice)eResolveProxy(oldLattice);
+			if (lattice != oldLattice) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, JoanaPackage.ENTRY_POINT__LATTICE, oldLattice, lattice));
+			}
+		}
 		return lattice;
 	}
 
@@ -102,14 +106,8 @@ public class EntryPointImpl extends FlowSpecificationElementImpl implements Entr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetLattice(Lattice newLattice, NotificationChain msgs) {
-		Lattice oldLattice = lattice;
-		lattice = newLattice;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JoanaPackage.ENTRY_POINT__LATTICE, oldLattice, newLattice);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+	public Lattice basicGetLattice() {
+		return lattice;
 	}
 
 	/**
@@ -118,33 +116,10 @@ public class EntryPointImpl extends FlowSpecificationElementImpl implements Entr
 	 * @generated
 	 */
 	public void setLattice(Lattice newLattice) {
-		if (newLattice != lattice) {
-			NotificationChain msgs = null;
-			if (lattice != null)
-				msgs = ((InternalEObject)lattice).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JoanaPackage.ENTRY_POINT__LATTICE, null, msgs);
-			if (newLattice != null)
-				msgs = ((InternalEObject)newLattice).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JoanaPackage.ENTRY_POINT__LATTICE, null, msgs);
-			msgs = basicSetLattice(newLattice, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JoanaPackage.ENTRY_POINT__LATTICE, newLattice, newLattice));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case JoanaPackage.ENTRY_POINT__SECURITYLEVELS:
-				return ((InternalEList<?>)getSecuritylevels()).basicRemove(otherEnd, msgs);
-			case JoanaPackage.ENTRY_POINT__LATTICE:
-				return basicSetLattice(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+		Lattice oldLattice = lattice;
+		lattice = newLattice;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JoanaPackage.ENTRY_POINT__LATTICE, oldLattice, lattice));
 	}
 
 	/**
@@ -158,7 +133,8 @@ public class EntryPointImpl extends FlowSpecificationElementImpl implements Entr
 			case JoanaPackage.ENTRY_POINT__SECURITYLEVELS:
 				return getSecuritylevels();
 			case JoanaPackage.ENTRY_POINT__LATTICE:
-				return getLattice();
+				if (resolve) return getLattice();
+				return basicGetLattice();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

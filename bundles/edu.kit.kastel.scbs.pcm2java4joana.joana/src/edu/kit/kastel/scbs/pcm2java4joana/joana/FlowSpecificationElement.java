@@ -3,6 +3,7 @@
 package edu.kit.kastel.scbs.pcm2java4joana.joana;
 
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Method;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,27 +25,16 @@ import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Method;
  */
 public interface FlowSpecificationElement extends JoanaElement {
 	/**
-	 * Returns the value of the '<em><b>Tag</b></em>' attribute.
-	 * The default value is <code>""</code>.
+	 * Returns the value of the '<em><b>Tag</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Tag</em>' attribute.
-	 * @see #setTag(String)
+	 * @return the value of the '<em>Tag</em>' attribute list.
 	 * @see edu.kit.kastel.scbs.pcm2java4joana.joana.JoanaPackage#getFlowSpecificationElement_Tag()
-	 * @model default="" required="true"
+	 * @model default=""
 	 * @generated
 	 */
-	String getTag();
-
-	/**
-	 * Sets the value of the '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.FlowSpecificationElement#getTag <em>Tag</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Tag</em>' attribute.
-	 * @see #getTag()
-	 * @generated
-	 */
-	void setTag(String value);
+	EList<String> getTag();
 
 	/**
 	 * Returns the value of the '<em><b>Annotated Class</b></em>' reference.

@@ -3,6 +3,7 @@
 package edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel;
 
 import edu.kit.kastel.scbs.pcm2java4joana.joana.Annotation;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**

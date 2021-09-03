@@ -7,12 +7,15 @@ import edu.kit.kastel.scbs.pcm2java4joana.joana.JoanaPackage;
 
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Method;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,24 +34,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public abstract class FlowSpecificationElementImpl extends JoanaElementImpl implements FlowSpecificationElement {
 	/**
-	 * The default value of the '{@link #getTag() <em>Tag</em>}' attribute.
+	 * The cached value of the '{@link #getTag() <em>Tag</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTag()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TAG_EDEFAULT = "";
-
-	/**
-	 * The cached value of the '{@link #getTag() <em>Tag</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTag()
-	 * @generated
-	 * @ordered
-	 */
-	protected String tag = TAG_EDEFAULT;
+	protected EList<String> tag;
 
 	/**
 	 * The cached value of the '{@link #getAnnotatedClass() <em>Annotated Class</em>}' reference.
@@ -94,20 +87,11 @@ public abstract class FlowSpecificationElementImpl extends JoanaElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getTag() {
+	public EList<String> getTag() {
+		if (tag == null) {
+			tag = new EDataTypeUniqueEList<String>(String.class, this, JoanaPackage.FLOW_SPECIFICATION_ELEMENT__TAG);
+		}
 		return tag;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTag(String newTag) {
-		String oldTag = tag;
-		tag = newTag;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JoanaPackage.FLOW_SPECIFICATION_ELEMENT__TAG, oldTag, tag));
 	}
 
 	/**
@@ -211,11 +195,13 @@ public abstract class FlowSpecificationElementImpl extends JoanaElementImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case JoanaPackage.FLOW_SPECIFICATION_ELEMENT__TAG:
-				setTag((String)newValue);
+				getTag().clear();
+				getTag().addAll((Collection<? extends String>)newValue);
 				return;
 			case JoanaPackage.FLOW_SPECIFICATION_ELEMENT__ANNOTATED_CLASS:
 				setAnnotatedClass((edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class)newValue);
@@ -236,7 +222,7 @@ public abstract class FlowSpecificationElementImpl extends JoanaElementImpl impl
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case JoanaPackage.FLOW_SPECIFICATION_ELEMENT__TAG:
-				setTag(TAG_EDEFAULT);
+				getTag().clear();
 				return;
 			case JoanaPackage.FLOW_SPECIFICATION_ELEMENT__ANNOTATED_CLASS:
 				setAnnotatedClass((edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class)null);
@@ -257,7 +243,7 @@ public abstract class FlowSpecificationElementImpl extends JoanaElementImpl impl
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case JoanaPackage.FLOW_SPECIFICATION_ELEMENT__TAG:
-				return TAG_EDEFAULT == null ? tag != null : !TAG_EDEFAULT.equals(tag);
+				return tag != null && !tag.isEmpty();
 			case JoanaPackage.FLOW_SPECIFICATION_ELEMENT__ANNOTATED_CLASS:
 				return annotatedClass != null;
 			case JoanaPackage.FLOW_SPECIFICATION_ELEMENT__ANNOTATED_METHOD:

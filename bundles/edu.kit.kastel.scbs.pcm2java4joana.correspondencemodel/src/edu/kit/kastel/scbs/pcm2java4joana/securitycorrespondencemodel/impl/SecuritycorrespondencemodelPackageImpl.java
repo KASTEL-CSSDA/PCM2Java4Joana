@@ -2,16 +2,8 @@
  */
 package edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl;
 
-import de.uka.ipd.sdq.identifier.IdentifierPackage;
-
-import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
-
-import de.uka.ipd.sdq.stoex.StoexPackage;
-
-import de.uka.ipd.sdq.units.UnitsPackage;
-
-import edu.kit.kastel.scbs.confidentiality.ConfidentialityPackage;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.JoanaPackage;
+
 import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEDataSet;
 import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEElement;
 import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEParametersAndDataPair;
@@ -30,8 +22,6 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
-import org.palladiosimulator.pcm.PcmPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -130,15 +120,9 @@ public class SecuritycorrespondencemodelPackageImpl extends EPackageImpl impleme
 		isInited = true;
 
 		// Initialize simple dependencies
-		ConfidentialityPackage.eINSTANCE.eClass();
 		EcorePackage.eINSTANCE.eClass();
-		IdentifierPackage.eINSTANCE.eClass();
 		JoanaPackage.eINSTANCE.eClass();
-		PcmPackage.eINSTANCE.eClass();
-		ProbfunctionPackage.eINSTANCE.eClass();
 		SourcecodePackage.eINSTANCE.eClass();
-		StoexPackage.eINSTANCE.eClass();
-		UnitsPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theSecuritycorrespondencemodelPackage.createPackageContents();
@@ -356,7 +340,7 @@ public class SecuritycorrespondencemodelPackageImpl extends EPackageImpl impleme
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(dataSet2SecurityLevelEClass, DataSet2SecurityLevel.class, "DataSet2SecurityLevel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDataSet2SecurityLevel_SecurityLevels(), theJoanaPackage.getSecurityLevel(), null, "securityLevels", null, 1, -1, DataSet2SecurityLevel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDataSet2SecurityLevel_SecurityLevels(), theJoanaPackage.getSecurityLevel(), null, "securityLevels", null, 1, -1, DataSet2SecurityLevel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataSet2SecurityLevel_Conf4cbsedataset(), this.getConf4CBSEDataSet(), null, "conf4cbsedataset", null, 1, -1, DataSet2SecurityLevel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parametersAndDataPair2AnnotationEClass, ParametersAndDataPair2Annotation.class, "ParametersAndDataPair2Annotation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -91,7 +91,7 @@ public final class CorrespondenceModelElementsGenerator {
 		DataSet2SecurityLevel correspondence = correspondenceFactory.createDataSet2SecurityLevel();
 		Conf4CBSEDataSet conf4cbseDataset = correspondenceFactory.createConf4CBSEDataSet();
 		conf4cbseDataset.setId(dataset.getId());
-		correspondence.getSecurityLevels().add(JoanaModelUtils.copySecurityLevel(securityLevel));
+		correspondence.getSecurityLevels().add(securityLevel);
 		correspondence.getConf4cbsedataset().add(conf4cbseDataset);
 
 		return correspondence;
@@ -106,7 +106,7 @@ public final class CorrespondenceModelElementsGenerator {
 			Conf4CBSEDataSet dataset = CorrespondenceModelUtils.getDataSet2SecurityLevel(correspondenceModel, level)
 					.getConf4cbsedataset().get(0);
 			datatSet2SecurityLevel.getConf4cbsedataset().add(dataset);
-			datatSet2SecurityLevel.getSecurityLevels().add(JoanaModelUtils.copySecurityLevel(level));
+			datatSet2SecurityLevel.getSecurityLevels().add(level);
 		}
 
 		return datatSet2SecurityLevel;

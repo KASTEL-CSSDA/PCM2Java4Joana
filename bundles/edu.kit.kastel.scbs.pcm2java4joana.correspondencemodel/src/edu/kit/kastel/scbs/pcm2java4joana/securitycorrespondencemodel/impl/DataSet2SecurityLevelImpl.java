@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -38,7 +39,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class DataSet2SecurityLevelImpl extends MinimalEObjectImpl.Container implements DataSet2SecurityLevel {
 	/**
-	 * The cached value of the '{@link #getSecurityLevels() <em>Security Levels</em>}' containment reference list.
+	 * The cached value of the '{@link #getSecurityLevels() <em>Security Levels</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getSecurityLevels()
@@ -83,7 +84,7 @@ public class DataSet2SecurityLevelImpl extends MinimalEObjectImpl.Container impl
 	 */
 	public EList<SecurityLevel> getSecurityLevels() {
 		if (securityLevels == null) {
-			securityLevels = new EObjectContainmentEList<SecurityLevel>(SecurityLevel.class, this, SecuritycorrespondencemodelPackage.DATA_SET2_SECURITY_LEVEL__SECURITY_LEVELS);
+			securityLevels = new EObjectResolvingEList<SecurityLevel>(SecurityLevel.class, this, SecuritycorrespondencemodelPackage.DATA_SET2_SECURITY_LEVEL__SECURITY_LEVELS);
 		}
 		return securityLevels;
 	}
@@ -108,8 +109,6 @@ public class DataSet2SecurityLevelImpl extends MinimalEObjectImpl.Container impl
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SecuritycorrespondencemodelPackage.DATA_SET2_SECURITY_LEVEL__SECURITY_LEVELS:
-				return ((InternalEList<?>)getSecurityLevels()).basicRemove(otherEnd, msgs);
 			case SecuritycorrespondencemodelPackage.DATA_SET2_SECURITY_LEVEL__CONF4CBSEDATASET:
 				return ((InternalEList<?>)getConf4cbsedataset()).basicRemove(otherEnd, msgs);
 		}

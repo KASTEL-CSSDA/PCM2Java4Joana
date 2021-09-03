@@ -113,7 +113,7 @@ public interface JoanaPackage extends EPackage {
 	int FLOW_SPECIFICATION_ELEMENT__NAME = JOANA_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Tag</b></em>' attribute.
+	 * The feature id for the '<em><b>Tag</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -177,7 +177,7 @@ public interface JoanaPackage extends EPackage {
 	int ENTRY_POINT__NAME = FLOW_SPECIFICATION_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Tag</b></em>' attribute.
+	 * The feature id for the '<em><b>Tag</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -204,7 +204,7 @@ public interface JoanaPackage extends EPackage {
 	int ENTRY_POINT__ANNOTATED_METHOD = FLOW_SPECIFICATION_ELEMENT__ANNOTATED_METHOD;
 
 	/**
-	 * The feature id for the '<em><b>Securitylevels</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Securitylevels</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -213,7 +213,7 @@ public interface JoanaPackage extends EPackage {
 	int ENTRY_POINT__SECURITYLEVELS = FLOW_SPECIFICATION_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Lattice</b></em>' containment reference.
+	 * The feature id for the '<em><b>Lattice</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -259,7 +259,7 @@ public interface JoanaPackage extends EPackage {
 	int ANNOTATION__NAME = FLOW_SPECIFICATION_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Tag</b></em>' attribute.
+	 * The feature id for the '<em><b>Tag</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -286,7 +286,7 @@ public interface JoanaPackage extends EPackage {
 	int ANNOTATION__ANNOTATED_METHOD = FLOW_SPECIFICATION_ELEMENT__ANNOTATED_METHOD;
 
 	/**
-	 * The feature id for the '<em><b>Securitylevel</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Securitylevel</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -341,7 +341,7 @@ public interface JoanaPackage extends EPackage {
 	int SINK__NAME = ANNOTATION__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Tag</b></em>' attribute.
+	 * The feature id for the '<em><b>Tag</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -368,7 +368,7 @@ public interface JoanaPackage extends EPackage {
 	int SINK__ANNOTATED_METHOD = ANNOTATION__ANNOTATED_METHOD;
 
 	/**
-	 * The feature id for the '<em><b>Securitylevel</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Securitylevel</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -423,7 +423,7 @@ public interface JoanaPackage extends EPackage {
 	int SOURCE__NAME = ANNOTATION__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Tag</b></em>' attribute.
+	 * The feature id for the '<em><b>Tag</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -450,7 +450,7 @@ public interface JoanaPackage extends EPackage {
 	int SOURCE__ANNOTATED_METHOD = ANNOTATION__ANNOTATED_METHOD;
 
 	/**
-	 * The feature id for the '<em><b>Securitylevel</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Securitylevel</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -588,7 +588,7 @@ public interface JoanaPackage extends EPackage {
 	int FLOW_RELATION__NAME = JOANA_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>From</b></em>' containment reference list.
+	 * The feature id for the '<em><b>From</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -597,7 +597,7 @@ public interface JoanaPackage extends EPackage {
 	int FLOW_RELATION__FROM = JOANA_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>To</b></em>' containment reference list.
+	 * The feature id for the '<em><b>To</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -652,13 +652,40 @@ public interface JoanaPackage extends EPackage {
 	int JOANA_ROOT__FLOWSPECIFICATION = JOANA_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Lattice</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOANA_ROOT__LATTICE = JOANA_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Securitylevel</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOANA_ROOT__SECURITYLEVEL = JOANA_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Annotation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOANA_ROOT__ANNOTATION = JOANA_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>JOANA Root</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOANA_ROOT_FEATURE_COUNT = JOANA_ELEMENT_FEATURE_COUNT + 1;
+	int JOANA_ROOT_FEATURE_COUNT = JOANA_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>JOANA Root</em>' class.
@@ -698,7 +725,7 @@ public interface JoanaPackage extends EPackage {
 	int FLOW_SPECIFICATION__ENTRYPOINT = JOANA_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Annotation</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Annotation</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -736,10 +763,10 @@ public interface JoanaPackage extends EPackage {
 	EClass getEntryPoint();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.EntryPoint#getSecuritylevels <em>Securitylevels</em>}'.
+	 * Returns the meta object for the reference list '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.EntryPoint#getSecuritylevels <em>Securitylevels</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Securitylevels</em>'.
+	 * @return the meta object for the reference list '<em>Securitylevels</em>'.
 	 * @see edu.kit.kastel.scbs.pcm2java4joana.joana.EntryPoint#getSecuritylevels()
 	 * @see #getEntryPoint()
 	 * @generated
@@ -747,10 +774,10 @@ public interface JoanaPackage extends EPackage {
 	EReference getEntryPoint_Securitylevels();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.EntryPoint#getLattice <em>Lattice</em>}'.
+	 * Returns the meta object for the reference '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.EntryPoint#getLattice <em>Lattice</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Lattice</em>'.
+	 * @return the meta object for the reference '<em>Lattice</em>'.
 	 * @see edu.kit.kastel.scbs.pcm2java4joana.joana.EntryPoint#getLattice()
 	 * @see #getEntryPoint()
 	 * @generated
@@ -768,10 +795,10 @@ public interface JoanaPackage extends EPackage {
 	EClass getAnnotation();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.Annotation#getSecuritylevel <em>Securitylevel</em>}'.
+	 * Returns the meta object for the reference list '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.Annotation#getSecuritylevel <em>Securitylevel</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Securitylevel</em>'.
+	 * @return the meta object for the reference list '<em>Securitylevel</em>'.
 	 * @see edu.kit.kastel.scbs.pcm2java4joana.joana.Annotation#getSecuritylevel()
 	 * @see #getAnnotation()
 	 * @generated
@@ -800,10 +827,10 @@ public interface JoanaPackage extends EPackage {
 	EClass getFlowSpecificationElement();
 
 	/**
-	 * Returns the meta object for the attribute '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.FlowSpecificationElement#getTag <em>Tag</em>}'.
+	 * Returns the meta object for the attribute list '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.FlowSpecificationElement#getTag <em>Tag</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Tag</em>'.
+	 * @return the meta object for the attribute list '<em>Tag</em>'.
 	 * @see edu.kit.kastel.scbs.pcm2java4joana.joana.FlowSpecificationElement#getTag()
 	 * @see #getFlowSpecificationElement()
 	 * @generated
@@ -894,10 +921,10 @@ public interface JoanaPackage extends EPackage {
 	EClass getFlowRelation();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.FlowRelation#getFrom <em>From</em>}'.
+	 * Returns the meta object for the reference list '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.FlowRelation#getFrom <em>From</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>From</em>'.
+	 * @return the meta object for the reference list '<em>From</em>'.
 	 * @see edu.kit.kastel.scbs.pcm2java4joana.joana.FlowRelation#getFrom()
 	 * @see #getFlowRelation()
 	 * @generated
@@ -905,10 +932,10 @@ public interface JoanaPackage extends EPackage {
 	EReference getFlowRelation_From();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.FlowRelation#getTo <em>To</em>}'.
+	 * Returns the meta object for the reference list '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.FlowRelation#getTo <em>To</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>To</em>'.
+	 * @return the meta object for the reference list '<em>To</em>'.
 	 * @see edu.kit.kastel.scbs.pcm2java4joana.joana.FlowRelation#getTo()
 	 * @see #getFlowRelation()
 	 * @generated
@@ -937,6 +964,39 @@ public interface JoanaPackage extends EPackage {
 	EReference getJOANARoot_Flowspecification();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.JOANARoot#getLattice <em>Lattice</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Lattice</em>'.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.joana.JOANARoot#getLattice()
+	 * @see #getJOANARoot()
+	 * @generated
+	 */
+	EReference getJOANARoot_Lattice();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.JOANARoot#getSecuritylevel <em>Securitylevel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Securitylevel</em>'.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.joana.JOANARoot#getSecuritylevel()
+	 * @see #getJOANARoot()
+	 * @generated
+	 */
+	EReference getJOANARoot_Securitylevel();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.JOANARoot#getAnnotation <em>Annotation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Annotation</em>'.
+	 * @see edu.kit.kastel.scbs.pcm2java4joana.joana.JOANARoot#getAnnotation()
+	 * @see #getJOANARoot()
+	 * @generated
+	 */
+	EReference getJOANARoot_Annotation();
+
+	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.FlowSpecification <em>Flow Specification</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -958,10 +1018,10 @@ public interface JoanaPackage extends EPackage {
 	EReference getFlowSpecification_Entrypoint();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.FlowSpecification#getAnnotation <em>Annotation</em>}'.
+	 * Returns the meta object for the reference list '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.FlowSpecification#getAnnotation <em>Annotation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Annotation</em>'.
+	 * @return the meta object for the reference list '<em>Annotation</em>'.
 	 * @see edu.kit.kastel.scbs.pcm2java4joana.joana.FlowSpecification#getAnnotation()
 	 * @see #getFlowSpecification()
 	 * @generated
@@ -1023,7 +1083,7 @@ public interface JoanaPackage extends EPackage {
 		EClass ENTRY_POINT = eINSTANCE.getEntryPoint();
 
 		/**
-		 * The meta object literal for the '<em><b>Securitylevels</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Securitylevels</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1031,7 +1091,7 @@ public interface JoanaPackage extends EPackage {
 		EReference ENTRY_POINT__SECURITYLEVELS = eINSTANCE.getEntryPoint_Securitylevels();
 
 		/**
-		 * The meta object literal for the '<em><b>Lattice</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Lattice</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1049,7 +1109,7 @@ public interface JoanaPackage extends EPackage {
 		EClass ANNOTATION = eINSTANCE.getAnnotation();
 
 		/**
-		 * The meta object literal for the '<em><b>Securitylevel</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Securitylevel</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1075,7 +1135,7 @@ public interface JoanaPackage extends EPackage {
 		EClass FLOW_SPECIFICATION_ELEMENT = eINSTANCE.getFlowSpecificationElement();
 
 		/**
-		 * The meta object literal for the '<em><b>Tag</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Tag</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1157,7 +1217,7 @@ public interface JoanaPackage extends EPackage {
 		EClass FLOW_RELATION = eINSTANCE.getFlowRelation();
 
 		/**
-		 * The meta object literal for the '<em><b>From</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>From</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1165,7 +1225,7 @@ public interface JoanaPackage extends EPackage {
 		EReference FLOW_RELATION__FROM = eINSTANCE.getFlowRelation_From();
 
 		/**
-		 * The meta object literal for the '<em><b>To</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>To</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1191,6 +1251,30 @@ public interface JoanaPackage extends EPackage {
 		EReference JOANA_ROOT__FLOWSPECIFICATION = eINSTANCE.getJOANARoot_Flowspecification();
 
 		/**
+		 * The meta object literal for the '<em><b>Lattice</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference JOANA_ROOT__LATTICE = eINSTANCE.getJOANARoot_Lattice();
+
+		/**
+		 * The meta object literal for the '<em><b>Securitylevel</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference JOANA_ROOT__SECURITYLEVEL = eINSTANCE.getJOANARoot_Securitylevel();
+
+		/**
+		 * The meta object literal for the '<em><b>Annotation</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference JOANA_ROOT__ANNOTATION = eINSTANCE.getJOANARoot_Annotation();
+
+		/**
 		 * The meta object literal for the '{@link edu.kit.kastel.scbs.pcm2java4joana.joana.impl.FlowSpecificationImpl <em>Flow Specification</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1209,7 +1293,7 @@ public interface JoanaPackage extends EPackage {
 		EReference FLOW_SPECIFICATION__ENTRYPOINT = eINSTANCE.getFlowSpecification_Entrypoint();
 
 		/**
-		 * The meta object literal for the '<em><b>Annotation</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Annotation</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

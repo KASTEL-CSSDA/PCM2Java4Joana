@@ -14,160 +14,168 @@ import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Parameter;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.TopLevelType;
 import edu.kit.kastel.scbs.pcm2java4joana.utils.JoanaModelUtils;
 import edu.kit.kastel.scbs.pcm2java4joana.utils.SetOperations;
+import java.io.BufferedWriter;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipse.xtext.xbase.lib.Exceptions;
 
 @Utility
 @SuppressWarnings("all")
 public final class JoanaAnnotationsGenerator {
-  public static String generateJoanaAnnotation(final TopLevelType parent, final Method method, final JOANARoot joanaModel) {
+  public static void generateJoanaAnnotation(final TopLevelType parent, final Method method, final JOANARoot joanaModel, final BufferedWriter writer) {
     if ((joanaModel == null)) {
-      StringConcatenation _builder = new StringConcatenation();
-      return _builder.toString();
+      return;
     }
-    StringConcatenation _builder_1 = new StringConcatenation();
-    String _generateEntryPoints = JoanaAnnotationsGenerator.generateEntryPoints(parent, method, joanaModel);
-    _builder_1.append(_generateEntryPoints);
-    _builder_1.newLineIfNotEmpty();
-    String _generateSources = JoanaAnnotationsGenerator.generateSources(parent, method, joanaModel);
-    _builder_1.append(_generateSources);
-    _builder_1.newLineIfNotEmpty();
-    String _generateSinks = JoanaAnnotationsGenerator.generateSinks(parent, method, joanaModel);
-    _builder_1.append(_generateSinks);
-    return _builder_1.toString();
+    JoanaAnnotationsGenerator.generateEntryPoints(parent, method, joanaModel, writer);
+    JoanaAnnotationsGenerator.generateSources(parent, method, joanaModel, writer);
+    JoanaAnnotationsGenerator.generateSinks(parent, method, joanaModel, writer);
   }
   
-  public static String generateJoanaAnnotation(final TopLevelType parent, final Method method, final Parameter parameter, final JOANARoot joanaModel) {
+  public static void generateJoanaAnnotation(final TopLevelType parent, final Method method, final Parameter parameter, final JOANARoot joanaModel, final BufferedWriter writer) {
     if ((joanaModel == null)) {
-      StringConcatenation _builder = new StringConcatenation();
-      return _builder.toString();
+      return;
     }
-    StringConcatenation _builder_1 = new StringConcatenation();
-    String _generateSources = JoanaAnnotationsGenerator.generateSources(parent, method, parameter, joanaModel);
-    _builder_1.append(_generateSources);
-    _builder_1.append(" ");
-    String _generateSinks = JoanaAnnotationsGenerator.generateSinks(parent, method, parameter, joanaModel);
-    _builder_1.append(_generateSinks);
-    return _builder_1.toString();
+    JoanaAnnotationsGenerator.generateSources(parent, method, parameter, joanaModel, writer);
+    JoanaAnnotationsGenerator.generateSinks(parent, method, parameter, joanaModel, writer);
   }
   
-  public static String generateEntryPoints(final TopLevelType parent, final Method method, final JOANARoot joanaModel) {
+  public static void generateEntryPoints(final TopLevelType parent, final Method method, final JOANARoot joanaModel, final BufferedWriter writer) {
     final List<EntryPoint> entryPoints = JoanaModelUtils.getEntryPoints(joanaModel, parent.getName(), method.getName());
-    StringConcatenation _builder = new StringConcatenation();
-    {
-      for(final EntryPoint entryPoint : entryPoints) {
-        String _generateEntryPointAnnotation = JoanaAnnotationsGenerator.generateEntryPointAnnotation(entryPoint);
-        _builder.append(_generateEntryPointAnnotation);
+    for (final EntryPoint entryPoint : entryPoints) {
+      JoanaAnnotationsGenerator.generateEntryPointAnnotation(entryPoint, writer);
+    }
+  }
+  
+  public static void generateSources(final TopLevelType parent, final Method method, final JOANARoot joanaModel, final BufferedWriter writer) {
+    try {
+      final List<Source> sources = JoanaModelUtils.getSourcesFor(joanaModel, parent.getName(), method.getName());
+      final ArrayList<String> tags = new ArrayList<String>();
+      for (final Source source : sources) {
+        tags.addAll(source.getTag());
       }
+      int _size = sources.size();
+      boolean _equals = (_size == 0);
+      if (_equals) {
+        return;
+      } else {
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("@Source");
+        String _generateAnnotation = JoanaAnnotationsGenerator.generateAnnotation(sources.get(0), tags);
+        _builder.append(_generateAnnotation);
+        final String content = _builder.toString();
+        writer.write(content);
+        writer.flush();
+      }
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
     }
-    _builder.newLineIfNotEmpty();
-    return _builder.toString();
   }
   
-  public static String generateSources(final TopLevelType parent, final Method method, final JOANARoot joanaModel) {
-    final List<Source> sources = JoanaModelUtils.getSourcesFor(joanaModel, parent.getName(), method.getName());
-    final ArrayList<String> tags = new ArrayList<String>();
-    for (final Source source : sources) {
-      tags.add(source.getTag());
+  public static void generateSinks(final TopLevelType parent, final Method method, final Parameter parameter, final JOANARoot joanaModel, final BufferedWriter writer) {
+    try {
+      final List<Sink> sinks = JoanaModelUtils.getSinksFor(joanaModel, parent.getName(), method.getName(), parameter.getName());
+      final ArrayList<String> tags = new ArrayList<String>();
+      for (final Sink sink : sinks) {
+        tags.addAll(sink.getTag());
+      }
+      int _size = sinks.size();
+      boolean _equals = (_size == 0);
+      if (_equals) {
+        return;
+      } else {
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("@Sink");
+        String _generateAnnotation = JoanaAnnotationsGenerator.generateAnnotation(sinks.get(0), tags);
+        _builder.append(_generateAnnotation);
+        final String content = _builder.toString();
+        writer.write(content);
+        writer.flush();
+      }
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
     }
-    int _size = sources.size();
-    boolean _equals = (_size == 0);
-    if (_equals) {
+  }
+  
+  public static void generateSources(final TopLevelType parent, final Method method, final Parameter parameter, final JOANARoot joanaModel, final BufferedWriter writer) {
+    try {
+      final List<Source> sources = JoanaModelUtils.getSourcesFor(joanaModel, parent.getName(), method.getName(), parameter.getName());
+      final ArrayList<String> tags = new ArrayList<String>();
+      for (final Source source : sources) {
+        tags.addAll(source.getTag());
+      }
+      int _size = sources.size();
+      boolean _equals = (_size == 0);
+      if (_equals) {
+        return;
+      } else {
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("@Source");
+        String _generateAnnotation = JoanaAnnotationsGenerator.generateAnnotation(sources.get(0), tags);
+        _builder.append(_generateAnnotation);
+        final String content = _builder.toString();
+        writer.write(content);
+        writer.flush();
+      }
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  public static void generateSinks(final TopLevelType parent, final Method method, final JOANARoot joanaModel, final BufferedWriter writer) {
+    try {
+      final List<Sink> sinks = JoanaModelUtils.getSinksFor(joanaModel, parent.getName(), method.getName());
+      final ArrayList<String> tags = new ArrayList<String>();
+      for (final Sink sink : sinks) {
+        tags.addAll(sink.getTag());
+      }
+      int _size = sinks.size();
+      boolean _equals = (_size == 0);
+      if (_equals) {
+        return;
+      } else {
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("@Sink");
+        String _generateAnnotation = JoanaAnnotationsGenerator.generateAnnotation(sinks.get(0), tags);
+        _builder.append(_generateAnnotation);
+        final String content = _builder.toString();
+        writer.write(content);
+        writer.flush();
+      }
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  public static void generateEntryPointAnnotation(final EntryPoint element, final BufferedWriter writer) {
+    try {
       StringConcatenation _builder = new StringConcatenation();
-      return _builder.toString();
-    } else {
-      StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("@Source");
-      String _generateAnnotation = JoanaAnnotationsGenerator.generateAnnotation(sources.get(0), tags);
-      _builder_1.append(_generateAnnotation);
-      return _builder_1.toString();
+      _builder.append("@EntryPoint(tag = \"");
+      String _get = element.getTag().get(0);
+      _builder.append(_get);
+      _builder.append("\",");
+      _builder.newLineIfNotEmpty();
+      _builder.append("\t");
+      _builder.append("levels = ");
+      String _generateLevelsAnnotation = JoanaAnnotationsGenerator.generateLevelsAnnotation(element.getSecuritylevels());
+      _builder.append(_generateLevelsAnnotation, "\t");
+      _builder.append(",");
+      _builder.newLineIfNotEmpty();
+      _builder.append("\t");
+      _builder.append("lattice = ");
+      String _generateLattice = JoanaAnnotationsGenerator.generateLattice(element.getLattice());
+      _builder.append(_generateLattice, "\t");
+      _builder.newLineIfNotEmpty();
+      _builder.append(")");
+      _builder.newLine();
+      final String content = _builder.toString();
+      writer.write(content);
+      writer.flush();
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
     }
-  }
-  
-  public static String generateSinks(final TopLevelType parent, final Method method, final Parameter parameter, final JOANARoot joanaModel) {
-    final List<Sink> sinks = JoanaModelUtils.getSinksFor(joanaModel, parent.getName(), method.getName(), parameter.getName());
-    final ArrayList<String> tags = new ArrayList<String>();
-    for (final Sink sink : sinks) {
-      tags.add(sink.getTag());
-    }
-    int _size = sinks.size();
-    boolean _equals = (_size == 0);
-    if (_equals) {
-      StringConcatenation _builder = new StringConcatenation();
-      return _builder.toString();
-    } else {
-      StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("@Sink");
-      String _generateAnnotation = JoanaAnnotationsGenerator.generateAnnotation(sinks.get(0), tags);
-      _builder_1.append(_generateAnnotation);
-      return _builder_1.toString();
-    }
-  }
-  
-  public static String generateSources(final TopLevelType parent, final Method method, final Parameter parameter, final JOANARoot joanaModel) {
-    final List<Source> sources = JoanaModelUtils.getSourcesFor(joanaModel, parent.getName(), method.getName(), parameter.getName());
-    final ArrayList<String> tags = new ArrayList<String>();
-    for (final Source source : sources) {
-      tags.add(source.getTag());
-    }
-    int _size = sources.size();
-    boolean _equals = (_size == 0);
-    if (_equals) {
-      StringConcatenation _builder = new StringConcatenation();
-      return _builder.toString();
-    } else {
-      StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("@Source");
-      String _generateAnnotation = JoanaAnnotationsGenerator.generateAnnotation(sources.get(0), tags);
-      _builder_1.append(_generateAnnotation);
-      return _builder_1.toString();
-    }
-  }
-  
-  public static String generateSinks(final TopLevelType parent, final Method method, final JOANARoot joanaModel) {
-    final List<Sink> sinks = JoanaModelUtils.getSinksFor(joanaModel, parent.getName(), method.getName());
-    final ArrayList<String> tags = new ArrayList<String>();
-    for (final Sink sink : sinks) {
-      tags.add(sink.getTag());
-    }
-    int _size = sinks.size();
-    boolean _equals = (_size == 0);
-    if (_equals) {
-      StringConcatenation _builder = new StringConcatenation();
-      return _builder.toString();
-    } else {
-      StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("@Sink");
-      String _generateAnnotation = JoanaAnnotationsGenerator.generateAnnotation(sinks.get(0), tags);
-      _builder_1.append(_generateAnnotation);
-      return _builder_1.toString();
-    }
-  }
-  
-  public static String generateEntryPointAnnotation(final EntryPoint element) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("@EntryPoint(tag = \"");
-    String _tag = element.getTag();
-    _builder.append(_tag);
-    _builder.append("\",");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.append("levels = ");
-    String _generateLevelsAnnotation = JoanaAnnotationsGenerator.generateLevelsAnnotation(element.getSecuritylevels());
-    _builder.append(_generateLevelsAnnotation, "\t");
-    _builder.append(",");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.append("lattice = ");
-    String _generateLattice = JoanaAnnotationsGenerator.generateLattice(element.getLattice());
-    _builder.append(_generateLattice, "\t");
-    _builder.newLineIfNotEmpty();
-    _builder.append(")");
-    _builder.newLine();
-    return _builder.toString();
   }
   
   public static String generateLattice(final Lattice lattice) {
@@ -257,7 +265,7 @@ public final class JoanaAnnotationsGenerator {
   public static String generateAnnotation(final Annotation annotation) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("(tags = \"");
-    String _tag = annotation.getTag();
+    EList<String> _tag = annotation.getTag();
     _builder.append(_tag);
     _builder.append("\", level = \"");
     String _combineIntoOneSecurityLevel = JoanaModelUtils.combineIntoOneSecurityLevel(annotation.getSecuritylevel());
