@@ -197,7 +197,7 @@ public interface SourcecodePackage extends EPackage {
 	int INTERFACE__NAME = TOP_LEVEL_TYPE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Methods</b></em>' reference list.
+	 * The feature id for the '<em><b>Methods</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -690,10 +690,10 @@ public interface SourcecodePackage extends EPackage {
 	EClass getInterface();
 
 	/**
-	 * Returns the meta object for the reference list '{@link edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Interface#getMethods <em>Methods</em>}'.
+	 * Returns the meta object for the containment reference list '{@link edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Interface#getMethods <em>Methods</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Methods</em>'.
+	 * @return the meta object for the containment reference list '<em>Methods</em>'.
 	 * @see edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Interface#getMethods()
 	 * @see #getInterface()
 	 * @generated
@@ -982,7 +982,7 @@ public interface SourcecodePackage extends EPackage {
 		EClass INTERFACE = eINSTANCE.getInterface();
 
 		/**
-		 * The meta object literal for the '<em><b>Methods</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Methods</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

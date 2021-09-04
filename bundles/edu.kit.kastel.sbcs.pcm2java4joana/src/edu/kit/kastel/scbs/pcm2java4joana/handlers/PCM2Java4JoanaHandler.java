@@ -77,10 +77,10 @@ public class PCM2Java4JoanaHandler extends AbstractHandler {
 		SupplierAnalysisModelGenerator generator = new SupplierAnalysisModelGenerator(models, basePath);
 		SupplierAnalysisModel supplierAnalysisModel = generator.generate();
 
-		List<CodeWithFile> generatedAnnotatedSourceCode = SupplierAnalysisModel2AnnotatedCodeGenerator
-				.generateAnnotatedCode(supplierAnalysisModel.getSourceCodeModel(),
-						supplierAnalysisModel.getJoanaModel(), basePath);
-		AnnotatedSourceCode annotatedSourceCode = new AnnotatedSourceCode(basePath, generatedAnnotatedSourceCode);
+//		List<CodeWithFile> generatedAnnotatedSourceCode = SupplierAnalysisModel2AnnotatedCodeGenerator
+//				.generateAnnotatedCode(supplierAnalysisModel.getSourceCodeModel(),
+//						supplierAnalysisModel.getJoanaModel(), basePath);
+//		AnnotatedSourceCode annotatedSourceCode = new AnnotatedSourceCode(basePath, generatedAnnotatedSourceCode);
 
 		try {
 			supplierAnalysisModel.save();
@@ -89,23 +89,23 @@ public class PCM2Java4JoanaHandler extends AbstractHandler {
 					"Die generierten Modelle, Source Code Modell, Joana Modell, Struktur-Korrespondenzenmodell und Sicherheits-Korrespondenzenmodell konnten nicht gespeichert werden.");
 			return null;
 		}
-		try {
-			annotatedSourceCode.save();
-		} catch (CodeSaveException e1) {
-			MessageDialog.openError(window.getShell(), "Error",
-					"Der generierte Quellcode konnte nicht gespeichert werden.");
-			return null;
-		}
-		try {
-			this.refreshProject(models.getBaseFolder());
-		} catch (RefreshException e) {
-			MessageDialog.openWarning(window.getShell(), "Warning",
-					"Das Projekt konnte nicht automatisch aktuallisiert werden. Bitte aktualisieren Sie das Projekt noch einmal manuell.");
-		}
-		MessageDialog.openInformation(window.getShell(), "Information",
-				"Die Generation der Modelle und des Quellcodes war erfolgreich. \n " + "Speicherort Modelle: \n"
-						+ supplierAnalysisModel.getDestinationPath().toString() + "\n" + "Speicherort Quellcode: \n"
-						+ annotatedSourceCode.getDestinationPath().toString());
+//		try {
+//			annotatedSourceCode.save();
+//		} catch (CodeSaveException e1) {
+//			MessageDialog.openError(window.getShell(), "Error",
+//					"Der generierte Quellcode konnte nicht gespeichert werden.");
+//			return null;
+//		}
+//		try {
+//			this.refreshProject(models.getBaseFolder());
+//		} catch (RefreshException e) {
+//			MessageDialog.openWarning(window.getShell(), "Warning",
+//					"Das Projekt konnte nicht automatisch aktuallisiert werden. Bitte aktualisieren Sie das Projekt noch einmal manuell.");
+//		}
+//		MessageDialog.openInformation(window.getShell(), "Information",
+//				"Die Generation der Modelle und des Quellcodes war erfolgreich. \n " + "Speicherort Modelle: \n"
+//						+ supplierAnalysisModel.getDestinationPath().toString() + "\n" + "Speicherort Quellcode: \n"
+//						+ annotatedSourceCode.getDestinationPath().toString());
 
 		return list;
 	}

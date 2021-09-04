@@ -8,11 +8,14 @@ import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourcecodePackage;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +32,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  */
 public class InterfaceImpl extends TopLevelTypeImpl implements Interface {
 	/**
-	 * The cached value of the '{@link #getMethods() <em>Methods</em>}' reference list.
+	 * The cached value of the '{@link #getMethods() <em>Methods</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getMethods()
@@ -64,9 +67,23 @@ public class InterfaceImpl extends TopLevelTypeImpl implements Interface {
 	 */
 	public EList<Method> getMethods() {
 		if (methods == null) {
-			methods = new EObjectResolvingEList<Method>(Method.class, this, SourcecodePackage.INTERFACE__METHODS);
+			methods = new EObjectContainmentEList<Method>(Method.class, this, SourcecodePackage.INTERFACE__METHODS);
 		}
 		return methods;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SourcecodePackage.INTERFACE__METHODS:
+				return ((InternalEList<?>)getMethods()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
