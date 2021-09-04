@@ -10,7 +10,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="sourcecode.ecore#/"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_2Lba8AvTEeyfOolTjAzPaQ" name="sourcecode class diagram" repPath="#_2LVUUAvTEeyfOolTjAzPaQ" changeId="b68b43dd-a39d-46bc-9d03-3c5d86eb3b88">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_2Lba8AvTEeyfOolTjAzPaQ" name="sourcecode class diagram" repPath="#_2LVUUAvTEeyfOolTjAzPaQ" changeId="de121d8f-e921-426b-9981-61c2cba74302">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="sourcecodemodel.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -1844,14 +1844,9 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_2gjWYAvTEeyfOolTjAzPaQ" name="[0..*] methods" sourceNode="_2gCZAAvTEeyfOolTjAzPaQ" targetNode="_2gFcUAvTEeyfOolTjAzPaQ">
       <target xmi:type="ecore:EReference" href="sourcecodemodel.ecore#//Interface/methods"/>
       <semanticElements xmi:type="ecore:EReference" href="sourcecodemodel.ecore#//Interface/methods"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_2gjWYQvTEeyfOolTjAzPaQ" routingStyle="manhattan" strokeColor="0,0,0">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']/@style"/>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_2gjWYwvTEeyfOolTjAzPaQ" showIcon="false">
-          <customFeatures>labelSize</customFeatures>
-        </centerLabelStyle>
-        <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_2gjWYgvTEeyfOolTjAzPaQ" showIcon="false" labelColor="39,76,114">
-          <customFeatures>labelSize</customFeatures>
-        </endLabelStyle>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_XZcaVg0ZEeyXqJSVotdA7Q" description="_2givUAvTEeyfOolTjAzPaQ" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_XZcaWA0ZEeyXqJSVotdA7Q" showIcon="false"/>
+        <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_XZcaVw0ZEeyXqJSVotdA7Q" labelSize="6" showIcon="false" labelColor="39,76,114"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
@@ -1914,6 +1909,7 @@
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_2gnAxAvTEeyfOolTjAzPaQ" description="_2gnAwQvTEeyfOolTjAzPaQ" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_2gnAxgvTEeyfOolTjAzPaQ" showIcon="false">
           <customFeatures>labelSize</customFeatures>
+          <labelFormat>bold</labelFormat>
         </centerLabelStyle>
         <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_2gnAxQvTEeyfOolTjAzPaQ" showIcon="false" labelColor="39,76,114">
           <customFeatures>labelSize</customFeatures>
@@ -1927,6 +1923,7 @@
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_2goO4AvTEeyfOolTjAzPaQ" description="_2gnAwQvTEeyfOolTjAzPaQ" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_2goO4gvTEeyfOolTjAzPaQ" showIcon="false">
           <customFeatures>labelSize</customFeatures>
+          <labelFormat>bold</labelFormat>
         </centerLabelStyle>
         <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_2goO4QvTEeyfOolTjAzPaQ" showIcon="false" labelColor="39,76,114">
           <customFeatures>labelSize</customFeatures>
@@ -1940,6 +1937,7 @@
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_2go18wvTEeyfOolTjAzPaQ" description="_2go18AvTEeyfOolTjAzPaQ" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_2go19QvTEeyfOolTjAzPaQ" showIcon="false">
           <customFeatures>labelSize</customFeatures>
+          <labelFormat>bold</labelFormat>
         </centerLabelStyle>
         <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_2go19AvTEeyfOolTjAzPaQ" showIcon="false" labelColor="39,76,114">
           <customFeatures>labelSize</customFeatures>
@@ -1953,6 +1951,7 @@
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_2gpdAAvTEeyfOolTjAzPaQ" description="_2gnAwQvTEeyfOolTjAzPaQ" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_2gpdAgvTEeyfOolTjAzPaQ" showIcon="false">
           <customFeatures>labelSize</customFeatures>
+          <labelFormat>bold</labelFormat>
         </centerLabelStyle>
         <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_2gpdAQvTEeyfOolTjAzPaQ" showIcon="false" labelColor="39,76,114">
           <customFeatures>labelSize</customFeatures>

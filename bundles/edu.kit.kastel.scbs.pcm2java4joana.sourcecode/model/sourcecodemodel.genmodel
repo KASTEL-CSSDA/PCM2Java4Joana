@@ -23,7 +23,7 @@
     </genClasses>
     <genClasses ecoreClass="sourcecodemodel.ecore#//TopLevelType"/>
     <genClasses ecoreClass="sourcecodemodel.ecore#//Interface">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sourcecodemodel.ecore#//Interface/methods"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference sourcecodemodel.ecore#//Interface/methods"/>
     </genClasses>
     <genClasses ecoreClass="sourcecodemodel.ecore#//Class">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sourcecodemodel.ecore#//Class/implements"/>

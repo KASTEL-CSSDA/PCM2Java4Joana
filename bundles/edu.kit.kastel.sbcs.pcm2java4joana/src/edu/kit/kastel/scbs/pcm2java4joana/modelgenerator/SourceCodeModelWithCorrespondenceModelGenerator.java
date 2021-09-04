@@ -40,6 +40,7 @@ import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourceCodeRoot;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourcecodeFactory;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Type;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Variable;
+import edu.kit.kastel.scbs.pcm2java4joana.utils.SourceCodeModelUtils;
 import edu.kit.kastel.scbs.pcm2java4joana.utils.Tuple;
 
 public class SourceCodeModelWithCorrespondenceModelGenerator {
@@ -241,7 +242,7 @@ public class SourceCodeModelWithCorrespondenceModelGenerator {
 	private Type generateBuiltInType(PrimitiveDataType pcmType) {
 		SourcecodeFactory sourceCodeFactory = SourcecodeFactory.eINSTANCE;
 		BuiltInType type = sourceCodeFactory.createBuiltInType();
-		type.setBuiltInType(BuiltInTypes.get(pcmType.getType().getValue()));
+		type.setBuiltInType(BuiltInTypes.getByName(pcmType.getType().getName()));
 		return type;
 	}
 
@@ -259,7 +260,7 @@ public class SourceCodeModelWithCorrespondenceModelGenerator {
 				Tuple<Interface, Interface2Interface> child = this.providedInterfaces.get(interfaceName);
 				Interface inter = (Interface) child.getFirst();
 				javaClass.getImplements().add(inter);
-				javaClass.getFields().addAll(inter.getMethods());
+				javaClass.getFields().addAll(SourceCodeModelUtils.copyMethods(inter.getMethods()));
 				componentCorrespondence.getInterface2interface().add(child.getSecond());
 			}
 		}

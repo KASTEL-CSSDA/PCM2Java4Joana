@@ -188,6 +188,7 @@ public final class SupplierAnalysisModel2AnnotatedCodeGenerator {
       _builder_1.append("{ ");
       final String classDefinition = _builder_1.toString();
       writer.write(classDefinition);
+      writer.write("\n");
       writer.flush();
       SupplierAnalysisModel2AnnotatedCodeGenerator.generateFields(sourceCodeClass.getFields(), sourceCodeClass, joanaModel, writer);
       StringConcatenation _builder_2 = new StringConcatenation();
@@ -271,7 +272,9 @@ public final class SupplierAnalysisModel2AnnotatedCodeGenerator {
     try {
       JoanaAnnotationsGenerator.generateJoanaAnnotation(parent, method, parameter, joanaModel, writer);
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append("generateDataType(parameter.type)» ");
+      String _generateDataType = SourceCodeElementGenerator.generateDataType(parameter.getType());
+      _builder.append(_generateDataType);
+      _builder.append(" ");
       String _name = parameter.getName();
       _builder.append(_name);
       final String content = _builder.toString();

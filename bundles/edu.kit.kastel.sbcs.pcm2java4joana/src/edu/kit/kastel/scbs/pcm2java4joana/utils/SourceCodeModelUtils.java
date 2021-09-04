@@ -1,10 +1,12 @@
 package edu.kit.kastel.scbs.pcm2java4joana.utils;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.ResultMethod;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.BuiltInType;
+import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.BuiltInTypes;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.CollectionType;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Field;
@@ -13,6 +15,7 @@ import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Method;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Parameter;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.ReferenceType;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourceCodeRoot;
+import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourcecodeFactory;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.TopLevelType;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Type;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Variable;
@@ -341,5 +344,76 @@ public final class SourceCodeModelUtils {
 
 	private static boolean isCollectionType(String typeName) {
 		return typeName.contains("Collection") || typeName.contains("List") || typeName.contains("ArrayList");
+	}
+	
+	public static List<Method> copyMethods(List<Method> methods) {
+		List<Method> copied = new ArrayList<Method>();
+		
+		for (Method method : methods) {
+			copied.add(copyMethod(method));
+		}
+		
+		return copied;
+	}
+	
+	public static Method copyMethod(Method method) {
+		SourcecodeFactory factory = SourcecodeFactory.eINSTANCE;
+		Method copied = factory.createMethod();
+		copied.setName(method.getName());
+		copied.getParameter().addAll(copyParameters(method.getParameter()));
+		copied.setType(copyType(method.getType()));		
+		return copied;
+	}
+	
+	public static List<Parameter> copyParameters(List<Parameter> parameters) {
+		List<Parameter> copied = new ArrayList<Parameter>();
+		
+		for (Parameter paramter : parameters) {
+			copied.add(copyParameter(paramter));
+		}
+		
+		return copied;
+	}
+	
+	public static Parameter copyParameter(Parameter parameter) {
+		SourcecodeFactory factory = SourcecodeFactory.eINSTANCE;
+		Parameter copied = factory.createParameter();
+		copied.setName(parameter.getName());
+		copied.setType(copyType(parameter.getType()));		
+		return copied;
+	}
+	
+	public static Type copyType(Type type) {
+		if (type instanceof BuiltInType) {
+			return copyBuiltInType((BuiltInType) type);
+		}
+		if (type instanceof ReferenceType) {
+			return copyReferenceType((ReferenceType) type);
+		}
+		if(type instanceof CollectionType) {
+			return copyCollectionType((CollectionType) type);
+		}
+		return null;
+	}
+	
+	public static Type copyBuiltInType(BuiltInType type) {
+		SourcecodeFactory factory = SourcecodeFactory.eINSTANCE;
+		BuiltInType copied = factory.createBuiltInType();
+		copied.setBuiltInType(BuiltInTypes.get(type.getBuiltInType().getValue()));
+		return copied;
+	}
+	
+	public static Type copyReferenceType(ReferenceType type) {
+		SourcecodeFactory factory = SourcecodeFactory.eINSTANCE;
+		ReferenceType copied = factory.createReferenceType();
+		copied.setTopleveltype(type.getTopleveltype());
+		return copied;
+	}
+	
+	public static Type copyCollectionType(CollectionType type) {
+		SourcecodeFactory factory = SourcecodeFactory.eINSTANCE;
+		CollectionType copied = factory.createCollectionType();
+		copied.setType(copyType(type.getType()));
+		return copied;
 	}
 }

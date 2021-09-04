@@ -214,7 +214,7 @@ public class AnnotationModelGenerator {
 		}
 		List<Method> methods = SourceCodeModelUtils.getMethod(inter, pcmSignature.getEntityName());
 		List<Method> toRemove = new ArrayList<Method>();
-		if (!appliedPair.getParameterSources().get(0).equals("\\return")) {
+		if (!appliedPair.getParameterSources().get(0).equals("\\return") && !appliedPair.getParameterSources().get(0).equals("\\call")) {
 			for (Method method : methods) {
 				List<String> parameterNames = new ArrayList<String>();
 				for (Parameter parameter : method.getParameter()) {
@@ -235,7 +235,7 @@ public class AnnotationModelGenerator {
 				annotation.getSecuritylevel().addAll(securityLevels);
 				annotation.setAnnotatedClass(component);
 				annotation.setAnnotatedMethod(method);
-				if (!appliedPair.getParameterSources().get(0).equals("\\return")) {
+				if (!appliedPair.getParameterSources().get(0).equals("\\return") && !appliedPair.getParameterSources().get(0).equals("\\call")) {
 					annotation.setAnnotatedParameter(
 							SourceCodeModelUtils.getParameter(method, appliedPair.getParameterSources().get(0)));
 				}

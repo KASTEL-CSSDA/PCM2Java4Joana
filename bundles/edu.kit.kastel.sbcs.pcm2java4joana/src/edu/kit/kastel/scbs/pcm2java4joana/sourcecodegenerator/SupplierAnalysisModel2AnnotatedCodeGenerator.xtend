@@ -99,6 +99,7 @@ class SupplierAnalysisModel2AnnotatedCodeGenerator {
 		
 		val classDefinition = '''public class «sourceCodeClass.name» «IF sourceCodeClass.implements.size > 0»implements «generateImplements(sourceCodeClass.implements)»«ENDIF»{ '''
 		writer.write(classDefinition)
+		writer.write("\n")
 		writer.flush()
 		
 		generateFields(sourceCodeClass.fields, sourceCodeClass, joanaModel, writer)			
@@ -147,7 +148,7 @@ class SupplierAnalysisModel2AnnotatedCodeGenerator {
 	
 	static def void generateParameter(TopLevelType parent, Method method, Parameter parameter, JOANARoot joanaModel, BufferedWriter writer) {
 		generateJoanaAnnotation(parent, method, parameter, joanaModel, writer)
-		val content = '''generateDataType(parameter.type)» «parameter.name»'''
+		val content = '''«generateDataType(parameter.type)» «parameter.name»'''
 		writer.write(content)
 		writer.flush()
 	}

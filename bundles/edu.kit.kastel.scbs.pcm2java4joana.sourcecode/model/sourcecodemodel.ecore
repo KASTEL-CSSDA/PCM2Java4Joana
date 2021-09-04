@@ -8,7 +8,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="TopLevelType" eSuperTypes="#//SourceCodeElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Interface" eSuperTypes="#//TopLevelType">
     <eStructuralFeatures xsi:type="ecore:EReference" name="methods" upperBound="-1"
-        eType="#//Method"/>
+        eType="#//Method" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Class" eSuperTypes="#//TopLevelType">
     <eStructuralFeatures xsi:type="ecore:EReference" name="implements" upperBound="-1"
