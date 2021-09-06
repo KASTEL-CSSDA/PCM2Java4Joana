@@ -48,11 +48,15 @@ public class JoanaResultsParser {
 
 	private static Collection<Trace> parseEntryPoint(BufferedReader reader) throws IOException, InputException {
 		Collection<Trace> traces = new ArrayList<Trace>();
-		reader.readLine(); // tag
-		reader.readLine(); // found_flows
-		reader.readLine(); // only_direct_flow
-
 		String line;
+		
+		reader.readLine(); // tag
+		line = reader.readLine(); // found_flows
+		reader.readLine(); // only_direct_flow
+		
+		if (line.contains("false")) {
+			return traces;
+		}
 		while ((line = reader.readLine()) != null) {
 			if (line.contains(FLOW_KEY)) {
 				traces.addAll(parseFlow(reader));

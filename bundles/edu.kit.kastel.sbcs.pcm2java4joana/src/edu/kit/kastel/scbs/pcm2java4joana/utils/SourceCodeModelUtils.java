@@ -323,6 +323,9 @@ public final class SourceCodeModelUtils {
 		}
 		if (type instanceof ReferenceType) {
 			return sameReferenceType((ReferenceType) type, typeName);
+		}		
+		if (type == null && typeName.equals("void")) {
+			return true;
 		}
 
 		return false;
@@ -330,7 +333,7 @@ public final class SourceCodeModelUtils {
 
 	private static boolean sameBuiltInType(BuiltInType type, String typeName) {
 		if (typeName.contains("String")) {
-			typeName = typeName.split(".")[2];
+			typeName = "String";
 		}
 		if (typeName.equals("Character")) {
 			typeName = "Char";
@@ -343,7 +346,7 @@ public final class SourceCodeModelUtils {
 	}
 
 	private static boolean isCollectionType(String typeName) {
-		return typeName.contains("Collection") || typeName.contains("List") || typeName.contains("ArrayList");
+		return typeName.contains("Collection") || typeName.contains("List") || typeName.contains("ArrayList") || typeName.contains("Iterable");
 	}
 	
 	public static List<Method> copyMethods(List<Method> methods) {

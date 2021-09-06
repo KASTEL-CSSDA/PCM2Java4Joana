@@ -5,12 +5,15 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import edu.kit.kastel.scbs.pcm2java4joana.joana.SecurityLevel;
 import edu.kit.kastel.scbs.pcm2java4joana.utils.SetOperations;
 import edu.kit.kastel.scbs.pcm2java4joana.utils.TraceStateUtils;
 
 public class EquationSystem {
+	private final static int BATCH_SIZE = 10; 
+	
 	private final List<SecurityLevelEquation> equations;
 	private int score;
 
@@ -51,15 +54,33 @@ public class EquationSystem {
 	public void solve(List<List<SecurityLevel>> securityLevels) {
 		int score = 0;
 		Map<Integer, List<SecurityLevel>> solution = new HashMap<Integer, List<SecurityLevel>>();
+		Map<Integer, Integer> numberOfEquationsLeft = new HashMap<Integer, Integer>();
 		List<Integer> solved = new ArrayList<Integer>();
-
+		
+		int bestPossibleScore = 0;
+		for (int i = 0; i < equations.size(); i++) {
+			bestPossibleScore += equations.get(i).getPredecessors().size();
+			bestPossibleScore += equations.get(i).getSuccessors().size(); 
+		}
+		int numberAtLastIndex = bestPossibleScore;
+		for (int i = 0; i < equations.size(); i++) {
+			numberOfEquationsLeft.put(i, numberAtLastIndex);
+			numberAtLastIndex -= equations.get(i).getPredecessors().size();
+			numberAtLastIndex -= equations.get(i).getSuccessors().size(); 
+		}
+		
+		Map<Integer, List<List<SecurityLevel>>> testOrder = generateTestOrder(securityLevels);
+		
 		score += solveBasicCases(securityLevels, solution, solved);
-		score += solve(securityLevels, solution, solved, 0, new HashMap<Integer, List<SecurityLevel>>(), -1);
+		bestPossibleScore -= score;
+		score += solve(securityLevels, solution, solved, 0, new HashMap<Integer, List<SecurityLevel>>(), -1, bestPossibleScore, testOrder, 0);
 
 		for (int i = 0; i < equations.size(); i++) {
 			equations.get(i).setCorrectSecurityLevel(solution.get(i));
 		}
 		this.score = score;
+		
+		System.out.print(solution);
 	}
 
 	private int solveBasicCases(List<List<SecurityLevel>> securityLevels, Map<Integer, List<SecurityLevel>> bestLevels,
@@ -94,14 +115,126 @@ public class EquationSystem {
 		return score;
 	}
 
+	private Map<Integer, List<List<SecurityLevel>>> generateTestOrder(List<List<SecurityLevel>> levels) {
+		Map<Integer, List<List<SecurityLevel>>> testOrder = new HashMap<Integer, List<List<SecurityLevel>>>();
+		List<List<SecurityLevel>> sorted = levels.stream().sorted((l1, l2) -> {
+			if (l1.size() > l2.size()) {
+				return -1;
+			} 
+			if (l1.size() < l2.size()) {
+				return 1;
+			}
+			return 0;
+		}).collect(Collectors.toList());
+		
+		
+		for (int i = 0; i < equations.size(); i++) {
+			SecurityLevelEquation equation = equations.get(i);
+			if (equation.getPredecessors().size() == 0) {
+				testOrder.put(i, getOrderForSuccessors(levels, equation));
+				continue;
+			}
+			if (equation.getSuccessors().size() ==  0) {
+				testOrder.put(i, getOrderForPredeccessors(levels, equation));
+				continue;
+			}
+			testOrder.put(i, getOrderForPredeccessorsSuccessors(levels, equation));
+		}
+		
+		return testOrder;
+	}
+	
+	private List<List<SecurityLevel>> getOrderForPredeccessorsSuccessors(List<List<SecurityLevel>> levels, SecurityLevelEquation equation) {
+		List<List<SecurityLevel>> order = new ArrayList<List<SecurityLevel>>();
+		
+		for (List<SecurityLevel> level : levels) {
+			boolean sucGood = true;
+			boolean predGood = true;
+			
+			for (AggregatedTraceState state : equation.getPredecessors()) {
+				if (!SetOperations.isIn(level, state.getSecurityLevel())) {
+					predGood =  false;
+					break;
+				}
+			}
+			for (AggregatedTraceState state : equation.getSuccessors()) {
+				if (!SetOperations.isIn(state.getSecurityLevel(), level)) {
+					sucGood =  false;
+					break;
+				}
+			}
+			
+			if (sucGood && predGood) {
+				order.add(0, level);
+				continue;
+			}
+			if (sucGood ^ predGood) {
+				order.add(order.size() / 2, level);
+				continue;
+			}
+			order.add(level);
+		}
+		
+		return order;
+	}
+	
+	private List<List<SecurityLevel>> getOrderForPredeccessors(List<List<SecurityLevel>> levels, SecurityLevelEquation equation) {
+		List<List<SecurityLevel>> order = new ArrayList<List<SecurityLevel>>();
+		
+		for (List<SecurityLevel> level : levels) {
+			boolean leastDownerBound = true;
+			
+			for (AggregatedTraceState state : equation.getPredecessors()) {
+				if (!SetOperations.isIn(level, state.getSecurityLevel())) {
+					leastDownerBound =  false;
+					break;
+				}
+			}
+			
+			if (leastDownerBound)
+			{
+				order.add(0, level);
+			} else {
+				order.add(level);
+			}
+		}
+		
+		return order;
+	}
+	
+	private List<List<SecurityLevel>> getOrderForSuccessors(List<List<SecurityLevel>> levels, SecurityLevelEquation equation) {
+		List<List<SecurityLevel>> order = new ArrayList<List<SecurityLevel>>();
+		
+		for (List<SecurityLevel> level : levels) {
+			boolean leastUpperBound = true;
+			for (AggregatedTraceState state : equation.getSuccessors()) {
+				if (!SetOperations.isIn(state.getSecurityLevel(), level)) {
+					leastUpperBound =  false;
+					break;
+				}
+			}
+			
+			if (leastUpperBound)
+			{
+				order.add(0, level);
+			} else {
+				order.add(level);
+			}
+		}
+		return order;
+	}
+		
 	private int solve(List<List<SecurityLevel>> securityLevels, Map<Integer, List<SecurityLevel>> bestLevels,
-			List<Integer> alreadySolved, int index, Map<Integer, List<SecurityLevel>> currentLevels, int bestScore) {
-
+			List<Integer> alreadySolved, int index, Map<Integer, List<SecurityLevel>> currentLevels, int bestScore, int bestPossibleScore, Map<Integer, List<List<SecurityLevel>>> testOrder, int batch) {
+		if (bestScore == bestPossibleScore) {
+			return bestScore;
+		}		
+		
 		if (alreadySolved.contains(index)) {
-			return solve(securityLevels, bestLevels, alreadySolved, index + 1, currentLevels, bestScore);
+			return solve(securityLevels, bestLevels, alreadySolved, index + 1, currentLevels, bestScore, bestPossibleScore, testOrder, batch);
 		}
 
-		if (index > equations.size()) {
+		if (index == equations.size()) {
 			int score = calculateScore(currentLevels, alreadySolved);
 			if (score > bestScore) {
 				changeBestLevels(bestLevels, currentLevels, alreadySolved);
@@ -110,11 +243,17 @@ public class EquationSystem {
 			return bestScore;
 		}
 
-		for (List<SecurityLevel> securityLevel : securityLevels) {
+		List<List<SecurityLevel>> currentTestOrder = testOrder.get(index);
+		for (int i = batch * BATCH_SIZE; i < Math.min((batch + 1) * BATCH_SIZE, currentTestOrder.size()); i++) {
+			List<SecurityLevel> securityLevel = currentTestOrder.get(i);
 			currentLevels.put(index, securityLevel);
-			bestScore = solve(securityLevels, bestLevels, alreadySolved, index + 1, currentLevels, bestScore);
+			bestScore = solve(securityLevels, bestLevels, alreadySolved, index + 1, currentLevels, bestScore, bestPossibleScore, testOrder, batch);
 		}
 
+//		if (index == 0 && bestScore < bestPossibleScore) {
+//			bestScore = solve(securityLevels, bestLevels, alreadySolved, 0, currentLevels, bestScore, bestPossibleScore, testOrder, batch + 1);
+//		}
+		
 		return bestScore;
 	}
 

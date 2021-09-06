@@ -68,8 +68,8 @@ public class AnnotationModelGenerator {
 		List<Annotation> annotations = this.generateAnnotations(levelToDatasetsMapping,
 				confidentiality.getParametersAndDataPairs(),
 				(SourceCodeRoot) this.supplierAnalysisModel.getSourceCodeModel(), this.clientAnalysisModel);
-		List<List<Annotation>> annotationDistribution = this.generateSinkSourceDistributions(root, annotations);
-		List<FlowSpecification> flowSpecifications = this.generateFlowSpecifications(annotationDistribution, annotations, lattice, levels);
+//		List<List<Annotation>> annotationDistribution = this.generateSinkSourceDistributions(root, annotations);
+		List<FlowSpecification> flowSpecifications = this.generateFlowSpecifications(annotations, lattice, levels, root);
 		
 		root.getFlowspecification().addAll(flowSpecifications);
 		this.supplierAnalysisModel.setJoanaModel(root);
@@ -105,14 +105,38 @@ public class AnnotationModelGenerator {
 		return annotationDistributions;
 	}
 
-	private List<FlowSpecification> generateFlowSpecifications(List<List<Annotation>> annotationDistributions, List<Annotation> annotations, Lattice lattice,
-			List<SecurityLevel> levels) {
+	private List<FlowSpecification> generateFlowSpecifications(List<Annotation> annotations, Lattice lattice,
+			List<SecurityLevel> levels, JOANARoot root) {
 		List<FlowSpecification> flowSpefications = new ArrayList<FlowSpecification>();
-
+		JoanaFactory factory = JoanaFactory.eINSTANCE;
 		int startIndex = 0;
+		List<Source> sources = new ArrayList<Source>();
+		List<Sink> sinks = new ArrayList<Sink>();
+		
+		for (Annotation annotation : annotations) {
+			sources.add(this.generateSource(annotation));
+			sinks.add(this.generateSink(annotation));
+		}
+		root.getAnnotation().addAll(sources);
+		root.getAnnotation().addAll(sinks);
+		
 		for (int i = 0; i < annotations.size(); i++) {
-			flowSpefications.addAll(this.generateFlowSpecification(i, startIndex, annotationDistributions, annotations, lattice, levels));
-			startIndex = flowSpefications.size();
+			FlowSpecification flow = factory.createFlowSpecification();
+			EntryPoint entryPoint = this.generateEntryPoint(Integer.toString(i),
+					annotations.get(i), lattice, levels);
+			sources.get(i).getTag().add(Integer.toString(i));
+			flow.getAnnotation().add(sources.get(i));
+			
+			for (int j = 0; j < annotations.size(); j++) {
+				if (j != i) {
+					sinks.get(j).getTag().add(Integer.toString(i));
+					flow.getAnnotation().add(sinks.get(j));
+				}
+			}
+
+			flow.setEntrypoint(entryPoint);
+			flowSpefications.add(flow);
+//			startIndex = flowSpefications.size();
 		}
 
 		return flowSpefications;
