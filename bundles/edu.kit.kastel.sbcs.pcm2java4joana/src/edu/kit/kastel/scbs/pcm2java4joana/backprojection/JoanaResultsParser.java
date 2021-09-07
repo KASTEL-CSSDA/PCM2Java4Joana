@@ -49,11 +49,11 @@ public class JoanaResultsParser {
 	private static Collection<Trace> parseEntryPoint(BufferedReader reader) throws IOException, InputException {
 		Collection<Trace> traces = new ArrayList<Trace>();
 		String line;
-		
+
 		reader.readLine(); // tag
 		line = reader.readLine(); // found_flows
 		reader.readLine(); // only_direct_flow
-		
+
 		if (line.contains("false")) {
 			return traces;
 		}
@@ -100,6 +100,16 @@ public class JoanaResultsParser {
 		checkLineKey(reader.readLine(), SINK_KEY);
 		TraceState sink = parseSink(reader);
 		sink.setParameterIndex(1);
+
+		System.out.println(" & Class & " + source.getTraceClassName() + " & " + sink.getTraceClassName() + "\\\\");
+		System.out.println(" & Method Name & " + source.getResultmethod().getName() + " & "
+				+ sink.getResultmethod().getName() + "\\\\");
+		System.out.println(
+				" & Parameter Index & " + source.getParameterIndex() + " & " + sink.getParameterIndex() + "\\\\");
+		System.out.println(
+				" & Security Level & " + source.getSecurityLevelName() + " & " + sink.getSecurityLevelName() + "\\\\");
+		System.out.println(" & Public / Private & Public & Public \\\\");
+		System.out.println();
 
 		trace.getTracestate().add(source);
 		trace.getTracestate().add(sink);

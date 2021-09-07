@@ -54,30 +54,31 @@ public class AnnotationModelGenerator {
 	public SupplierAnalysisModel generateJoanaModel() {
 		JoanaFactory factory = JoanaFactory.eINSTANCE;
 		JOANARoot root = factory.createJOANARoot();
-		
+
 		ConfidentialitySpecification confidentiality = this.clientAnalysisModel.getConfidentiality();
 
 		List<SecurityLevel> levels = this.generateLevels(confidentiality);
 		root.getSecuritylevel().addAll(levels);
-		
+
 		Map<SecurityLevel, DataIdentifying> levelToDatasetsMapping = this
 				.generateSecurityLevelToDatasetMapping(confidentiality, levels);
 		Lattice lattice = this.generateLattice(levels);
 		root.setLattice(lattice);
-		
+
 		List<Annotation> annotations = this.generateAnnotations(levelToDatasetsMapping,
 				confidentiality.getParametersAndDataPairs(),
 				(SourceCodeRoot) this.supplierAnalysisModel.getSourceCodeModel(), this.clientAnalysisModel);
 //		List<List<Annotation>> annotationDistribution = this.generateSinkSourceDistributions(root, annotations);
-		List<FlowSpecification> flowSpecifications = this.generateFlowSpecifications(annotations, lattice, levels, root);
-		
+		List<FlowSpecification> flowSpecifications = this.generateFlowSpecifications(annotations, lattice, levels,
+				root);
+
 		root.getFlowspecification().addAll(flowSpecifications);
 		this.supplierAnalysisModel.setJoanaModel(root);
 		this.supplierAnalysisModel.setSecurityCorrespondendenceModel(this.securityCorrespondenceModel);
 
 		return this.supplierAnalysisModel;
 	}
-	
+
 	private List<List<Annotation>> generateSinkSourceDistributions(JOANARoot root, List<Annotation> annotations) {
 		List<Integer> possibleTags = new ArrayList<Integer>();
 		for (int i = 0; i < annotations.size(); i++) {
@@ -85,20 +86,18 @@ public class AnnotationModelGenerator {
 		}
 		List<List<Integer>> sourceDistributions = SetOperations.generatePowerSet(possibleTags);
 		List<List<Annotation>> annotationDistributions = new ArrayList<List<Annotation>>();
-		
-		for (int i = 0 ; i < sourceDistributions.size(); i++) {
+
+		for (int i = 0; i < sourceDistributions.size(); i++) {
 			List<Integer> sourceDistribution = sourceDistributions.get(i);
 			List<Annotation> flowAnnotations = new ArrayList<Annotation>();
 			for (int j = 0; j < possibleTags.size(); j++) {
 				int possibleTag = possibleTags.get(j);
 				if (sourceDistribution.contains(possibleTag)) {
-					flowAnnotations
-							.add(this.generateSource(annotations.get(possibleTag)));
+					flowAnnotations.add(this.generateSource(annotations.get(possibleTag)));
 				} else {
-					flowAnnotations
-							.add(this.generateSink(annotations.get(possibleTag)));
+					flowAnnotations.add(this.generateSink(annotations.get(possibleTag)));
 				}
-			}	
+			}
 			annotationDistributions.add(flowAnnotations);
 			root.getAnnotation().addAll(flowAnnotations);
 		}
@@ -112,21 +111,20 @@ public class AnnotationModelGenerator {
 		int startIndex = 0;
 		List<Source> sources = new ArrayList<Source>();
 		List<Sink> sinks = new ArrayList<Sink>();
-		
+
 		for (Annotation annotation : annotations) {
 			sources.add(this.generateSource(annotation));
 			sinks.add(this.generateSink(annotation));
 		}
 		root.getAnnotation().addAll(sources);
 		root.getAnnotation().addAll(sinks);
-		
+
 		for (int i = 0; i < annotations.size(); i++) {
 			FlowSpecification flow = factory.createFlowSpecification();
-			EntryPoint entryPoint = this.generateEntryPoint(Integer.toString(i),
-					annotations.get(i), lattice, levels);
+			EntryPoint entryPoint = this.generateEntryPoint(Integer.toString(i), annotations.get(i), lattice, levels);
 			sources.get(i).getTag().add(Integer.toString(i));
 			flow.getAnnotation().add(sources.get(i));
-			
+
 			for (int j = 0; j < annotations.size(); j++) {
 				if (j != i) {
 					sinks.get(j).getTag().add(Integer.toString(i));
@@ -142,8 +140,9 @@ public class AnnotationModelGenerator {
 		return flowSpefications;
 	}
 
-	private List<FlowSpecification> generateFlowSpecification(int entryPointIndex, int startTag, List<List<Annotation>> annotationDistributions,
-			List<Annotation> annotations, Lattice lattice, List<SecurityLevel> levels) {
+	private List<FlowSpecification> generateFlowSpecification(int entryPointIndex, int startTag,
+			List<List<Annotation>> annotationDistributions, List<Annotation> annotations, Lattice lattice,
+			List<SecurityLevel> levels) {
 		JoanaFactory factory = JoanaFactory.eINSTANCE;
 		List<FlowSpecification> flows = new ArrayList<FlowSpecification>();
 
@@ -225,48 +224,53 @@ public class AnnotationModelGenerator {
 
 		List<StereotypeApplication> iter = new ArrayList<StereotypeApplication>();
 		iter.add(stereotypeApplication);
-		ParametersAndDataPair appliedPair = StereotypeAPIUtil
-				.getTaggedValues(iter, "parametersAndDataPairs", ParametersAndDataPair.class).get(0);
-		List<SecurityLevel> securityLevels = this.getSecurityLevel(appliedPair, levelToDatasetsMapping);
-
-		OperationSignature pcmSignature = (OperationSignature) stereotypeApplication.getAppliedTo();
-		OperationInterface pcmInter = pcmSignature.getInterface__OperationSignature();
-
-		Interface inter = SourceCodeModelUtils.getInterface(sourceCode, pcmInter.getEntityName());
-		if (inter == null) {
-			return null;
-		}
-		List<Method> methods = SourceCodeModelUtils.getMethod(inter, pcmSignature.getEntityName());
-		List<Method> toRemove = new ArrayList<Method>();
-		if (!appliedPair.getParameterSources().get(0).equals("\\return") && !appliedPair.getParameterSources().get(0).equals("\\call")) {
-			for (Method method : methods) {
-				List<String> parameterNames = new ArrayList<String>();
-				for (Parameter parameter : method.getParameter()) {
-					parameterNames.add(parameter.getName());
-				}
-				if (!SetOperations.isIn(appliedPair.getParameterSources(), parameterNames)) {
-					toRemove.add(method);
-				}
-			}
-			methods.removeAll(toRemove);
-		}
-		List<Class> components = SourceCodeModelUtils.getComponents(sourceCode, inter);
+		List<ParametersAndDataPair> appliedPairs = StereotypeAPIUtil.getTaggedValues(iter, "parametersAndDataPairs",
+				ParametersAndDataPair.class);
 
 		List<Annotation> annotations = new ArrayList<Annotation>();
-		for (Class component : components) {
-			for (Method method : methods) {
-				Annotation annotation = factory.createAnnotation();
-				annotation.getSecuritylevel().addAll(securityLevels);
-				annotation.setAnnotatedClass(component);
-				annotation.setAnnotatedMethod(method);
-				if (!appliedPair.getParameterSources().get(0).equals("\\return") && !appliedPair.getParameterSources().get(0).equals("\\call")) {
-					annotation.setAnnotatedParameter(
-							SourceCodeModelUtils.getParameter(method, appliedPair.getParameterSources().get(0)));
+		for (ParametersAndDataPair appliedPair : appliedPairs) {
+			List<SecurityLevel> securityLevels = this.getSecurityLevel(appliedPair, levelToDatasetsMapping);
+
+			OperationSignature pcmSignature = (OperationSignature) stereotypeApplication.getAppliedTo();
+			OperationInterface pcmInter = pcmSignature.getInterface__OperationSignature();
+
+			Interface inter = SourceCodeModelUtils.getInterface(sourceCode, pcmInter.getEntityName());
+			if (inter == null) {
+				return null;
+			}
+			List<Method> methods = SourceCodeModelUtils.getMethod(inter, pcmSignature.getEntityName());
+			List<Method> toRemove = new ArrayList<Method>();
+			if (!appliedPair.getParameterSources().get(0).equals("\\return")
+					&& !appliedPair.getParameterSources().get(0).equals("\\call")) {
+				for (Method method : methods) {
+					List<String> parameterNames = new ArrayList<String>();
+					for (Parameter parameter : method.getParameter()) {
+						parameterNames.add(parameter.getName());
+					}
+					if (!SetOperations.isIn(appliedPair.getParameterSources(), parameterNames)) {
+						toRemove.add(method);
+					}
 				}
-				annotations.add(annotation);
-				this.securityCorrespondenceModel.getParametersanddatapair2annotation()
-						.add(CorrespondenceModelElementsGenerator.generateParametersAndDataPair2Annotation(appliedPair,
-								annotation));
+				methods.removeAll(toRemove);
+			}
+			List<Class> components = SourceCodeModelUtils.getComponents(sourceCode, inter);
+
+			for (Class component : components) {
+				for (Method method : methods) {
+					Annotation annotation = factory.createAnnotation();
+					annotation.getSecuritylevel().addAll(securityLevels);
+					annotation.setAnnotatedClass(component);
+					annotation.setAnnotatedMethod(method);
+					if (!appliedPair.getParameterSources().get(0).equals("\\return")
+							&& !appliedPair.getParameterSources().get(0).equals("\\call")) {
+						annotation.setAnnotatedParameter(
+								SourceCodeModelUtils.getParameter(method, appliedPair.getParameterSources().get(0)));
+					}
+					annotations.add(annotation);
+					this.securityCorrespondenceModel.getParametersanddatapair2annotation()
+							.add(CorrespondenceModelElementsGenerator
+									.generateParametersAndDataPair2Annotation(appliedPair, annotation));
+				}
 			}
 		}
 
@@ -318,7 +322,7 @@ public class AnnotationModelGenerator {
 				level.setName(dataset.getName());
 				levels.add(level);
 				this.securityCorrespondenceModel.getDataset2securitylevel()
-					.add(CorrespondenceModelElementsGenerator.generateDatasetCorrespondence(dataset, level));
+						.add(CorrespondenceModelElementsGenerator.generateDatasetCorrespondence(dataset, level));
 			}
 		}
 
