@@ -21,6 +21,12 @@ import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Type;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Variable;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.impl.VariableImpl;
 
+/**
+ * This class provides methods to interact with the generated source code model.
+ * It provides the possibility to search the source code model for specific elements and to compare model elements.
+ * @author Johannes
+ *
+ */
 public final class SourceCodeModelUtils {
 	private SourceCodeModelUtils() {
 

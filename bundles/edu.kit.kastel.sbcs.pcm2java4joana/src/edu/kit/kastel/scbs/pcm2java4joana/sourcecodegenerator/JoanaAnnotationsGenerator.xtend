@@ -18,6 +18,9 @@ import edu.kit.ipd.sdq.activextendannotations.Utility
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.TopLevelType
 import java.io.BufferedWriter
 
+/**
+ * This class is responsible to generate all joana annotations based on a joana model.
+ */
 @Utility
 class JoanaAnnotationsGenerator {
 	static def void generateJoanaAnnotation(TopLevelType parent, Method method, JOANARoot joanaModel, BufferedWriter writer) {

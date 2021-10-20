@@ -16,6 +16,9 @@ import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Class
 import edu.kit.ipd.sdq.activextendannotations.Utility
 import java.io.BufferedWriter
 
+/**
+ * This class is responsible to generate all source code elements that are not annotated.
+ */
 @Utility
 class SourceCodeElementGenerator {
 
@@ -70,7 +73,7 @@ class SourceCodeElementGenerator {
 	}
 	
 	static def String generateCollectionType(CollectionType type) {
-		return '''Collection<«generateDataType(type.type)»>'''
+		return '''Iterable<«generateDataType(type.type)»>'''
 	}
 	
 	static def String generateReferenceType(ReferenceType type) {
@@ -110,7 +113,7 @@ class SourceCodeElementGenerator {
 			import generated.code.«referenceType»;
 		«ENDFOR»
 		«IF SourceCodeModelUtils.hasCollectionType(fields)»
-			import java.util.Collection;
+			import java.lang.Iterable;
 		«ENDIF»
 		'''
 	}

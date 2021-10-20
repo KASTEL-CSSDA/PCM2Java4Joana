@@ -10,13 +10,14 @@ import java.util.Collection;
 import org.eclipse.core.resources.IFile;
 
 import edu.kit.kastel.scbs.pcm2java4joana.backprojection.JoanaResultsParser;
+import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.StructuralCorrespondenceModel;
 import edu.kit.kastel.scbs.pcm2java4joana.exceptions.InputException;
 import edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.Result;
 
 public class JoanaResults {
 	private static final String JOANA_RESULT_FILE_ENDING = "joanaresults";
 
-	public static Result createJoanaResultsFromFiles(Collection<IFile> files) throws InputException {
+	public static Result createJoanaResultsFromFiles(Collection<IFile> files, StructuralCorrespondenceModel correspondenceModel) throws InputException {
 		URI joanaResultsPath = null;
 
 		for (IFile file : files) {
@@ -36,7 +37,7 @@ public class JoanaResults {
 		BufferedReader reader = new BufferedReader(fileReader);
 		Result joanaResult;
 		try {
-			joanaResult = JoanaResultsParser.parseJoanaResults(reader);
+			joanaResult = JoanaResultsParser.parseJoanaResults(reader, correspondenceModel);
 		} catch (IOException e) {
 			e.printStackTrace();
 			throw new InputException(e.getMessage());

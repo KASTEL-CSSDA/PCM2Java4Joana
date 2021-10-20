@@ -31,7 +31,10 @@ public class SecurityLevelEquation {
 		return this.successors;
 	}
 
-	// Basic case means if it has no public successors or predecessors
+	/**
+	 * Basic case means if it has no public successors or predecessors
+	 * @return
+	 */
 	public boolean isBasicCase() {
 		for (AggregatedTraceState predecessor : predecessors) {
 			if (predecessor.isPublicMethod()) {
@@ -76,6 +79,12 @@ public class SecurityLevelEquation {
 		}
 	}
 
+	/**
+	 * This method determines how many invalid relations are resolved for the new security level.
+	 * Information may flow from a security level A to security level B if B is in A.
+	 * 
+	 * @param traceState
+	 */
 	public void addSuccessor(AggregatedTraceState traceState) {
 		if (!TraceStateUtils.containsTraceState(this.successors, traceState)) {
 			this.successors.add(traceState);
@@ -84,14 +93,24 @@ public class SecurityLevelEquation {
 
 	public int howManySolved(List<SecurityLevel> level) {
 		int solved = 0;
+		
+		if (level == null) {
+			return 0;
+		}
 
 		for (AggregatedTraceState state : predecessors) {
+			if (state.getSecurityLevel() == null) {
+				continue;
+			}
 			if (state.getSecurityLevel().containsAll(level)) {
 				solved += 1;
 			}
 		}
 
 		for (AggregatedTraceState state : successors) {
+			if (state.getSecurityLevel() == null) {
+				continue;
+			}
 			if (level.containsAll(state.getSecurityLevel())) {
 				solved += 1;
 			}

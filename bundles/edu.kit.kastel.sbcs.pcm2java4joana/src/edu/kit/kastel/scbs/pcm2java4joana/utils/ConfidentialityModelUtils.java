@@ -5,6 +5,11 @@ import edu.kit.kastel.scbs.confidentiality.data.DataIdentifying;
 import edu.kit.kastel.scbs.confidentiality.data.DataSet;
 import edu.kit.kastel.scbs.confidentiality.repository.ParametersAndDataPair;
 
+/**
+ * This class provides methods to search for confidentiality model elements.
+ * @author Johannes
+ *
+ */
 public final class ConfidentialityModelUtils {
 	private ConfidentialityModelUtils() {
 

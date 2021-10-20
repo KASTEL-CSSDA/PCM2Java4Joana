@@ -28,8 +28,18 @@ import edu.kit.kastel.scbs.pcm2java4joana.models.EquationSystem;
 import edu.kit.kastel.scbs.pcm2java4joana.models.JoanaResults;
 import edu.kit.kastel.scbs.pcm2java4joana.utils.InputUtils;
 
+/**
+ * This class is the handler for the plugin which is used to trigger the back-projection.
+ * 
+ * @author Johannes
+ *
+ */
 public class BackprojectionHandler extends AbstractHandler {
 
+	/**
+	 * This method is the entry point for the back-projection handler.
+	 * To use the handler, the adversary, confidentiality, repository, joanaresults, and model files have to be selected.
+	 */
 	@Override
 	public Object execute(ExecutionEvent event) {
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindow(event);
@@ -48,9 +58,9 @@ public class BackprojectionHandler extends AbstractHandler {
 		CorrespondenceModels correspondenceModels;
 
 		try {
-			result = JoanaResults.createJoanaResultsFromFiles(list);
 			clientAnalysisModel = ClientAnalysisModel.createModelsFromFiles(list);
 			correspondenceModels = CorrespondenceModels.createCorrespondenceModelsFromFile(list);
+			result = JoanaResults.createJoanaResultsFromFiles(list, correspondenceModels.getStructuralCorrespondenceModel());			
 		} catch (InputException e) {
 			MessageDialog.openError(window.getShell(), "Error",
 					"Die JOANA Ergebnisse, das Client Analyse Modell und die Korrespondenzenmodelle konnten nicht eingelesen werden");

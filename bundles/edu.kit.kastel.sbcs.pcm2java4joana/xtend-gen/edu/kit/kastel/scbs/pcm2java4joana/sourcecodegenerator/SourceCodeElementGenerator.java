@@ -19,6 +19,9 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 
+/**
+ * This class is responsible to generate all source code elements that are not annotated.
+ */
 @Utility
 @SuppressWarnings("all")
 public final class SourceCodeElementGenerator {
@@ -171,7 +174,7 @@ public final class SourceCodeElementGenerator {
   
   public static String generateCollectionType(final CollectionType type) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("Collection<");
+    _builder.append("Iterable<");
     String _generateDataType = SourceCodeElementGenerator.generateDataType(type.getType());
     _builder.append(_generateDataType);
     _builder.append(">");
@@ -276,7 +279,7 @@ public final class SourceCodeElementGenerator {
     {
       boolean _hasCollectionType = SourceCodeModelUtils.hasCollectionType(fields);
       if (_hasCollectionType) {
-        _builder.append("import java.util.Collection;");
+        _builder.append("import java.lang.Iterable;");
         _builder.newLine();
       }
     }

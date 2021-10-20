@@ -32,6 +32,12 @@ import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Parameter;
 import edu.kit.kastel.scbs.pcm2java4joana.utils.CorrespondenceModelUtils;
 import edu.kit.kastel.scbs.pcm2java4joana.utils.JoanaModelUtils;
 
+/**
+ * This class bundles all methods concerning the generation correspondence model elements.
+ * 
+ * @author Johannes
+ *
+ */
 public final class CorrespondenceModelElementsGenerator {
 	private CorrespondenceModelElementsGenerator() {
 
@@ -123,50 +129,4 @@ public final class CorrespondenceModelElementsGenerator {
 
 		return dataPair2Annotation;
 	}
-
-//	public static void addMethodCorrespondences(Component2Class componentCorrespondences,
-//			List<Operation2Method> methodCorrespondences) {
-//		for (Operation2Method correspondence : methodCorrespondences) {
-//			componentCorrespondences.get()
-//					.add(CorrespondenceModelElementsGenerator.copyMethodCorrespondence(correspondence));
-//		}
-//	}
-
-//	public static void addParameterCorrespondences(MethodCorrespondence correspondence,
-//			List<ParameterCorrespondence> parameterCorrespondences) {
-//		for (ParameterCorrespondence parameterCorrespondence : parameterCorrespondences) {
-//			correspondence.getParametercorrespondence()
-//					.add(CorrespondenceModelElementsGenerator.copyParameterCorrespondence(parameterCorrespondence));
-//		}
-//	}
-//
-//	private static MethodCorrespondence copyMethodCorrespondence(MethodCorrespondence correspondence) {
-//		CorrespondencemodelFactory correspondencesFactory = CorrespondencemodelFactory.eINSTANCE;
-//		MethodCorrespondence copied = CorrespondencemodelFactory.eINSTANCE.createMethodCorrespondence();
-//		PCMMethod pcmMethod = correspondencesFactory.createPCMMethod();
-//		SourceCodeMethod sourceCodeMethod = correspondencesFactory.createSourceCodeMethod();
-//		copied.setName(correspondence.getName());
-//		copied.setPcmmethod(pcmMethod);
-//		copied.setSourcecodemethod(sourceCodeMethod);
-//		pcmMethod.setName(correspondence.getPcmmethod().getName());
-//		sourceCodeMethod.setName(correspondence.getSourcecodemethod().getName());
-//
-//		CorrespondenceModelElementsGenerator.addParameterCorrespondences(copied,
-//				correspondence.getParametercorrespondence());
-//		return copied;
-//	}
-//
-//	private static ParameterCorrespondence copyParameterCorrespondence(ParameterCorrespondence correspondence) {
-//		CorrespondencemodelFactory correspondencesFactory = CorrespondencemodelFactory.eINSTANCE;
-//		ParameterCorrespondence copied = correspondencesFactory.createParameterCorrespondence();
-//		PCMParameter pcmParameter = correspondencesFactory.createPCMParameter();
-//		SourceCodeParameter sourceCodeParameter = correspondencesFactory.createSourceCodeParameter();
-//		copied.setPcmparameter(pcmParameter);
-//		copied.setSourcecodeparamter(sourceCodeParameter);
-//		copied.setName(correspondence.getName());
-//		pcmParameter.setName(correspondence.getPcmparameter().getName());
-//		sourceCodeParameter.setName(correspondence.getSourcecodeparamter().getName());
-//
-//		return copied;
-//	}
 }

@@ -17,6 +17,12 @@ import edu.kit.kastel.scbs.pcm2java4joana.joana.Sink;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.Source;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.impl.SinkImpl;
 
+/**
+ * This class provides methods to interact with the generated joana model.
+ * It provides the possibility to search the joana model for specific elements.
+ * @author Johannes
+ *
+ */
 public final class JoanaModelUtils {
 	private JoanaModelUtils() {
 

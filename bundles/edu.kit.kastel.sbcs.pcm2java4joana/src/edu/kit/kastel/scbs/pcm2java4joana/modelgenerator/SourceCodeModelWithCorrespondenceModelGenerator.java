@@ -43,6 +43,11 @@ import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Variable;
 import edu.kit.kastel.scbs.pcm2java4joana.utils.SourceCodeModelUtils;
 import edu.kit.kastel.scbs.pcm2java4joana.utils.Tuple;
 
+/**
+ * This class is concerned with generating the source code model with the correspondence model.
+ * @author Johannes
+ *
+ */
 public class SourceCodeModelWithCorrespondenceModelGenerator {
 	private Repository sourceRepository;
 	private List<String> compositeClassNames;

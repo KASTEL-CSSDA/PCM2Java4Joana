@@ -24,9 +24,18 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 
+/**
+ * This class is responsible to generate the annotated source code based on a source code and joana model.
+ */
 @Utility
 @SuppressWarnings("all")
 public final class SupplierAnalysisModel2AnnotatedCodeGenerator {
+  /**
+   * This method iterates over the source code top level types to generate annotated source code for the source code model elements.
+   * The annotated source code is written to files.
+   * The source code is directly written to the disk because otherwise the file size could exceed the available ram.
+   * The file name is the name of the top level type.
+   */
   public static List<CodeWithFile> generateAnnotatedCode(final SourceCodeRoot sourceCodeModel, final JOANARoot joanaModel, final IPath baseFolder) {
     try {
       final ArrayList<CodeWithFile> contentsForFiles = new ArrayList<CodeWithFile>();

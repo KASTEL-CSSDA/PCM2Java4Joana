@@ -4,6 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * This class is responsible to provide set operations.
+ * 
+ * @author Johannes
+ *
+ */
 public final class SetOperations {
 	private SetOperations() {
 
@@ -27,6 +33,10 @@ public final class SetOperations {
 	}
 
 	public static <T> boolean isIn(List<T> set1, List<T> set2) {
+		if (set1 == null || set2 == null) {
+			return false;
+		}
+		
 		for (T o : set1) {
 			if (!set2.contains(o)) {
 				return false;

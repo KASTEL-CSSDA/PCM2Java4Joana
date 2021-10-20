@@ -17,11 +17,32 @@ import edu.kit.kastel.scbs.pcm2java4joana.utils.CorrespondenceModelUtils;
 import edu.kit.kastel.scbs.pcm2java4joana.utils.JoanaModelUtils;
 import edu.kit.kastel.scbs.pcm2java4joana.utils.SetOperations;
 
+/**
+ * This class is used to determine the new security levels based on the joana results.
+ * 
+ * @author Johannes
+ *
+ */
 public final class CorrectSecurityLevelFinder {
 	private CorrectSecurityLevelFinder() {
 
 	}
 
+	/**
+	 * The joana results are transformed into an equation system. 
+	 * Each trace state with an method which is in the structural correspondence model is the base of a security level equation.
+	 * The methods are compared based on the name, parameters, return type and the interface not the component.
+	 * An equation consists of the public trace state as the base and the neighbor trace states as successors and predecessors.
+	 * If a predecessor or successor is also a public trace state, a reference to it is used.
+	 * The advantage is that if in the solver algorithm the security level of a trace state is changed, it is changed in all equations.
+	 * The new security levels are determined with the solver method of the equation system.
+	 * 
+	 * @param structuralCorrespondenceModel
+	 * @param securityCorrespondenceModel
+	 * @param result
+	 * @return
+	 * @throws InputException
+	 */
 	public static EquationSystem findCorrectSecurityLevel(StructuralCorrespondenceModel structuralCorrespondenceModel,
 			SecurityCorrespondenceModel securityCorrespondenceModel, Result result) throws InputException {
 		boolean invalidFlowsWithoutPublicAction = false;
@@ -62,7 +83,7 @@ public final class CorrectSecurityLevelFinder {
 					.findPublicMethodPositions(structuralCorrespondenceModel, trace);
 			for (Integer position : publicMethodsPositions) {
 				List<SecurityLevel> level = JoanaModelUtils.resolveToSecurityLevels(
-						trace.getTracestate().get(position).getSecurityLevelName(), allSecurityLevels);
+						trace.getTracestate().get(position).getSecurityLevelName(), allSecurityLevels);				
 				AggregatedTraceState aggregatedTraceState = new AggregatedTraceState(
 						trace.getTracestate().get(position), CorrespondenceModelUtils.getInterfaceForTraceState(
 								structuralCorrespondenceModel, trace.getTracestate().get(position)),
@@ -99,12 +120,12 @@ public final class CorrectSecurityLevelFinder {
 				equationSystem.addEquation(equation);
 			}
 		}
-
+		
 		equationSystem.solve(allSecurityLevels);
 
 		return equationSystem;
 	}
-
+	
 	private static AggregatedTraceState getState(AggregatedTraceState state, List<AggregatedTraceState> states) {
 		for (AggregatedTraceState publicState : states) {
 			if (publicState.equals(state)) {

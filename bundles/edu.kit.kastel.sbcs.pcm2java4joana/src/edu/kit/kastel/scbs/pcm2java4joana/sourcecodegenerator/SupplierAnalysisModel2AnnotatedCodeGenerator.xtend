@@ -25,9 +25,19 @@ import edu.kit.kastel.scbs.pcm2java4joana.exceptions.CodeSaveException
 import java.io.BufferedWriter
 import java.io.FileWriter
 
+
+/**
+ * This class is responsible to generate the annotated source code based on a source code and joana model.
+ */
 @Utility
 class SupplierAnalysisModel2AnnotatedCodeGenerator {
 	
+	/**
+	 * This method iterates over the source code top level types to generate annotated source code for the source code model elements.
+	 * The annotated source code is written to files. 
+	 * The source code is directly written to the disk because otherwise the file size could exceed the available ram.
+	 * The file name is the name of the top level type. 
+	 */
 	static def List<CodeWithFile> generateAnnotatedCode(SourceCodeRoot sourceCodeModel, JOANARoot joanaModel, IPath baseFolder) {
 		val contentsForFiles = new ArrayList<CodeWithFile>()
 		val destinationFolder = baseFolder.append("src-gen");

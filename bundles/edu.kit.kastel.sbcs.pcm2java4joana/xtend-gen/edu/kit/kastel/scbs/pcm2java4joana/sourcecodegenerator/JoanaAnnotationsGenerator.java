@@ -22,6 +22,9 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 
+/**
+ * This class is responsible to generate all joana annotations based on a joana model.
+ */
 @Utility
 @SuppressWarnings("all")
 public final class JoanaAnnotationsGenerator {

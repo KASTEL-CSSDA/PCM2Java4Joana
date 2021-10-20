@@ -11,8 +11,15 @@ import edu.kit.kastel.scbs.pcm2java4joana.joana.SecurityLevel;
 import edu.kit.kastel.scbs.pcm2java4joana.utils.SetOperations;
 import edu.kit.kastel.scbs.pcm2java4joana.utils.TraceStateUtils;
 
+/**
+ * This class bundles the equations created from the joana results.
+ * This class provides a method to determine the security levels.
+ * 
+ * @author Johannes
+ *
+ */
 public class EquationSystem {
-	private final static int BATCH_SIZE = 10; 
+	private final static int BATCH_SIZE = 1; 
 	
 	private final List<SecurityLevelEquation> equations;
 	private int score;
@@ -51,6 +58,20 @@ public class EquationSystem {
 		return totalScore;
 	}
 
+	/**
+	 * This method determines the best solution of the equation system.
+	 * The best solution is the solution with the highest number of resolved invalid traces.
+	 * First, the basic cases are solved. 
+	 * The basic cases are the cases in which the method has neither public successors nor predecessors.
+	 * Second, a backtracking algorithm is used for the not basic cases to determine the best solution.
+	 * Theoretically, all possible combinations of security levels should be tested.
+	 * This is not possible in a acceptable time.
+	 * Therefore, a pre-sort of the security levels are determined for each trace state.
+	 * Then, only all combinations of the first eigth of the sorted security levels are tested.
+	 * The determined solution is saved in the equations. 
+	 * 
+	 * @param securityLevels
+	 */
 	public void solve(List<List<SecurityLevel>> securityLevels) {
 		int score = 0;
 		Map<Integer, List<SecurityLevel>> solution = new HashMap<Integer, List<SecurityLevel>>();
@@ -131,14 +152,14 @@ public class EquationSystem {
 		for (int i = 0; i < equations.size(); i++) {
 			SecurityLevelEquation equation = equations.get(i);
 			if (equation.getPredecessors().size() == 0) {
-				testOrder.put(i, getOrderForSuccessors(levels, equation));
+				testOrder.put(i, getOrderForSuccessors(sorted, equation));
 				continue;
 			}
 			if (equation.getSuccessors().size() ==  0) {
-				testOrder.put(i, getOrderForPredeccessors(levels, equation));
+				testOrder.put(i, getOrderForPredeccessors(sorted, equation));
 				continue;
 			}
-			testOrder.put(i, getOrderForPredeccessorsSuccessors(levels, equation));
+			testOrder.put(i, getOrderForPredeccessorsSuccessors(sorted, equation));
 		}
 		
 		return testOrder;
@@ -148,6 +169,10 @@ public class EquationSystem {
 		List<List<SecurityLevel>> order = new ArrayList<List<SecurityLevel>>();
 		
 		for (List<SecurityLevel> level : levels) {
+			if (level.size() == 0) {
+				continue;
+			}
+			
 			boolean sucGood = true;
 			boolean predGood = true;
 			
@@ -182,6 +207,9 @@ public class EquationSystem {
 		List<List<SecurityLevel>> order = new ArrayList<List<SecurityLevel>>();
 		
 		for (List<SecurityLevel> level : levels) {
+			if (level.size() == 0) {
+				continue;
+			}
 			boolean leastDownerBound = true;
 			
 			for (AggregatedTraceState state : equation.getPredecessors()) {
@@ -206,6 +234,9 @@ public class EquationSystem {
 		List<List<SecurityLevel>> order = new ArrayList<List<SecurityLevel>>();
 		
 		for (List<SecurityLevel> level : levels) {
+			if (level.size() == 0) {
+				continue;
+			}
 			boolean leastUpperBound = true;
 			for (AggregatedTraceState state : equation.getSuccessors()) {
 				if (!SetOperations.isIn(state.getSecurityLevel(), level)) {
@@ -249,10 +280,6 @@ public class EquationSystem {
 			currentLevels.put(index, securityLevel);
 			bestScore = solve(securityLevels, bestLevels, alreadySolved, index + 1, currentLevels, bestScore, bestPossibleScore, testOrder, batch);
 		}
-
-//		if (index == 0 && bestScore < bestPossibleScore) {
-//			bestScore = solve(securityLevels, bestLevels, alreadySolved, 0, currentLevels, bestScore, bestPossibleScore, testOrder, batch + 1);
-//		}
 		
 		return bestScore;
 	}

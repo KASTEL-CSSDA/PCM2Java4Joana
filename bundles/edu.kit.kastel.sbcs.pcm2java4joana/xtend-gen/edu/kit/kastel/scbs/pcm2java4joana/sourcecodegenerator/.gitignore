@@ -6,3 +6,9 @@
 /.DataTypeGenerator.java._trace
 /.JoanaAnnotationsGenerator.java._trace
 /.SourceCodeElementGenerator.java._trace
+/.JoanaAnnotationsGenerator.xtendbin
+/.SourceCodeElementGenerator.xtendbin
+/.SupplierAnalysisModel2AnnotatedCodeGenerator.xtendbin
+/JoanaAnnotationsGenerator.java
+/SourceCodeElementGenerator.java
+/SupplierAnalysisModel2AnnotatedCodeGenerator.java

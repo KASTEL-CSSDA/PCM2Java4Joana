@@ -48,9 +48,8 @@ public class AggregatedTraceState {
 		}
 
 		AggregatedTraceState toCompare = (AggregatedTraceState) obj;
-		if (this.isPublicMethod != toCompare.isPublicMethod
-				&& !SourceCodeModelUtils.haveSameSignature(toCompare.getBaseState().getResultmethod(),
-						toCompare.getBaseState().getResultmethod())) {
+		if (!SourceCodeModelUtils.haveSameSignature(toCompare.getBaseState().getResultmethod(),
+						this.baseState.getResultmethod())) {
 			return false;
 		}
 

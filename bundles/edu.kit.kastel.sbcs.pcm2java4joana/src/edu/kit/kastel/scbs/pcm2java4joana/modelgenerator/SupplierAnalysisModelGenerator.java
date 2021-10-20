@@ -6,6 +6,12 @@ import edu.kit.kastel.scbs.pcm2java4joana.models.ClientAnalysisModel;
 import edu.kit.kastel.scbs.pcm2java4joana.models.SourceCodeWithCorrespondences;
 import edu.kit.kastel.scbs.pcm2java4joana.models.SupplierAnalysisModel;
 
+/**
+ * This class first generates the source code and second the joana model which are combined the supplier analysis model.
+ * 
+ * @author Johannes
+ *
+ */
 public class SupplierAnalysisModelGenerator {
 	private ClientAnalysisModel models;
 	private IPath destinationFolder;

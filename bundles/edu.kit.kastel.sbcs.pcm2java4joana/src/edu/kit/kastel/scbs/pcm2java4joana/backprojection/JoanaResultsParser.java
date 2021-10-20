@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.StructuralCorrespondenceModel;
 import edu.kit.kastel.scbs.pcm2java4joana.exceptions.InputException;
 import edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.JoanasimplifiedresultFactory;
 import edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.Result;
@@ -12,7 +13,14 @@ import edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.ResultMethod;
 import edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.ResultType;
 import edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.Trace;
 import edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.TraceState;
+import edu.kit.kastel.scbs.pcm2java4joana.utils.CorrespondenceModelUtils;
 
+/**
+ * This class has the objective to parse joana results into a list of traces.
+ * 
+ * @author Johannes
+ *
+ */
 public class JoanaResultsParser {
 	private static final String ENTRYPOINT_KEY = "entry_point_method";
 	private static final String FLOW_KEY = "flow";
@@ -32,21 +40,32 @@ public class JoanaResultsParser {
 	private static final String SDGFORMALPARAMETER = "edu.kit.joana.api.sdg.sdgformalparameter";
 	private static final String SDGFORMALMETHOD = "edu.kit.joana.api.sdg.sdgmethod";
 
-	public static Result parseJoanaResults(BufferedReader reader) throws IOException, InputException {
+	/**
+	 * The results are parsed from a file which is read with a BufferedReader.
+	 * The results for all entry points are concatenated written to the file.
+	 * The methods in the results are parsed to the model elements in the source code model with the structural correspondence model.
+	 * 
+	 * @param reader
+	 * @param correspondenceModel
+	 * @return
+	 * @throws IOException
+	 * @throws InputException
+	 */
+	public static Result parseJoanaResults(BufferedReader reader, StructuralCorrespondenceModel correspondenceModel) throws IOException, InputException {
 		JoanasimplifiedresultFactory factory = JoanasimplifiedresultFactory.eINSTANCE;
 		Result result = factory.createResult();
 
 		String line;
 		while ((line = reader.readLine()) != null) {
 			if (line.contains(ENTRYPOINT_KEY)) {
-				result.getTrace().addAll(parseEntryPoint(reader));
+				result.getTrace().addAll(parseEntryPoint(reader, correspondenceModel));
 			}
 		}
 
 		return result;
 	}
-
-	private static Collection<Trace> parseEntryPoint(BufferedReader reader) throws IOException, InputException {
+	
+	private static Collection<Trace> parseEntryPoint(BufferedReader reader, StructuralCorrespondenceModel correspondenceModel) throws IOException, InputException {
 		Collection<Trace> traces = new ArrayList<Trace>();
 		String line;
 
@@ -59,20 +78,20 @@ public class JoanaResultsParser {
 		}
 		while ((line = reader.readLine()) != null) {
 			if (line.contains(FLOW_KEY)) {
-				traces.addAll(parseFlow(reader));
+				traces.addAll(parseFlow(reader, correspondenceModel));
 			}
 		}
 
 		return traces;
 	}
 
-	private static Collection<Trace> parseFlow(BufferedReader reader) throws IOException, InputException {
+	private static Collection<Trace> parseFlow(BufferedReader reader, StructuralCorrespondenceModel correspondenceModel) throws IOException, InputException {
 		Collection<Trace> traces = new ArrayList<Trace>();
 
 		String line;
 		while ((line = reader.readLine()) != null) {
 			if (line.contains(FLOW_DELIMETER)) {
-				Trace trace = parseResult(reader);
+				Trace trace = parseResult(reader, correspondenceModel);
 				if (trace == null) {
 					break;
 				}
@@ -82,8 +101,8 @@ public class JoanaResultsParser {
 
 		return traces;
 	}
-
-	private static Trace parseResult(BufferedReader reader) throws IOException, InputException {
+	
+	private static Trace parseResult(BufferedReader reader, StructuralCorrespondenceModel correspondenceModel) throws IOException, InputException {
 		JoanasimplifiedresultFactory factory = JoanasimplifiedresultFactory.eINSTANCE;
 		Trace trace = factory.createTrace();
 
@@ -95,21 +114,11 @@ public class JoanaResultsParser {
 
 		checkLineKey(reader.readLine(), SOURCE_KEY);
 		TraceState source = parseSource(reader);
-		source.setParameterIndex(0);
+		source.setTracePosition(0);
 
 		checkLineKey(reader.readLine(), SINK_KEY);
 		TraceState sink = parseSink(reader);
-		sink.setParameterIndex(1);
-
-		System.out.println(" & Class & " + source.getTraceClassName() + " & " + sink.getTraceClassName() + "\\\\");
-		System.out.println(" & Method Name & " + source.getResultmethod().getName() + " & "
-				+ sink.getResultmethod().getName() + "\\\\");
-		System.out.println(
-				" & Parameter Index & " + source.getParameterIndex() + " & " + sink.getParameterIndex() + "\\\\");
-		System.out.println(
-				" & Security Level & " + source.getSecurityLevelName() + " & " + sink.getSecurityLevelName() + "\\\\");
-		System.out.println(" & Public / Private & Public & Public \\\\");
-		System.out.println();
+		sink.setTracePosition(1);
 
 		trace.getTracestate().add(source);
 		trace.getTracestate().add(sink);

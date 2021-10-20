@@ -1,4 +1,4 @@
-package edu.kit.kastel.scbs.pcm2java4joana.modelgenerator;
+ package edu.kit.kastel.scbs.pcm2java4joana.modelgenerator;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,6 +38,11 @@ import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourceCodeRoot;
 import edu.kit.kastel.scbs.pcm2java4joana.utils.SetOperations;
 import edu.kit.kastel.scbs.pcm2java4joana.utils.SourceCodeModelUtils;
 
+/**
+ * This class has the target to generate a joana model based on the confidentiality model and the security correspondence model.
+ * @author Johannes
+ *
+ */
 public class AnnotationModelGenerator {
 	private SupplierAnalysisModel supplierAnalysisModel;
 	private ClientAnalysisModel clientAnalysisModel;
@@ -50,7 +55,22 @@ public class AnnotationModelGenerator {
 		this.securityCorrespondenceModel = SecuritycorrespondencemodelFactory.eINSTANCE
 				.createSecurityCorrespondenceModel();
 	}
-
+	
+	
+	/**
+	 * The DataSets are transformed to joana security levels.
+	 * The joana security levels are each element of the power set of the data sets.
+	 * The lattice is approximated based on the power set of the data sets.
+	 * Security level A relates to security level B if B is in A.
+	 * The lattice contains only direct relations because a lattice is transitive and reflexive.
+	 * Based on each implementation of a method to which stereotype InformationFlow is applied an blank annotation is generated.
+	 * The powerset of the applied annotations is calculated.
+	 * Each element of the powerset is a source-sink distribution.
+	 * An element of the powerset is the set of source in this distribution, all other blank annotations are sinks.
+	 * For each blank annotation an entry point is generated, for each entry point each source-sink distribution is generated.
+	 * 
+	 * @return
+	 */
 	public SupplierAnalysisModel generateJoanaModel() {
 		JoanaFactory factory = JoanaFactory.eINSTANCE;
 		JOANARoot root = factory.createJOANARoot();

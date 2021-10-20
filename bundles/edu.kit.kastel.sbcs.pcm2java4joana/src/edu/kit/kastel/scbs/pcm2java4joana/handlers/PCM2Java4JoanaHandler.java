@@ -32,8 +32,18 @@ import edu.kit.kastel.scbs.pcm2java4joana.models.SupplierAnalysisModel;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecodegenerator.SupplierAnalysisModel2AnnotatedCodeGenerator;
 import edu.kit.kastel.scbs.pcm2java4joana.utils.InputUtils;
 
+/**
+ * This class is the handler for the plugin which is used to trigger the supplier analysis model generation.
+ * 
+ * @author Johannes
+ *
+ */
 public class PCM2Java4JoanaHandler extends AbstractHandler {
 
+	/**
+	 * This method is the entry point for the generation handler.
+	 * To use the handler, the adversary, confidentiality, and repository files have to be selected.
+	 */
 	@Override
 	public Object execute(ExecutionEvent event) {
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindow(event);
