@@ -1,0 +1,3192 @@
+entry_point_method: void travelplannerpcm.components.UserInterface.getSingleSelection(java.lang.Iterable)
+tag: 1
+found_flows: true
+only_direct_flow: false
+flow: 
+  - 
+    type: illegal
+    attacker_level: FlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: getSingleSelection
+        selector: getSingleSelection(Ljava/lang/Iterable;)V
+        return: void
+        parameters: 
+          - java.lang.Iterable
+      index: 1
+      type: java.lang.Iterable
+    source_level: FlightOffer
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 1
+      type: java.lang.Object
+    sink_level: FlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationDeclassified
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: getSingleSelection
+        selector: getSingleSelection(Ljava/lang/Iterable;)V
+        return: void
+        parameters: 
+          - java.lang.Iterable
+      index: 1
+      type: java.lang.Object
+    source_level: FlightOffer
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 2
+      type: java.lang.Object
+    sink_level: CreditCardInformationDeclassified
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationFlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: getSingleSelection
+        selector: getSingleSelection(Ljava/lang/Iterable;)V
+        return: void
+        parameters: 
+          - java.lang.Iterable
+      index: 1
+      type: java.lang.Iterable
+    source_level: FlightOffer
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 1
+      type: java.lang.Object
+    sink_level: CreditCardInformationFlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: FlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: getSingleSelection
+        selector: getSingleSelection(Ljava/lang/Iterable;)V
+        return: void
+        parameters: 
+          - java.lang.Iterable
+      index: 1
+      type: java.lang.Iterable
+    source_level: FlightOffer
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 1
+      type: int
+    sink_level: FlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: FlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: getSingleSelection
+        selector: getSingleSelection(Ljava/lang/Iterable;)V
+        return: void
+        parameters: 
+          - java.lang.Iterable
+      index: 1
+      type: java.lang.Iterable
+    source_level: FlightOffer
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.CreditCardCenter
+        name: releaseCCD
+        selector: releaseCCD(Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 1
+      type: travelplannerpcm.datatypes.AirlineSpec
+    sink_level: FlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: FlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: getSingleSelection
+        selector: getSingleSelection(Ljava/lang/Iterable;)V
+        return: void
+        parameters: 
+          - java.lang.Iterable
+      index: 1
+      type: java.lang.Object
+    source_level: FlightOffer
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 1
+      type: java.lang.Object
+    sink_level: FlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: FlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: getSingleSelection
+        selector: getSingleSelection(Ljava/lang/Iterable;)V
+        return: void
+        parameters: 
+          - java.lang.Iterable
+      index: 1
+      type: java.lang.Iterable
+    source_level: FlightOffer
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.CreditCardCenter
+        name: releaseCCD
+        selector: releaseCCD(Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 1
+      type: java.lang.Object
+    sink_level: FlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationDeclassified
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: getSingleSelection
+        selector: getSingleSelection(Ljava/lang/Iterable;)V
+        return: void
+        parameters: 
+          - java.lang.Iterable
+      index: 1
+      type: java.lang.Iterable
+    source_level: FlightOffer
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 2
+      type: java.lang.Object
+    sink_level: CreditCardInformationDeclassified
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationDeclassified
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: getSingleSelection
+        selector: getSingleSelection(Ljava/lang/Iterable;)V
+        return: void
+        parameters: 
+          - java.lang.Iterable
+      index: 1
+      type: java.lang.Iterable
+    source_level: FlightOffer
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 2
+      type: travelplannerpcm.datatypes.CreditCardDetails
+    sink_level: CreditCardInformationDeclassified
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationDeclassified
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: getSingleSelection
+        selector: getSingleSelection(Ljava/lang/Iterable;)V
+        return: void
+        parameters: 
+          - java.lang.Iterable
+      index: 1
+      type: java.lang.Object
+    source_level: FlightOffer
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 2
+      type: travelplannerpcm.datatypes.CreditCardDetails
+    sink_level: CreditCardInformationDeclassified
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationFlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: getSingleSelection
+        selector: getSingleSelection(Ljava/lang/Iterable;)V
+        return: void
+        parameters: 
+          - java.lang.Iterable
+      index: 1
+      type: java.lang.Object
+    source_level: FlightOffer
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 2
+      type: travelplannerpcm.datatypes.AirlineSpec
+    sink_level: CreditCardInformationFlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: FlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: getSingleSelection
+        selector: getSingleSelection(Ljava/lang/Iterable;)V
+        return: void
+        parameters: 
+          - java.lang.Iterable
+      index: 1
+      type: java.lang.Object
+    source_level: FlightOffer
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.CreditCardCenter
+        name: releaseCCD
+        selector: releaseCCD(Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 1
+      type: java.lang.Object
+    sink_level: FlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationFlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: getSingleSelection
+        selector: getSingleSelection(Ljava/lang/Iterable;)V
+        return: void
+        parameters: 
+          - java.lang.Iterable
+      index: 1
+      type: java.lang.Object
+    source_level: FlightOffer
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 1
+      type: java.lang.Object
+    sink_level: CreditCardInformationFlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationFlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: getSingleSelection
+        selector: getSingleSelection(Ljava/lang/Iterable;)V
+        return: void
+        parameters: 
+          - java.lang.Iterable
+      index: 1
+      type: java.lang.Iterable
+    source_level: FlightOffer
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 1
+      type: travelplannerpcm.datatypes.CreditCardDetails
+    sink_level: CreditCardInformationFlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationFlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: getSingleSelection
+        selector: getSingleSelection(Ljava/lang/Iterable;)V
+        return: void
+        parameters: 
+          - java.lang.Iterable
+      index: 1
+      type: java.lang.Iterable
+    source_level: FlightOffer
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 2
+      type: java.lang.Object
+    sink_level: CreditCardInformationFlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: FlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: getSingleSelection
+        selector: getSingleSelection(Ljava/lang/Iterable;)V
+        return: void
+        parameters: 
+          - java.lang.Iterable
+      index: 1
+      type: java.lang.Iterable
+    source_level: FlightOffer
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: bookSelected
+        selector: bookSelected(Ltravelplannerpcm/datatypes/FlightOffer;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.FlightOffer
+      index: 1
+      type: travelplannerpcm.datatypes.FlightOffer
+    sink_level: FlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: FlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: getSingleSelection
+        selector: getSingleSelection(Ljava/lang/Iterable;)V
+        return: void
+        parameters: 
+          - java.lang.Iterable
+      index: 1
+      type: java.lang.Object
+    source_level: FlightOffer
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 1
+      type: int
+    sink_level: FlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: FlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: getSingleSelection
+        selector: getSingleSelection(Ljava/lang/Iterable;)V
+        return: void
+        parameters: 
+          - java.lang.Iterable
+      index: 1
+      type: java.lang.Object
+    source_level: FlightOffer
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.CreditCardCenter
+        name: releaseCCD
+        selector: releaseCCD(Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 1
+      type: travelplannerpcm.datatypes.AirlineSpec
+    sink_level: FlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationFlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: getSingleSelection
+        selector: getSingleSelection(Ljava/lang/Iterable;)V
+        return: void
+        parameters: 
+          - java.lang.Iterable
+      index: 1
+      type: java.lang.Object
+    source_level: FlightOffer
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 1
+      type: travelplannerpcm.datatypes.CreditCardDetails
+    sink_level: CreditCardInformationFlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationFlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: getSingleSelection
+        selector: getSingleSelection(Ljava/lang/Iterable;)V
+        return: void
+        parameters: 
+          - java.lang.Iterable
+      index: 1
+      type: java.lang.Object
+    source_level: FlightOffer
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 2
+      type: java.lang.Object
+    sink_level: CreditCardInformationFlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: FlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: getSingleSelection
+        selector: getSingleSelection(Ljava/lang/Iterable;)V
+        return: void
+        parameters: 
+          - java.lang.Iterable
+      index: 1
+      type: java.lang.Iterable
+    source_level: FlightOffer
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: bookSelected
+        selector: bookSelected(Ltravelplannerpcm/datatypes/FlightOffer;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.FlightOffer
+      index: 1
+      type: java.lang.Object
+    sink_level: FlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: FlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: getSingleSelection
+        selector: getSingleSelection(Ljava/lang/Iterable;)V
+        return: void
+        parameters: 
+          - java.lang.Iterable
+      index: 1
+      type: java.lang.Object
+    source_level: FlightOffer
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: bookSelected
+        selector: bookSelected(Ltravelplannerpcm/datatypes/FlightOffer;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.FlightOffer
+      index: 1
+      type: travelplannerpcm.datatypes.FlightOffer
+    sink_level: FlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationFlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: getSingleSelection
+        selector: getSingleSelection(Ljava/lang/Iterable;)V
+        return: void
+        parameters: 
+          - java.lang.Iterable
+      index: 1
+      type: java.lang.Iterable
+    source_level: FlightOffer
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 2
+      type: travelplannerpcm.datatypes.AirlineSpec
+    sink_level: CreditCardInformationFlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: FlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: getSingleSelection
+        selector: getSingleSelection(Ljava/lang/Iterable;)V
+        return: void
+        parameters: 
+          - java.lang.Iterable
+      index: 1
+      type: java.lang.Object
+    source_level: FlightOffer
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: bookSelected
+        selector: bookSelected(Ltravelplannerpcm/datatypes/FlightOffer;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.FlightOffer
+      index: 1
+      type: java.lang.Object
+    sink_level: FlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: TravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: getSingleSelection
+        selector: getSingleSelection(Ljava/lang/Iterable;)V
+        return: void
+        parameters: 
+          - java.lang.Iterable
+      index: 1
+      type: java.lang.Iterable
+    source_level: FlightOffer
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgmethod
+      class: travelplannerpcm.components.TravelAgency
+      name: payCommission
+      selector: payCommission(ILtravelplannerpcm/datatypes/AirlineSpec;)Z
+      return: boolean
+      parameters: 
+        - int
+        - travelplannerpcm.datatypes.AirlineSpec
+    sink_level: TravelData
+  - 
+    type: illegal
+    attacker_level: TravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: getSingleSelection
+        selector: getSingleSelection(Ljava/lang/Iterable;)V
+        return: void
+        parameters: 
+          - java.lang.Iterable
+      index: 1
+      type: java.lang.Object
+    source_level: FlightOffer
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgmethod
+      class: travelplannerpcm.components.TravelAgency
+      name: payCommission
+      selector: payCommission(ILtravelplannerpcm/datatypes/AirlineSpec;)Z
+      return: boolean
+      parameters: 
+        - int
+        - travelplannerpcm.datatypes.AirlineSpec
+    sink_level: TravelData
+entry_point_method: java.lang.Iterable travelplannerpcm.components.TravelAgency.getFlightOffers(travelplannerpcm.datatypes.RequestData)
+tag: 10
+found_flows: true
+only_direct_flow: false
+flow: 
+  - 
+    type: illegal
+    attacker_level: FlightOfferTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelAgency
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)Ljava/lang/Iterable;
+        return: java.lang.Iterable
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: java.lang.Object
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)Ljava/lang/Iterable;
+        return: java.lang.Iterable
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: java.lang.Object
+    sink_level: FlightOfferTravelData
+  - 
+    type: illegal
+    attacker_level: AirlineTechnicalInformation
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelAgency
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)Ljava/lang/Iterable;
+        return: java.lang.Iterable
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: java.lang.Object
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.AirlineLogger
+        name: log
+        selector: log(Ljava/lang/String;)V
+        return: void
+        parameters: 
+          - java.lang.String
+      index: 1
+      type: java.lang.String
+    sink_level: AirlineTechnicalInformation
+  - 
+    type: illegal
+    attacker_level: FlightOfferTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelAgency
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)Ljava/lang/Iterable;
+        return: java.lang.Iterable
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: java.lang.Object
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)Ljava/lang/Iterable;
+        return: java.lang.Iterable
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: travelplannerpcm.datatypes.RequestData
+    sink_level: FlightOfferTravelData
+  - 
+    type: illegal
+    attacker_level: FlightOfferTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelAgency
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)Ljava/lang/Iterable;
+        return: java.lang.Iterable
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: java.lang.Object
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgmethod
+      class: travelplannerpcm.components.Airline
+      name: getFlightOffers
+      selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)Ljava/lang/Iterable;
+      return: java.lang.Iterable
+      parameters: 
+        - travelplannerpcm.datatypes.RequestData
+    sink_level: FlightOfferTravelData
+  - 
+    type: illegal
+    attacker_level: FlightOfferTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelAgency
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)Ljava/lang/Iterable;
+        return: java.lang.Iterable
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: travelplannerpcm.datatypes.RequestData
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)Ljava/lang/Iterable;
+        return: java.lang.Iterable
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: java.lang.Object
+    sink_level: FlightOfferTravelData
+  - 
+    type: illegal
+    attacker_level: AirlineTechnicalInformation
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelAgency
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)Ljava/lang/Iterable;
+        return: java.lang.Iterable
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: java.lang.Object
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.AirlineLogger
+        name: log
+        selector: log(Ljava/lang/String;)V
+        return: void
+        parameters: 
+          - java.lang.String
+      index: 1
+      type: java.lang.Object
+    sink_level: AirlineTechnicalInformation
+  - 
+    type: illegal
+    attacker_level: FlightOfferTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelAgency
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)Ljava/lang/Iterable;
+        return: java.lang.Iterable
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: travelplannerpcm.datatypes.RequestData
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)Ljava/lang/Iterable;
+        return: java.lang.Iterable
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: travelplannerpcm.datatypes.RequestData
+    sink_level: FlightOfferTravelData
+  - 
+    type: illegal
+    attacker_level: AirlineTechnicalInformation
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelAgency
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)Ljava/lang/Iterable;
+        return: java.lang.Iterable
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: travelplannerpcm.datatypes.RequestData
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.AirlineLogger
+        name: log
+        selector: log(Ljava/lang/String;)V
+        return: void
+        parameters: 
+          - java.lang.String
+      index: 1
+      type: java.lang.String
+    sink_level: AirlineTechnicalInformation
+  - 
+    type: illegal
+    attacker_level: AirlineTechnicalInformation
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelAgency
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)Ljava/lang/Iterable;
+        return: java.lang.Iterable
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: travelplannerpcm.datatypes.RequestData
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.AirlineLogger
+        name: log
+        selector: log(Ljava/lang/String;)V
+        return: void
+        parameters: 
+          - java.lang.String
+      index: 1
+      type: java.lang.Object
+    sink_level: AirlineTechnicalInformation
+  - 
+    type: illegal
+    attacker_level: FlightOfferTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelAgency
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)Ljava/lang/Iterable;
+        return: java.lang.Iterable
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: travelplannerpcm.datatypes.RequestData
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgmethod
+      class: travelplannerpcm.components.Airline
+      name: getFlightOffers
+      selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)Ljava/lang/Iterable;
+      return: java.lang.Iterable
+      parameters: 
+        - travelplannerpcm.datatypes.RequestData
+    sink_level: FlightOfferTravelData
+entry_point_method: java.lang.Iterable travelplannerpcm.components.Airline.getFlightOffers(travelplannerpcm.datatypes.RequestData)
+tag: 11
+found_flows: true
+only_direct_flow: false
+flow: 
+  - 
+    type: illegal
+    attacker_level: AirlineTechnicalInformation
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)Ljava/lang/Iterable;
+        return: java.lang.Iterable
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: travelplannerpcm.datatypes.RequestData
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.AirlineLogger
+        name: log
+        selector: log(Ljava/lang/String;)V
+        return: void
+        parameters: 
+          - java.lang.String
+      index: 1
+      type: java.lang.String
+    sink_level: AirlineTechnicalInformation
+  - 
+    type: illegal
+    attacker_level: AirlineTechnicalInformation
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)Ljava/lang/Iterable;
+        return: java.lang.Iterable
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: travelplannerpcm.datatypes.RequestData
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.AirlineLogger
+        name: log
+        selector: log(Ljava/lang/String;)V
+        return: void
+        parameters: 
+          - java.lang.String
+      index: 1
+      type: java.lang.Object
+    sink_level: AirlineTechnicalInformation
+  - 
+    type: illegal
+    attacker_level: FlightOfferTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)Ljava/lang/Iterable;
+        return: java.lang.Iterable
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: travelplannerpcm.datatypes.RequestData
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgmethod
+      class: travelplannerpcm.components.Airline
+      name: getFlightOffers
+      selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)Ljava/lang/Iterable;
+      return: java.lang.Iterable
+      parameters: 
+        - travelplannerpcm.datatypes.RequestData
+    sink_level: FlightOfferTravelData
+  - 
+    type: illegal
+    attacker_level: AirlineTechnicalInformation
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)Ljava/lang/Iterable;
+        return: java.lang.Iterable
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: java.lang.Object
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.AirlineLogger
+        name: log
+        selector: log(Ljava/lang/String;)V
+        return: void
+        parameters: 
+          - java.lang.String
+      index: 1
+      type: java.lang.String
+    sink_level: AirlineTechnicalInformation
+  - 
+    type: illegal
+    attacker_level: FlightOfferTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)Ljava/lang/Iterable;
+        return: java.lang.Iterable
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: java.lang.Object
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgmethod
+      class: travelplannerpcm.components.Airline
+      name: getFlightOffers
+      selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)Ljava/lang/Iterable;
+      return: java.lang.Iterable
+      parameters: 
+        - travelplannerpcm.datatypes.RequestData
+    sink_level: FlightOfferTravelData
+  - 
+    type: illegal
+    attacker_level: AirlineTechnicalInformation
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)Ljava/lang/Iterable;
+        return: java.lang.Iterable
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: java.lang.Object
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.AirlineLogger
+        name: log
+        selector: log(Ljava/lang/String;)V
+        return: void
+        parameters: 
+          - java.lang.String
+      index: 1
+      type: java.lang.Object
+    sink_level: AirlineTechnicalInformation
+entry_point_method: java.lang.Iterable travelplannerpcm.components.Airline.getFlightOffers(travelplannerpcm.datatypes.RequestData)
+tag: 13
+found_flows: true
+only_direct_flow: false
+flow: 
+  - 
+    type: illegal
+    attacker_level: AirlineTechnicalInformation
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgmethod
+      class: travelplannerpcm.components.Airline
+      name: getFlightOffers
+      selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)Ljava/lang/Iterable;
+      return: java.lang.Iterable
+      parameters: 
+        - travelplannerpcm.datatypes.RequestData
+    source_level: FlightOfferTravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.AirlineLogger
+        name: log
+        selector: log(Ljava/lang/String;)V
+        return: void
+        parameters: 
+          - java.lang.String
+      index: 1
+      type: java.lang.String
+    sink_level: AirlineTechnicalInformation
+  - 
+    type: illegal
+    attacker_level: AirlineTechnicalInformation
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgmethod
+      class: travelplannerpcm.components.Airline
+      name: getFlightOffers
+      selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)Ljava/lang/Iterable;
+      return: java.lang.Iterable
+      parameters: 
+        - travelplannerpcm.datatypes.RequestData
+    source_level: FlightOfferTravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.AirlineLogger
+        name: log
+        selector: log(Ljava/lang/String;)V
+        return: void
+        parameters: 
+          - java.lang.String
+      index: 1
+      type: java.lang.Object
+    sink_level: AirlineTechnicalInformation
+entry_point_method: void travelplannerpcm.components.UserInterface.setCredentials(java.lang.String, java.lang.String)
+tag: 17
+found_flows: false
+only_direct_flow: false
+entry_point_method: void travelplannerpcm.components.UserInterface.setCredentials(java.lang.String, java.lang.String)
+tag: 18
+found_flows: false
+only_direct_flow: false
+entry_point_method: void travelplannerpcm.components.TravelPlanner.getFlightOffers(travelplannerpcm.datatypes.RequestData)
+tag: 2
+found_flows: true
+only_direct_flow: false
+flow: 
+  - 
+    type: illegal
+    attacker_level: CreditCardInformation
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: java.lang.Object
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 1
+      type: travelplannerpcm.datatypes.CreditCardDetails
+    sink_level: CreditCardInformation
+  - 
+    type: illegal
+    attacker_level: FlightOffer
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: travelplannerpcm.datatypes.RequestData
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: getSingleSelection
+        selector: getSingleSelection(Ljava/lang/Iterable;)V
+        return: void
+        parameters: 
+          - java.lang.Iterable
+      index: 1
+      type: java.lang.Object
+    sink_level: FlightOffer
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationDeclassified
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: travelplannerpcm.datatypes.RequestData
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 2
+      type: java.lang.Object
+    sink_level: CreditCardInformationDeclassified
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationDeclassified
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: travelplannerpcm.datatypes.RequestData
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 2
+      type: travelplannerpcm.datatypes.CreditCardDetails
+    sink_level: CreditCardInformationDeclassified
+  - 
+    type: illegal
+    attacker_level: CreditCardInformation
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: java.lang.Object
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 1
+      type: java.lang.Object
+    sink_level: CreditCardInformation
+  - 
+    type: illegal
+    attacker_level: AirlineTechnicalInformation
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: travelplannerpcm.datatypes.RequestData
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.AirlineLogger
+        name: log
+        selector: log(Ljava/lang/String;)V
+        return: void
+        parameters: 
+          - java.lang.String
+      index: 1
+      type: java.lang.String
+    sink_level: AirlineTechnicalInformation
+  - 
+    type: illegal
+    attacker_level: FlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: java.lang.Object
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: bookSelected
+        selector: bookSelected(Ltravelplannerpcm/datatypes/FlightOffer;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.FlightOffer
+      index: 1
+      type: travelplannerpcm.datatypes.FlightOffer
+    sink_level: FlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: FlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: java.lang.Object
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 1
+      type: int
+    sink_level: FlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: FlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: travelplannerpcm.datatypes.RequestData
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 1
+      type: java.lang.Object
+    sink_level: FlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: FlightOffer
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: java.lang.Object
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: getSingleSelection
+        selector: getSingleSelection(Ljava/lang/Iterable;)V
+        return: void
+        parameters: 
+          - java.lang.Iterable
+      index: 1
+      type: java.lang.Iterable
+    sink_level: FlightOffer
+  - 
+    type: illegal
+    attacker_level: FlightOfferTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: java.lang.Object
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)Ljava/lang/Iterable;
+        return: java.lang.Iterable
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: java.lang.Object
+    sink_level: FlightOfferTravelData
+  - 
+    type: illegal
+    attacker_level: FlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: travelplannerpcm.datatypes.RequestData
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 1
+      type: int
+    sink_level: FlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: FlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: java.lang.Object
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: bookSelected
+        selector: bookSelected(Ltravelplannerpcm/datatypes/FlightOffer;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.FlightOffer
+      index: 1
+      type: java.lang.Object
+    sink_level: FlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: FlightOfferTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: java.lang.Object
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)Ljava/lang/Iterable;
+        return: java.lang.Iterable
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: travelplannerpcm.datatypes.RequestData
+    sink_level: FlightOfferTravelData
+  - 
+    type: illegal
+    attacker_level: FlightOfferTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: java.lang.Object
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgmethod
+      class: travelplannerpcm.components.Airline
+      name: getFlightOffers
+      selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)Ljava/lang/Iterable;
+      return: java.lang.Iterable
+      parameters: 
+        - travelplannerpcm.datatypes.RequestData
+    sink_level: FlightOfferTravelData
+  - 
+    type: illegal
+    attacker_level: AirlineTechnicalInformation
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: java.lang.Object
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.AirlineLogger
+        name: log
+        selector: log(Ljava/lang/String;)V
+        return: void
+        parameters: 
+          - java.lang.String
+      index: 1
+      type: java.lang.String
+    sink_level: AirlineTechnicalInformation
+  - 
+    type: illegal
+    attacker_level: AirlineTechnicalInformation
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: travelplannerpcm.datatypes.RequestData
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.AirlineLogger
+        name: log
+        selector: log(Ljava/lang/String;)V
+        return: void
+        parameters: 
+          - java.lang.String
+      index: 1
+      type: java.lang.Object
+    sink_level: AirlineTechnicalInformation
+  - 
+    type: illegal
+    attacker_level: FlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: java.lang.Object
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 1
+      type: java.lang.Object
+    sink_level: FlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: FlightOfferTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: travelplannerpcm.datatypes.RequestData
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)Ljava/lang/Iterable;
+        return: java.lang.Iterable
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: travelplannerpcm.datatypes.RequestData
+    sink_level: FlightOfferTravelData
+  - 
+    type: illegal
+    attacker_level: CreditCardInformation
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: travelplannerpcm.datatypes.RequestData
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 1
+      type: java.lang.Object
+    sink_level: CreditCardInformation
+  - 
+    type: illegal
+    attacker_level: AirlineTechnicalInformation
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: java.lang.Object
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.AirlineLogger
+        name: log
+        selector: log(Ljava/lang/String;)V
+        return: void
+        parameters: 
+          - java.lang.String
+      index: 1
+      type: java.lang.Object
+    sink_level: AirlineTechnicalInformation
+  - 
+    type: illegal
+    attacker_level: FlightOfferTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: travelplannerpcm.datatypes.RequestData
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgmethod
+      class: travelplannerpcm.components.Airline
+      name: getFlightOffers
+      selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)Ljava/lang/Iterable;
+      return: java.lang.Iterable
+      parameters: 
+        - travelplannerpcm.datatypes.RequestData
+    sink_level: FlightOfferTravelData
+  - 
+    type: illegal
+    attacker_level: FlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: travelplannerpcm.datatypes.RequestData
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: bookSelected
+        selector: bookSelected(Ltravelplannerpcm/datatypes/FlightOffer;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.FlightOffer
+      index: 1
+      type: travelplannerpcm.datatypes.FlightOffer
+    sink_level: FlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationDeclassified
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: java.lang.Object
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 2
+      type: java.lang.Object
+    sink_level: CreditCardInformationDeclassified
+  - 
+    type: illegal
+    attacker_level: FlightOffer
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: travelplannerpcm.datatypes.RequestData
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: getSingleSelection
+        selector: getSingleSelection(Ljava/lang/Iterable;)V
+        return: void
+        parameters: 
+          - java.lang.Iterable
+      index: 1
+      type: java.lang.Iterable
+    sink_level: FlightOffer
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationDeclassified
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: java.lang.Object
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 2
+      type: travelplannerpcm.datatypes.CreditCardDetails
+    sink_level: CreditCardInformationDeclassified
+  - 
+    type: illegal
+    attacker_level: FlightOfferTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: travelplannerpcm.datatypes.RequestData
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)Ljava/lang/Iterable;
+        return: java.lang.Iterable
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: java.lang.Object
+    sink_level: FlightOfferTravelData
+  - 
+    type: illegal
+    attacker_level: CreditCardInformation
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: travelplannerpcm.datatypes.RequestData
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 1
+      type: travelplannerpcm.datatypes.CreditCardDetails
+    sink_level: CreditCardInformation
+  - 
+    type: illegal
+    attacker_level: FlightOffer
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: java.lang.Object
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: getSingleSelection
+        selector: getSingleSelection(Ljava/lang/Iterable;)V
+        return: void
+        parameters: 
+          - java.lang.Iterable
+      index: 1
+      type: java.lang.Object
+    sink_level: FlightOffer
+  - 
+    type: illegal
+    attacker_level: FlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: getFlightOffers
+        selector: getFlightOffers(Ltravelplannerpcm/datatypes/RequestData;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.RequestData
+      index: 1
+      type: travelplannerpcm.datatypes.RequestData
+    source_level: TravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: bookSelected
+        selector: bookSelected(Ltravelplannerpcm/datatypes/FlightOffer;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.FlightOffer
+      index: 1
+      type: java.lang.Object
+    sink_level: FlightOfferSelectionTravelData
+entry_point_method: void travelplannerpcm.components.TravelPlanner.bookSelected(travelplannerpcm.datatypes.FlightOffer)
+tag: 3
+found_flows: true
+only_direct_flow: false
+flow: 
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationDeclassified
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: bookSelected
+        selector: bookSelected(Ltravelplannerpcm/datatypes/FlightOffer;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.FlightOffer
+      index: 1
+      type: travelplannerpcm.datatypes.FlightOffer
+    source_level: FlightOfferSelectionTravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 2
+      type: travelplannerpcm.datatypes.CreditCardDetails
+    sink_level: CreditCardInformationDeclassified
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationFlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: bookSelected
+        selector: bookSelected(Ltravelplannerpcm/datatypes/FlightOffer;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.FlightOffer
+      index: 1
+      type: travelplannerpcm.datatypes.FlightOffer
+    source_level: FlightOfferSelectionTravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 2
+      type: travelplannerpcm.datatypes.AirlineSpec
+    sink_level: CreditCardInformationFlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationDeclassified
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: bookSelected
+        selector: bookSelected(Ltravelplannerpcm/datatypes/FlightOffer;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.FlightOffer
+      index: 1
+      type: travelplannerpcm.datatypes.FlightOffer
+    source_level: FlightOfferSelectionTravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 2
+      type: java.lang.Object
+    sink_level: CreditCardInformationDeclassified
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationFlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: bookSelected
+        selector: bookSelected(Ltravelplannerpcm/datatypes/FlightOffer;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.FlightOffer
+      index: 1
+      type: java.lang.Object
+    source_level: FlightOfferSelectionTravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 1
+      type: java.lang.Object
+    sink_level: CreditCardInformationFlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationFlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: bookSelected
+        selector: bookSelected(Ltravelplannerpcm/datatypes/FlightOffer;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.FlightOffer
+      index: 1
+      type: travelplannerpcm.datatypes.FlightOffer
+    source_level: FlightOfferSelectionTravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 2
+      type: java.lang.Object
+    sink_level: CreditCardInformationFlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationDeclassified
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: bookSelected
+        selector: bookSelected(Ltravelplannerpcm/datatypes/FlightOffer;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.FlightOffer
+      index: 1
+      type: java.lang.Object
+    source_level: FlightOfferSelectionTravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 2
+      type: travelplannerpcm.datatypes.CreditCardDetails
+    sink_level: CreditCardInformationDeclassified
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationFlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: bookSelected
+        selector: bookSelected(Ltravelplannerpcm/datatypes/FlightOffer;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.FlightOffer
+      index: 1
+      type: travelplannerpcm.datatypes.FlightOffer
+    source_level: FlightOfferSelectionTravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 1
+      type: travelplannerpcm.datatypes.CreditCardDetails
+    sink_level: CreditCardInformationFlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationFlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: bookSelected
+        selector: bookSelected(Ltravelplannerpcm/datatypes/FlightOffer;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.FlightOffer
+      index: 1
+      type: java.lang.Object
+    source_level: FlightOfferSelectionTravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 2
+      type: travelplannerpcm.datatypes.AirlineSpec
+    sink_level: CreditCardInformationFlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationDeclassified
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: bookSelected
+        selector: bookSelected(Ltravelplannerpcm/datatypes/FlightOffer;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.FlightOffer
+      index: 1
+      type: java.lang.Object
+    source_level: FlightOfferSelectionTravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 2
+      type: java.lang.Object
+    sink_level: CreditCardInformationDeclassified
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationFlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: bookSelected
+        selector: bookSelected(Ltravelplannerpcm/datatypes/FlightOffer;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.FlightOffer
+      index: 1
+      type: java.lang.Object
+    source_level: FlightOfferSelectionTravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 2
+      type: java.lang.Object
+    sink_level: CreditCardInformationFlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationFlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: bookSelected
+        selector: bookSelected(Ltravelplannerpcm/datatypes/FlightOffer;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.FlightOffer
+      index: 1
+      type: travelplannerpcm.datatypes.FlightOffer
+    source_level: FlightOfferSelectionTravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 1
+      type: java.lang.Object
+    sink_level: CreditCardInformationFlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationFlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.TravelPlanner
+        name: bookSelected
+        selector: bookSelected(Ltravelplannerpcm/datatypes/FlightOffer;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.FlightOffer
+      index: 1
+      type: java.lang.Object
+    source_level: FlightOfferSelectionTravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 1
+      type: travelplannerpcm.datatypes.CreditCardDetails
+    sink_level: CreditCardInformationFlightOfferSelectionTravelData
+entry_point_method: void travelplannerpcm.components.UserInterface.confirmRelease(travelplannerpcm.datatypes.CreditCardDetails, travelplannerpcm.datatypes.AirlineSpec)
+tag: 5
+found_flows: true
+only_direct_flow: false
+flow: 
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationDeclassified
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 2
+      type: travelplannerpcm.datatypes.AirlineSpec
+    source_level: FlightOfferSelectionTravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 2
+      type: java.lang.Object
+    sink_level: CreditCardInformationDeclassified
+  - 
+    type: illegal
+    attacker_level: CreditCardInformation
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 2
+      type: java.lang.Object
+    source_level: FlightOfferSelectionTravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 1
+      type: travelplannerpcm.datatypes.CreditCardDetails
+    sink_level: CreditCardInformation
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationDeclassified
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 2
+      type: travelplannerpcm.datatypes.AirlineSpec
+    source_level: FlightOfferSelectionTravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 2
+      type: travelplannerpcm.datatypes.CreditCardDetails
+    sink_level: CreditCardInformationDeclassified
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationDeclassified
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 2
+      type: java.lang.Object
+    source_level: FlightOfferSelectionTravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 2
+      type: java.lang.Object
+    sink_level: CreditCardInformationDeclassified
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationDeclassified
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 2
+      type: java.lang.Object
+    source_level: FlightOfferSelectionTravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 2
+      type: travelplannerpcm.datatypes.CreditCardDetails
+    sink_level: CreditCardInformationDeclassified
+  - 
+    type: illegal
+    attacker_level: CreditCardInformation
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 2
+      type: travelplannerpcm.datatypes.AirlineSpec
+    source_level: FlightOfferSelectionTravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 1
+      type: java.lang.Object
+    sink_level: CreditCardInformation
+  - 
+    type: illegal
+    attacker_level: CreditCardInformation
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 2
+      type: travelplannerpcm.datatypes.AirlineSpec
+    source_level: FlightOfferSelectionTravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 1
+      type: travelplannerpcm.datatypes.CreditCardDetails
+    sink_level: CreditCardInformation
+  - 
+    type: illegal
+    attacker_level: CreditCardInformation
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 2
+      type: java.lang.Object
+    source_level: FlightOfferSelectionTravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 1
+      type: java.lang.Object
+    sink_level: CreditCardInformation
+entry_point_method: void travelplannerpcm.components.UserInterface.confirmRelease(travelplannerpcm.datatypes.CreditCardDetails, travelplannerpcm.datatypes.AirlineSpec)
+tag: 6
+found_flows: true
+only_direct_flow: false
+flow: 
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationDeclassified
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 1
+      type: travelplannerpcm.datatypes.CreditCardDetails
+    source_level: CreditCardInformation
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 2
+      type: java.lang.Object
+    sink_level: CreditCardInformationDeclassified
+  - 
+    type: illegal
+    attacker_level: FlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 1
+      type: java.lang.Object
+    source_level: CreditCardInformation
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 1
+      type: java.lang.Object
+    sink_level: FlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: TravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 1
+      type: travelplannerpcm.datatypes.CreditCardDetails
+    source_level: CreditCardInformation
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgmethod
+      class: travelplannerpcm.components.TravelAgency
+      name: payCommission
+      selector: payCommission(ILtravelplannerpcm/datatypes/AirlineSpec;)Z
+      return: boolean
+      parameters: 
+        - int
+        - travelplannerpcm.datatypes.AirlineSpec
+    sink_level: TravelData
+  - 
+    type: illegal
+    attacker_level: FlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 1
+      type: travelplannerpcm.datatypes.CreditCardDetails
+    source_level: CreditCardInformation
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 2
+      type: java.lang.Object
+    sink_level: FlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationDeclassified
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 1
+      type: travelplannerpcm.datatypes.CreditCardDetails
+    source_level: CreditCardInformation
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 2
+      type: travelplannerpcm.datatypes.CreditCardDetails
+    sink_level: CreditCardInformationDeclassified
+  - 
+    type: illegal
+    attacker_level: FlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 1
+      type: java.lang.Object
+    source_level: CreditCardInformation
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 2
+      type: travelplannerpcm.datatypes.AirlineSpec
+    sink_level: FlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationDeclassified
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 1
+      type: java.lang.Object
+    source_level: CreditCardInformation
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 2
+      type: java.lang.Object
+    sink_level: CreditCardInformationDeclassified
+  - 
+    type: illegal
+    attacker_level: FlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 1
+      type: travelplannerpcm.datatypes.CreditCardDetails
+    source_level: CreditCardInformation
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 2
+      type: travelplannerpcm.datatypes.AirlineSpec
+    sink_level: FlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: FlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 1
+      type: travelplannerpcm.datatypes.CreditCardDetails
+    source_level: CreditCardInformation
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 1
+      type: java.lang.Object
+    sink_level: FlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: TravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 1
+      type: java.lang.Object
+    source_level: CreditCardInformation
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgmethod
+      class: travelplannerpcm.components.TravelAgency
+      name: payCommission
+      selector: payCommission(ILtravelplannerpcm/datatypes/AirlineSpec;)Z
+      return: boolean
+      parameters: 
+        - int
+        - travelplannerpcm.datatypes.AirlineSpec
+    sink_level: TravelData
+  - 
+    type: illegal
+    attacker_level: FlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 1
+      type: java.lang.Object
+    source_level: CreditCardInformation
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 2
+      type: java.lang.Object
+    sink_level: FlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: FlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 1
+      type: travelplannerpcm.datatypes.CreditCardDetails
+    source_level: CreditCardInformation
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 1
+      type: int
+    sink_level: FlightOfferSelectionTravelData
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationDeclassified
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 1
+      type: java.lang.Object
+    source_level: CreditCardInformation
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 2
+      type: travelplannerpcm.datatypes.CreditCardDetails
+    sink_level: CreditCardInformationDeclassified
+  - 
+    type: illegal
+    attacker_level: FlightOfferSelectionTravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.UserInterface
+        name: confirmRelease
+        selector: confirmRelease(Ltravelplannerpcm/datatypes/CreditCardDetails;Ltravelplannerpcm/datatypes/AirlineSpec;)V
+        return: void
+        parameters: 
+          - travelplannerpcm.datatypes.CreditCardDetails
+          - travelplannerpcm.datatypes.AirlineSpec
+      index: 1
+      type: java.lang.Object
+    source_level: CreditCardInformation
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 1
+      type: int
+    sink_level: FlightOfferSelectionTravelData
+entry_point_method: boolean travelplannerpcm.components.Airline.bookFlightOffer(int, travelplannerpcm.datatypes.CreditCardDetails)
+tag: 7
+found_flows: true
+only_direct_flow: false
+flow: 
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationDeclassified
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 1
+      type: int
+    source_level: FlightOfferSelectionTravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 2
+      type: java.lang.Object
+    sink_level: CreditCardInformationDeclassified
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationDeclassified
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 1
+      type: java.lang.Object
+    source_level: FlightOfferSelectionTravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 2
+      type: java.lang.Object
+    sink_level: CreditCardInformationDeclassified
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationDeclassified
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 1
+      type: int
+    source_level: FlightOfferSelectionTravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 2
+      type: travelplannerpcm.datatypes.CreditCardDetails
+    sink_level: CreditCardInformationDeclassified
+  - 
+    type: illegal
+    attacker_level: CreditCardInformationDeclassified
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 1
+      type: java.lang.Object
+    source_level: FlightOfferSelectionTravelData
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 2
+      type: travelplannerpcm.datatypes.CreditCardDetails
+    sink_level: CreditCardInformationDeclassified
+entry_point_method: boolean travelplannerpcm.components.Airline.bookFlightOffer(int, travelplannerpcm.datatypes.CreditCardDetails)
+tag: 8
+found_flows: true
+only_direct_flow: false
+flow: 
+  - 
+    type: illegal
+    attacker_level: TravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 2
+      type: java.lang.Object
+    source_level: CreditCardInformationDeclassified
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgmethod
+      class: travelplannerpcm.components.TravelAgency
+      name: payCommission
+      selector: payCommission(ILtravelplannerpcm/datatypes/AirlineSpec;)Z
+      return: boolean
+      parameters: 
+        - int
+        - travelplannerpcm.datatypes.AirlineSpec
+    sink_level: TravelData
+  - 
+    type: illegal
+    attacker_level: TravelData
+    source: 
+      kind: edu.kit.joana.api.sdg.sdgformalparameter
+      method: 
+        class: travelplannerpcm.components.Airline
+        name: bookFlightOffer
+        selector: bookFlightOffer(ILtravelplannerpcm/datatypes/CreditCardDetails;)Z
+        return: boolean
+        parameters: 
+          - int
+          - travelplannerpcm.datatypes.CreditCardDetails
+      index: 2
+      type: travelplannerpcm.datatypes.CreditCardDetails
+    source_level: CreditCardInformationDeclassified
+    sink: 
+      kind: edu.kit.joana.api.sdg.sdgmethod
+      class: travelplannerpcm.components.TravelAgency
+      name: payCommission
+      selector: payCommission(ILtravelplannerpcm/datatypes/AirlineSpec;)Z
+      return: boolean
+      parameters: 
+        - int
+        - travelplannerpcm.datatypes.AirlineSpec
+    sink_level: TravelData
