@@ -6,14 +6,16 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="securityLevels" lowerBound="1"
         upperBound="-1" eType="ecore:EClass ../../edu.kit.kastel.scbs.pcm2java4joana.joana/model/joanamodel.ecore#//SecurityLevel"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="conf4cbsedataset" lowerBound="1"
-        upperBound="-1" eType="#//Conf4CBSEDataSet" containment="true"/>
+        upperBound="-1" eType="ecore:EClass platform:/plugin/edu.kit.kastel.scbs.confidentialitymm/model/confidentiality.ecore#//data/DataSet"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ParametersAndDataPair2Annotation">
     <eStructuralFeatures xsi:type="ecore:EReference" name="joanaAnnotation" lowerBound="1"
         eType="ecore:EClass ../../edu.kit.kastel.scbs.pcm2java4joana.joana/model/joanamodel.ecore#//Annotation"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="conf4cbseparametersanddatapair"
-        lowerBound="1" eType="#//Conf4CBSEParametersAndDataPair" containment="true"/>
+        lowerBound="1" eType="ecore:EClass platform:/plugin/edu.kit.kastel.scbs.confidentialitymm/model/confidentiality.ecore#//repository/ParametersAndDataPair"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SecurityCorrespondenceModel">
     <eStructuralFeatures xsi:type="ecore:EReference" name="parametersanddatapair2annotation"
@@ -21,9 +23,4 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="dataset2securitylevel"
         upperBound="-1" eType="#//DataSet2SecurityLevel" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Conf4CBSEParametersAndDataPair" eSuperTypes="#//Conf4CBSEElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Conf4CBSEElement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType ../../org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Conf4CBSEDataSet" eSuperTypes="#//Conf4CBSEElement"/>
 </ecore:EPackage>

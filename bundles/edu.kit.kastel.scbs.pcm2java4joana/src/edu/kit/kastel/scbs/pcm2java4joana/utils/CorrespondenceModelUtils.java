@@ -13,7 +13,6 @@ import edu.kit.kastel.scbs.pcm2java4joana.joana.Annotation;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.SecurityLevel;
 import edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.Trace;
 import edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.TraceState;
-import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEDataSet;
 import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.DataSet2SecurityLevel;
 import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.ParametersAndDataPair2Annotation;
 import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecurityCorrespondenceModel;
@@ -115,7 +114,7 @@ public final class CorrespondenceModelUtils {
 		Collection<DataSet> correspondingDataSets= new ArrayList<DataSet>();
 		for (DataSet2SecurityLevel dataSet2SecurityLevel : securityCorrespondenceModel.getDataset2securitylevel()) {
 			if (securityLevel.contains(dataSet2SecurityLevel.getSecurityLevels().get(0))) {
-				for (Conf4CBSEDataSet conf4cbseDataSet: dataSet2SecurityLevel.getConf4cbsedataset()) {
+				for (DataSet conf4cbseDataSet: dataSet2SecurityLevel.getConf4cbsedataset()) {
 					DataSet dataSet = ConfidentialityModelUtils.getDataset(specification, conf4cbseDataSet.getId());
 					if (dataSet != null) {
 						correspondingDataSets.add(dataSet);
