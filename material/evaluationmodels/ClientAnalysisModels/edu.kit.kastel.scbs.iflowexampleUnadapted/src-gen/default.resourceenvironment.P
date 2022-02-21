@@ -1,0 +1,64 @@
+
+/** BEGIN resourceEnvironment, ID: '186', NAME: 'FlightPlannerScenario' */
+description(186,'FlightPlannerScenario','resourceEnvironment').
+resourceEnvironment(186).
+linkingResources(186,[187,188,189,190]).
+resourceContainer(186,[191,192,193,194]).
+
+/** BEGIN linkingResource, ID: '187', NAME: 'Internet' */
+description(187,'Internet','linkingResource').
+linkingResource(187).
+connectedResourceContainers(187,[192,191]).
+communicationLinkResourceSpecifications(187,[]).
+/** END linkingResource, ID: '187', NAME: 'Internet' */
+
+
+/** BEGIN linkingResource, ID: '188', NAME: '4G + Internet' */
+description(188,'4G + Internet','linkingResource').
+linkingResource(188).
+connectedResourceContainers(188,[193,192]).
+communicationLinkResourceSpecifications(188,[]).
+/** END linkingResource, ID: '188', NAME: '4G + Internet' */
+
+
+/** BEGIN linkingResource, ID: '189', NAME: 'OpenWifi + Internet' */
+description(189,'OpenWifi + Internet','linkingResource').
+linkingResource(189).
+connectedResourceContainers(189,[192,193]).
+communicationLinkResourceSpecifications(189,[]).
+/** END linkingResource, ID: '189', NAME: 'OpenWifi + Internet' */
+
+
+/** BEGIN linkingResource, ID: '190', NAME: 'Internet' */
+description(190,'Internet','linkingResource').
+linkingResource(190).
+connectedResourceContainers(190,[194,192]).
+communicationLinkResourceSpecifications(190,[]).
+/** END linkingResource, ID: '190', NAME: 'Internet' */
+
+
+/** BEGIN resourceContainer, ID: '191', NAME: 'AgencyServer' */
+description(191,'AgencyServer','resourceContainer').
+resourceContainer(191).
+/** END resourceContainer, ID: '191', NAME: 'AgencyServer' */
+
+
+/** BEGIN resourceContainer, ID: '192', NAME: 'AirlineServer' */
+description(192,'AirlineServer','resourceContainer').
+resourceContainer(192).
+/** END resourceContainer, ID: '192', NAME: 'AirlineServer' */
+
+
+/** BEGIN resourceContainer, ID: '193', NAME: 'MobilePhone' */
+description(193,'MobilePhone','resourceContainer').
+resourceContainer(193).
+/** END resourceContainer, ID: '193', NAME: 'MobilePhone' */
+
+
+/** BEGIN resourceContainer, ID: '194', NAME: 'SupportCenter' */
+description(194,'SupportCenter','resourceContainer').
+resourceContainer(194).
+/** END resourceContainer, ID: '194', NAME: 'SupportCenter' */
+
+/** END resourceEnvironment, ID: '186', NAME: 'FlightPlannerScenario' */
+

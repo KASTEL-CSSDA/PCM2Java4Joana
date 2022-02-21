@@ -248,10 +248,12 @@
     <stereotypeApplications xsi:type="edu.kit.kastel.scbs.pcmconfidentialityprofile:InformationFlow" appliedTo="_602gYM5lEeWFJak7Wqvc0g">
       <extension href="../../plugin/edu.kit.kastel.scbs.pcmconfidentialityprofile/confidentiality.emfprofile_diagram#_g1JGUJnREeWvVMHOHv3ROA"/>
       <parametersAndDataPairs href="default.confidentiality#_Y7ea4-RNEeWuZOK2YocvJA"/>
+      <parametersAndDataPairs href="default.confidentiality#_iY4rlZMtEeyXH89NZ6CP6A"/>
     </stereotypeApplications>
     <stereotypeApplications xsi:type="edu.kit.kastel.scbs.pcmconfidentialityprofile:InformationFlow" appliedTo="_GmUUEMN1EeWPE-QAhbUzuQ">
       <extension href="../../plugin/edu.kit.kastel.scbs.pcmconfidentialityprofile/confidentiality.emfprofile_diagram#_g1JGUJnREeWvVMHOHv3ROA"/>
       <parametersAndDataPairs href="default.confidentiality#_SKPxI850EeW6RpZqSiINDQ"/>
+      <parametersAndDataPairs href="default.confidentiality#_dWxHdZMrEeyXH89NZ6CP6A"/>
     </stereotypeApplications>
     <stereotypeApplications xsi:type="edu.kit.kastel.scbs.pcmconfidentialityprofile:InformationFlow" appliedTo="_N6idsMN3EeWPE-QAhbUzuQ">
       <extension href="../../plugin/edu.kit.kastel.scbs.pcmconfidentialityprofile/confidentiality.emfprofile_diagram#_g1JGUJnREeWvVMHOHv3ROA"/>
@@ -266,7 +268,8 @@
       <extension href="../../plugin/edu.kit.kastel.scbs.pcmconfidentialityprofile/confidentiality.emfprofile_diagram#_g1JGUJnREeWvVMHOHv3ROA"/>
       <parametersAndDataPairs href="default.confidentiality#_fegnE851EeW6RpZqSiINDQ"/>
       <parametersAndDataPairs href="default.confidentiality#_oO43k851EeW6RpZqSiINDQ"/>
-      <parametersAndDataPairs href="default.confidentiality#_UuIJU-RQEeWuZOK2YocvJA"/>
+      <parametersAndDataPairs href="default.confidentiality#_dWxHdZMrEeyXH89NZ6CP6A"/>
+      <parametersAndDataPairs href="default.confidentiality#_U47RFJMuEeyXH89NZ6CP6A"/>
     </stereotypeApplications>
     <stereotypeApplications xsi:type="edu.kit.kastel.scbs.pcmconfidentialityprofile:InformationFlow" appliedTo="_R6uH4MNyEeWPE-QAhbUzuQ">
       <extension href="../../plugin/edu.kit.kastel.scbs.pcmconfidentialityprofile/confidentiality.emfprofile_diagram#_g1JGUJnREeWvVMHOHv3ROA"/>

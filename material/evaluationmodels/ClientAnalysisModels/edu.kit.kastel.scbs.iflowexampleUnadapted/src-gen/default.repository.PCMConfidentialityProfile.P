@@ -1,0 +1,72 @@
+
+/** BEGIN informationFlow, ID: '140', NAME: 'null' */
+description(140,'null','informationFlow').
+parametersAndDataPairs(140,[12]).
+/** END informationFlow, ID: '140', NAME: 'null' */
+
+
+/** BEGIN informationFlow, ID: '138', NAME: 'null' */
+description(138,'null','informationFlow').
+parametersAndDataPairs(138,[13]).
+/** END informationFlow, ID: '138', NAME: 'null' */
+
+
+/** BEGIN informationFlow, ID: '123', NAME: 'null' */
+description(123,'null','informationFlow').
+parametersAndDataPairs(123,[11,31]).
+/** END informationFlow, ID: '123', NAME: 'null' */
+
+
+/** BEGIN informationFlow, ID: '122', NAME: 'null' */
+description(122,'null','informationFlow').
+parametersAndDataPairs(122,[15,29]).
+/** END informationFlow, ID: '122', NAME: 'null' */
+
+
+/** BEGIN informationFlow, ID: '131', NAME: 'null' */
+description(131,'null','informationFlow').
+parametersAndDataPairs(131,[16]).
+/** END informationFlow, ID: '131', NAME: 'null' */
+
+
+/** BEGIN informationFlow, ID: '136', NAME: 'null' */
+description(136,'null','informationFlow').
+parametersAndDataPairs(136,[18,17]).
+/** END informationFlow, ID: '136', NAME: 'null' */
+
+
+/** BEGIN informationFlow, ID: '126', NAME: 'null' */
+description(126,'null','informationFlow').
+parametersAndDataPairs(126,[19,20,29,30]).
+/** END informationFlow, ID: '126', NAME: 'null' */
+
+
+/** BEGIN informationFlow, ID: '129', NAME: 'null' */
+description(129,'null','informationFlow').
+parametersAndDataPairs(129,[21,22]).
+/** END informationFlow, ID: '129', NAME: 'null' */
+
+
+/** BEGIN informationFlow, ID: '135', NAME: 'null' */
+description(135,'null','informationFlow').
+parametersAndDataPairs(135,[23]).
+/** END informationFlow, ID: '135', NAME: 'null' */
+
+
+/** BEGIN informationFlow, ID: '118', NAME: 'null' */
+description(118,'null','informationFlow').
+parametersAndDataPairs(118,[24]).
+/** END informationFlow, ID: '118', NAME: 'null' */
+
+
+/** BEGIN informationFlow, ID: '145', NAME: 'null' */
+description(145,'null','informationFlow').
+parametersAndDataPairs(145,[26]).
+/** END informationFlow, ID: '145', NAME: 'null' */
+
+
+/** BEGIN informationFlow, ID: '147', NAME: 'null' */
+description(147,'null','informationFlow').
+parametersAndDataPairs(147,[27,28]).
+/** END informationFlow, ID: '147', NAME: 'null' */
+

@@ -69,6 +69,21 @@
   <parametersAndDataPairs id="_bSn_5QysEey1YdsQNY8KdA" dataTargets="_FoQgpMOGEeWst9mTsticNA">
     <parameterSources>name</parameterSources>
   </parametersAndDataPairs>
+  <parametersAndDataPairs id="_dWxHdZMrEeyXH89NZ6CP6A" dataTargets="_EZMjdM5xEeWFJak7Wqvc0g _W7aTtM5sEeWFJak7Wqvc0g _FoQgpMOGEeWst9mTsticNA">
+    <parameterSources>\call</parameterSources>
+    <parameterSources>\return</parameterSources>
+    <parameterSources>\sizeOf(*)</parameterSources>
+  </parametersAndDataPairs>
+  <parametersAndDataPairs id="_U47RFJMuEeyXH89NZ6CP6A" dataTargets="_9N5G9MOGEeWst9mTsticNA">
+    <parameterSources>\call</parameterSources>
+    <parameterSources>\return</parameterSources>
+    <parameterSources>\sizeOf(*)</parameterSources>
+  </parametersAndDataPairs>
+  <parametersAndDataPairs id="_iY4rlZMtEeyXH89NZ6CP6A" dataTargets="_FoQgpMOGEeWst9mTsticNA">
+    <parameterSources>\call</parameterSources>
+    <parameterSources>\return</parameterSources>
+    <parameterSources>\sizeOf(*)</parameterSources>
+  </parametersAndDataPairs>
   <locations id="__RugEc6AEeWqSdNpnh9tmQ" name="TravelAgency"/>
   <locations id="_CB0pIc6BEeWqSdNpnh9tmQ" name="Airline"/>
   <locations id="_DCp0Ac6BEeWqSdNpnh9tmQ" name="UserControlled"/>
@@ -76,6 +91,11 @@
   <locations id="_SpLngc6CEeWqSdNpnh9tmQ" name="CoffeShop"/>
   <locations id="_nv3tYc6CEeWqSdNpnh9tmQ" name="Street"/>
   <locations id="_NX09KgylEey1YdsQNY8KdA" name="SupportCenter"/>
+  <tamperProtections id="_tGO4u5MlEeyXH89NZ6CP6A" name="AirlineLock"/>
+  <tamperProtections id="_uzwKe5MlEeyXH89NZ6CP6A" name="TravelAgencyLock"/>
+  <tamperProtections id="_xoN2K5MlEeyXH89NZ6CP6A" name="ConfidentialView"/>
+  <tamperProtections id="_1ZcsG5MlEeyXH89NZ6CP6A" name="Underground"/>
+  <tamperProtections id="_5bQUq5MlEeyXH89NZ6CP6A" name="SupportCenterLock"/>
   <locationsAndTamperProtectionsPairs id="_-YubgM6AEeWqSdNpnh9tmQ" locations="_CB0pIc6BEeWqSdNpnh9tmQ"/>
   <locationsAndTamperProtectionsPairs id="_QBclsM6BEeWqSdNpnh9tmQ" locations="__RugEc6AEeWqSdNpnh9tmQ"/>
   <locationsAndTamperProtectionsPairs id="_RmAIsM6BEeWqSdNpnh9tmQ" locations="_DCp0Ac6BEeWqSdNpnh9tmQ"/>
