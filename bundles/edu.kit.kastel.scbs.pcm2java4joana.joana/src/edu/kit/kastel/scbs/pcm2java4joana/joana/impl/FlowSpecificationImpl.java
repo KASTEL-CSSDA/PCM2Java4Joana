@@ -18,7 +18,10 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
+import tools.mdsd.modelingfoundations.identifier.impl.EntityImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,7 +37,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *
  * @generated
  */
-public class FlowSpecificationImpl extends JoanaElementImpl implements FlowSpecification {
+public class FlowSpecificationImpl extends EntityImpl implements FlowSpecification {
 	/**
 	 * The cached value of the '{@link #getEntrypoint() <em>Entrypoint</em>}' containment reference.
 	 * <!-- begin-user-doc -->

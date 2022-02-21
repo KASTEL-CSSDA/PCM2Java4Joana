@@ -16,5 +16,6 @@ Export-Package: edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult,
  edu.kit.kastel.scbs.pcm2java4joana.joana.util
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.core.runtime,
- edu.kit.kastel.scbs.pcm2java4joana.sourcecode;bundle-version="0.1.0";visibility:=reexport
+ edu.kit.kastel.scbs.pcm2java4joana.sourcecode;bundle-version="0.1.0";visibility:=reexport,
+ tools.mdsd.modelingfoundations.identifier;visibility:=reexport
 Bundle-ActivationPolicy: lazy

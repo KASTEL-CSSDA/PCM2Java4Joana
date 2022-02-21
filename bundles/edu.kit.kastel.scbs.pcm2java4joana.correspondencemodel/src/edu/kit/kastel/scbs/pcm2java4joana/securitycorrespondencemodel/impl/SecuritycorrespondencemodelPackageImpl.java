@@ -2,11 +2,22 @@
  */
 package edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl;
 
+import de.uka.ipd.sdq.identifier.IdentifierPackage;
+
+import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
+
+import de.uka.ipd.sdq.stoex.StoexPackage;
+
+import de.uka.ipd.sdq.units.UnitsPackage;
+
+import edu.kit.kastel.scbs.confidentiality.ConfidentialityPackage;
+
+import edu.kit.kastel.scbs.confidentiality.data.DataPackage;
+
+import edu.kit.kastel.scbs.confidentiality.repository.RepositoryPackage;
+
 import edu.kit.kastel.scbs.pcm2java4joana.joana.JoanaPackage;
 
-import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEDataSet;
-import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEElement;
-import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEParametersAndDataPair;
 import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.DataSet2SecurityLevel;
 import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.ParametersAndDataPair2Annotation;
 import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecurityCorrespondenceModel;
@@ -15,13 +26,13 @@ import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Securityco
 
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourcecodePackage;
 
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EcorePackage;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
+import org.palladiosimulator.pcm.PcmPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,27 +61,6 @@ public class SecuritycorrespondencemodelPackageImpl extends EPackageImpl impleme
 	 * @generated
 	 */
 	private EClass securityCorrespondenceModelEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass conf4CBSEParametersAndDataPairEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass conf4CBSEElementEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass conf4CBSEDataSetEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -120,9 +110,15 @@ public class SecuritycorrespondencemodelPackageImpl extends EPackageImpl impleme
 		isInited = true;
 
 		// Initialize simple dependencies
-		EcorePackage.eINSTANCE.eClass();
+		ConfidentialityPackage.eINSTANCE.eClass();
+		IdentifierPackage.eINSTANCE.eClass();
 		JoanaPackage.eINSTANCE.eClass();
+		PcmPackage.eINSTANCE.eClass();
+		ProbfunctionPackage.eINSTANCE.eClass();
 		SourcecodePackage.eINSTANCE.eClass();
+		StoexPackage.eINSTANCE.eClass();
+		UnitsPackage.eINSTANCE.eClass();
+		tools.mdsd.modelingfoundations.identifier.IdentifierPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theSecuritycorrespondencemodelPackage.createPackageContents();
@@ -224,42 +220,6 @@ public class SecuritycorrespondencemodelPackageImpl extends EPackageImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getConf4CBSEParametersAndDataPair() {
-		return conf4CBSEParametersAndDataPairEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getConf4CBSEElement() {
-		return conf4CBSEElementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getConf4CBSEElement_Id() {
-		return (EAttribute)conf4CBSEElementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getConf4CBSEDataSet() {
-		return conf4CBSEDataSetEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public SecuritycorrespondencemodelFactory getSecuritycorrespondencemodelFactory() {
 		return (SecuritycorrespondencemodelFactory)getEFactoryInstance();
 	}
@@ -294,13 +254,6 @@ public class SecuritycorrespondencemodelPackageImpl extends EPackageImpl impleme
 		securityCorrespondenceModelEClass = createEClass(SECURITY_CORRESPONDENCE_MODEL);
 		createEReference(securityCorrespondenceModelEClass, SECURITY_CORRESPONDENCE_MODEL__PARAMETERSANDDATAPAIR2ANNOTATION);
 		createEReference(securityCorrespondenceModelEClass, SECURITY_CORRESPONDENCE_MODEL__DATASET2SECURITYLEVEL);
-
-		conf4CBSEParametersAndDataPairEClass = createEClass(CONF4_CBSE_PARAMETERS_AND_DATA_PAIR);
-
-		conf4CBSEElementEClass = createEClass(CONF4_CBSE_ELEMENT);
-		createEAttribute(conf4CBSEElementEClass, CONF4_CBSE_ELEMENT__ID);
-
-		conf4CBSEDataSetEClass = createEClass(CONF4_CBSE_DATA_SET);
 	}
 
 	/**
@@ -328,35 +281,27 @@ public class SecuritycorrespondencemodelPackageImpl extends EPackageImpl impleme
 
 		// Obtain other dependent packages
 		JoanaPackage theJoanaPackage = (JoanaPackage)EPackage.Registry.INSTANCE.getEPackage(JoanaPackage.eNS_URI);
-		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
+		DataPackage theDataPackage = (DataPackage)EPackage.Registry.INSTANCE.getEPackage(DataPackage.eNS_URI);
+		RepositoryPackage theRepositoryPackage = (RepositoryPackage)EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		conf4CBSEParametersAndDataPairEClass.getESuperTypes().add(this.getConf4CBSEElement());
-		conf4CBSEDataSetEClass.getESuperTypes().add(this.getConf4CBSEElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(dataSet2SecurityLevelEClass, DataSet2SecurityLevel.class, "DataSet2SecurityLevel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDataSet2SecurityLevel_SecurityLevels(), theJoanaPackage.getSecurityLevel(), null, "securityLevels", null, 1, -1, DataSet2SecurityLevel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDataSet2SecurityLevel_Conf4cbsedataset(), this.getConf4CBSEDataSet(), null, "conf4cbsedataset", null, 1, -1, DataSet2SecurityLevel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDataSet2SecurityLevel_Conf4cbsedataset(), theDataPackage.getDataSet(), null, "conf4cbsedataset", null, 1, -1, DataSet2SecurityLevel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parametersAndDataPair2AnnotationEClass, ParametersAndDataPair2Annotation.class, "ParametersAndDataPair2Annotation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getParametersAndDataPair2Annotation_JoanaAnnotation(), theJoanaPackage.getAnnotation(), null, "joanaAnnotation", null, 1, 1, ParametersAndDataPair2Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getParametersAndDataPair2Annotation_Conf4cbseparametersanddatapair(), this.getConf4CBSEParametersAndDataPair(), null, "conf4cbseparametersanddatapair", null, 1, 1, ParametersAndDataPair2Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getParametersAndDataPair2Annotation_Conf4cbseparametersanddatapair(), theRepositoryPackage.getParametersAndDataPair(), null, "conf4cbseparametersanddatapair", null, 1, 1, ParametersAndDataPair2Annotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(securityCorrespondenceModelEClass, SecurityCorrespondenceModel.class, "SecurityCorrespondenceModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSecurityCorrespondenceModel_Parametersanddatapair2annotation(), this.getParametersAndDataPair2Annotation(), null, "parametersanddatapair2annotation", null, 0, -1, SecurityCorrespondenceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSecurityCorrespondenceModel_Dataset2securitylevel(), this.getDataSet2SecurityLevel(), null, "dataset2securitylevel", null, 0, -1, SecurityCorrespondenceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(conf4CBSEParametersAndDataPairEClass, Conf4CBSEParametersAndDataPair.class, "Conf4CBSEParametersAndDataPair", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(conf4CBSEElementEClass, Conf4CBSEElement.class, "Conf4CBSEElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getConf4CBSEElement_Id(), theEcorePackage.getEString(), "id", null, 1, 1, Conf4CBSEElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(conf4CBSEDataSetEClass, Conf4CBSEDataSet.class, "Conf4CBSEDataSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

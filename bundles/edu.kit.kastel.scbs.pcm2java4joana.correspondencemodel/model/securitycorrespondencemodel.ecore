@@ -6,7 +6,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="securityLevels" lowerBound="1"
         upperBound="-1" eType="ecore:EClass ../../edu.kit.kastel.scbs.pcm2java4joana.joana/model/joanamodel.ecore#//SecurityLevel"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="conf4cbsedataset" lowerBound="1"
-        upperBound="-1" eType="ecore:EClass platform:/plugin/edu.kit.kastel.scbs.confidentialitymm/model/confidentiality.ecore#//data/DataSet"
+        upperBound="-1" eType="ecore:EClass ../../edu.kit.kastel.scbs.confidentialitymm/model/confidentiality.ecore#//data/DataSet"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ParametersAndDataPair2Annotation">
@@ -14,7 +14,7 @@
         eType="ecore:EClass ../../edu.kit.kastel.scbs.pcm2java4joana.joana/model/joanamodel.ecore#//Annotation"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="conf4cbseparametersanddatapair"
-        lowerBound="1" eType="ecore:EClass platform:/plugin/edu.kit.kastel.scbs.confidentialitymm/model/confidentiality.ecore#//repository/ParametersAndDataPair"
+        lowerBound="1" eType="ecore:EClass ../../edu.kit.kastel.scbs.confidentialitymm/model/confidentiality.ecore#//repository/ParametersAndDataPair"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SecurityCorrespondenceModel">

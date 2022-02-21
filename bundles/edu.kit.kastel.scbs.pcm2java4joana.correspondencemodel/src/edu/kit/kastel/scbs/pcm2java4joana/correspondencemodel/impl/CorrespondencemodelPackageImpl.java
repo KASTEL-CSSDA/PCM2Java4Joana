@@ -2,28 +2,33 @@
  */
 package edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl;
 
+import de.uka.ipd.sdq.identifier.IdentifierPackage;
+
+import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
+
+import de.uka.ipd.sdq.stoex.StoexPackage;
+
+import de.uka.ipd.sdq.units.UnitsPackage;
+
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Component2Class;
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.CorrespondencemodelFactory;
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.CorrespondencemodelPackage;
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Interface2Interface;
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Operation2Method;
-import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMComponent;
-import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMElement;
-import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMInterface;
-import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMOperation;
-import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMParameter;
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Parameter2Parameter;
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.StructuralCorrespondenceModel;
 
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourcecodePackage;
 
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EcorePackage;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
+import org.palladiosimulator.pcm.PcmPackage;
+
+import org.palladiosimulator.pcm.repository.RepositoryPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -66,41 +71,6 @@ public class CorrespondencemodelPackageImpl extends EPackageImpl implements Corr
 	 * @generated
 	 */
 	private EClass structuralCorrespondenceModelEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass pcmElementEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass pcmComponentEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass pcmInterfaceEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass pcmOperationEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass pcmParameterEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -150,8 +120,13 @@ public class CorrespondencemodelPackageImpl extends EPackageImpl implements Corr
 		isInited = true;
 
 		// Initialize simple dependencies
-		EcorePackage.eINSTANCE.eClass();
+		IdentifierPackage.eINSTANCE.eClass();
+		PcmPackage.eINSTANCE.eClass();
+		ProbfunctionPackage.eINSTANCE.eClass();
 		SourcecodePackage.eINSTANCE.eClass();
+		StoexPackage.eINSTANCE.eClass();
+		UnitsPackage.eINSTANCE.eClass();
+		tools.mdsd.modelingfoundations.identifier.IdentifierPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theCorrespondencemodelPackage.createPackageContents();
@@ -325,96 +300,6 @@ public class CorrespondencemodelPackageImpl extends EPackageImpl implements Corr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPCMElement() {
-		return pcmElementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPCMElement_Id() {
-		return (EAttribute)pcmElementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPCMElement_Name() {
-		return (EAttribute)pcmElementEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getPCMComponent() {
-		return pcmComponentEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPCMComponent_Pcminterface() {
-		return (EReference)pcmComponentEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getPCMInterface() {
-		return pcmInterfaceEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPCMInterface_Pcmoperation() {
-		return (EReference)pcmInterfaceEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getPCMOperation() {
-		return pcmOperationEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPCMOperation_Pcmparameter() {
-		return (EReference)pcmOperationEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getPCMParameter() {
-		return pcmParameterEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public CorrespondencemodelFactory getCorrespondencemodelFactory() {
 		return (CorrespondencemodelFactory)getEFactoryInstance();
 	}
@@ -459,21 +344,6 @@ public class CorrespondencemodelPackageImpl extends EPackageImpl implements Corr
 
 		structuralCorrespondenceModelEClass = createEClass(STRUCTURAL_CORRESPONDENCE_MODEL);
 		createEReference(structuralCorrespondenceModelEClass, STRUCTURAL_CORRESPONDENCE_MODEL__COMPONENT2CLASS);
-
-		pcmElementEClass = createEClass(PCM_ELEMENT);
-		createEAttribute(pcmElementEClass, PCM_ELEMENT__ID);
-		createEAttribute(pcmElementEClass, PCM_ELEMENT__NAME);
-
-		pcmComponentEClass = createEClass(PCM_COMPONENT);
-		createEReference(pcmComponentEClass, PCM_COMPONENT__PCMINTERFACE);
-
-		pcmInterfaceEClass = createEClass(PCM_INTERFACE);
-		createEReference(pcmInterfaceEClass, PCM_INTERFACE__PCMOPERATION);
-
-		pcmOperationEClass = createEClass(PCM_OPERATION);
-		createEReference(pcmOperationEClass, PCM_OPERATION__PCMPARAMETER);
-
-		pcmParameterEClass = createEClass(PCM_PARAMETER);
 	}
 
 	/**
@@ -501,55 +371,36 @@ public class CorrespondencemodelPackageImpl extends EPackageImpl implements Corr
 
 		// Obtain other dependent packages
 		SourcecodePackage theSourcecodePackage = (SourcecodePackage)EPackage.Registry.INSTANCE.getEPackage(SourcecodePackage.eNS_URI);
-		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
+		RepositoryPackage theRepositoryPackage = (RepositoryPackage)EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		pcmComponentEClass.getESuperTypes().add(this.getPCMElement());
-		pcmInterfaceEClass.getESuperTypes().add(this.getPCMElement());
-		pcmOperationEClass.getESuperTypes().add(this.getPCMElement());
-		pcmParameterEClass.getESuperTypes().add(this.getPCMElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(component2ClassEClass, Component2Class.class, "Component2Class", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getComponent2Class_JavaClass(), theSourcecodePackage.getClass_(), null, "javaClass", null, 1, 1, Component2Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComponent2Class_Interface2interface(), this.getInterface2Interface(), null, "interface2interface", null, 0, -1, Component2Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComponent2Class_Pcmcomponent(), this.getPCMComponent(), null, "pcmcomponent", null, 1, 1, Component2Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComponent2Class_Pcmcomponent(), theRepositoryPackage.getBasicComponent(), null, "pcmcomponent", null, 1, 1, Component2Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(interface2InterfaceEClass, Interface2Interface.class, "Interface2Interface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getInterface2Interface_JavaInterface(), theSourcecodePackage.getInterface(), null, "javaInterface", null, 1, 1, Interface2Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getInterface2Interface_Operation2method(), this.getOperation2Method(), null, "operation2method", null, 0, -1, Interface2Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getInterface2Interface_Pcminterface(), this.getPCMInterface(), null, "pcminterface", null, 1, 1, Interface2Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInterface2Interface_Pcminterface(), theRepositoryPackage.getInterface(), null, "pcminterface", null, 1, 1, Interface2Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(operation2MethodEClass, Operation2Method.class, "Operation2Method", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getOperation2Method_JavaMethod(), theSourcecodePackage.getMethod(), null, "javaMethod", null, 1, 1, Operation2Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOperation2Method_Parameter2parameter(), this.getParameter2Parameter(), null, "parameter2parameter", null, 0, -1, Operation2Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOperation2Method_Pcmoperation(), this.getPCMOperation(), null, "pcmoperation", null, 1, 1, Operation2Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperation2Method_Pcmoperation(), theRepositoryPackage.getOperationSignature(), null, "pcmoperation", null, 1, 1, Operation2Method.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parameter2ParameterEClass, Parameter2Parameter.class, "Parameter2Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getParameter2Parameter_JavaParameter(), theSourcecodePackage.getParameter(), null, "javaParameter", null, 1, 1, Parameter2Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getParameter2Parameter_Pcmparameter(), this.getPCMParameter(), null, "pcmparameter", null, 1, 1, Parameter2Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getParameter2Parameter_Pcmparameter(), theRepositoryPackage.getParameter(), null, "pcmparameter", null, 1, 1, Parameter2Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(structuralCorrespondenceModelEClass, StructuralCorrespondenceModel.class, "StructuralCorrespondenceModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getStructuralCorrespondenceModel_Component2class(), this.getComponent2Class(), null, "component2class", null, 0, -1, StructuralCorrespondenceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(pcmElementEClass, PCMElement.class, "PCMElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPCMElement_Id(), theEcorePackage.getEString(), "id", null, 1, 1, PCMElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPCMElement_Name(), theEcorePackage.getEString(), "name", null, 1, 1, PCMElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(pcmComponentEClass, PCMComponent.class, "PCMComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPCMComponent_Pcminterface(), this.getPCMInterface(), null, "pcminterface", null, 0, -1, PCMComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(pcmInterfaceEClass, PCMInterface.class, "PCMInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPCMInterface_Pcmoperation(), this.getPCMOperation(), null, "pcmoperation", null, 0, -1, PCMInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(pcmOperationEClass, PCMOperation.class, "PCMOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPCMOperation_Pcmparameter(), this.getPCMParameter(), null, "pcmparameter", null, 0, -1, PCMOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(pcmParameterEClass, PCMParameter.class, "PCMParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

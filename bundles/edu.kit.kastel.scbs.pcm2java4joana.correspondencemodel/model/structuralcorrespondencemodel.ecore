@@ -8,7 +8,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="interface2interface" upperBound="-1"
         eType="#//Interface2Interface" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="pcmcomponent" lowerBound="1"
-        eType="ecore:EClass platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore#//repository/BasicComponent"
+        eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//repository/BasicComponent"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Interface2Interface">
@@ -18,7 +18,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="operation2method" upperBound="-1"
         eType="#//Operation2Method" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="pcminterface" lowerBound="1"
-        eType="ecore:EClass platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore#//repository/Interface"
+        eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//repository/Interface"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Operation2Method">
@@ -27,14 +27,14 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameter2parameter" upperBound="-1"
         eType="#//Parameter2Parameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="pcmoperation" unique="false"
-        lowerBound="1" eType="ecore:EClass platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore#//repository/OperationSignature"
+        lowerBound="1" eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//repository/OperationSignature"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Parameter2Parameter">
     <eStructuralFeatures xsi:type="ecore:EReference" name="javaParameter" lowerBound="1"
         eType="ecore:EClass ../../edu.kit.kastel.scbs.pcm2java4joana.sourcecode/model/sourcecodemodel.ecore#//Parameter"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="pcmparameter" lowerBound="1"
-        eType="ecore:EClass platform:/plugin/org.palladiosimulator.pcm/model/pcm.ecore#//repository/Parameter"
+        eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//repository/Parameter"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StructuralCorrespondenceModel">

@@ -54,7 +54,7 @@ public class AggregatedTraceState {
 		}
 
 		if (this.isPublicMethod && toCompare.isPublicMethod()
-				&& !this.javaInterface.getName().equals(toCompare.getInterface().getName())) {
+				&& !this.javaInterface.getEntityName().equals(toCompare.getInterface().getEntityName())) {
 			return false;
 		}
 

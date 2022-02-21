@@ -45,7 +45,7 @@ class SupplierAnalysisModel2AnnotatedCodeGenerator {
 		(new File(folder)).mkdirs();
 		
 		for (topLevelType : sourceCodeModel.topleveltype) {
-			val filePath = folder + topLevelType.name + ".java";
+			val filePath = folder + topLevelType.entityName + ".java";
 			val file = new File(filePath);
 			if (!file.exists()) {
 				try {
@@ -62,8 +62,6 @@ class SupplierAnalysisModel2AnnotatedCodeGenerator {
 			
 			writer.close();
 			fw.close();
-//			val newTuple = new CodeWithFile(content, topLevelType.name + ".java")
-//			contentsForFiles.add(newTuple)
 		}
 		return contentsForFiles;	
 	}
@@ -81,7 +79,7 @@ class SupplierAnalysisModel2AnnotatedCodeGenerator {
 		
 		«generateImportsInterface(inter.methods)»
 		
-		public interface «inter.name» {
+		public interface «inter.entityName» {
 			«FOR method : inter.methods»
 				«generateInterfaceMethod(method)»
 			«ENDFOR»
@@ -91,7 +89,7 @@ class SupplierAnalysisModel2AnnotatedCodeGenerator {
 	}
 	
 	static def String generateInterfaceMethod(Method method) {
-		return '''«generateDataType(method.type)» «method.name»(«FOR parameter : method.parameter»«generateDataType(parameter.type)» «parameter.name»«IF method.parameter.indexOf(parameter) != method.parameter.length - 1», «ENDIF»«ENDFOR»);'''
+		return '''«generateDataType(method.type)» «method.entityName»(«FOR parameter : method.parameter»«generateDataType(parameter.type)» «parameter.entityName»«IF method.parameter.indexOf(parameter) != method.parameter.length - 1», «ENDIF»«ENDFOR»);'''
 	}
 	
 	static def void generateClass(Class sourceCodeClass, JOANARoot joanaModel, BufferedWriter writer) {
@@ -107,7 +105,7 @@ class SupplierAnalysisModel2AnnotatedCodeGenerator {
 		writer.flush()
 		
 		
-		val classDefinition = '''public class «sourceCodeClass.name» «IF sourceCodeClass.implements.size > 0»implements «generateImplements(sourceCodeClass.implements)»«ENDIF»{ '''
+		val classDefinition = '''public class «sourceCodeClass.entityName» «IF sourceCodeClass.implements.size > 0»implements «generateImplements(sourceCodeClass.implements)»«ENDIF»{ '''
 		writer.write(classDefinition)
 		writer.write("\n")
 		writer.flush()
@@ -138,7 +136,7 @@ class SupplierAnalysisModel2AnnotatedCodeGenerator {
 		if (isOverride) {
 			writer.write("@Override \n")
 		}
-		val content = '''public «generateDataType(method.type)» «method.name»('''
+		val content = '''public «generateDataType(method.type)» «method.entityName»('''
 		writer.write(content)
 		writer.flush()
 		
@@ -158,7 +156,7 @@ class SupplierAnalysisModel2AnnotatedCodeGenerator {
 	
 	static def void generateParameter(TopLevelType parent, Method method, Parameter parameter, JOANARoot joanaModel, BufferedWriter writer) {
 		generateJoanaAnnotation(parent, method, parameter, joanaModel, writer)
-		val content = '''«generateDataType(parameter.type)» «parameter.name»'''
+		val content = '''«generateDataType(parameter.type)» «parameter.entityName»'''
 		writer.write(content)
 		writer.flush()
 	}

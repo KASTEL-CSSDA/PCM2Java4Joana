@@ -18,6 +18,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import tools.mdsd.modelingfoundations.identifier.impl.EntityImpl;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Source Code Root</b></em>'.
@@ -31,7 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class SourceCodeRootImpl extends SourceCodeElementImpl implements SourceCodeRoot {
+public class SourceCodeRootImpl extends EntityImpl implements SourceCodeRoot {
 	/**
 	 * The cached value of the '{@link #getTopleveltype() <em>Topleveltype</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

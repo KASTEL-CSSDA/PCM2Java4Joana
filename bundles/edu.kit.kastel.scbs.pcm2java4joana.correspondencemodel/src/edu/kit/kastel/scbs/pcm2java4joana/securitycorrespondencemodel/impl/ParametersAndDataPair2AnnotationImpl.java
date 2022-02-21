@@ -2,9 +2,10 @@
  */
 package edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl;
 
+import edu.kit.kastel.scbs.confidentiality.repository.ParametersAndDataPair;
+
 import edu.kit.kastel.scbs.pcm2java4joana.joana.Annotation;
 
-import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEParametersAndDataPair;
 import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.ParametersAndDataPair2Annotation;
 import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecuritycorrespondencemodelPackage;
 
@@ -50,7 +51,7 @@ public class ParametersAndDataPair2AnnotationImpl extends MinimalEObjectImpl.Con
 	 * @generated
 	 * @ordered
 	 */
-	protected Conf4CBSEParametersAndDataPair conf4cbseparametersanddatapair;
+	protected ParametersAndDataPair conf4cbseparametersanddatapair;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -119,7 +120,7 @@ public class ParametersAndDataPair2AnnotationImpl extends MinimalEObjectImpl.Con
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Conf4CBSEParametersAndDataPair getConf4cbseparametersanddatapair() {
+	public ParametersAndDataPair getConf4cbseparametersanddatapair() {
 		return conf4cbseparametersanddatapair;
 	}
 
@@ -128,8 +129,8 @@ public class ParametersAndDataPair2AnnotationImpl extends MinimalEObjectImpl.Con
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetConf4cbseparametersanddatapair(Conf4CBSEParametersAndDataPair newConf4cbseparametersanddatapair, NotificationChain msgs) {
-		Conf4CBSEParametersAndDataPair oldConf4cbseparametersanddatapair = conf4cbseparametersanddatapair;
+	public NotificationChain basicSetConf4cbseparametersanddatapair(ParametersAndDataPair newConf4cbseparametersanddatapair, NotificationChain msgs) {
+		ParametersAndDataPair oldConf4cbseparametersanddatapair = conf4cbseparametersanddatapair;
 		conf4cbseparametersanddatapair = newConf4cbseparametersanddatapair;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SecuritycorrespondencemodelPackage.PARAMETERS_AND_DATA_PAIR2_ANNOTATION__CONF4CBSEPARAMETERSANDDATAPAIR, oldConf4cbseparametersanddatapair, newConf4cbseparametersanddatapair);
@@ -143,7 +144,7 @@ public class ParametersAndDataPair2AnnotationImpl extends MinimalEObjectImpl.Con
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setConf4cbseparametersanddatapair(Conf4CBSEParametersAndDataPair newConf4cbseparametersanddatapair) {
+	public void setConf4cbseparametersanddatapair(ParametersAndDataPair newConf4cbseparametersanddatapair) {
 		if (newConf4cbseparametersanddatapair != conf4cbseparametersanddatapair) {
 			NotificationChain msgs = null;
 			if (conf4cbseparametersanddatapair != null)
@@ -201,7 +202,7 @@ public class ParametersAndDataPair2AnnotationImpl extends MinimalEObjectImpl.Con
 				setJoanaAnnotation((Annotation)newValue);
 				return;
 			case SecuritycorrespondencemodelPackage.PARAMETERS_AND_DATA_PAIR2_ANNOTATION__CONF4CBSEPARAMETERSANDDATAPAIR:
-				setConf4cbseparametersanddatapair((Conf4CBSEParametersAndDataPair)newValue);
+				setConf4cbseparametersanddatapair((ParametersAndDataPair)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -219,7 +220,7 @@ public class ParametersAndDataPair2AnnotationImpl extends MinimalEObjectImpl.Con
 				setJoanaAnnotation((Annotation)null);
 				return;
 			case SecuritycorrespondencemodelPackage.PARAMETERS_AND_DATA_PAIR2_ANNOTATION__CONF4CBSEPARAMETERSANDDATAPAIR:
-				setConf4cbseparametersanddatapair((Conf4CBSEParametersAndDataPair)null);
+				setConf4cbseparametersanddatapair((ParametersAndDataPair)null);
 				return;
 		}
 		super.eUnset(featureID);

@@ -57,7 +57,7 @@ public final class CorrespondenceModelUtils {
 			StructuralCorrespondenceModel structuralCorrespondenceModel, TraceState state) {
 		for (Component2Class component2Class : structuralCorrespondenceModel.getComponent2class()) {
 			Class component = component2Class.getJavaClass();
-			if (component.getName().equals(state.getTraceClassName())
+			if (component.getEntityName().equals(state.getTraceClassName())
 					&& SourceCodeModelUtils.hasMethodSignature(component, state.getResultmethod())) {
 				return component2Class;
 			}
@@ -91,7 +91,7 @@ public final class CorrespondenceModelUtils {
 		for (ParametersAndDataPair2Annotation pair2Annotation : securityCorrespondenceModel
 				.getParametersanddatapair2annotation()) {
 			Annotation joanaAnnotation = pair2Annotation.getJoanaAnnotation();
-			if (joanaAnnotation.getAnnotatedClass().getName().equals(state.getTraceClassName()) && SourceCodeModelUtils
+			if (joanaAnnotation.getAnnotatedClass().getEntityName().equals(state.getTraceClassName()) && SourceCodeModelUtils
 					.haveSameSignature(joanaAnnotation.getAnnotatedMethod(), state.getResultmethod())) {
 				return pair2Annotation;
 			}

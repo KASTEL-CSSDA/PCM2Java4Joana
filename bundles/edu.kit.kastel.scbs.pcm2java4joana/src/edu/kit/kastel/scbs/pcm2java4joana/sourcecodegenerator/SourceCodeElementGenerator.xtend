@@ -24,7 +24,7 @@ class SourceCodeElementGenerator {
 
 	static def void generateVariable(Variable variable, BufferedWriter writer) {
 		val content =  '''
-		private «generateDataType(variable.type)» «variable.name»;
+		private «generateDataType(variable.type)» «variable.entityName»;
 		
 		«generateGetter(variable)»
 		«generateSetter(variable)»
@@ -37,10 +37,10 @@ class SourceCodeElementGenerator {
 	static def String generateConstructor(Class scClass) {
 		val variables = SourceCodeModelUtils.getVariables(scClass)
 		return '''
-		public «scClass.name»(«FOR variable : variables»«generateDataType(variable.type)» «variable.name»«IF variables.indexOf(variable) != variables.size - 1», «ENDIF»«ENDFOR») {
+		public «scClass.entityName»(«FOR variable : variables»«generateDataType(variable.type)» «variable.entityName»«IF variables.indexOf(variable) != variables.size - 1», «ENDIF»«ENDFOR») {
 			// TODO: Implement me!
 			«FOR variable : variables»
-			this.«variable.name» = «variable.name»;
+			this.«variable.entityName» = «variable.entityName»;
 			«ENDFOR»
 		}
 		'''
@@ -48,15 +48,15 @@ class SourceCodeElementGenerator {
 	
 	static def String generateGetter(Variable variable) {
 		return '''
-		public «generateDataType(variable.type)» get«variable.name»() {
-			return this.«variable.name»;
+		public «generateDataType(variable.type)» get«variable.entityName»() {
+			return this.«variable.entityName»;
 		}'''
 	}
 	
 	static def String generateSetter(Variable variable) {
 		return '''
-		public void set«variable.name»(«generateDataType(variable.type)» «variable.name») {
-			this.«variable.name» = «variable.name»;
+		public void set«variable.entityName»(«generateDataType(variable.type)» «variable.entityName») {
+			this.«variable.entityName» = «variable.entityName»;
 		}
 		'''
 	}
@@ -77,7 +77,7 @@ class SourceCodeElementGenerator {
 	}
 	
 	static def String generateReferenceType(ReferenceType type) {
-		return '''«type.topleveltype.name»'''
+		return '''«type.topleveltype.entityName»'''
 	}
 	
 	static def String generateBuiltInType(BuiltInType type) {
@@ -96,7 +96,7 @@ class SourceCodeElementGenerator {
 	}
 	
 	static def String generateImplements(List<Interface> interfaces) {
-		return '''«FOR inter : interfaces»«inter.name»«IF interfaces.indexOf(inter) != interfaces.length - 1», «ENDIF»«ENDFOR»'''
+		return '''«FOR inter : interfaces»«inter.entityName»«IF interfaces.indexOf(inter) != interfaces.length - 1», «ENDIF»«ENDFOR»'''
 	}
 	
 	static def String generateImportsInterface(List<Method> methods)  {
@@ -120,7 +120,7 @@ class SourceCodeElementGenerator {
 	
 	static def String generateImport(TopLevelType toImport){
 		return '''
-		import generated.code.«toImport.name»;
+		import generated.code.«toImport.entityName»;
 		'''
 	}
 	

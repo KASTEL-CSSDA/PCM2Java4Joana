@@ -61,11 +61,6 @@ public class CorrespondencemodelFactoryImpl extends EFactoryImpl implements Corr
 			case CorrespondencemodelPackage.OPERATION2_METHOD: return createOperation2Method();
 			case CorrespondencemodelPackage.PARAMETER2_PARAMETER: return createParameter2Parameter();
 			case CorrespondencemodelPackage.STRUCTURAL_CORRESPONDENCE_MODEL: return createStructuralCorrespondenceModel();
-			case CorrespondencemodelPackage.PCM_ELEMENT: return createPCMElement();
-			case CorrespondencemodelPackage.PCM_COMPONENT: return createPCMComponent();
-			case CorrespondencemodelPackage.PCM_INTERFACE: return createPCMInterface();
-			case CorrespondencemodelPackage.PCM_OPERATION: return createPCMOperation();
-			case CorrespondencemodelPackage.PCM_PARAMETER: return createPCMParameter();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -119,56 +114,6 @@ public class CorrespondencemodelFactoryImpl extends EFactoryImpl implements Corr
 	public StructuralCorrespondenceModel createStructuralCorrespondenceModel() {
 		StructuralCorrespondenceModelImpl structuralCorrespondenceModel = new StructuralCorrespondenceModelImpl();
 		return structuralCorrespondenceModel;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PCMElement createPCMElement() {
-		PCMElementImpl pcmElement = new PCMElementImpl();
-		return pcmElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PCMComponent createPCMComponent() {
-		PCMComponentImpl pcmComponent = new PCMComponentImpl();
-		return pcmComponent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PCMInterface createPCMInterface() {
-		PCMInterfaceImpl pcmInterface = new PCMInterfaceImpl();
-		return pcmInterface;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PCMOperation createPCMOperation() {
-		PCMOperationImpl pcmOperation = new PCMOperationImpl();
-		return pcmOperation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PCMParameter createPCMParameter() {
-		PCMParameterImpl pcmParameter = new PCMParameterImpl();
-		return pcmParameter;
 	}
 
 	/**

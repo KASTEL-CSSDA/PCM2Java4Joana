@@ -59,9 +59,6 @@ public class SecuritycorrespondencemodelFactoryImpl extends EFactoryImpl impleme
 			case SecuritycorrespondencemodelPackage.DATA_SET2_SECURITY_LEVEL: return createDataSet2SecurityLevel();
 			case SecuritycorrespondencemodelPackage.PARAMETERS_AND_DATA_PAIR2_ANNOTATION: return createParametersAndDataPair2Annotation();
 			case SecuritycorrespondencemodelPackage.SECURITY_CORRESPONDENCE_MODEL: return createSecurityCorrespondenceModel();
-			case SecuritycorrespondencemodelPackage.CONF4_CBSE_PARAMETERS_AND_DATA_PAIR: return createConf4CBSEParametersAndDataPair();
-			case SecuritycorrespondencemodelPackage.CONF4_CBSE_ELEMENT: return createConf4CBSEElement();
-			case SecuritycorrespondencemodelPackage.CONF4_CBSE_DATA_SET: return createConf4CBSEDataSet();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -95,36 +92,6 @@ public class SecuritycorrespondencemodelFactoryImpl extends EFactoryImpl impleme
 	public SecurityCorrespondenceModel createSecurityCorrespondenceModel() {
 		SecurityCorrespondenceModelImpl securityCorrespondenceModel = new SecurityCorrespondenceModelImpl();
 		return securityCorrespondenceModel;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Conf4CBSEParametersAndDataPair createConf4CBSEParametersAndDataPair() {
-		Conf4CBSEParametersAndDataPairImpl conf4CBSEParametersAndDataPair = new Conf4CBSEParametersAndDataPairImpl();
-		return conf4CBSEParametersAndDataPair;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Conf4CBSEElement createConf4CBSEElement() {
-		Conf4CBSEElementImpl conf4CBSEElement = new Conf4CBSEElementImpl();
-		return conf4CBSEElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Conf4CBSEDataSet createConf4CBSEDataSet() {
-		Conf4CBSEDataSetImpl conf4CBSEDataSet = new Conf4CBSEDataSetImpl();
-		return conf4CBSEDataSet;
 	}
 
 	/**

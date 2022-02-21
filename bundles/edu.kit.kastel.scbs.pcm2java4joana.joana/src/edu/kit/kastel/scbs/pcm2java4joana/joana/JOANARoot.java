@@ -4,6 +4,8 @@ package edu.kit.kastel.scbs.pcm2java4joana.joana;
 
 import org.eclipse.emf.common.util.EList;
 
+import tools.mdsd.modelingfoundations.identifier.Entity;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>JOANA Root</b></em>'.
@@ -23,7 +25,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface JOANARoot extends JoanaElement {
+public interface JOANARoot extends Entity {
 	/**
 	 * Returns the value of the '<em><b>Flowspecification</b></em>' containment reference list.
 	 * The list contents are of type {@link edu.kit.kastel.scbs.pcm2java4joana.joana.FlowSpecification}.

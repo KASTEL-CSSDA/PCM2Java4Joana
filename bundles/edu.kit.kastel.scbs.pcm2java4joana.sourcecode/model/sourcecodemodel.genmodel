@@ -3,7 +3,8 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/edu.kit.kastel.scbs.pcm2java4joana.sourcecode/src"
     modelPluginID="edu.kit.kastel.scbs.pcm2java4joana.sourcecode" modelName="Sourcecodemodel"
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="5.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+    complianceLevel="5.0" copyrightFields="false" usedGenPackages="../../tools.mdsd.modelingfoundations.identifier/model/identifier.genmodel#//identifier"
+    operationReflection="true" importOrganizing="true">
   <foreignModel>sourcecodemodel.ecore</foreignModel>
   <genPackages prefix="Sourcecode" basePackage="edu.kit.kastel.scbs.pcm2java4joana"
       disposableProviderFactory="true" ecorePackage="sourcecodemodel.ecore#/">
@@ -49,9 +50,6 @@
     </genClasses>
     <genClasses ecoreClass="sourcecodemodel.ecore#//CollectionType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sourcecodemodel.ecore#//CollectionType/type"/>
-    </genClasses>
-    <genClasses ecoreClass="sourcecodemodel.ecore#//SourceCodeElement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sourcecodemodel.ecore#//SourceCodeElement/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

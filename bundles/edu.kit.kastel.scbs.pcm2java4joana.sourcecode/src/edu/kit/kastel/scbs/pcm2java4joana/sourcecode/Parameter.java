@@ -2,6 +2,7 @@
  */
 package edu.kit.kastel.scbs.pcm2java4joana.sourcecode;
 
+import tools.mdsd.modelingfoundations.identifier.Entity;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,7 +20,7 @@ package edu.kit.kastel.scbs.pcm2java4joana.sourcecode;
  * @model
  * @generated
  */
-public interface Parameter extends SourceCodeElement {
+public interface Parameter extends Entity {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

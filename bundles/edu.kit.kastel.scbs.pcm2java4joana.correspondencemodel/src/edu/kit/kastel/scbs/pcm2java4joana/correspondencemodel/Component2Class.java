@@ -6,6 +6,8 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
 
+import org.palladiosimulator.pcm.repository.BasicComponent;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Component2 Class</b></em>'.
@@ -64,12 +66,12 @@ public interface Component2Class extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Pcmcomponent</em>' containment reference.
-	 * @see #setPcmcomponent(PCMComponent)
+	 * @see #setPcmcomponent(BasicComponent)
 	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.CorrespondencemodelPackage#getComponent2Class_Pcmcomponent()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	PCMComponent getPcmcomponent();
+	BasicComponent getPcmcomponent();
 
 	/**
 	 * Sets the value of the '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Component2Class#getPcmcomponent <em>Pcmcomponent</em>}' containment reference.
@@ -79,6 +81,6 @@ public interface Component2Class extends EObject {
 	 * @see #getPcmcomponent()
 	 * @generated
 	 */
-	void setPcmcomponent(PCMComponent value);
+	void setPcmcomponent(BasicComponent value);
 
 } // Component2Class

@@ -7,13 +7,18 @@ import edu.kit.kastel.scbs.pcm2java4joana.joana.JoanaPackage;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.Lattice;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import tools.mdsd.modelingfoundations.identifier.impl.EntityImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class LatticeImpl extends JoanaElementImpl implements Lattice {
+public class LatticeImpl extends EntityImpl implements Lattice {
 	/**
 	 * The cached value of the '{@link #getFlowrelation() <em>Flowrelation</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

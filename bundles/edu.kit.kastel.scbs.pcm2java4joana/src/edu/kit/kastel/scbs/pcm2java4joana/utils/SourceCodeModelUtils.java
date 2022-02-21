@@ -35,7 +35,7 @@ public final class SourceCodeModelUtils {
 	public static Interface getInterface(SourceCodeRoot sourceCodeModel, String entityName) {
 		for (TopLevelType topLevelType : sourceCodeModel.getTopleveltype()) {
 			if (topLevelType instanceof Interface) {
-				if (topLevelType.getName().equals(entityName)) {
+				if (topLevelType.getEntityName().equals(entityName)) {
 					return (Interface) topLevelType;
 				}
 			}
@@ -60,7 +60,7 @@ public final class SourceCodeModelUtils {
 	public static List<Method> getMethod(Interface inter, String methodName) {
 		List<Method> methods = new ArrayList<Method>();
 		for (Method method : inter.getMethods()) {
-			if (method.getName().equals(methodName)) {
+			if (method.getEntityName().equals(methodName)) {
 				methods.add(method);
 			}
 		}
@@ -69,7 +69,7 @@ public final class SourceCodeModelUtils {
 
 	public static Parameter getParameter(Method method, String parameterName) {
 		for (Parameter parameter : method.getParameter()) {
-			if (parameter.getName().equals(parameterName)) {
+			if (parameter.getEntityName().equals(parameterName)) {
 				return parameter;
 			}
 		}
@@ -196,7 +196,7 @@ public final class SourceCodeModelUtils {
 	}
 
 	public static String getReferenceTypeName(ReferenceType type) {
-		return type.getTopleveltype().getName();
+		return type.getTopleveltype().getEntityName();
 	}
 
 	public static String getReferenceTypeForCollectionType(CollectionType type) {
@@ -215,7 +215,7 @@ public final class SourceCodeModelUtils {
 
 	public static Parameter getParamter(Method method, String parameterName) {
 		for (Parameter parameter : method.getParameter()) {
-			if (parameter.getName().equals(parameterName)) {
+			if (parameter.getEntityName().equals(parameterName)) {
 				return parameter;
 			}
 		}
@@ -269,7 +269,7 @@ public final class SourceCodeModelUtils {
 	}
 
 	public static boolean haveSameSignature(Method method1, Method method2) {
-		if (!method1.getName().equals(method2.getName())
+		if (!method1.getEntityName().equals(method2.getEntityName())
 				|| method1.getParameter().size() != method2.getParameter().size()
 				|| method1.getType().equals(method2.getType())) {
 			return false;
@@ -284,7 +284,7 @@ public final class SourceCodeModelUtils {
 	}
 
 	public static boolean haveSameSignature(Method method1, ResultMethod method2) {
-		if (!method1.getName().equals(method2.getName())
+		if (!method1.getEntityName().equals(method2.getName())
 				|| method1.getParameter().size() != method2.getParamterTypes().size()) {
 			return false;
 		}
@@ -348,7 +348,7 @@ public final class SourceCodeModelUtils {
 	}
 
 	private static boolean sameReferenceType(ReferenceType type, String typeName) {
-		return typeName.contains(type.getTopleveltype().getName());
+		return typeName.contains(type.getTopleveltype().getEntityName());
 	}
 
 	private static boolean isCollectionType(String typeName) {
@@ -368,7 +368,7 @@ public final class SourceCodeModelUtils {
 	public static Method copyMethod(Method method) {
 		SourcecodeFactory factory = SourcecodeFactory.eINSTANCE;
 		Method copied = factory.createMethod();
-		copied.setName(method.getName());
+		copied.setEntityName(method.getEntityName());
 		copied.getParameter().addAll(copyParameters(method.getParameter()));
 		copied.setType(copyType(method.getType()));		
 		return copied;
@@ -387,7 +387,7 @@ public final class SourceCodeModelUtils {
 	public static Parameter copyParameter(Parameter parameter) {
 		SourcecodeFactory factory = SourcecodeFactory.eINSTANCE;
 		Parameter copied = factory.createParameter();
-		copied.setName(parameter.getName());
+		copied.setEntityName(parameter.getEntityName());
 		copied.setType(copyType(parameter.getType()));		
 		return copied;
 	}

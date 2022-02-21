@@ -42,14 +42,14 @@ class JoanaAnnotationsGenerator {
 	}
 	
 	static def void generateEntryPoints(TopLevelType parent, Method method, JOANARoot joanaModel, BufferedWriter writer) {
-		val entryPoints = JoanaModelUtils.getEntryPoints(joanaModel, parent.name, method.name)
+		val entryPoints = JoanaModelUtils.getEntryPoints(joanaModel, parent.entityName, method.entityName)
 		for (entryPoint : entryPoints) {
 			generateEntryPointAnnotation(entryPoint, writer)
 		}
 	}
 	
 	static def void generateSources(TopLevelType parent, Method method, JOANARoot joanaModel, BufferedWriter writer) {
-		val sources = JoanaModelUtils.getSourcesFor(joanaModel, parent.name, method.name)
+		val sources = JoanaModelUtils.getSourcesFor(joanaModel, parent.entityName, method.entityName)
 		val tags = new ArrayList<String>()
 		for(source : sources) {
 			tags.addAll(source.tag)
@@ -64,7 +64,7 @@ class JoanaAnnotationsGenerator {
 	}
 	
 	static def void generateSinks(TopLevelType parent, Method method, Parameter parameter, JOANARoot joanaModel, BufferedWriter writer) {
-		val sinks = JoanaModelUtils.getSinksFor(joanaModel, parent.name, method.name, parameter.name)
+		val sinks = JoanaModelUtils.getSinksFor(joanaModel, parent.entityName, method.entityName, parameter.entityName)
 		val tags = new ArrayList<String>()
 		for(sink : sinks) {
 			tags.addAll(sink.tag)
@@ -79,7 +79,7 @@ class JoanaAnnotationsGenerator {
 	}
 	
 	static def void generateSources(TopLevelType parent, Method method, Parameter parameter, JOANARoot joanaModel, BufferedWriter writer) {
-		val sources = JoanaModelUtils.getSourcesFor(joanaModel, parent.name, method.name, parameter.name)
+		val sources = JoanaModelUtils.getSourcesFor(joanaModel, parent.entityName, method.entityName, parameter.entityName)
 		val tags = new ArrayList<String>()
 		for(source : sources) {
 			tags.addAll(source.tag)
@@ -94,7 +94,7 @@ class JoanaAnnotationsGenerator {
 	}
 	
 	static def void generateSinks(TopLevelType parent, Method method, JOANARoot joanaModel, BufferedWriter writer) {
-		val sinks = JoanaModelUtils.getSinksFor(joanaModel, parent.name, method.name)
+		val sinks = JoanaModelUtils.getSinksFor(joanaModel, parent.entityName, method.entityName)
 		val tags = new ArrayList<String>()
 		for(sink : sinks) {
 			tags.addAll(sink.tag)

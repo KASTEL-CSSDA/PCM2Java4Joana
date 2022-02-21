@@ -3,7 +3,10 @@
 package edu.kit.kastel.scbs.pcm2java4joana.joana;
 
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Method;
+
 import org.eclipse.emf.common.util.EList;
+
+import tools.mdsd.modelingfoundations.identifier.Entity;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,7 +26,7 @@ import org.eclipse.emf.common.util.EList;
  * @model abstract="true"
  * @generated
  */
-public interface FlowSpecificationElement extends JoanaElement {
+public interface FlowSpecificationElement extends Entity {
 	/**
 	 * Returns the value of the '<em><b>Tag</b></em>' attribute list.
 	 * The list contents are of type {@link java.lang.String}.

@@ -2,6 +2,7 @@
  */
 package edu.kit.kastel.scbs.pcm2java4joana.joana;
 
+import tools.mdsd.modelingfoundations.identifier.Entity;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,5 +14,5 @@ package edu.kit.kastel.scbs.pcm2java4joana.joana;
  * @model
  * @generated
  */
-public interface SecurityLevel extends JoanaElement {
+public interface SecurityLevel extends Entity {
 } // SecurityLevel

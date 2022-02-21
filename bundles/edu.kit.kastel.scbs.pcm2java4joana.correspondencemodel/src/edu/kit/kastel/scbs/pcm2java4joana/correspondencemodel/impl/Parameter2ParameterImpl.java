@@ -3,7 +3,6 @@
 package edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl;
 
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.CorrespondencemodelPackage;
-import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMParameter;
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Parameter2Parameter;
 
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Parameter;
@@ -50,7 +49,7 @@ public class Parameter2ParameterImpl extends MinimalEObjectImpl.Container implem
 	 * @generated
 	 * @ordered
 	 */
-	protected PCMParameter pcmparameter;
+	protected org.palladiosimulator.pcm.repository.Parameter pcmparameter;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -114,7 +113,7 @@ public class Parameter2ParameterImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PCMParameter getPcmparameter() {
+	public org.palladiosimulator.pcm.repository.Parameter getPcmparameter() {
 		return pcmparameter;
 	}
 
@@ -123,8 +122,8 @@ public class Parameter2ParameterImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPcmparameter(PCMParameter newPcmparameter, NotificationChain msgs) {
-		PCMParameter oldPcmparameter = pcmparameter;
+	public NotificationChain basicSetPcmparameter(org.palladiosimulator.pcm.repository.Parameter newPcmparameter, NotificationChain msgs) {
+		org.palladiosimulator.pcm.repository.Parameter oldPcmparameter = pcmparameter;
 		pcmparameter = newPcmparameter;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorrespondencemodelPackage.PARAMETER2_PARAMETER__PCMPARAMETER, oldPcmparameter, newPcmparameter);
@@ -138,7 +137,7 @@ public class Parameter2ParameterImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPcmparameter(PCMParameter newPcmparameter) {
+	public void setPcmparameter(org.palladiosimulator.pcm.repository.Parameter newPcmparameter) {
 		if (newPcmparameter != pcmparameter) {
 			NotificationChain msgs = null;
 			if (pcmparameter != null)
@@ -195,7 +194,7 @@ public class Parameter2ParameterImpl extends MinimalEObjectImpl.Container implem
 				setJavaParameter((Parameter)newValue);
 				return;
 			case CorrespondencemodelPackage.PARAMETER2_PARAMETER__PCMPARAMETER:
-				setPcmparameter((PCMParameter)newValue);
+				setPcmparameter((org.palladiosimulator.pcm.repository.Parameter)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -213,7 +212,7 @@ public class Parameter2ParameterImpl extends MinimalEObjectImpl.Container implem
 				setJavaParameter((Parameter)null);
 				return;
 			case CorrespondencemodelPackage.PARAMETER2_PARAMETER__PCMPARAMETER:
-				setPcmparameter((PCMParameter)null);
+				setPcmparameter((org.palladiosimulator.pcm.repository.Parameter)null);
 				return;
 		}
 		super.eUnset(featureID);

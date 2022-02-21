@@ -7,6 +7,8 @@ import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourcecodePackage;
 
 import org.eclipse.emf.ecore.EClass;
 
+import tools.mdsd.modelingfoundations.identifier.impl.EntityImpl;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Field</b></em>'.
@@ -14,7 +16,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class FieldImpl extends SourceCodeElementImpl implements Field {
+public class FieldImpl extends EntityImpl implements Field {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

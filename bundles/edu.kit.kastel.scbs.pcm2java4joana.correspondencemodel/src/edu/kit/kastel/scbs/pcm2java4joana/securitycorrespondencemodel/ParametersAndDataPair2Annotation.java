@@ -2,6 +2,8 @@
  */
 package edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel;
 
+import edu.kit.kastel.scbs.confidentiality.repository.ParametersAndDataPair;
+
 import edu.kit.kastel.scbs.pcm2java4joana.joana.Annotation;
 
 import org.eclipse.emf.ecore.EObject;
@@ -51,12 +53,12 @@ public interface ParametersAndDataPair2Annotation extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Conf4cbseparametersanddatapair</em>' containment reference.
-	 * @see #setConf4cbseparametersanddatapair(Conf4CBSEParametersAndDataPair)
+	 * @see #setConf4cbseparametersanddatapair(ParametersAndDataPair)
 	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecuritycorrespondencemodelPackage#getParametersAndDataPair2Annotation_Conf4cbseparametersanddatapair()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	Conf4CBSEParametersAndDataPair getConf4cbseparametersanddatapair();
+	ParametersAndDataPair getConf4cbseparametersanddatapair();
 
 	/**
 	 * Sets the value of the '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.ParametersAndDataPair2Annotation#getConf4cbseparametersanddatapair <em>Conf4cbseparametersanddatapair</em>}' containment reference.
@@ -66,6 +68,6 @@ public interface ParametersAndDataPair2Annotation extends EObject {
 	 * @see #getConf4cbseparametersanddatapair()
 	 * @generated
 	 */
-	void setConf4cbseparametersanddatapair(Conf4CBSEParametersAndDataPair value);
+	void setConf4cbseparametersanddatapair(ParametersAndDataPair value);
 
 } // ParametersAndDataPair2Annotation

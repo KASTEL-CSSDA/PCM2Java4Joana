@@ -4,7 +4,6 @@ package edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl;
 
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.CorrespondencemodelPackage;
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Operation2Method;
-import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMOperation;
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Parameter2Parameter;
 
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Method;
@@ -24,6 +23,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import org.palladiosimulator.pcm.repository.OperationSignature;
 
 /**
  * <!-- begin-user-doc -->
@@ -69,7 +70,7 @@ public class Operation2MethodImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 * @ordered
 	 */
-	protected PCMOperation pcmoperation;
+	protected OperationSignature pcmoperation;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -145,7 +146,7 @@ public class Operation2MethodImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PCMOperation getPcmoperation() {
+	public OperationSignature getPcmoperation() {
 		return pcmoperation;
 	}
 
@@ -154,8 +155,8 @@ public class Operation2MethodImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPcmoperation(PCMOperation newPcmoperation, NotificationChain msgs) {
-		PCMOperation oldPcmoperation = pcmoperation;
+	public NotificationChain basicSetPcmoperation(OperationSignature newPcmoperation, NotificationChain msgs) {
+		OperationSignature oldPcmoperation = pcmoperation;
 		pcmoperation = newPcmoperation;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorrespondencemodelPackage.OPERATION2_METHOD__PCMOPERATION, oldPcmoperation, newPcmoperation);
@@ -169,7 +170,7 @@ public class Operation2MethodImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPcmoperation(PCMOperation newPcmoperation) {
+	public void setPcmoperation(OperationSignature newPcmoperation) {
 		if (newPcmoperation != pcmoperation) {
 			NotificationChain msgs = null;
 			if (pcmoperation != null)
@@ -235,7 +236,7 @@ public class Operation2MethodImpl extends MinimalEObjectImpl.Container implement
 				getParameter2parameter().addAll((Collection<? extends Parameter2Parameter>)newValue);
 				return;
 			case CorrespondencemodelPackage.OPERATION2_METHOD__PCMOPERATION:
-				setPcmoperation((PCMOperation)newValue);
+				setPcmoperation((OperationSignature)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -256,7 +257,7 @@ public class Operation2MethodImpl extends MinimalEObjectImpl.Container implement
 				getParameter2parameter().clear();
 				return;
 			case CorrespondencemodelPackage.OPERATION2_METHOD__PCMOPERATION:
-				setPcmoperation((PCMOperation)null);
+				setPcmoperation((OperationSignature)null);
 				return;
 		}
 		super.eUnset(featureID);

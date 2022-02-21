@@ -5,7 +5,6 @@ package edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl;
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.CorrespondencemodelPackage;
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Interface2Interface;
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Operation2Method;
-import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMInterface;
 
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Interface;
 
@@ -69,7 +68,7 @@ public class Interface2InterfaceImpl extends MinimalEObjectImpl.Container implem
 	 * @generated
 	 * @ordered
 	 */
-	protected PCMInterface pcminterface;
+	protected org.palladiosimulator.pcm.repository.Interface pcminterface;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -150,7 +149,7 @@ public class Interface2InterfaceImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PCMInterface getPcminterface() {
+	public org.palladiosimulator.pcm.repository.Interface getPcminterface() {
 		return pcminterface;
 	}
 
@@ -159,8 +158,8 @@ public class Interface2InterfaceImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPcminterface(PCMInterface newPcminterface, NotificationChain msgs) {
-		PCMInterface oldPcminterface = pcminterface;
+	public NotificationChain basicSetPcminterface(org.palladiosimulator.pcm.repository.Interface newPcminterface, NotificationChain msgs) {
+		org.palladiosimulator.pcm.repository.Interface oldPcminterface = pcminterface;
 		pcminterface = newPcminterface;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorrespondencemodelPackage.INTERFACE2_INTERFACE__PCMINTERFACE, oldPcminterface, newPcminterface);
@@ -174,7 +173,7 @@ public class Interface2InterfaceImpl extends MinimalEObjectImpl.Container implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPcminterface(PCMInterface newPcminterface) {
+	public void setPcminterface(org.palladiosimulator.pcm.repository.Interface newPcminterface) {
 		if (newPcminterface != pcminterface) {
 			NotificationChain msgs = null;
 			if (pcminterface != null)
@@ -241,7 +240,7 @@ public class Interface2InterfaceImpl extends MinimalEObjectImpl.Container implem
 				getOperation2method().addAll((Collection<? extends Operation2Method>)newValue);
 				return;
 			case CorrespondencemodelPackage.INTERFACE2_INTERFACE__PCMINTERFACE:
-				setPcminterface((PCMInterface)newValue);
+				setPcminterface((org.palladiosimulator.pcm.repository.Interface)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -262,7 +261,7 @@ public class Interface2InterfaceImpl extends MinimalEObjectImpl.Container implem
 				getOperation2method().clear();
 				return;
 			case CorrespondencemodelPackage.INTERFACE2_INTERFACE__PCMINTERFACE:
-				setPcminterface((PCMInterface)null);
+				setPcminterface((org.palladiosimulator.pcm.repository.Interface)null);
 				return;
 		}
 		super.eUnset(featureID);

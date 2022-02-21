@@ -7,11 +7,15 @@ import edu.kit.kastel.scbs.pcm2java4joana.joana.JoanaPackage;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.SecurityLevel;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import tools.mdsd.modelingfoundations.identifier.impl.EntityImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class FlowRelationImpl extends JoanaElementImpl implements FlowRelation {
+public class FlowRelationImpl extends EntityImpl implements FlowRelation {
 	/**
 	 * The cached value of the '{@link #getFrom() <em>From</em>}' reference list.
 	 * <!-- begin-user-doc -->

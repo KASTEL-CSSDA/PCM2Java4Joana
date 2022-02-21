@@ -2,6 +2,7 @@
  */
 package edu.kit.kastel.scbs.pcm2java4joana.sourcecode;
 
+import tools.mdsd.modelingfoundations.identifier.Entity;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,5 +14,5 @@ package edu.kit.kastel.scbs.pcm2java4joana.sourcecode;
  * @model
  * @generated
  */
-public interface Field extends SourceCodeElement {
+public interface Field extends Entity {
 } // Field

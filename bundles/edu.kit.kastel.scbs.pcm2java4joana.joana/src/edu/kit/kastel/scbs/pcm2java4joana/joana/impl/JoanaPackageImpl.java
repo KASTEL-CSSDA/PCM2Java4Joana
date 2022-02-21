@@ -8,7 +8,6 @@ import edu.kit.kastel.scbs.pcm2java4joana.joana.FlowRelation;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.FlowSpecification;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.FlowSpecificationElement;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.JOANARoot;
-import edu.kit.kastel.scbs.pcm2java4joana.joana.JoanaElement;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.JoanaFactory;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.JoanaPackage;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.Lattice;
@@ -24,6 +23,8 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
+import tools.mdsd.modelingfoundations.identifier.IdentifierPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -103,13 +104,6 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 	private EClass flowSpecificationEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass joanaElementEClass = null;
-
-	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -158,6 +152,7 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 
 		// Initialize simple dependencies
 		SourcecodePackage.eINSTANCE.eClass();
+		IdentifierPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theJoanaPackage.createPackageContents();
@@ -412,24 +407,6 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getJoanaElement() {
-		return joanaElementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getJoanaElement_Name() {
-		return (EAttribute)joanaElementEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public JoanaFactory getJoanaFactory() {
 		return (JoanaFactory)getEFactoryInstance();
 	}
@@ -488,9 +465,6 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 		flowSpecificationEClass = createEClass(FLOW_SPECIFICATION);
 		createEReference(flowSpecificationEClass, FLOW_SPECIFICATION__ENTRYPOINT);
 		createEReference(flowSpecificationEClass, FLOW_SPECIFICATION__ANNOTATION);
-
-		joanaElementEClass = createEClass(JOANA_ELEMENT);
-		createEAttribute(joanaElementEClass, JOANA_ELEMENT__NAME);
 	}
 
 	/**
@@ -518,6 +492,7 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 
 		// Obtain other dependent packages
 		SourcecodePackage theSourcecodePackage = (SourcecodePackage)EPackage.Registry.INSTANCE.getEPackage(SourcecodePackage.eNS_URI);
+		IdentifierPackage theIdentifierPackage = (IdentifierPackage)EPackage.Registry.INSTANCE.getEPackage(IdentifierPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -526,14 +501,14 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 		// Add supertypes to classes
 		entryPointEClass.getESuperTypes().add(this.getFlowSpecificationElement());
 		annotationEClass.getESuperTypes().add(this.getFlowSpecificationElement());
-		flowSpecificationElementEClass.getESuperTypes().add(this.getJoanaElement());
+		flowSpecificationElementEClass.getESuperTypes().add(theIdentifierPackage.getEntity());
 		sinkEClass.getESuperTypes().add(this.getAnnotation());
 		sourceEClass.getESuperTypes().add(this.getAnnotation());
-		securityLevelEClass.getESuperTypes().add(this.getJoanaElement());
-		latticeEClass.getESuperTypes().add(this.getJoanaElement());
-		flowRelationEClass.getESuperTypes().add(this.getJoanaElement());
-		joanaRootEClass.getESuperTypes().add(this.getJoanaElement());
-		flowSpecificationEClass.getESuperTypes().add(this.getJoanaElement());
+		securityLevelEClass.getESuperTypes().add(theIdentifierPackage.getEntity());
+		latticeEClass.getESuperTypes().add(theIdentifierPackage.getEntity());
+		flowRelationEClass.getESuperTypes().add(theIdentifierPackage.getEntity());
+		joanaRootEClass.getESuperTypes().add(theIdentifierPackage.getEntity());
+		flowSpecificationEClass.getESuperTypes().add(theIdentifierPackage.getEntity());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(entryPointEClass, EntryPoint.class, "EntryPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -571,9 +546,6 @@ public class JoanaPackageImpl extends EPackageImpl implements JoanaPackage {
 		initEClass(flowSpecificationEClass, FlowSpecification.class, "FlowSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFlowSpecification_Entrypoint(), this.getEntryPoint(), null, "entrypoint", null, 1, 1, FlowSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFlowSpecification_Annotation(), this.getAnnotation(), null, "annotation", null, 1, -1, FlowSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(joanaElementEClass, JoanaElement.class, "JoanaElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getJoanaElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, JoanaElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

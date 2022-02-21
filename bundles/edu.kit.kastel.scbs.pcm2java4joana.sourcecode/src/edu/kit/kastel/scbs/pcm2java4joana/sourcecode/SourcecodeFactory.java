@@ -130,15 +130,6 @@ public interface SourcecodeFactory extends EFactory {
 	CollectionType createCollectionType();
 
 	/**
-	 * Returns a new object of class '<em>Source Code Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Source Code Element</em>'.
-	 * @generated
-	 */
-	SourceCodeElement createSourceCodeElement();
-
-	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

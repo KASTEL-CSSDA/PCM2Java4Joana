@@ -8,6 +8,8 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
 
+import org.palladiosimulator.pcm.repository.OperationSignature;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Operation2 Method</b></em>'.
@@ -66,12 +68,12 @@ public interface Operation2Method extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Pcmoperation</em>' containment reference.
-	 * @see #setPcmoperation(PCMOperation)
+	 * @see #setPcmoperation(OperationSignature)
 	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.CorrespondencemodelPackage#getOperation2Method_Pcmoperation()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	PCMOperation getPcmoperation();
+	OperationSignature getPcmoperation();
 
 	/**
 	 * Sets the value of the '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Operation2Method#getPcmoperation <em>Pcmoperation</em>}' containment reference.
@@ -81,6 +83,6 @@ public interface Operation2Method extends EObject {
 	 * @see #getPcmoperation()
 	 * @generated
 	 */
-	void setPcmoperation(PCMOperation value);
+	void setPcmoperation(OperationSignature value);
 
 } // Operation2Method

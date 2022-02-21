@@ -43,11 +43,11 @@ public final class JoanaModelUtils {
 
 		for (FlowSpecification flow : joanaModel.getFlowspecification()) {
 			for (Annotation specificationElement : flow.getAnnotation()) {
-				if (specificationElement.getAnnotatedClass().getName().equals(className)
-						&& specificationElement.getAnnotatedMethod().getName().equals(methodName)
+				if (specificationElement.getAnnotatedClass().getEntityName().equals(className)
+						&& specificationElement.getAnnotatedMethod().getEntityName().equals(methodName)
 						&& ((specificationElement.getAnnotatedParameter() == null && parameterName.equals(""))
 								|| (specificationElement.getAnnotatedParameter() != null && specificationElement
-										.getAnnotatedParameter().getName().equals(parameterName)))) {
+										.getAnnotatedParameter().getEntityName().equals(parameterName)))) {
 					elements.add(specificationElement);
 				}
 			}
@@ -60,8 +60,8 @@ public final class JoanaModelUtils {
 		List<EntryPoint> entries = new ArrayList<EntryPoint>();
 
 		for (FlowSpecification element : root.getFlowspecification()) {
-			if (element.getEntrypoint().getAnnotatedClass().getName().equals(className)
-					&& element.getEntrypoint().getAnnotatedMethod().getName().equals(methodName)) {
+			if (element.getEntrypoint().getAnnotatedClass().getEntityName().equals(className)
+					&& element.getEntrypoint().getAnnotatedMethod().getEntityName().equals(methodName)) {
 				entries.add(element.getEntrypoint());
 			}
 		}
@@ -92,11 +92,11 @@ public final class JoanaModelUtils {
 		
 		List<Annotation> foundAnnotations = new ArrayList<Annotation>();
 		for (Annotation annotation : annotations) {
-			if (annotation.getAnnotatedClass().getName().equals(className)
-					&& annotation.getAnnotatedMethod().getName().equals(methodName)
+			if (annotation.getAnnotatedClass().getEntityName().equals(className)
+					&& annotation.getAnnotatedMethod().getEntityName().equals(methodName)
 					&& ((annotation.getAnnotatedParameter() == null && parameterName.equals(""))
 							|| (annotation.getAnnotatedParameter() != null && annotation
-									.getAnnotatedParameter().getName().equals(parameterName)))) {
+									.getAnnotatedParameter().getEntityName().equals(parameterName)))) {
 				foundAnnotations.add(annotation);
 			}
 		}
@@ -122,7 +122,7 @@ public final class JoanaModelUtils {
 	}
 
 	public static List<SecurityLevel> sortSecurityLevels(List<SecurityLevel> unsorted) {
-		return unsorted.stream().sorted((object1, object2) -> object1.getName().compareTo(object2.getName()))
+		return unsorted.stream().sorted((object1, object2) -> object1.getEntityName().compareTo(object2.getEntityName()))
 				.collect(Collectors.toList());
 	}
 
@@ -130,7 +130,7 @@ public final class JoanaModelUtils {
 		List<SecurityLevel> sorted = JoanaModelUtils.sortSecurityLevels(levels);
 		String combined = "";
 		for (SecurityLevel level : sorted) {
-			combined += level.getName();
+			combined += level.getEntityName();
 		}
 
 		return combined;

@@ -5,7 +5,6 @@ package edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.impl;
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Component2Class;
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.CorrespondencemodelPackage;
 import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Interface2Interface;
-import edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.PCMComponent;
 
 import java.util.Collection;
 
@@ -22,6 +21,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import org.palladiosimulator.pcm.repository.BasicComponent;
 
 /**
  * <!-- begin-user-doc -->
@@ -67,7 +68,7 @@ public class Component2ClassImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 * @ordered
 	 */
-	protected PCMComponent pcmcomponent;
+	protected BasicComponent pcmcomponent;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -143,7 +144,7 @@ public class Component2ClassImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PCMComponent getPcmcomponent() {
+	public BasicComponent getPcmcomponent() {
 		return pcmcomponent;
 	}
 
@@ -152,8 +153,8 @@ public class Component2ClassImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPcmcomponent(PCMComponent newPcmcomponent, NotificationChain msgs) {
-		PCMComponent oldPcmcomponent = pcmcomponent;
+	public NotificationChain basicSetPcmcomponent(BasicComponent newPcmcomponent, NotificationChain msgs) {
+		BasicComponent oldPcmcomponent = pcmcomponent;
 		pcmcomponent = newPcmcomponent;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CorrespondencemodelPackage.COMPONENT2_CLASS__PCMCOMPONENT, oldPcmcomponent, newPcmcomponent);
@@ -167,7 +168,7 @@ public class Component2ClassImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPcmcomponent(PCMComponent newPcmcomponent) {
+	public void setPcmcomponent(BasicComponent newPcmcomponent) {
 		if (newPcmcomponent != pcmcomponent) {
 			NotificationChain msgs = null;
 			if (pcmcomponent != null)
@@ -233,7 +234,7 @@ public class Component2ClassImpl extends MinimalEObjectImpl.Container implements
 				getInterface2interface().addAll((Collection<? extends Interface2Interface>)newValue);
 				return;
 			case CorrespondencemodelPackage.COMPONENT2_CLASS__PCMCOMPONENT:
-				setPcmcomponent((PCMComponent)newValue);
+				setPcmcomponent((BasicComponent)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -254,7 +255,7 @@ public class Component2ClassImpl extends MinimalEObjectImpl.Container implements
 				getInterface2interface().clear();
 				return;
 			case CorrespondencemodelPackage.COMPONENT2_CLASS__PCMCOMPONENT:
-				setPcmcomponent((PCMComponent)null);
+				setPcmcomponent((BasicComponent)null);
 				return;
 		}
 		super.eUnset(featureID);

@@ -265,7 +265,7 @@ public class AnnotationModelGenerator {
 				for (Method method : methods) {
 					List<String> parameterNames = new ArrayList<String>();
 					for (Parameter parameter : method.getParameter()) {
-						parameterNames.add(parameter.getName());
+						parameterNames.add(parameter.getEntityName());
 					}
 					if (!SetOperations.isIn(appliedPair.getParameterSources(), parameterNames)) {
 						toRemove.add(method);
@@ -321,7 +321,7 @@ public class AnnotationModelGenerator {
 			if (dataIdentifying instanceof DataSet) {
 				DataSet dataset = (DataSet) dataIdentifying;
 				for (SecurityLevel level : securityLevels) {
-					if (dataset.getName().equals(level.getName())) {
+					if (dataset.getName().equals(level.getEntityName())) {
 						levelToDataset.put(level, dataset);
 					}
 				}
@@ -339,7 +339,7 @@ public class AnnotationModelGenerator {
 			if (dataIdentifying instanceof DataSet) {
 				DataSet dataset = (DataSet) dataIdentifying;
 				SecurityLevel level = factory.createSecurityLevel();
-				level.setName(dataset.getName());
+				level.setEntityName(dataset.getName());
 				levels.add(level);
 				this.securityCorrespondenceModel.getDataset2securitylevel()
 						.add(CorrespondenceModelElementsGenerator.generateDatasetCorrespondence(dataset, level));

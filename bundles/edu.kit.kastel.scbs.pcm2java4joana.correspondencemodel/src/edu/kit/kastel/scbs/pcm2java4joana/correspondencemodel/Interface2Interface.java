@@ -66,12 +66,12 @@ public interface Interface2Interface extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Pcminterface</em>' containment reference.
-	 * @see #setPcminterface(PCMInterface)
+	 * @see #setPcminterface(org.palladiosimulator.pcm.repository.Interface)
 	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.CorrespondencemodelPackage#getInterface2Interface_Pcminterface()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	PCMInterface getPcminterface();
+	org.palladiosimulator.pcm.repository.Interface getPcminterface();
 
 	/**
 	 * Sets the value of the '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Interface2Interface#getPcminterface <em>Pcminterface</em>}' containment reference.
@@ -81,6 +81,6 @@ public interface Interface2Interface extends EObject {
 	 * @see #getPcminterface()
 	 * @generated
 	 */
-	void setPcminterface(PCMInterface value);
+	void setPcminterface(org.palladiosimulator.pcm.repository.Interface value);
 
 } // Interface2Interface

@@ -2,6 +2,8 @@
  */
 package edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel;
 
+import edu.kit.kastel.scbs.confidentiality.data.DataSet;
+
 import edu.kit.kastel.scbs.pcm2java4joana.joana.SecurityLevel;
 
 import org.eclipse.emf.common.util.EList;
@@ -40,7 +42,7 @@ public interface DataSet2SecurityLevel extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Conf4cbsedataset</b></em>' containment reference list.
-	 * The list contents are of type {@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEDataSet}.
+	 * The list contents are of type {@link edu.kit.kastel.scbs.confidentiality.data.DataSet}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Conf4cbsedataset</em>' containment reference list.
@@ -48,6 +50,6 @@ public interface DataSet2SecurityLevel extends EObject {
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<Conf4CBSEDataSet> getConf4cbsedataset();
+	EList<DataSet> getConf4cbsedataset();
 
 } // DataSet2SecurityLevel

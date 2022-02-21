@@ -7,6 +7,8 @@ import edu.kit.kastel.scbs.pcm2java4joana.joana.SecurityLevel;
 
 import org.eclipse.emf.ecore.EClass;
 
+import tools.mdsd.modelingfoundations.identifier.impl.EntityImpl;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Security Level</b></em>'.
@@ -14,7 +16,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class SecurityLevelImpl extends JoanaElementImpl implements SecurityLevel {
+public class SecurityLevelImpl extends EntityImpl implements SecurityLevel {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

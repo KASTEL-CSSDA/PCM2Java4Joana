@@ -4,6 +4,8 @@ package edu.kit.kastel.scbs.pcm2java4joana.joana;
 
 import org.eclipse.emf.common.util.EList;
 
+import tools.mdsd.modelingfoundations.identifier.Entity;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Flow Relation</b></em>'.
@@ -21,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface FlowRelation extends JoanaElement {
+public interface FlowRelation extends Entity {
 	/**
 	 * Returns the value of the '<em><b>From</b></em>' reference list.
 	 * The list contents are of type {@link edu.kit.kastel.scbs.pcm2java4joana.joana.SecurityLevel}.

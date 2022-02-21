@@ -51,12 +51,12 @@ public interface Parameter2Parameter extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Pcmparameter</em>' containment reference.
-	 * @see #setPcmparameter(PCMParameter)
+	 * @see #setPcmparameter(org.palladiosimulator.pcm.repository.Parameter)
 	 * @see edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.CorrespondencemodelPackage#getParameter2Parameter_Pcmparameter()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	PCMParameter getPcmparameter();
+	org.palladiosimulator.pcm.repository.Parameter getPcmparameter();
 
 	/**
 	 * Sets the value of the '{@link edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.Parameter2Parameter#getPcmparameter <em>Pcmparameter</em>}' containment reference.
@@ -66,6 +66,6 @@ public interface Parameter2Parameter extends EObject {
 	 * @see #getPcmparameter()
 	 * @generated
 	 */
-	void setPcmparameter(PCMParameter value);
+	void setPcmparameter(org.palladiosimulator.pcm.repository.Parameter value);
 
 } // Parameter2Parameter

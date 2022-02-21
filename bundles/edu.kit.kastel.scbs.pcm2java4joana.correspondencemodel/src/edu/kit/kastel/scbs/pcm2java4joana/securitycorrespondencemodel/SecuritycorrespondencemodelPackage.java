@@ -2,7 +2,6 @@
  */
 package edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel;
 
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -194,117 +193,6 @@ public interface SecuritycorrespondencemodelPackage extends EPackage {
 	 */
 	int SECURITY_CORRESPONDENCE_MODEL_OPERATION_COUNT = 0;
 
-	/**
-	 * The meta object id for the '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.Conf4CBSEElementImpl <em>Conf4 CBSE Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.Conf4CBSEElementImpl
-	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.SecuritycorrespondencemodelPackageImpl#getConf4CBSEElement()
-	 * @generated
-	 */
-	int CONF4_CBSE_ELEMENT = 4;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONF4_CBSE_ELEMENT__ID = 0;
-
-	/**
-	 * The number of structural features of the '<em>Conf4 CBSE Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONF4_CBSE_ELEMENT_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>Conf4 CBSE Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONF4_CBSE_ELEMENT_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.Conf4CBSEParametersAndDataPairImpl <em>Conf4 CBSE Parameters And Data Pair</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.Conf4CBSEParametersAndDataPairImpl
-	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.SecuritycorrespondencemodelPackageImpl#getConf4CBSEParametersAndDataPair()
-	 * @generated
-	 */
-	int CONF4_CBSE_PARAMETERS_AND_DATA_PAIR = 3;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONF4_CBSE_PARAMETERS_AND_DATA_PAIR__ID = CONF4_CBSE_ELEMENT__ID;
-
-	/**
-	 * The number of structural features of the '<em>Conf4 CBSE Parameters And Data Pair</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONF4_CBSE_PARAMETERS_AND_DATA_PAIR_FEATURE_COUNT = CONF4_CBSE_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Conf4 CBSE Parameters And Data Pair</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONF4_CBSE_PARAMETERS_AND_DATA_PAIR_OPERATION_COUNT = CONF4_CBSE_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.Conf4CBSEDataSetImpl <em>Conf4 CBSE Data Set</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.Conf4CBSEDataSetImpl
-	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.SecuritycorrespondencemodelPackageImpl#getConf4CBSEDataSet()
-	 * @generated
-	 */
-	int CONF4_CBSE_DATA_SET = 5;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONF4_CBSE_DATA_SET__ID = CONF4_CBSE_ELEMENT__ID;
-
-	/**
-	 * The number of structural features of the '<em>Conf4 CBSE Data Set</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONF4_CBSE_DATA_SET_FEATURE_COUNT = CONF4_CBSE_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Conf4 CBSE Data Set</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONF4_CBSE_DATA_SET_OPERATION_COUNT = CONF4_CBSE_ELEMENT_OPERATION_COUNT + 0;
-
 
 	/**
 	 * Returns the meta object for class '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.DataSet2SecurityLevel <em>Data Set2 Security Level</em>}'.
@@ -401,47 +289,6 @@ public interface SecuritycorrespondencemodelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSecurityCorrespondenceModel_Dataset2securitylevel();
-
-	/**
-	 * Returns the meta object for class '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEParametersAndDataPair <em>Conf4 CBSE Parameters And Data Pair</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Conf4 CBSE Parameters And Data Pair</em>'.
-	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEParametersAndDataPair
-	 * @generated
-	 */
-	EClass getConf4CBSEParametersAndDataPair();
-
-	/**
-	 * Returns the meta object for class '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEElement <em>Conf4 CBSE Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Conf4 CBSE Element</em>'.
-	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEElement
-	 * @generated
-	 */
-	EClass getConf4CBSEElement();
-
-	/**
-	 * Returns the meta object for the attribute '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEElement#getId <em>Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEElement#getId()
-	 * @see #getConf4CBSEElement()
-	 * @generated
-	 */
-	EAttribute getConf4CBSEElement_Id();
-
-	/**
-	 * Returns the meta object for class '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEDataSet <em>Conf4 CBSE Data Set</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Conf4 CBSE Data Set</em>'.
-	 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEDataSet
-	 * @generated
-	 */
-	EClass getConf4CBSEDataSet();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -543,44 +390,6 @@ public interface SecuritycorrespondencemodelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SECURITY_CORRESPONDENCE_MODEL__DATASET2SECURITYLEVEL = eINSTANCE.getSecurityCorrespondenceModel_Dataset2securitylevel();
-
-		/**
-		 * The meta object literal for the '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.Conf4CBSEParametersAndDataPairImpl <em>Conf4 CBSE Parameters And Data Pair</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.Conf4CBSEParametersAndDataPairImpl
-		 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.SecuritycorrespondencemodelPackageImpl#getConf4CBSEParametersAndDataPair()
-		 * @generated
-		 */
-		EClass CONF4_CBSE_PARAMETERS_AND_DATA_PAIR = eINSTANCE.getConf4CBSEParametersAndDataPair();
-
-		/**
-		 * The meta object literal for the '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.Conf4CBSEElementImpl <em>Conf4 CBSE Element</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.Conf4CBSEElementImpl
-		 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.SecuritycorrespondencemodelPackageImpl#getConf4CBSEElement()
-		 * @generated
-		 */
-		EClass CONF4_CBSE_ELEMENT = eINSTANCE.getConf4CBSEElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONF4_CBSE_ELEMENT__ID = eINSTANCE.getConf4CBSEElement_Id();
-
-		/**
-		 * The meta object literal for the '{@link edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.Conf4CBSEDataSetImpl <em>Conf4 CBSE Data Set</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.Conf4CBSEDataSetImpl
-		 * @see edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl.SecuritycorrespondencemodelPackageImpl#getConf4CBSEDataSet()
-		 * @generated
-		 */
-		EClass CONF4_CBSE_DATA_SET = eINSTANCE.getConf4CBSEDataSet();
 
 	}
 

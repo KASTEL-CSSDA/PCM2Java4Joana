@@ -2,9 +2,10 @@
  */
 package edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.impl;
 
+import edu.kit.kastel.scbs.confidentiality.data.DataSet;
+
 import edu.kit.kastel.scbs.pcm2java4joana.joana.SecurityLevel;
 
-import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.Conf4CBSEDataSet;
 import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.DataSet2SecurityLevel;
 import edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.SecuritycorrespondencemodelPackage;
 
@@ -56,7 +57,7 @@ public class DataSet2SecurityLevelImpl extends MinimalEObjectImpl.Container impl
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Conf4CBSEDataSet> conf4cbsedataset;
+	protected EList<DataSet> conf4cbsedataset;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -94,9 +95,9 @@ public class DataSet2SecurityLevelImpl extends MinimalEObjectImpl.Container impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Conf4CBSEDataSet> getConf4cbsedataset() {
+	public EList<DataSet> getConf4cbsedataset() {
 		if (conf4cbsedataset == null) {
-			conf4cbsedataset = new EObjectContainmentEList<Conf4CBSEDataSet>(Conf4CBSEDataSet.class, this, SecuritycorrespondencemodelPackage.DATA_SET2_SECURITY_LEVEL__CONF4CBSEDATASET);
+			conf4cbsedataset = new EObjectContainmentEList<DataSet>(DataSet.class, this, SecuritycorrespondencemodelPackage.DATA_SET2_SECURITY_LEVEL__CONF4CBSEDATASET);
 		}
 		return conf4cbsedataset;
 	}
@@ -146,7 +147,7 @@ public class DataSet2SecurityLevelImpl extends MinimalEObjectImpl.Container impl
 				return;
 			case SecuritycorrespondencemodelPackage.DATA_SET2_SECURITY_LEVEL__CONF4CBSEDATASET:
 				getConf4cbsedataset().clear();
-				getConf4cbsedataset().addAll((Collection<? extends Conf4CBSEDataSet>)newValue);
+				getConf4cbsedataset().addAll((Collection<? extends DataSet>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

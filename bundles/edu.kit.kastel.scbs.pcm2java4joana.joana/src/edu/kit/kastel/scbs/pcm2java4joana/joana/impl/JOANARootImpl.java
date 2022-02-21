@@ -6,9 +6,9 @@ import edu.kit.kastel.scbs.pcm2java4joana.joana.Annotation;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.FlowSpecification;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.JOANARoot;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.JoanaPackage;
-
 import edu.kit.kastel.scbs.pcm2java4joana.joana.Lattice;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.SecurityLevel;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -20,8 +20,11 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import tools.mdsd.modelingfoundations.identifier.impl.EntityImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,7 +42,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class JOANARootImpl extends JoanaElementImpl implements JOANARoot {
+public class JOANARootImpl extends EntityImpl implements JOANARoot {
 	/**
 	 * The cached value of the '{@link #getFlowspecification() <em>Flowspecification</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -59,6 +62,7 @@ public class JOANARootImpl extends JoanaElementImpl implements JOANARoot {
 	 * @ordered
 	 */
 	protected Lattice lattice;
+
 	/**
 	 * The cached value of the '{@link #getSecuritylevel() <em>Securitylevel</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

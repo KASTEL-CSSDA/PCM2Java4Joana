@@ -14,6 +14,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import tools.mdsd.modelingfoundations.identifier.impl.EntityImpl;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Parameter</b></em>'.
@@ -27,7 +29,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class ParameterImpl extends SourceCodeElementImpl implements Parameter {
+public class ParameterImpl extends EntityImpl implements Parameter {
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->

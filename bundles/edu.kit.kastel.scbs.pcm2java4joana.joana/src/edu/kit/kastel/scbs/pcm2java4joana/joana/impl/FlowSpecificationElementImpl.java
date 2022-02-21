@@ -8,14 +8,19 @@ import edu.kit.kastel.scbs.pcm2java4joana.joana.JoanaPackage;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Method;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+
+import tools.mdsd.modelingfoundations.identifier.impl.EntityImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +37,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  *
  * @generated
  */
-public abstract class FlowSpecificationElementImpl extends JoanaElementImpl implements FlowSpecificationElement {
+public abstract class FlowSpecificationElementImpl extends EntityImpl implements FlowSpecificationElement {
 	/**
 	 * The cached value of the '{@link #getTag() <em>Tag</em>}' attribute list.
 	 * <!-- begin-user-doc -->
