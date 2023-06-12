@@ -1,6 +1,7 @@
  package edu.kit.kastel.scbs.pcm2java4joana.modelgenerator;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,6 +36,7 @@ import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Interface;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Method;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.Parameter;
 import edu.kit.kastel.scbs.pcm2java4joana.sourcecode.SourceCodeRoot;
+import edu.kit.kastel.scbs.pcm2java4joana.utils.JoanaModelUtils;
 import edu.kit.kastel.scbs.pcm2java4joana.utils.SetOperations;
 import edu.kit.kastel.scbs.pcm2java4joana.utils.SourceCodeModelUtils;
 
@@ -80,7 +82,7 @@ public class AnnotationModelGenerator {
 		List<SecurityLevel> levels = this.generateLevels(confidentiality);
 		root.getSecuritylevel().addAll(levels);
 
-		Map<SecurityLevel, DataIdentifying> levelToDatasetsMapping = this
+		Map<SecurityLevel, Collection<DataIdentifying>> levelToDatasetsMapping = this
 				.generateSecurityLevelToDatasetMapping(confidentiality, levels);
 		Lattice lattice = this.generateLattice(levels);
 		root.setLattice(lattice);
@@ -219,7 +221,7 @@ public class AnnotationModelGenerator {
 		return entryPoint;
 	}
 
-	private List<Annotation> generateAnnotations(Map<SecurityLevel, DataIdentifying> levelToDatasetsMapping,
+	private List<Annotation> generateAnnotations(Map<SecurityLevel, Collection<DataIdentifying>> levelToDatasetsMapping,
 			List<ParametersAndDataPair> parametersAndDataPair, SourceCodeRoot sourceCode,
 			ClientAnalysisModel clientAnalysisModel) {
 		List<Annotation> annotations = new ArrayList<Annotation>();
@@ -238,7 +240,7 @@ public class AnnotationModelGenerator {
 		return annotations;
 	}
 
-	private List<Annotation> generateAnnotation(Map<SecurityLevel, DataIdentifying> levelToDatasetsMapping,
+	private List<Annotation> generateAnnotation(Map<SecurityLevel, Collection<DataIdentifying>> levelToDatasetsMapping,
 			StereotypeApplication stereotypeApplication, SourceCodeRoot sourceCode) {
 		JoanaFactory factory = JoanaFactory.eINSTANCE;
 
@@ -249,7 +251,7 @@ public class AnnotationModelGenerator {
 
 		List<Annotation> annotations = new ArrayList<Annotation>();
 		for (ParametersAndDataPair appliedPair : appliedPairs) {
-			List<SecurityLevel> securityLevels = this.getSecurityLevel(appliedPair, levelToDatasetsMapping);
+			SecurityLevel securityLevels = this.getSecurityLevel(appliedPair, levelToDatasetsMapping);
 
 			OperationSignature pcmSignature = (OperationSignature) stereotypeApplication.getAppliedTo();
 			OperationInterface pcmInter = pcmSignature.getInterface__OperationSignature();
@@ -278,7 +280,7 @@ public class AnnotationModelGenerator {
 			for (Class component : components) {
 				for (Method method : methods) {
 					Annotation annotation = factory.createAnnotation();
-					annotation.getSecuritylevel().addAll(securityLevels);
+					annotation.getSecuritylevel().add(securityLevels);
 					annotation.setAnnotatedClass(component);
 					annotation.setAnnotatedMethod(method);
 					if (!appliedPair.getParameterSources().get(0).equals("\\return")
@@ -297,32 +299,37 @@ public class AnnotationModelGenerator {
 		return annotations;
 	}
 
-	private List<SecurityLevel> getSecurityLevel(ParametersAndDataPair pair,
-			Map<SecurityLevel, DataIdentifying> levelToDatasetsMapping) {
-		List<SecurityLevel> levels = new ArrayList<SecurityLevel>();
+	private SecurityLevel getSecurityLevel(ParametersAndDataPair pair,
+			Map<SecurityLevel, Collection<DataIdentifying>> levelToDatasetsMapping) {
+		SecurityLevel level = null;
 		List<DataIdentifying> targets = pair.getDataTargets();
 
 		var it = levelToDatasetsMapping.entrySet().iterator();
 		while (it.hasNext()) {
-			var entry = (Entry<SecurityLevel, DataIdentifying>) it.next();
-			if (targets.contains(entry.getValue())) {
-				levels.add(entry.getKey());
+			var entry = (Entry<SecurityLevel, Collection<DataIdentifying>>) it.next();
+			if(entry.getValue().containsAll(targets)) {
+				return entry.getKey();
 			}
 		}
 
-		return levels;
+		return level;
 	}
 
-	private Map<SecurityLevel, DataIdentifying> generateSecurityLevelToDatasetMapping(
+	private Map<SecurityLevel, Collection<DataIdentifying>> generateSecurityLevelToDatasetMapping(
 			ConfidentialitySpecification specification, List<SecurityLevel> securityLevels) {
-		Map<SecurityLevel, DataIdentifying> levelToDataset = new HashMap<SecurityLevel, DataIdentifying>();
+		Map<SecurityLevel, Collection<DataIdentifying>> levelToDataset = new HashMap<SecurityLevel, Collection<DataIdentifying>>();
 
 		for (DataIdentifying dataIdentifying : specification.getDataIdentifier()) {
 			if (dataIdentifying instanceof DataSet) {
 				DataSet dataset = (DataSet) dataIdentifying;
 				for (SecurityLevel level : securityLevels) {
-					if (dataset.getName().equals(level.getName())) {
-						levelToDataset.put(level, dataset);
+					if (level.getName().toLowerCase().contains(dataset.getName().toLowerCase())) {
+						
+						if(!levelToDataset.containsKey(level)) {
+							levelToDataset.put(level, new ArrayList<DataIdentifying>());
+						}
+						
+						levelToDataset.get(level).add(dataIdentifying);
 					}
 				}
 			}
@@ -346,7 +353,7 @@ public class AnnotationModelGenerator {
 			}
 		}
 
-		return levels;
+		return JoanaModelUtils.generateSuperSetLevelsFromBasicSet(levels);
 	}
 
 	private Lattice generateLattice(List<SecurityLevel> levels) {

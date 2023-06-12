@@ -1,9 +1,11 @@
 package edu.kit.kastel.scbs.pcm2java4joana.utils;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import edu.kit.kastel.scbs.confidentiality.ConfidentialityFactory;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.Annotation;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.EntryPoint;
 import edu.kit.kastel.scbs.pcm2java4joana.joana.FlowRelation;
@@ -134,6 +136,27 @@ public final class JoanaModelUtils {
 		}
 
 		return combined;
+	}
+	
+	public static SecurityLevel combineIntoOneSecurityLevelElement(List<SecurityLevel> levels) {
+		String combinedLevelName = JoanaModelUtils.combineIntoOneSecurityLevel(levels);
+		
+		SecurityLevel level = JoanaFactory.eINSTANCE.createSecurityLevel();
+		
+		level.setName(combinedLevelName);
+		
+		return level;
+	}
+	
+	public static List<SecurityLevel> generateSuperSetLevelsFromBasicSet(List<SecurityLevel> levels){
+		
+		List<List<SecurityLevel>> powerSetLevels = SetOperations.generatePowerSet(levels);
+		List<SecurityLevel> foldedPowerSetLevels = new ArrayList<SecurityLevel>();
+		
+		powerSetLevels.forEach(levelList -> foldedPowerSetLevels.add(JoanaModelUtils.combineIntoOneSecurityLevelElement(levelList)));
+		
+		return foldedPowerSetLevels;
+		
 	}
 
 	public static List<SecurityLevel> resolveToSecurityLevels(String securityLevel,
