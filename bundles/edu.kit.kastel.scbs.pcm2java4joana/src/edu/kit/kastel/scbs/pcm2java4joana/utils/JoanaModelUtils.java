@@ -178,4 +178,21 @@ public final class JoanaModelUtils {
 		copiedAnnotation.getSecuritylevel().addAll(annotation.getSecuritylevel());
 		return copiedAnnotation;
 	}
+	
+	public static boolean isLevelEqualToLevels(SecurityLevel level, List<SecurityLevel> levels) {
+		SecurityLevel levelsCombinedName = JoanaModelUtils.combineIntoOneSecurityLevelElement(levels);
+		
+		return level.getName().equals(levelsCombinedName);
+	}
+	
+	public static SecurityLevel findExistingSecurityLevel(List<SecurityLevel> toSearch, List<SecurityLevel> levelsToSearchFor) {
+		
+		for(SecurityLevel level : toSearch) {
+			if(JoanaModelUtils.isLevelEqualToLevels(level, levelsToSearchFor)) {
+				return level;
+			}
+		}
+		
+		return null;
+	}
 }

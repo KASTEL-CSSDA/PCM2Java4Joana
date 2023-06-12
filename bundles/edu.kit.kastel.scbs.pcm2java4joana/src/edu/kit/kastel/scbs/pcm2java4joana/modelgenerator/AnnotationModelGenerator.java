@@ -79,11 +79,12 @@ public class AnnotationModelGenerator {
 
 		ConfidentialitySpecification confidentiality = this.clientAnalysisModel.getConfidentiality();
 
-		List<SecurityLevel> levels = this.generateLevels(confidentiality);
-		root.getSecuritylevel().addAll(levels);
+		List<SecurityLevel> basicLevels = this.generateBasicLevels(confidentiality);
+		List<SecurityLevel> superSetLevels = this.generateSuperSetLevels(confidentiality);
+		root.getSecuritylevel().addAll(superSetLevels);
 
 		Map<SecurityLevel, Collection<DataIdentifying>> levelToDatasetsMapping = this
-				.generateSecurityLevelToDatasetMapping(confidentiality, levels);
+				.generateSecurityLevelToDatasetMapping(confidentiality, superSetLevels);
 		Lattice lattice = this.generateLattice(levels);
 		root.setLattice(lattice);
 
@@ -338,7 +339,7 @@ public class AnnotationModelGenerator {
 		return levelToDataset;
 	}
 
-	private List<SecurityLevel> generateLevels(ConfidentialitySpecification specification) {
+	private List<SecurityLevel> generateBasicLevels(ConfidentialitySpecification specification) {
 		JoanaFactory factory = JoanaFactory.eINSTANCE;
 		List<SecurityLevel> levels = new ArrayList<SecurityLevel>();
 
@@ -355,12 +356,19 @@ public class AnnotationModelGenerator {
 
 		return JoanaModelUtils.generateSuperSetLevelsFromBasicSet(levels);
 	}
+	
+	private List<SecurityLevel> generateSuperSetLevels(ConfidentialitySpecification specification) {
+		
+		List<SecurityLevel> levels = generateBasicLevels(specification);
 
-	private Lattice generateLattice(List<SecurityLevel> levels) {
+		return JoanaModelUtils.generateSuperSetLevelsFromBasicSet(levels);
+	}
+
+	private Lattice generateLattice(List<SecurityLevel> superSetLevels, List<SecurityLevel> basicLevels) {
 		JoanaFactory factory = JoanaFactory.eINSTANCE;
 		Lattice lattice = factory.createLattice();
 
-		List<List<SecurityLevel>> powerSetLevels = SetOperations.generatePowerSet(levels);
+		List<List<SecurityLevel>> powerSetLevels = SetOperations.generatePowerSet(basicLevels);
 
 		for (List<SecurityLevel> from : powerSetLevels) {
 			if (from.size() < 2) {
@@ -369,9 +377,10 @@ public class AnnotationModelGenerator {
 			for (List<SecurityLevel> to : powerSetLevels) {
 				if (SetOperations.isIn(to, from) && !SetOperations.sameElements(from, to) && from.size() > 0
 						&& to.size() > 0 && to.size() == from.size() - 1) {
+					
 					FlowRelation relation = factory.createFlowRelation();
-					relation.getFrom().addAll(from);
-					relation.getTo().addAll(to);
+					relation.getFrom().add(JoanaModelUtils.findExistingSecurityLevel(superSetLevels, from));
+					relation.getTo().add(JoanaModelUtils.findExistingSecurityLevel(superSetLevels, to));
 					lattice.getFlowrelation().add(relation);
 				}
 			}

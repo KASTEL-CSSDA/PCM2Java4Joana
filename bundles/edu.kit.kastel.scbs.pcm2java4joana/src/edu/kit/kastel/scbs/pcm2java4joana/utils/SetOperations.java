@@ -2,7 +2,10 @@ package edu.kit.kastel.scbs.pcm2java4joana.utils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
+
+import com.google.common.collect.Sets;
 
 /**
  * This class is responsible to provide set operations.
@@ -16,9 +19,13 @@ public final class SetOperations {
 	}
 
 	public static <T> List<List<T>> generatePowerSet(List<T> set) {
-		List<List<T>> powerSet = new ArrayList<List<T>>();
-		SetOperations.generatePowerSet(set, 0, new ArrayList<T>(), powerSet);
-		return powerSet;
+
+		Set<Set<T>> superSet = Sets.powerSet(Set.copyOf(set));
+		List<List<T>> superSetList = new ArrayList<List<T>>();
+		
+		superSet.forEach(innerSet -> superSetList.add(List.copyOf(innerSet)));
+		
+		return superSetList;
 	}
 
 	private static <T> void generatePowerSet(List<T> set, int index, List<T> taken, List<List<T>> result) {
