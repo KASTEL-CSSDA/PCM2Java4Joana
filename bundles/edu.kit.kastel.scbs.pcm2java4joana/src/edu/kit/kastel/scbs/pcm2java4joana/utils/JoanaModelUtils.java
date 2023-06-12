@@ -182,7 +182,7 @@ public final class JoanaModelUtils {
 	public static boolean isLevelEqualToLevels(SecurityLevel level, List<SecurityLevel> levels) {
 		SecurityLevel levelsCombinedName = JoanaModelUtils.combineIntoOneSecurityLevelElement(levels);
 		
-		return level.getName().equals(levelsCombinedName);
+		return level.getName().equals(levelsCombinedName.getName());
 	}
 	
 	public static SecurityLevel findExistingSecurityLevel(List<SecurityLevel> toSearch, List<SecurityLevel> levelsToSearchFor) {

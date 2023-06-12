@@ -85,14 +85,14 @@ public class AnnotationModelGenerator {
 
 		Map<SecurityLevel, Collection<DataIdentifying>> levelToDatasetsMapping = this
 				.generateSecurityLevelToDatasetMapping(confidentiality, superSetLevels);
-		Lattice lattice = this.generateLattice(levels);
+		Lattice lattice = this.generateLattice(superSetLevels, basicLevels);
 		root.setLattice(lattice);
 
 		List<Annotation> annotations = this.generateAnnotations(levelToDatasetsMapping,
 				confidentiality.getParametersAndDataPairs(),
 				(SourceCodeRoot) this.supplierAnalysisModel.getSourceCodeModel(), this.clientAnalysisModel);
 //		List<List<Annotation>> annotationDistribution = this.generateSinkSourceDistributions(root, annotations);
-		List<FlowSpecification> flowSpecifications = this.generateFlowSpecifications(annotations, lattice, levels,
+		List<FlowSpecification> flowSpecifications = this.generateFlowSpecifications(annotations, lattice, superSetLevels,
 				root);
 
 		root.getFlowspecification().addAll(flowSpecifications);
@@ -354,7 +354,7 @@ public class AnnotationModelGenerator {
 			}
 		}
 
-		return JoanaModelUtils.generateSuperSetLevelsFromBasicSet(levels);
+		return levels;
 	}
 	
 	private List<SecurityLevel> generateSuperSetLevels(ConfidentialitySpecification specification) {

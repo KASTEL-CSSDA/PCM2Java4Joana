@@ -86,12 +86,7 @@ public class PCM2Java4JoanaHandler extends AbstractHandler {
 
 		SupplierAnalysisModelGenerator generator = new SupplierAnalysisModelGenerator(models, basePath);
 		SupplierAnalysisModel supplierAnalysisModel = generator.generate();
-
-		List<CodeWithFile> generatedAnnotatedSourceCode = SupplierAnalysisModel2AnnotatedCodeGenerator
-				.generateAnnotatedCode(supplierAnalysisModel.getSourceCodeModel(),
-						supplierAnalysisModel.getJoanaModel(), basePath);
-		AnnotatedSourceCode annotatedSourceCode = new AnnotatedSourceCode(basePath, generatedAnnotatedSourceCode);
-
+		
 		try {
 			supplierAnalysisModel.save();
 		} catch (ModelSaveException e1) {
@@ -99,6 +94,13 @@ public class PCM2Java4JoanaHandler extends AbstractHandler {
 					"Die generierten Modelle, Source Code Modell, Joana Modell, Struktur-Korrespondenzenmodell und Sicherheits-Korrespondenzenmodell konnten nicht gespeichert werden.");
 			return null;
 		}
+
+		List<CodeWithFile> generatedAnnotatedSourceCode = SupplierAnalysisModel2AnnotatedCodeGenerator
+				.generateAnnotatedCode(supplierAnalysisModel.getSourceCodeModel(),
+						supplierAnalysisModel.getJoanaModel(), basePath);
+		AnnotatedSourceCode annotatedSourceCode = new AnnotatedSourceCode(basePath, generatedAnnotatedSourceCode);
+
+		
 		try {
 			annotatedSourceCode.save();
 		} catch (CodeSaveException e1) {
