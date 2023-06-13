@@ -143,6 +143,7 @@ public class ClientAnalysisModel {
 		}
 
 		Repository repository = (Repository) resourceRepository.getContents().get(0);
+		
 		ProfileApplication profile = (ProfileApplication) resourceRepository.getContents().get(1);
 		ConfidentialitySpecification confidentiality = (ConfidentialitySpecification) resourceConfidentiality
 				.getContents().get(0);

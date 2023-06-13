@@ -1,39 +1,39 @@
 
-/** BEGIN adversaries, ID: '64', NAME: 'null' */
-description(64,'null','adversaries').
-adversaries(64).
-adversaries(64,[65,66,67,68]).
+/** BEGIN adversaries, ID: '68', NAME: 'null' */
+description(68,'null','adversaries').
+adversaries(68).
+adversaries(68,[69,70,71,72]).
 
-/** BEGIN adversary, ID: '65', NAME: 'User' */
-description(65,'User','adversary').
-adversary(65).
-mayKnowData(65,[2,4,5,6,3,8,9]).
-locationsAndTamperProtectionsPairs(65,[46,47,48]).
-/** END adversary, ID: '65', NAME: 'User' */
-
-
-/** BEGIN adversary, ID: '66', NAME: 'Airline' */
-description(66,'Airline','adversary').
-adversary(66).
-mayKnowData(66,[4,5,6,3,8,7]).
-locationsAndTamperProtectionsPairs(66,[44]).
-/** END adversary, ID: '66', NAME: 'Airline' */
+/** BEGIN adversary, ID: '69', NAME: 'Airline' */
+description(69,'Airline','adversary').
+adversary(69).
+mayKnowData(69,[4,5,6,3,8,7]).
+locationsAndTamperProtectionsPairs(69,[49]).
+/** END adversary, ID: '69', NAME: 'Airline' */
 
 
-/** BEGIN adversary, ID: '67', NAME: 'TravelAgency' */
-description(67,'TravelAgency','adversary').
-adversary(67).
-mayKnowData(67,[5,3,8]).
-locationsAndTamperProtectionsPairs(67,[45]).
-/** END adversary, ID: '67', NAME: 'TravelAgency' */
+/** BEGIN adversary, ID: '70', NAME: 'User' */
+description(70,'User','adversary').
+adversary(70).
+mayKnowData(70,[2,4,5,6,3,8,9]).
+locationsAndTamperProtectionsPairs(70,[51,52,53]).
+/** END adversary, ID: '70', NAME: 'User' */
 
 
-/** BEGIN adversary, ID: '68', NAME: 'AirlineTechnicalService' */
-description(68,'AirlineTechnicalService','adversary').
-adversary(68).
-mayKnowData(68,[7]).
-locationsAndTamperProtectionsPairs(68,[50]).
-/** END adversary, ID: '68', NAME: 'AirlineTechnicalService' */
+/** BEGIN adversary, ID: '71', NAME: 'TravelAgency' */
+description(71,'TravelAgency','adversary').
+adversary(71).
+mayKnowData(71,[5,3,8]).
+locationsAndTamperProtectionsPairs(71,[50]).
+/** END adversary, ID: '71', NAME: 'TravelAgency' */
 
-/** END adversaries, ID: '64', NAME: 'null' */
+
+/** BEGIN adversary, ID: '72', NAME: 'AirlineTechnicalService' */
+description(72,'AirlineTechnicalService','adversary').
+adversary(72).
+mayKnowData(72,[7]).
+locationsAndTamperProtectionsPairs(72,[55]).
+/** END adversary, ID: '72', NAME: 'AirlineTechnicalService' */
+
+/** END adversaries, ID: '68', NAME: 'null' */
 

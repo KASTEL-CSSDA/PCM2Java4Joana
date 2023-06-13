@@ -1,0 +1,138 @@
+adversary(59,AirlineTechnicalService)
+|
++- attacker(adversary(59,AirlineTechnicalService))
+|
+`- isInSecureWithRespectTo(adversary(59,AirlineTechnicalService),)
+   |
+   +- accessibleParameters(adversary(59,AirlineTechnicalService),parm(136,52),assemblyContext(150,Assembly_AirlineLogger <AirlineLogger>),provided(79),)
+   |  |
+   |  +- containersFullyAccessibleBy(adversary(59,AirlineTechnicalService),resourceContainer(185,SupportCenter))
+   |  |  |
+   |  |  +- containersPhysicalAccessibleBy(adversary(59,AirlineTechnicalService),resourceContainer(185,SupportCenter),location(35,SupportCenter))
+   |  |  |  |
+   |  |  |  +- location(resourceContainer(185,SupportCenter),location(35,SupportCenter),none)
+   |  |  |  |
+   |  |  |  `- locationsAccessibleBy(adversary(59,AirlineTechnicalService),location(35,SupportCenter))
+   |  |  |     |
+   |  |  |     `- attacker(adversary(59,AirlineTechnicalService))
+   |  |  |
+   |  |  +- sharingOf(resourceContainer(185,SupportCenter),shared)
+   |  |  |
+   |  |  `- furtherConnections(resourceContainer(185,SupportCenter),possible)
+   |  |
+   |  +- providedInterfacesOn(resourceContainer(185,SupportCenter),79,assemblyContext(150,Assembly_AirlineLogger <AirlineLogger>))
+   |  |  |
+   |  |  `- provides(basicComponent(66,AirlineLogger),79)
+   |  |
+   |  `- parametersOf(136,parm(136,52))
+   |     |
+   |     `- hasParameter(136,parm(136,52))
+   |
+   `- isInSecureWithRespectToParameter(adversary(59,AirlineTechnicalService),parm(136,52),tuple(assemblyContext(150,Assembly_AirlineLogger <AirlineLogger>),provided(79)),)
+      |
+      `- parameterForbiddenToBeAccessedBy(adversary(59,AirlineTechnicalService),parm(136,52),tuple(assemblyContext(150,Assembly_AirlineLogger <AirlineLogger>),provided(79)),)
+         |
+         `- not parameterAllowedToBeAccessedBy(adversary(59,AirlineTechnicalService),parm(136,52),tuple(assemblyContext(150,Assembly_AirlineLogger <AirlineLogger>),provided(79)),)
+            |
+            +- includes(parm(136,52),dataSet(3,TravelData),tuple(assemblyContext(150,Assembly_AirlineLogger <AirlineLogger>),provided(79)),)
+            |  |
+            |  +- hasParameter(136,parm(136,52))
+            |  |
+            |  `- lookupDataSetParameterNames(tuple(assemblyContext(150,Assembly_AirlineLogger <AirlineLogger>),provided(79)),136,dataSet(3,TravelData),list(52),)
+            |
+            `- not mayknow(adversary(59,AirlineTechnicalService),dataSet(3,TravelData))
+               |
+               `- mayKnowData(adversary(59,AirlineTechnicalService),list(dataSet(7,AirlineTechnicalInformation)))
+
+adversary(59,AirlineTechnicalService)
+|
++- attacker(adversary(59,AirlineTechnicalService))
+|
+`- isInSecureWithRespectTo(adversary(59,AirlineTechnicalService),)
+   |
+   +- accessibleParameters(adversary(59,AirlineTechnicalService),parm(136,52),assemblyContext(150,Assembly_AirlineLogger <AirlineLogger>),provided(79),)
+   |  |
+   |  +- containersFullyAccessibleBy(adversary(59,AirlineTechnicalService),resourceContainer(185,SupportCenter))
+   |  |  |
+   |  |  +- containersPhysicalAccessibleBy(adversary(59,AirlineTechnicalService),resourceContainer(185,SupportCenter),location(35,SupportCenter))
+   |  |  |  |
+   |  |  |  +- location(resourceContainer(185,SupportCenter),location(35,SupportCenter),none)
+   |  |  |  |
+   |  |  |  `- locationsAccessibleBy(adversary(59,AirlineTechnicalService),location(35,SupportCenter))
+   |  |  |     |
+   |  |  |     `- attacker(adversary(59,AirlineTechnicalService))
+   |  |  |
+   |  |  +- location(resourceContainer(185,SupportCenter),location(35,SupportCenter),none)
+   |  |  |
+   |  |  `- tamperingAbilities(adversary(59,AirlineTechnicalService),location(35,SupportCenter),none)
+   |  |
+   |  +- providedInterfacesOn(resourceContainer(185,SupportCenter),79,assemblyContext(150,Assembly_AirlineLogger <AirlineLogger>))
+   |  |  |
+   |  |  `- provides(basicComponent(66,AirlineLogger),79)
+   |  |
+   |  `- parametersOf(136,parm(136,52))
+   |     |
+   |     `- hasParameter(136,parm(136,52))
+   |
+   `- isInSecureWithRespectToParameter(adversary(59,AirlineTechnicalService),parm(136,52),tuple(assemblyContext(150,Assembly_AirlineLogger <AirlineLogger>),provided(79)),)
+      |
+      `- parameterForbiddenToBeAccessedBy(adversary(59,AirlineTechnicalService),parm(136,52),tuple(assemblyContext(150,Assembly_AirlineLogger <AirlineLogger>),provided(79)),)
+         |
+         `- not parameterAllowedToBeAccessedBy(adversary(59,AirlineTechnicalService),parm(136,52),tuple(assemblyContext(150,Assembly_AirlineLogger <AirlineLogger>),provided(79)),)
+            |
+            +- includes(parm(136,52),dataSet(3,TravelData),tuple(assemblyContext(150,Assembly_AirlineLogger <AirlineLogger>),provided(79)),)
+            |  |
+            |  +- hasParameter(136,parm(136,52))
+            |  |
+            |  `- lookupDataSetParameterNames(tuple(assemblyContext(150,Assembly_AirlineLogger <AirlineLogger>),provided(79)),136,dataSet(3,TravelData),list(52),)
+            |
+            `- not mayknow(adversary(59,AirlineTechnicalService),dataSet(3,TravelData))
+               |
+               `- mayKnowData(adversary(59,AirlineTechnicalService),list(dataSet(7,AirlineTechnicalInformation)))
+
+adversary(59,AirlineTechnicalService)
+|
++- attacker(adversary(59,AirlineTechnicalService))
+|
+`- isInSecureWithRespectTo(adversary(59,AirlineTechnicalService),)
+   |
+   +- accessibleParameters(adversary(59,AirlineTechnicalService),parm(136,52),assemblyContext(150,Assembly_AirlineLogger <AirlineLogger>),provided(79),)
+   |  |
+   |  +- containersFullyAccessibleBy(adversary(59,AirlineTechnicalService),resourceContainer(185,SupportCenter))
+   |  |  |
+   |  |  +- containersPhysicalAccessibleBy(adversary(59,AirlineTechnicalService),resourceContainer(185,SupportCenter),location(35,SupportCenter))
+   |  |  |  |
+   |  |  |  +- location(resourceContainer(185,SupportCenter),location(35,SupportCenter),none)
+   |  |  |  |
+   |  |  |  `- locationsAccessibleBy(adversary(59,AirlineTechnicalService),location(35,SupportCenter))
+   |  |  |     |
+   |  |  |     `- attacker(adversary(59,AirlineTechnicalService))
+   |  |  |
+   |  |  +- location(resourceContainer(185,SupportCenter),location(35,SupportCenter),none)
+   |  |  |
+   |  |  `- tamperingAbilities(adversary(59,AirlineTechnicalService),location(35,SupportCenter),none)
+   |  |
+   |  +- providedInterfacesOn(resourceContainer(185,SupportCenter),79,assemblyContext(150,Assembly_AirlineLogger <AirlineLogger>))
+   |  |  |
+   |  |  `- provides(basicComponent(66,AirlineLogger),79)
+   |  |
+   |  `- parametersOf(136,parm(136,52))
+   |     |
+   |     `- hasParameter(136,parm(136,52))
+   |
+   `- isInSecureWithRespectToParameter(adversary(59,AirlineTechnicalService),parm(136,52),tuple(assemblyContext(150,Assembly_AirlineLogger <AirlineLogger>),provided(79)),)
+      |
+      `- parameterForbiddenToBeAccessedBy(adversary(59,AirlineTechnicalService),parm(136,52),tuple(assemblyContext(150,Assembly_AirlineLogger <AirlineLogger>),provided(79)),)
+         |
+         `- not parameterAllowedToBeAccessedBy(adversary(59,AirlineTechnicalService),parm(136,52),tuple(assemblyContext(150,Assembly_AirlineLogger <AirlineLogger>),provided(79)),)
+            |
+            +- includes(parm(136,52),dataSet(3,TravelData),tuple(assemblyContext(150,Assembly_AirlineLogger <AirlineLogger>),provided(79)),)
+            |  |
+            |  +- hasParameter(136,parm(136,52))
+            |  |
+            |  `- lookupDataSetParameterNames(tuple(assemblyContext(150,Assembly_AirlineLogger <AirlineLogger>),provided(79)),136,dataSet(3,TravelData),list(52),)
+            |
+            `- not mayknow(adversary(59,AirlineTechnicalService),dataSet(3,TravelData))
+               |
+               `- mayKnowData(adversary(59,AirlineTechnicalService),list(dataSet(7,AirlineTechnicalInformation)))
+

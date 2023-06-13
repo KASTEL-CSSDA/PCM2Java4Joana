@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated sourcecodemodel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="edu.kit.kastel.scbs.pcm2java4joana.sourcecode.presentation.SourcecodeModelWizardID"
+            name="%_UI_SourcecodeModelWizard_label"
+            class="edu.kit.kastel.scbs.pcm2java4joana.sourcecode.presentation.SourcecodeModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/SourcecodeModelFile.gif">
+         <description>%_UI_SourcecodeModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated sourcecodemodel -->
+      <editor
+            id="edu.kit.kastel.scbs.pcm2java4joana.sourcecode.presentation.SourcecodeEditorID"
+            name="%_UI_SourcecodeEditor_label"
+            icon="icons/full/obj16/SourcecodeModelFile.gif"
+            extensions="sourcecode"
+            class="edu.kit.kastel.scbs.pcm2java4joana.sourcecode.presentation.SourcecodeEditor"
+            contributorClass="edu.kit.kastel.scbs.pcm2java4joana.sourcecode.presentation.SourcecodeActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

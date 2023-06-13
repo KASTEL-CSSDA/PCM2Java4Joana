@@ -4,13 +4,13 @@ description(1,'null','confidentialitySpecification').
 confidentialitySpecification(1).
 dataIdentifier(1,[2,3,4,5,6,7,8,9]).
 dataSetMaps(1,[]).
-parametersAndDataPairs(1,[10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31]).
+parametersAndDataPairs(1,[10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36]).
 addedServiceParameters(1,[]).
 specificationParameterAssignments(1,[]).
 specificationParameterEquations(1,[]).
-locations(1,[32,33,34,35,36,37,38]).
-tamperProtections(1,[39,40,41,42,43]).
-locationsAndTamperProtectionsPairs(1,[44,45,46,47,48,49,50]).
+locations(1,[37,38,39,40,41,42,43]).
+tamperProtections(1,[44,45,46,47,48]).
+locationsAndTamperProtectionsPairs(1,[49,50,51,52,53,54,55]).
 
 /** BEGIN dataSet, ID: '2', NAME: 'CreditCardInformation' */
 description(2,'CreditCardInformation','dataSet').
@@ -71,7 +71,7 @@ dataTargets(10,[4,5,6,3]).
 /** BEGIN parametersAndDataPair, ID: '11', NAME: 'Requestdata2Traveldata' */
 description(11,'Requestdata2Traveldata','parametersAndDataPair').
 parametersAndDataPair(11).
-parameterSources(11,[51]).
+parameterSources(11,[56]).
 dataTargets(11,[3]).
 /** END parametersAndDataPair, ID: '11', NAME: 'Requestdata2Traveldata' */
 
@@ -79,289 +79,329 @@ dataTargets(11,[3]).
 /** BEGIN parametersAndDataPair, ID: '12', NAME: 'Flights2Flightoffer' */
 description(12,'Flights2Flightoffer','parametersAndDataPair').
 parametersAndDataPair(12).
-parameterSources(12,[52]).
+parameterSources(12,[57]).
 dataTargets(12,[5]).
 /** END parametersAndDataPair, ID: '12', NAME: 'Flights2Flightoffer' */
 
 
-/** BEGIN parametersAndDataPair, ID: '13', NAME: 'Flightoffers2Flightoffer' */
-description(13,'Flightoffers2Flightoffer','parametersAndDataPair').
+/** BEGIN parametersAndDataPair, ID: '13', NAME: 'CALLRETURNSizeof(*)2Userdetails' */
+description(13,'CALLRETURNSizeof(*)2Userdetails','parametersAndDataPair').
 parametersAndDataPair(13).
-parameterSources(13,[53]).
-dataTargets(13,[5]).
-/** END parametersAndDataPair, ID: '13', NAME: 'Flightoffers2Flightoffer' */
+parameterSources(13,[call,return,sizeOf(*)]).
+dataTargets(13,[9]).
+/** END parametersAndDataPair, ID: '13', NAME: 'CALLRETURNSizeof(*)2Userdetails' */
 
 
-/** BEGIN parametersAndDataPair, ID: '14', NAME: 'Requestdata2Traveldata' */
-description(14,'Requestdata2Traveldata','parametersAndDataPair').
+/** BEGIN parametersAndDataPair, ID: '14', NAME: 'Flightoffers2Flightoffer' */
+description(14,'Flightoffers2Flightoffer','parametersAndDataPair').
 parametersAndDataPair(14).
-parameterSources(14,[51]).
-dataTargets(14,[3]).
-/** END parametersAndDataPair, ID: '14', NAME: 'Requestdata2Traveldata' */
+parameterSources(14,[58]).
+dataTargets(14,[5]).
+/** END parametersAndDataPair, ID: '14', NAME: 'Flightoffers2Flightoffer' */
 
 
-/** BEGIN parametersAndDataPair, ID: '15', NAME: 'Flightoffer2SelectionFlightofferTraveldata' */
-description(15,'Flightoffer2SelectionFlightofferTraveldata','parametersAndDataPair').
+/** BEGIN parametersAndDataPair, ID: '15', NAME: 'CALLRETURNSizeof(*)2Creditcardinformation' */
+description(15,'CALLRETURNSizeof(*)2Creditcardinformation','parametersAndDataPair').
 parametersAndDataPair(15).
-parameterSources(15,[54]).
-dataTargets(15,[6,5,3]).
-/** END parametersAndDataPair, ID: '15', NAME: 'Flightoffer2SelectionFlightofferTraveldata' */
+parameterSources(15,[call,return,sizeOf(*)]).
+dataTargets(15,[2]).
+/** END parametersAndDataPair, ID: '15', NAME: 'CALLRETURNSizeof(*)2Creditcardinformation' */
 
 
-/** BEGIN parametersAndDataPair, ID: '16', NAME: 'Ccd2Creditcardinformation' */
-description(16,'Ccd2Creditcardinformation','parametersAndDataPair').
+/** BEGIN parametersAndDataPair, ID: '16', NAME: 'CALLRETURNSizeof(*)2Flightoffer' */
+description(16,'CALLRETURNSizeof(*)2Flightoffer','parametersAndDataPair').
 parametersAndDataPair(16).
-parameterSources(16,[55]).
-dataTargets(16,[2]).
-/** END parametersAndDataPair, ID: '16', NAME: 'Ccd2Creditcardinformation' */
+parameterSources(16,[call,return,sizeOf(*)]).
+dataTargets(16,[5]).
+/** END parametersAndDataPair, ID: '16', NAME: 'CALLRETURNSizeof(*)2Flightoffer' */
 
 
-/** BEGIN parametersAndDataPair, ID: '17', NAME: 'Ccd2Creditcardinformation' */
-description(17,'Ccd2Creditcardinformation','parametersAndDataPair').
+/** BEGIN parametersAndDataPair, ID: '17', NAME: 'Requestdata2Traveldata' */
+description(17,'Requestdata2Traveldata','parametersAndDataPair').
 parametersAndDataPair(17).
-parameterSources(17,[55]).
-dataTargets(17,[2]).
-/** END parametersAndDataPair, ID: '17', NAME: 'Ccd2Creditcardinformation' */
+parameterSources(17,[56]).
+dataTargets(17,[3]).
+/** END parametersAndDataPair, ID: '17', NAME: 'Requestdata2Traveldata' */
 
 
-/** BEGIN parametersAndDataPair, ID: '18', NAME: 'Airline2FlightofferSelectionTraveldata' */
-description(18,'Airline2FlightofferSelectionTraveldata','parametersAndDataPair').
+/** BEGIN parametersAndDataPair, ID: '18', NAME: 'Flightoffer2SelectionFlightofferTraveldata' */
+description(18,'Flightoffer2SelectionFlightofferTraveldata','parametersAndDataPair').
 parametersAndDataPair(18).
-parameterSources(18,[56]).
-dataTargets(18,[5,6,3]).
-/** END parametersAndDataPair, ID: '18', NAME: 'Airline2FlightofferSelectionTraveldata' */
+parameterSources(18,[59]).
+dataTargets(18,[6,5,3]).
+/** END parametersAndDataPair, ID: '18', NAME: 'Flightoffer2SelectionFlightofferTraveldata' */
 
 
-/** BEGIN parametersAndDataPair, ID: '19', NAME: 'Offerid2FlightofferSelectionTraveldata' */
-description(19,'Offerid2FlightofferSelectionTraveldata','parametersAndDataPair').
+/** BEGIN parametersAndDataPair, ID: '19', NAME: 'Ccd2Creditcardinformation' */
+description(19,'Ccd2Creditcardinformation','parametersAndDataPair').
 parametersAndDataPair(19).
-parameterSources(19,[57]).
-dataTargets(19,[5,6,3]).
-/** END parametersAndDataPair, ID: '19', NAME: 'Offerid2FlightofferSelectionTraveldata' */
+parameterSources(19,[60]).
+dataTargets(19,[2]).
+/** END parametersAndDataPair, ID: '19', NAME: 'Ccd2Creditcardinformation' */
 
 
-/** BEGIN parametersAndDataPair, ID: '20', NAME: 'Ccd_decl2Creditcardinformationdeclassified' */
-description(20,'Ccd_decl2Creditcardinformationdeclassified','parametersAndDataPair').
+/** BEGIN parametersAndDataPair, ID: '20', NAME: 'Ccd2Creditcardinformation' */
+description(20,'Ccd2Creditcardinformation','parametersAndDataPair').
 parametersAndDataPair(20).
-parameterSources(20,[58]).
-dataTargets(20,[4]).
-/** END parametersAndDataPair, ID: '20', NAME: 'Ccd_decl2Creditcardinformationdeclassified' */
+parameterSources(20,[60]).
+dataTargets(20,[2]).
+/** END parametersAndDataPair, ID: '20', NAME: 'Ccd2Creditcardinformation' */
 
 
-/** BEGIN parametersAndDataPair, ID: '21', NAME: 'Requestdata2Traveldata' */
-description(21,'Requestdata2Traveldata','parametersAndDataPair').
+/** BEGIN parametersAndDataPair, ID: '21', NAME: 'Airline2FlightofferSelectionTraveldata' */
+description(21,'Airline2FlightofferSelectionTraveldata','parametersAndDataPair').
 parametersAndDataPair(21).
-parameterSources(21,[51]).
-dataTargets(21,[3]).
-/** END parametersAndDataPair, ID: '21', NAME: 'Requestdata2Traveldata' */
+parameterSources(21,[61]).
+dataTargets(21,[5,6,3]).
+/** END parametersAndDataPair, ID: '21', NAME: 'Airline2FlightofferSelectionTraveldata' */
 
 
-/** BEGIN parametersAndDataPair, ID: '22', NAME: 'RETURN2FlightofferTraveldata' */
-description(22,'RETURN2FlightofferTraveldata','parametersAndDataPair').
+/** BEGIN parametersAndDataPair, ID: '22', NAME: 'Offerid2FlightofferSelectionTraveldata' */
+description(22,'Offerid2FlightofferSelectionTraveldata','parametersAndDataPair').
 parametersAndDataPair(22).
-parameterSources(22,[return]).
-dataTargets(22,[5,3]).
-/** END parametersAndDataPair, ID: '22', NAME: 'RETURN2FlightofferTraveldata' */
+parameterSources(22,[62]).
+dataTargets(22,[5,6,3]).
+/** END parametersAndDataPair, ID: '22', NAME: 'Offerid2FlightofferSelectionTraveldata' */
 
 
-/** BEGIN parametersAndDataPair, ID: '23', NAME: 'Airline2FlightofferSelectionTraveldata' */
-description(23,'Airline2FlightofferSelectionTraveldata','parametersAndDataPair').
+/** BEGIN parametersAndDataPair, ID: '23', NAME: 'Ccd_decl2Creditcardinformationdeclassified' */
+description(23,'Ccd_decl2Creditcardinformationdeclassified','parametersAndDataPair').
 parametersAndDataPair(23).
-parameterSources(23,[56]).
-dataTargets(23,[5,6,3]).
-/** END parametersAndDataPair, ID: '23', NAME: 'Airline2FlightofferSelectionTraveldata' */
+parameterSources(23,[63]).
+dataTargets(23,[4]).
+/** END parametersAndDataPair, ID: '23', NAME: 'Ccd_decl2Creditcardinformationdeclassified' */
 
 
-/** BEGIN parametersAndDataPair, ID: '24', NAME: 'call2Traveldata' */
-description(24,'call2Traveldata','parametersAndDataPair').
+/** BEGIN parametersAndDataPair, ID: '24', NAME: 'Requestdata2Traveldata' */
+description(24,'Requestdata2Traveldata','parametersAndDataPair').
 parametersAndDataPair(24).
-parameterSources(24,[call]).
+parameterSources(24,[56]).
 dataTargets(24,[3]).
-/** END parametersAndDataPair, ID: '24', NAME: 'call2Traveldata' */
+/** END parametersAndDataPair, ID: '24', NAME: 'Requestdata2Traveldata' */
 
 
-/** BEGIN parametersAndDataPair, ID: '25', NAME: 'ValueAirline2Comissioning' */
-description(25,'ValueAirline2Comissioning','parametersAndDataPair').
+/** BEGIN parametersAndDataPair, ID: '25', NAME: 'RETURN2FlightofferTraveldata' */
+description(25,'RETURN2FlightofferTraveldata','parametersAndDataPair').
 parametersAndDataPair(25).
-parameterSources(25,[59,56]).
-dataTargets(25,[8]).
-/** END parametersAndDataPair, ID: '25', NAME: 'ValueAirline2Comissioning' */
+parameterSources(25,[return]).
+dataTargets(25,[5,3]).
+/** END parametersAndDataPair, ID: '25', NAME: 'RETURN2FlightofferTraveldata' */
 
 
-/** BEGIN parametersAndDataPair, ID: '26', NAME: 'EntryCALLRETURNSizeof(*)2Technicalsupportinformation' */
-description(26,'EntryCALLRETURNSizeof(*)2Technicalsupportinformation','parametersAndDataPair').
+/** BEGIN parametersAndDataPair, ID: '26', NAME: 'CALLRETURNSizeof(*)Ccd_decl2Creditcardinformationdeclassified' */
+description(26,'CALLRETURNSizeof(*)Ccd_decl2Creditcardinformationdeclassified','parametersAndDataPair').
 parametersAndDataPair(26).
-parameterSources(26,[60,call,return,sizeOf(*)]).
-dataTargets(26,[7]).
-/** END parametersAndDataPair, ID: '26', NAME: 'EntryCALLRETURNSizeof(*)2Technicalsupportinformation' */
+parameterSources(26,[call,return,sizeOf(*),63]).
+dataTargets(26,[4]).
+/** END parametersAndDataPair, ID: '26', NAME: 'CALLRETURNSizeof(*)Ccd_decl2Creditcardinformationdeclassified' */
 
 
-/** BEGIN parametersAndDataPair, ID: '27', NAME: 'Password2Userdetails' */
-description(27,'Password2Userdetails','parametersAndDataPair').
+/** BEGIN parametersAndDataPair, ID: '27', NAME: 'Airline2FlightofferSelectionTraveldata' */
+description(27,'Airline2FlightofferSelectionTraveldata','parametersAndDataPair').
 parametersAndDataPair(27).
 parameterSources(27,[61]).
-dataTargets(27,[9]).
-/** END parametersAndDataPair, ID: '27', NAME: 'Password2Userdetails' */
+dataTargets(27,[5,6,3]).
+/** END parametersAndDataPair, ID: '27', NAME: 'Airline2FlightofferSelectionTraveldata' */
 
 
-/** BEGIN parametersAndDataPair, ID: '28', NAME: 'Name2Traveldata' */
-description(28,'Name2Traveldata','parametersAndDataPair').
+/** BEGIN parametersAndDataPair, ID: '28', NAME: 'call2Traveldata' */
+description(28,'call2Traveldata','parametersAndDataPair').
 parametersAndDataPair(28).
-parameterSources(28,[62]).
+parameterSources(28,[call]).
 dataTargets(28,[3]).
-/** END parametersAndDataPair, ID: '28', NAME: 'Name2Traveldata' */
+/** END parametersAndDataPair, ID: '28', NAME: 'call2Traveldata' */
 
 
-/** BEGIN parametersAndDataPair, ID: '29', NAME: 'CALLRETURNSIZEOF(*)2SelectionFlightofferTraveldata' */
-description(29,'CALLRETURNSIZEOF(*)2SelectionFlightofferTraveldata','parametersAndDataPair').
+/** BEGIN parametersAndDataPair, ID: '29', NAME: 'ValueAirline2Comissioning' */
+description(29,'ValueAirline2Comissioning','parametersAndDataPair').
 parametersAndDataPair(29).
-parameterSources(29,[call,return,63]).
-dataTargets(29,[6,5,3]).
-/** END parametersAndDataPair, ID: '29', NAME: 'CALLRETURNSIZEOF(*)2SelectionFlightofferTraveldata' */
+parameterSources(29,[64,61]).
+dataTargets(29,[8]).
+/** END parametersAndDataPair, ID: '29', NAME: 'ValueAirline2Comissioning' */
 
 
-/** BEGIN parametersAndDataPair, ID: '30', NAME: 'CALLRETURNSIZEOF(*)2Creditcardinformationdeclassified' */
-description(30,'CALLRETURNSIZEOF(*)2Creditcardinformationdeclassified','parametersAndDataPair').
+/** BEGIN parametersAndDataPair, ID: '30', NAME: 'EntryCALLRETURNSizeof(*)2Userdetails' */
+description(30,'EntryCALLRETURNSizeof(*)2Userdetails','parametersAndDataPair').
 parametersAndDataPair(30).
-parameterSources(30,[call,return,63]).
-dataTargets(30,[4]).
-/** END parametersAndDataPair, ID: '30', NAME: 'CALLRETURNSIZEOF(*)2Creditcardinformationdeclassified' */
+parameterSources(30,[65,call,return,sizeOf(*)]).
+dataTargets(30,[9]).
+/** END parametersAndDataPair, ID: '30', NAME: 'EntryCALLRETURNSizeof(*)2Userdetails' */
 
 
-/** BEGIN parametersAndDataPair, ID: '31', NAME: 'CALLRETURNSIZEOF(*)2Traveldata' */
-description(31,'CALLRETURNSIZEOF(*)2Traveldata','parametersAndDataPair').
+/** BEGIN parametersAndDataPair, ID: '31', NAME: 'Password2Userdetails' */
+description(31,'Password2Userdetails','parametersAndDataPair').
 parametersAndDataPair(31).
-parameterSources(31,[call,return,63]).
-dataTargets(31,[3]).
-/** END parametersAndDataPair, ID: '31', NAME: 'CALLRETURNSIZEOF(*)2Traveldata' */
+parameterSources(31,[66]).
+dataTargets(31,[9]).
+/** END parametersAndDataPair, ID: '31', NAME: 'Password2Userdetails' */
 
 
-/** BEGIN location, ID: '32', NAME: 'TravelAgency' */
-description(32,'TravelAgency','location').
-location(32).
-/** END location, ID: '32', NAME: 'TravelAgency' */
+/** BEGIN parametersAndDataPair, ID: '32', NAME: 'Name2Traveldata' */
+description(32,'Name2Traveldata','parametersAndDataPair').
+parametersAndDataPair(32).
+parameterSources(32,[67]).
+dataTargets(32,[3]).
+/** END parametersAndDataPair, ID: '32', NAME: 'Name2Traveldata' */
 
 
-/** BEGIN location, ID: '33', NAME: 'Airline' */
-description(33,'Airline','location').
-location(33).
-/** END location, ID: '33', NAME: 'Airline' */
+/** BEGIN parametersAndDataPair, ID: '33', NAME: 'CALLRETURNSizeof(*)2SelectionFlightofferTraveldata' */
+description(33,'CALLRETURNSizeof(*)2SelectionFlightofferTraveldata','parametersAndDataPair').
+parametersAndDataPair(33).
+parameterSources(33,[call,return,sizeOf(*)]).
+dataTargets(33,[6,5,3]).
+/** END parametersAndDataPair, ID: '33', NAME: 'CALLRETURNSizeof(*)2SelectionFlightofferTraveldata' */
 
 
-/** BEGIN location, ID: '34', NAME: 'UserControlled' */
-description(34,'UserControlled','location').
-location(34).
-/** END location, ID: '34', NAME: 'UserControlled' */
+/** BEGIN parametersAndDataPair, ID: '34', NAME: 'CALLRETURNSizeof(*)2Creditcardinformationdeclassified' */
+description(34,'CALLRETURNSizeof(*)2Creditcardinformationdeclassified','parametersAndDataPair').
+parametersAndDataPair(34).
+parameterSources(34,[call,return,sizeOf(*)]).
+dataTargets(34,[4]).
+/** END parametersAndDataPair, ID: '34', NAME: 'CALLRETURNSizeof(*)2Creditcardinformationdeclassified' */
 
 
-/** BEGIN location, ID: '35', NAME: 'Internet' */
-description(35,'Internet','location').
-location(35).
-/** END location, ID: '35', NAME: 'Internet' */
+/** BEGIN parametersAndDataPair, ID: '35', NAME: 'CALLRETURNSizeof(*)2Traveldata' */
+description(35,'CALLRETURNSizeof(*)2Traveldata','parametersAndDataPair').
+parametersAndDataPair(35).
+parameterSources(35,[call,return,sizeOf(*)]).
+dataTargets(35,[3]).
+/** END parametersAndDataPair, ID: '35', NAME: 'CALLRETURNSizeof(*)2Traveldata' */
 
 
-/** BEGIN location, ID: '36', NAME: 'CoffeShop' */
-description(36,'CoffeShop','location').
-location(36).
-/** END location, ID: '36', NAME: 'CoffeShop' */
+/** BEGIN parametersAndDataPair, ID: '36', NAME: 'AirlineValueSizeof(*)RETURNCALL2TraveldataUserdetailsFlightoffer' */
+description(36,'AirlineValueSizeof(*)RETURNCALL2TraveldataUserdetailsFlightoffer','parametersAndDataPair').
+parametersAndDataPair(36).
+parameterSources(36,[61,64,sizeOf(*),return,call]).
+dataTargets(36,[3,9,5]).
+/** END parametersAndDataPair, ID: '36', NAME: 'AirlineValueSizeof(*)RETURNCALL2TraveldataUserdetailsFlightoffer' */
 
 
-/** BEGIN location, ID: '37', NAME: 'Street' */
-description(37,'Street','location').
+/** BEGIN location, ID: '37', NAME: 'TravelAgency' */
+description(37,'TravelAgency','location').
 location(37).
-/** END location, ID: '37', NAME: 'Street' */
+/** END location, ID: '37', NAME: 'TravelAgency' */
 
 
-/** BEGIN location, ID: '38', NAME: 'SupportCenter' */
-description(38,'SupportCenter','location').
+/** BEGIN location, ID: '38', NAME: 'Airline' */
+description(38,'Airline','location').
 location(38).
-/** END location, ID: '38', NAME: 'SupportCenter' */
+/** END location, ID: '38', NAME: 'Airline' */
 
 
-/** BEGIN tamperProtection, ID: '39', NAME: 'AirlineLock' */
-description(39,'AirlineLock','tamperProtection').
-tamperProtection(39).
-/** END tamperProtection, ID: '39', NAME: 'AirlineLock' */
+/** BEGIN location, ID: '39', NAME: 'UserControlled' */
+description(39,'UserControlled','location').
+location(39).
+/** END location, ID: '39', NAME: 'UserControlled' */
 
 
-/** BEGIN tamperProtection, ID: '40', NAME: 'TravelAgencyLock' */
-description(40,'TravelAgencyLock','tamperProtection').
-tamperProtection(40).
-/** END tamperProtection, ID: '40', NAME: 'TravelAgencyLock' */
+/** BEGIN location, ID: '40', NAME: 'Internet' */
+description(40,'Internet','location').
+location(40).
+/** END location, ID: '40', NAME: 'Internet' */
 
 
-/** BEGIN tamperProtection, ID: '41', NAME: 'ConfidentialView' */
-description(41,'ConfidentialView','tamperProtection').
-tamperProtection(41).
-/** END tamperProtection, ID: '41', NAME: 'ConfidentialView' */
+/** BEGIN location, ID: '41', NAME: 'CoffeShop' */
+description(41,'CoffeShop','location').
+location(41).
+/** END location, ID: '41', NAME: 'CoffeShop' */
 
 
-/** BEGIN tamperProtection, ID: '42', NAME: 'Underground' */
-description(42,'Underground','tamperProtection').
-tamperProtection(42).
-/** END tamperProtection, ID: '42', NAME: 'Underground' */
+/** BEGIN location, ID: '42', NAME: 'Street' */
+description(42,'Street','location').
+location(42).
+/** END location, ID: '42', NAME: 'Street' */
 
 
-/** BEGIN tamperProtection, ID: '43', NAME: 'SupportCenterLock' */
-description(43,'SupportCenterLock','tamperProtection').
-tamperProtection(43).
-/** END tamperProtection, ID: '43', NAME: 'SupportCenterLock' */
+/** BEGIN location, ID: '43', NAME: 'SupportCenter' */
+description(43,'SupportCenter','location').
+location(43).
+/** END location, ID: '43', NAME: 'SupportCenter' */
 
 
-/** BEGIN locationsAndTamperProtectionsPair, ID: '44', NAME: 'l=[Airline] - t=[]' */
-description(44,'l=[Airline] - t=[]','locationsAndTamperProtectionsPair').
-locationsAndTamperProtectionsPair(44).
-locations(44,[33]).
-tamperProtections(44,[]).
-/** END locationsAndTamperProtectionsPair, ID: '44', NAME: 'l=[Airline] - t=[]' */
+/** BEGIN tamperProtection, ID: '44', NAME: 'AirlineLock' */
+description(44,'AirlineLock','tamperProtection').
+tamperProtection(44).
+/** END tamperProtection, ID: '44', NAME: 'AirlineLock' */
 
 
-/** BEGIN locationsAndTamperProtectionsPair, ID: '45', NAME: 'l=[TravelAgency] - t=[]' */
-description(45,'l=[TravelAgency] - t=[]','locationsAndTamperProtectionsPair').
-locationsAndTamperProtectionsPair(45).
-locations(45,[32]).
-tamperProtections(45,[]).
-/** END locationsAndTamperProtectionsPair, ID: '45', NAME: 'l=[TravelAgency] - t=[]' */
+/** BEGIN tamperProtection, ID: '45', NAME: 'TravelAgencyLock' */
+description(45,'TravelAgencyLock','tamperProtection').
+tamperProtection(45).
+/** END tamperProtection, ID: '45', NAME: 'TravelAgencyLock' */
 
 
-/** BEGIN locationsAndTamperProtectionsPair, ID: '46', NAME: 'l=[UserControlled] - t=[]' */
-description(46,'l=[UserControlled] - t=[]','locationsAndTamperProtectionsPair').
-locationsAndTamperProtectionsPair(46).
-locations(46,[34]).
-tamperProtections(46,[]).
-/** END locationsAndTamperProtectionsPair, ID: '46', NAME: 'l=[UserControlled] - t=[]' */
+/** BEGIN tamperProtection, ID: '46', NAME: 'ConfidentialView' */
+description(46,'ConfidentialView','tamperProtection').
+tamperProtection(46).
+/** END tamperProtection, ID: '46', NAME: 'ConfidentialView' */
 
 
-/** BEGIN locationsAndTamperProtectionsPair, ID: '47', NAME: 'l=[CoffeShop] - t=[]' */
-description(47,'l=[CoffeShop] - t=[]','locationsAndTamperProtectionsPair').
-locationsAndTamperProtectionsPair(47).
-locations(47,[36]).
-tamperProtections(47,[]).
-/** END locationsAndTamperProtectionsPair, ID: '47', NAME: 'l=[CoffeShop] - t=[]' */
+/** BEGIN tamperProtection, ID: '47', NAME: 'Underground' */
+description(47,'Underground','tamperProtection').
+tamperProtection(47).
+/** END tamperProtection, ID: '47', NAME: 'Underground' */
 
 
-/** BEGIN locationsAndTamperProtectionsPair, ID: '48', NAME: 'l=[Street] - t=[]' */
-description(48,'l=[Street] - t=[]','locationsAndTamperProtectionsPair').
-locationsAndTamperProtectionsPair(48).
-locations(48,[37]).
-tamperProtections(48,[]).
-/** END locationsAndTamperProtectionsPair, ID: '48', NAME: 'l=[Street] - t=[]' */
+/** BEGIN tamperProtection, ID: '48', NAME: 'SupportCenterLock' */
+description(48,'SupportCenterLock','tamperProtection').
+tamperProtection(48).
+/** END tamperProtection, ID: '48', NAME: 'SupportCenterLock' */
 
 
-/** BEGIN locationsAndTamperProtectionsPair, ID: '49', NAME: 'l=[Internet] - t=[]' */
-description(49,'l=[Internet] - t=[]','locationsAndTamperProtectionsPair').
+/** BEGIN locationsAndTamperProtectionsPair, ID: '49', NAME: 'l=[Airline] - t=[AirlineLock]' */
+description(49,'l=[Airline] - t=[AirlineLock]','locationsAndTamperProtectionsPair').
 locationsAndTamperProtectionsPair(49).
-locations(49,[35]).
-tamperProtections(49,[]).
-/** END locationsAndTamperProtectionsPair, ID: '49', NAME: 'l=[Internet] - t=[]' */
+locations(49,[38]).
+tamperProtections(49,[44]).
+/** END locationsAndTamperProtectionsPair, ID: '49', NAME: 'l=[Airline] - t=[AirlineLock]' */
 
 
-/** BEGIN locationsAndTamperProtectionsPair, ID: '50', NAME: 'l=[SupportCenter] - t=[]' */
-description(50,'l=[SupportCenter] - t=[]','locationsAndTamperProtectionsPair').
+/** BEGIN locationsAndTamperProtectionsPair, ID: '50', NAME: 'l=[TravelAgency] - t=[TravelAgencyLock]' */
+description(50,'l=[TravelAgency] - t=[TravelAgencyLock]','locationsAndTamperProtectionsPair').
 locationsAndTamperProtectionsPair(50).
-locations(50,[38]).
-tamperProtections(50,[]).
-/** END locationsAndTamperProtectionsPair, ID: '50', NAME: 'l=[SupportCenter] - t=[]' */
+locations(50,[37]).
+tamperProtections(50,[45]).
+/** END locationsAndTamperProtectionsPair, ID: '50', NAME: 'l=[TravelAgency] - t=[TravelAgencyLock]' */
+
+
+/** BEGIN locationsAndTamperProtectionsPair, ID: '51', NAME: 'l=[UserControlled] - t=[ConfidentialView]' */
+description(51,'l=[UserControlled] - t=[ConfidentialView]','locationsAndTamperProtectionsPair').
+locationsAndTamperProtectionsPair(51).
+locations(51,[39]).
+tamperProtections(51,[46]).
+/** END locationsAndTamperProtectionsPair, ID: '51', NAME: 'l=[UserControlled] - t=[ConfidentialView]' */
+
+
+/** BEGIN locationsAndTamperProtectionsPair, ID: '52', NAME: 'l=[CoffeShop] - t=[ConfidentialView]' */
+description(52,'l=[CoffeShop] - t=[ConfidentialView]','locationsAndTamperProtectionsPair').
+locationsAndTamperProtectionsPair(52).
+locations(52,[41]).
+tamperProtections(52,[46]).
+/** END locationsAndTamperProtectionsPair, ID: '52', NAME: 'l=[CoffeShop] - t=[ConfidentialView]' */
+
+
+/** BEGIN locationsAndTamperProtectionsPair, ID: '53', NAME: 'l=[Street] - t=[ConfidentialView]' */
+description(53,'l=[Street] - t=[ConfidentialView]','locationsAndTamperProtectionsPair').
+locationsAndTamperProtectionsPair(53).
+locations(53,[42]).
+tamperProtections(53,[46]).
+/** END locationsAndTamperProtectionsPair, ID: '53', NAME: 'l=[Street] - t=[ConfidentialView]' */
+
+
+/** BEGIN locationsAndTamperProtectionsPair, ID: '54', NAME: 'l=[Internet] - t=[Underground]' */
+description(54,'l=[Internet] - t=[Underground]','locationsAndTamperProtectionsPair').
+locationsAndTamperProtectionsPair(54).
+locations(54,[40]).
+tamperProtections(54,[47]).
+/** END locationsAndTamperProtectionsPair, ID: '54', NAME: 'l=[Internet] - t=[Underground]' */
+
+
+/** BEGIN locationsAndTamperProtectionsPair, ID: '55', NAME: 'l=[SupportCenter] - t=[SupportCenterLock]' */
+description(55,'l=[SupportCenter] - t=[SupportCenterLock]','locationsAndTamperProtectionsPair').
+locationsAndTamperProtectionsPair(55).
+locations(55,[43]).
+tamperProtections(55,[48]).
+/** END locationsAndTamperProtectionsPair, ID: '55', NAME: 'l=[SupportCenter] - t=[SupportCenterLock]' */
 
 /** END confidentialitySpecification, ID: '1', NAME: 'null' */
 

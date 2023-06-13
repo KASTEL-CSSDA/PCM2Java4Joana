@@ -12,6 +12,7 @@ import org.palladiosimulator.pcm.repository.OperationInterface;
 import org.palladiosimulator.pcm.repository.OperationSignature;
 
 import edu.kit.ipd.sdq.commons.util.org.palladiosimulator.mdsdprofiles.api.StereotypeAPIUtil;
+import edu.kit.kastel.scbs.confidentiality.ConfidentialityFactory;
 import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
 import edu.kit.kastel.scbs.confidentiality.data.DataIdentifying;
 import edu.kit.kastel.scbs.confidentiality.data.DataSet;
@@ -249,6 +250,7 @@ public class AnnotationModelGenerator {
 
 		List<Annotation> annotations = new ArrayList<Annotation>();
 		for (ParametersAndDataPair appliedPair : appliedPairs) {
+		
 			List<SecurityLevel> securityLevels = this.getSecurityLevel(appliedPair, levelToDatasetsMapping);
 
 			OperationSignature pcmSignature = (OperationSignature) stereotypeApplication.getAppliedTo();

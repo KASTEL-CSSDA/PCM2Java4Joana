@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated joanasimplifiedresult -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.presentation.JoanasimplifiedresultModelWizardID"
+            name="%_UI_JoanasimplifiedresultModelWizard_label"
+            class="edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.presentation.JoanasimplifiedresultModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/JoanasimplifiedresultModelFile.gif">
+         <description>%_UI_JoanasimplifiedresultModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated joanasimplifiedresult -->
+      <editor
+            id="edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.presentation.JoanasimplifiedresultEditorID"
+            name="%_UI_JoanasimplifiedresultEditor_label"
+            icon="icons/full/obj16/JoanasimplifiedresultModelFile.gif"
+            extensions="joanasimplifiedresult"
+            class="edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.presentation.JoanasimplifiedresultEditor"
+            contributorClass="edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.presentation.JoanasimplifiedresultActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated joanamodel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="edu.kit.kastel.scbs.pcm2java4joana.joana.presentation.JoanaModelWizardID"
+            name="%_UI_JoanaModelWizard_label"
+            class="edu.kit.kastel.scbs.pcm2java4joana.joana.presentation.JoanaModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/JoanaModelFile.gif">
+         <description>%_UI_JoanaModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated joanamodel -->
+      <editor
+            id="edu.kit.kastel.scbs.pcm2java4joana.joana.presentation.JoanaEditorID"
+            name="%_UI_JoanaEditor_label"
+            icon="icons/full/obj16/JoanaModelFile.gif"
+            extensions="joana"
+            class="edu.kit.kastel.scbs.pcm2java4joana.joana.presentation.JoanaEditor"
+            contributorClass="edu.kit.kastel.scbs.pcm2java4joana.joana.presentation.JoanaActionBarContributor">
+      </editor>
+   </extension>
+</plugin>

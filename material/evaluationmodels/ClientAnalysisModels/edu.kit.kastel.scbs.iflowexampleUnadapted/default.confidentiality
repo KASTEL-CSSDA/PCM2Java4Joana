@@ -17,8 +17,23 @@
   <parametersAndDataPairs id="_Cu2sE85yEeWFJak7Wqvc0g" dataTargets="_W7aTtM5sEeWFJak7Wqvc0g">
     <parameterSources>flights</parameterSources>
   </parametersAndDataPairs>
+  <parametersAndDataPairs id="_GDhI9VkkEe23h-7iCv4D9Q" dataTargets="_R8EgMAysEey1YdsQNY8KdA">
+    <parameterSources>\call</parameterSources>
+    <parameterSources>\return</parameterSources>
+    <parameterSources>sizeOf(*)</parameterSources>
+  </parametersAndDataPairs>
   <parametersAndDataPairs id="_XhR8s85zEeW6RpZqSiINDQ" dataTargets="_W7aTtM5sEeWFJak7Wqvc0g">
     <parameterSources>flightOffers</parameterSources>
+  </parametersAndDataPairs>
+  <parametersAndDataPairs id="_1vcLlVklEe23h-7iCv4D9Q" dataTargets="__WYS5MOFEeWst9mTsticNA">
+    <parameterSources>\call</parameterSources>
+    <parameterSources>\return</parameterSources>
+    <parameterSources>sizeOf(*)</parameterSources>
+  </parametersAndDataPairs>
+  <parametersAndDataPairs id="_c0dKJVkkEe23h-7iCv4D9Q" dataTargets="_W7aTtM5sEeWFJak7Wqvc0g">
+    <parameterSources>\call</parameterSources>
+    <parameterSources>\return</parameterSources>
+    <parameterSources>sizeOf(*)</parameterSources>
   </parametersAndDataPairs>
   <parametersAndDataPairs id="_DHYO4850EeW6RpZqSiINDQ" dataTargets="_FoQgpMOGEeWst9mTsticNA">
     <parameterSources>requestData</parameterSources>
@@ -47,6 +62,12 @@
   <parametersAndDataPairs id="_Dh6HY853EeW6RpZqSiINDQ" dataTargets="_W7aTtM5sEeWFJak7Wqvc0g _FoQgpMOGEeWst9mTsticNA">
     <parameterSources>\return</parameterSources>
   </parametersAndDataPairs>
+  <parametersAndDataPairs id="_n-g5sVkiEe23h-7iCv4D9Q" dataTargets="_9N5G9MOGEeWst9mTsticNA">
+    <parameterSources>\call</parameterSources>
+    <parameterSources>\return</parameterSources>
+    <parameterSources>sizeOf(*)</parameterSources>
+    <parameterSources>ccd_decl</parameterSources>
+  </parametersAndDataPairs>
   <parametersAndDataPairs id="_bZZg8853EeW6RpZqSiINDQ" dataTargets="_W7aTtM5sEeWFJak7Wqvc0g _EZMjdM5xEeWFJak7Wqvc0g _FoQgpMOGEeWst9mTsticNA">
     <parameterSources>airline</parameterSources>
   </parametersAndDataPairs>
@@ -57,7 +78,7 @@
     <parameterSources>value</parameterSources>
     <parameterSources>airline</parameterSources>
   </parametersAndDataPairs>
-  <parametersAndDataPairs id="_63iuRQyjEey1YdsQNY8KdA" dataTargets="_0HJZgAyYEey1YdsQNY8KdA">
+  <parametersAndDataPairs id="_63iuRQyjEey1YdsQNY8KdA" dataTargets="_R8EgMAysEey1YdsQNY8KdA">
     <parameterSources>entry</parameterSources>
     <parameterSources>\call</parameterSources>
     <parameterSources>\return</parameterSources>
@@ -72,17 +93,24 @@
   <parametersAndDataPairs id="_dWxHdZMrEeyXH89NZ6CP6A" dataTargets="_EZMjdM5xEeWFJak7Wqvc0g _W7aTtM5sEeWFJak7Wqvc0g _FoQgpMOGEeWst9mTsticNA">
     <parameterSources>\call</parameterSources>
     <parameterSources>\return</parameterSources>
-    <parameterSources>\sizeOf(*)</parameterSources>
+    <parameterSources>sizeOf(*)</parameterSources>
   </parametersAndDataPairs>
   <parametersAndDataPairs id="_U47RFJMuEeyXH89NZ6CP6A" dataTargets="_9N5G9MOGEeWst9mTsticNA">
     <parameterSources>\call</parameterSources>
     <parameterSources>\return</parameterSources>
-    <parameterSources>\sizeOf(*)</parameterSources>
+    <parameterSources>sizeOf(*)</parameterSources>
   </parametersAndDataPairs>
   <parametersAndDataPairs id="_iY4rlZMtEeyXH89NZ6CP6A" dataTargets="_FoQgpMOGEeWst9mTsticNA">
     <parameterSources>\call</parameterSources>
     <parameterSources>\return</parameterSources>
-    <parameterSources>\sizeOf(*)</parameterSources>
+    <parameterSources>sizeOf(*)</parameterSources>
+  </parametersAndDataPairs>
+  <parametersAndDataPairs id="_Swq8xVbOEe2188PeulfYWg" dataTargets="_FoQgpMOGEeWst9mTsticNA _R8EgMAysEey1YdsQNY8KdA _W7aTtM5sEeWFJak7Wqvc0g">
+    <parameterSources>airline</parameterSources>
+    <parameterSources>value</parameterSources>
+    <parameterSources>sizeOf(*)</parameterSources>
+    <parameterSources>\return</parameterSources>
+    <parameterSources>\call</parameterSources>
   </parametersAndDataPairs>
   <locations id="__RugEc6AEeWqSdNpnh9tmQ" name="TravelAgency"/>
   <locations id="_CB0pIc6BEeWqSdNpnh9tmQ" name="Airline"/>
@@ -96,11 +124,11 @@
   <tamperProtections id="_xoN2K5MlEeyXH89NZ6CP6A" name="ConfidentialView"/>
   <tamperProtections id="_1ZcsG5MlEeyXH89NZ6CP6A" name="Underground"/>
   <tamperProtections id="_5bQUq5MlEeyXH89NZ6CP6A" name="SupportCenterLock"/>
-  <locationsAndTamperProtectionsPairs id="_-YubgM6AEeWqSdNpnh9tmQ" locations="_CB0pIc6BEeWqSdNpnh9tmQ"/>
-  <locationsAndTamperProtectionsPairs id="_QBclsM6BEeWqSdNpnh9tmQ" locations="__RugEc6AEeWqSdNpnh9tmQ"/>
-  <locationsAndTamperProtectionsPairs id="_RmAIsM6BEeWqSdNpnh9tmQ" locations="_DCp0Ac6BEeWqSdNpnh9tmQ"/>
-  <locationsAndTamperProtectionsPairs id="_XwoCcM6CEeWqSdNpnh9tmQ" locations="_SpLngc6CEeWqSdNpnh9tmQ"/>
-  <locationsAndTamperProtectionsPairs id="_txU5gM6CEeWqSdNpnh9tmQ" locations="_nv3tYc6CEeWqSdNpnh9tmQ"/>
-  <locationsAndTamperProtectionsPairs id="_8bxUsM6CEeWqSdNpnh9tmQ" locations="_IYDLYc6BEeWqSdNpnh9tmQ"/>
-  <locationsAndTamperProtectionsPairs id="_QmeqfAylEey1YdsQNY8KdA" locations="_NX09KgylEey1YdsQNY8KdA"/>
+  <locationsAndTamperProtectionsPairs id="_-YubgM6AEeWqSdNpnh9tmQ" locations="_CB0pIc6BEeWqSdNpnh9tmQ" tamperProtections="_tGO4u5MlEeyXH89NZ6CP6A"/>
+  <locationsAndTamperProtectionsPairs id="_QBclsM6BEeWqSdNpnh9tmQ" locations="__RugEc6AEeWqSdNpnh9tmQ" tamperProtections="_uzwKe5MlEeyXH89NZ6CP6A"/>
+  <locationsAndTamperProtectionsPairs id="_RmAIsM6BEeWqSdNpnh9tmQ" locations="_DCp0Ac6BEeWqSdNpnh9tmQ" tamperProtections="_xoN2K5MlEeyXH89NZ6CP6A"/>
+  <locationsAndTamperProtectionsPairs id="_XwoCcM6CEeWqSdNpnh9tmQ" locations="_SpLngc6CEeWqSdNpnh9tmQ" tamperProtections="_xoN2K5MlEeyXH89NZ6CP6A"/>
+  <locationsAndTamperProtectionsPairs id="_txU5gM6CEeWqSdNpnh9tmQ" locations="_nv3tYc6CEeWqSdNpnh9tmQ" tamperProtections="_xoN2K5MlEeyXH89NZ6CP6A"/>
+  <locationsAndTamperProtectionsPairs id="_8bxUsM6CEeWqSdNpnh9tmQ" locations="_IYDLYc6BEeWqSdNpnh9tmQ" tamperProtections="_1ZcsG5MlEeyXH89NZ6CP6A"/>
+  <locationsAndTamperProtectionsPairs id="_QmeqfAylEey1YdsQNY8KdA" locations="_NX09KgylEey1YdsQNY8KdA" tamperProtections="_5bQUq5MlEeyXH89NZ6CP6A"/>
 </edu.kit.kastel.scbs.confidentiality:ConfidentialitySpecification>
