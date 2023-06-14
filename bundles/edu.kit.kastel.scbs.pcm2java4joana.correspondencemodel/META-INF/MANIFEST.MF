@@ -20,10 +20,9 @@ Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  de.uka.ipd.sdq.identifier;visibility:=reexport,
  edu.kit.kastel.scbs.pcm2java4joana.joana;visibility:=reexport,
  org.eclipse.core.runtime,
- org.palladiosimulator.pcm;bundle-version="5.0.0";visibility:=reexport,
+ org.palladiosimulator.pcm;bundle-version="4.3.0";visibility:=reexport,
  de.uka.ipd.sdq.probfunction;visibility:=reexport,
  de.uka.ipd.sdq.stoex;visibility:=reexport,
  de.uka.ipd.sdq.units;visibility:=reexport,
- org.palladiosimulator.commons.stoex;bundle-version="5.0.0",
  edu.kit.kastel.scbs.pcm2java4joana.sourcecode;bundle-version="0.1.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy

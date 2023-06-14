@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated securitycorrespondencemodel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.presentation.SecuritycorrespondencemodelModelWizardID"
+            name="%_UI_SecuritycorrespondencemodelModelWizard_label"
+            class="edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.presentation.SecuritycorrespondencemodelModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/SecuritycorrespondencemodelModelFile.gif">
+         <description>%_UI_SecuritycorrespondencemodelModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated securitycorrespondencemodel -->
+      <editor
+            id="edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.presentation.SecuritycorrespondencemodelEditorID"
+            name="%_UI_SecuritycorrespondencemodelEditor_label"
+            icon="icons/full/obj16/SecuritycorrespondencemodelModelFile.gif"
+            extensions="securitycorrespondencemodel"
+            class="edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.presentation.SecuritycorrespondencemodelEditor"
+            contributorClass="edu.kit.kastel.scbs.pcm2java4joana.securitycorrespondencemodel.presentation.SecuritycorrespondencemodelActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated structuralcorrespondencemodel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.presentation.CorrespondencemodelModelWizardID"
+            name="%_UI_CorrespondencemodelModelWizard_label"
+            class="edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.presentation.CorrespondencemodelModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/CorrespondencemodelModelFile.gif">
+         <description>%_UI_CorrespondencemodelModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated structuralcorrespondencemodel -->
+      <editor
+            id="edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.presentation.CorrespondencemodelEditorID"
+            name="%_UI_CorrespondencemodelEditor_label"
+            icon="icons/full/obj16/CorrespondencemodelModelFile.gif"
+            extensions="correspondencemodel"
+            class="edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.presentation.CorrespondencemodelEditor"
+            contributorClass="edu.kit.kastel.scbs.pcm2java4joana.correspondencemodel.presentation.CorrespondencemodelActionBarContributor">
+      </editor>
+   </extension>
+</plugin>

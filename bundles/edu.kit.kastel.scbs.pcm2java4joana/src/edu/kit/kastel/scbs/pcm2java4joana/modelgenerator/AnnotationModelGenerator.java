@@ -82,6 +82,8 @@ public class AnnotationModelGenerator {
 		List<SecurityLevel> basicLevels = this.generateBasicLevels(confidentiality);
 		List<SecurityLevel> superSetLevels = this.generateSuperSetLevels(confidentiality);
 		root.getSecuritylevel().addAll(superSetLevels);
+		
+	
 
 		Map<SecurityLevel, Collection<DataIdentifying>> levelToDatasetsMapping = this
 				.generateSecurityLevelToDatasetMapping(confidentiality, superSetLevels);
@@ -102,36 +104,11 @@ public class AnnotationModelGenerator {
 		return this.supplierAnalysisModel;
 	}
 
-	private List<List<Annotation>> generateSinkSourceDistributions(JOANARoot root, List<Annotation> annotations) {
-		List<Integer> possibleTags = new ArrayList<Integer>();
-		for (int i = 0; i < annotations.size(); i++) {
-			possibleTags.add(i);
-		}
-		List<List<Integer>> sourceDistributions = SetOperations.generatePowerSet(possibleTags);
-		List<List<Annotation>> annotationDistributions = new ArrayList<List<Annotation>>();
-
-		for (int i = 0; i < sourceDistributions.size(); i++) {
-			List<Integer> sourceDistribution = sourceDistributions.get(i);
-			List<Annotation> flowAnnotations = new ArrayList<Annotation>();
-			for (int j = 0; j < possibleTags.size(); j++) {
-				int possibleTag = possibleTags.get(j);
-				if (sourceDistribution.contains(possibleTag)) {
-					flowAnnotations.add(this.generateSource(annotations.get(possibleTag)));
-				} else {
-					flowAnnotations.add(this.generateSink(annotations.get(possibleTag)));
-				}
-			}
-			annotationDistributions.add(flowAnnotations);
-			root.getAnnotation().addAll(flowAnnotations);
-		}
-		return annotationDistributions;
-	}
 
 	private List<FlowSpecification> generateFlowSpecifications(List<Annotation> annotations, Lattice lattice,
 			List<SecurityLevel> levels, JOANARoot root) {
 		List<FlowSpecification> flowSpefications = new ArrayList<FlowSpecification>();
 		JoanaFactory factory = JoanaFactory.eINSTANCE;
-		int startIndex = 0;
 		List<Source> sources = new ArrayList<Source>();
 		List<Sink> sinks = new ArrayList<Sink>();
 
@@ -157,34 +134,9 @@ public class AnnotationModelGenerator {
 
 			flow.setEntrypoint(entryPoint);
 			flowSpefications.add(flow);
-//			startIndex = flowSpefications.size();
 		}
 
 		return flowSpefications;
-	}
-
-	private List<FlowSpecification> generateFlowSpecification(int entryPointIndex, int startTag,
-			List<List<Annotation>> annotationDistributions, List<Annotation> annotations, Lattice lattice,
-			List<SecurityLevel> levels) {
-		JoanaFactory factory = JoanaFactory.eINSTANCE;
-		List<FlowSpecification> flows = new ArrayList<FlowSpecification>();
-
-		for (int i = 0; i < annotationDistributions.size(); i++) {
-			List<Annotation> sourceDistribution = annotationDistributions.get(i);
-
-			FlowSpecification flow = factory.createFlowSpecification();
-			EntryPoint entryPoint = this.generateEntryPoint(Integer.toString(startTag + i),
-					annotations.get(entryPointIndex), lattice, levels);
-			for (Annotation annotation : sourceDistribution) {
-				annotation.getTag().add(Integer.toString(startTag + i));
-			}
-
-			flow.setEntrypoint(entryPoint);
-			flow.getAnnotation().addAll(sourceDistribution);
-			flows.add(flow);
-		}
-
-		return flows;
 	}
 
 	private Source generateSource(Annotation annotation) {
@@ -342,7 +294,7 @@ public class AnnotationModelGenerator {
 	private List<SecurityLevel> generateBasicLevels(ConfidentialitySpecification specification) {
 		JoanaFactory factory = JoanaFactory.eINSTANCE;
 		List<SecurityLevel> levels = new ArrayList<SecurityLevel>();
-
+		
 		for (DataIdentifying dataIdentifying : specification.getDataIdentifier()) {
 			if (dataIdentifying instanceof DataSet) {
 				DataSet dataset = (DataSet) dataIdentifying;
