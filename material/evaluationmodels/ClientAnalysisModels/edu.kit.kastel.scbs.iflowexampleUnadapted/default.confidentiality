@@ -57,11 +57,8 @@
     <parameterSources>value</parameterSources>
     <parameterSources>airline</parameterSources>
   </parametersAndDataPairs>
-  <parametersAndDataPairs id="_63iuRQyjEey1YdsQNY8KdA" dataTargets="_0HJZgAyYEey1YdsQNY8KdA">
+  <parametersAndDataPairs id="_63iuRQyjEey1YdsQNY8KdA" name="entry2Technicalsupportinformation" dataTargets="_0HJZgAyYEey1YdsQNY8KdA">
     <parameterSources>entry</parameterSources>
-    <parameterSources>\call</parameterSources>
-    <parameterSources>\return</parameterSources>
-    <parameterSources>sizeOf(*)</parameterSources>
   </parametersAndDataPairs>
   <parametersAndDataPairs id="_VIKBtQysEey1YdsQNY8KdA" dataTargets="_R8EgMAysEey1YdsQNY8KdA">
     <parameterSources>password</parameterSources>

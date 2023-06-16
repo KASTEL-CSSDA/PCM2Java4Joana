@@ -266,20 +266,14 @@
       <extension href="../../plugin/edu.kit.kastel.scbs.pcmconfidentialityprofile/confidentiality.emfprofile_diagram#_g1JGUJnREeWvVMHOHv3ROA"/>
       <parametersAndDataPairs href="default.confidentiality#_fegnE851EeW6RpZqSiINDQ"/>
       <parametersAndDataPairs href="default.confidentiality#_oO43k851EeW6RpZqSiINDQ"/>
-      <parametersAndDataPairs href="default.confidentiality#_UuIJU-RQEeWuZOK2YocvJA"/>
     </stereotypeApplications>
     <stereotypeApplications xsi:type="edu.kit.kastel.scbs.pcmconfidentialityprofile:InformationFlow" appliedTo="_R6uH4MNyEeWPE-QAhbUzuQ">
       <extension href="../../plugin/edu.kit.kastel.scbs.pcmconfidentialityprofile/confidentiality.emfprofile_diagram#_g1JGUJnREeWvVMHOHv3ROA"/>
       <parametersAndDataPairs href="default.confidentiality#_2eLAw851EeW6RpZqSiINDQ"/>
-      <parametersAndDataPairs href="default.confidentiality#_Dh6HY853EeW6RpZqSiINDQ"/>
     </stereotypeApplications>
     <stereotypeApplications xsi:type="edu.kit.kastel.scbs.pcmconfidentialityprofile:InformationFlow" appliedTo="_JXJqsMN6EeWPE-QAhbUzuQ">
       <extension href="../../plugin/edu.kit.kastel.scbs.pcmconfidentialityprofile/confidentiality.emfprofile_diagram#_g1JGUJnREeWvVMHOHv3ROA"/>
       <parametersAndDataPairs href="default.confidentiality#_bZZg8853EeW6RpZqSiINDQ"/>
-    </stereotypeApplications>
-    <stereotypeApplications xsi:type="edu.kit.kastel.scbs.pcmconfidentialityprofile:InformationFlow" appliedTo="_nXaBAMN0EeWPE-QAhbUzuQ">
-      <extension href="../../plugin/edu.kit.kastel.scbs.pcmconfidentialityprofile/confidentiality.emfprofile_diagram#_g1JGUJnREeWvVMHOHv3ROA"/>
-      <parametersAndDataPairs href="default.confidentiality#_z07ThQZ2EeyXAMBxzqY9rQ"/>
     </stereotypeApplications>
     <stereotypeApplications xsi:type="edu.kit.kastel.scbs.pcmconfidentialityprofile:InformationFlow" appliedTo="_gwavAAyQEey1YdsQNY8KdA">
       <extension href="../../plugin/edu.kit.kastel.scbs.pcmconfidentialityprofile/confidentiality.emfprofile_diagram#_g1JGUJnREeWvVMHOHv3ROA"/>

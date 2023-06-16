@@ -7,7 +7,7 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-15
 Export-Package: edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult,
  edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.impl,
  edu.kit.kastel.scbs.pcm2java4joana.joanasimplifiedresult.util,

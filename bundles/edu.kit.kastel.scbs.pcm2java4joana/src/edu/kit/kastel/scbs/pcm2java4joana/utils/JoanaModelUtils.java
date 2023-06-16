@@ -3,6 +3,7 @@ package edu.kit.kastel.scbs.pcm2java4joana.utils;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.StringJoiner;
 import java.util.stream.Collectors;
 
 import edu.kit.kastel.scbs.confidentiality.ConfidentialityFactory;
@@ -130,12 +131,17 @@ public final class JoanaModelUtils {
 
 	public static String combineIntoOneSecurityLevel(List<SecurityLevel> levels) {
 		List<SecurityLevel> sorted = JoanaModelUtils.sortSecurityLevels(levels);
-		String combined = "";
-		for (SecurityLevel level : sorted) {
-			combined += level.getName();
-		}
+		String combined = "";	
+	
+		StringJoiner joiner = new StringJoiner(",");
+		
+		sorted.forEach(level -> joiner.add(level.getName()));
+		
+		//for (SecurityLevel level : sorted) {
+		//	combined += level.getName() + ",";
+		//}
 
-		return combined;
+		return joiner.toString();
 	}
 	
 	public static SecurityLevel combineIntoOneSecurityLevelElement(List<SecurityLevel> levels) {

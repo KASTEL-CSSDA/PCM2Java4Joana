@@ -1,6 +1,7 @@
  package edu.kit.kastel.scbs.pcm2java4joana.modelgenerator;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -11,6 +12,7 @@ import org.modelversioning.emfprofileapplication.ProfileApplication;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
 import org.palladiosimulator.pcm.repository.OperationInterface;
 import org.palladiosimulator.pcm.repository.OperationSignature;
+import org.palladiosimulator.pcm.repository.impl.OperationSignatureImpl;
 
 import edu.kit.ipd.sdq.commons.util.org.palladiosimulator.mdsdprofiles.api.StereotypeAPIUtil;
 import edu.kit.kastel.scbs.confidentiality.ConfidentialitySpecification;
@@ -179,8 +181,9 @@ public class AnnotationModelGenerator {
 			ClientAnalysisModel clientAnalysisModel) {
 		List<Annotation> annotations = new ArrayList<Annotation>();
 		ProfileApplication profile = clientAnalysisModel.getProfile();
+		Collection<StereotypeApplication> stereotypeApplications = profile.getStereotypeApplications();
 
-		for (StereotypeApplication application : profile.getStereotypeApplications()) {
+		for (StereotypeApplication application : stereotypeApplications) {
 			var stereotype = application.getStereotype();
 			if (stereotype.getName().equals("InformationFlow")) {
 				List<Annotation> annotation = this.generateAnnotation(levelToDatasetsMapping, application, sourceCode);
@@ -196,20 +199,22 @@ public class AnnotationModelGenerator {
 	private List<Annotation> generateAnnotation(Map<SecurityLevel, Collection<DataIdentifying>> levelToDatasetsMapping,
 			StereotypeApplication stereotypeApplication, SourceCodeRoot sourceCode) {
 		JoanaFactory factory = JoanaFactory.eINSTANCE;
-
+		System.out.println(((OperationSignatureImpl)stereotypeApplication.getAppliedTo()).getEntityName());
 		List<StereotypeApplication> iter = new ArrayList<StereotypeApplication>();
 		iter.add(stereotypeApplication);
 		List<ParametersAndDataPair> appliedPairs = StereotypeAPIUtil.getTaggedValues(iter, "parametersAndDataPairs",
 				ParametersAndDataPair.class);
+		
 
 		List<Annotation> annotations = new ArrayList<Annotation>();
 		for (ParametersAndDataPair appliedPair : appliedPairs) {
-			SecurityLevel securityLevels = this.getSecurityLevel(appliedPair, levelToDatasetsMapping);
-
 			OperationSignature pcmSignature = (OperationSignature) stereotypeApplication.getAppliedTo();
 			OperationInterface pcmInter = pcmSignature.getInterface__OperationSignature();
 
 			Interface inter = SourceCodeModelUtils.getInterface(sourceCode, pcmInter.getEntityName());
+			SecurityLevel securityLevels = this.getSecurityLevel(appliedPair, levelToDatasetsMapping);
+			System.out.println(securityLevels.getName());
+			
 			if (inter == null) {
 				return null;
 			}
@@ -260,7 +265,7 @@ public class AnnotationModelGenerator {
 		var it = levelToDatasetsMapping.entrySet().iterator();
 		while (it.hasNext()) {
 			var entry = (Entry<SecurityLevel, Collection<DataIdentifying>>) it.next();
-			if(entry.getValue().containsAll(targets)) {
+			if(entry.getValue().containsAll(targets) && targets.size() == entry.getValue().size()) {
 				return entry.getKey();
 			}
 		}
@@ -276,13 +281,17 @@ public class AnnotationModelGenerator {
 			if (dataIdentifying instanceof DataSet) {
 				DataSet dataset = (DataSet) dataIdentifying;
 				for (SecurityLevel level : securityLevels) {
-					if (level.getName().toLowerCase().contains(dataset.getName().toLowerCase())) {
-						
-						if(!levelToDataset.containsKey(level)) {
-							levelToDataset.put(level, new ArrayList<DataIdentifying>());
+					
+					List<String> separateLevels = Arrays.asList(level.getName().split(","));
+					
+					for(String s : separateLevels) {
+						if(s.equals(dataset.getName())) {
+							if(!levelToDataset.containsKey(level)) {
+								levelToDataset.put(level, new ArrayList<DataIdentifying>());
+							}
+							
+							levelToDataset.get(level).add(dataIdentifying);
 						}
-						
-						levelToDataset.get(level).add(dataIdentifying);
 					}
 				}
 			}
@@ -312,8 +321,8 @@ public class AnnotationModelGenerator {
 	private List<SecurityLevel> generateSuperSetLevels(ConfidentialitySpecification specification) {
 		
 		List<SecurityLevel> levels = generateBasicLevels(specification);
-
-		return JoanaModelUtils.generateSuperSetLevelsFromBasicSet(levels);
+		List<SecurityLevel> powerSet = JoanaModelUtils.generateSuperSetLevelsFromBasicSet(levels);
+		return powerSet;
 	}
 
 	private Lattice generateLattice(List<SecurityLevel> superSetLevels, List<SecurityLevel> basicLevels) {
